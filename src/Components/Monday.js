@@ -20,7 +20,7 @@ function Monday() {
     <div className="bg-dark container mt-5">
       {/* Row 1 */}
       <div
-        className="flip-row mb-4 flip-container"
+        className="flip-row mb-4 flip-container row1"
         ref={row1Ref}
         onMouseEnter={() => handleHover(row1Ref, true)}
         onMouseLeave={() => handleHover(row1Ref, false)}
@@ -37,7 +37,7 @@ function Monday() {
 
       {/* Row 2 */}
       <div
-        className="flip-row mb-4 flip-container"
+        className="flip-row mb-4 flip-container row2"
         ref={row2Ref}
         onMouseEnter={() => handleHover(row2Ref, true)}
         onMouseLeave={() => handleHover(row2Ref, false)}
@@ -52,9 +52,9 @@ function Monday() {
         </div>
       </div>
 
-      {/* Row 3 (same as Row 1) */}
+      {/* Row 3 */}
       <div
-        className="flip-row mb-4 flip-container"
+        className="flip-row mb-4 flip-container row3"
         ref={row3Ref}
         onMouseEnter={() => handleHover(row3Ref, true)}
         onMouseLeave={() => handleHover(row3Ref, false)}
