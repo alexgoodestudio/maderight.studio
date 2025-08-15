@@ -3,7 +3,7 @@ import Layout from "./Layout";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-dark" >
       <header className="App-header">
         <Layout />
       </header>

@@ -1,5 +1,6 @@
 import Dashboard from "./Dashboard";
 import Mission from "./Mission";
+import Monday from "./Monday";
 
 function Storage(){
 
@@ -9,6 +10,7 @@ function Storage(){
             <section>
                 <Dashboard/>
                 <Mission/>
+                <Monday/>
             </section>
 
         </div>
