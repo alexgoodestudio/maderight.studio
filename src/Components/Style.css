@@ -39,7 +39,7 @@
 
 /* Row 1 colors: front green, back new purple */
 .row1 .card-1 .front {
-  background-color: #e0e0e0;
+  background-color: #f3f5ff;
   
 }
 .row1 .card-1 .back {
@@ -50,29 +50,33 @@
   background-color: #02CA73;
 }
 .row1 .card-2 .back {
-  background-color: #e0e0e0;
+  background-color: #f3f5ff;
   transform: rotateX(180deg);
 }
 
 /* Row 2 colors: keep light purple / gray */
 .row2 .card-1 .front {
-  background-color: #e0e0e0;
+  background-color: #f3f5ff;
+
 }
 .row2 .card-1 .back {
   background-color: #6162FF;
+  color: white;
   transform: rotateX(180deg);
 }
 .row2 .card-2 .front {
   background-color: #6162FF;
+  color: white;
 }
 .row2 .card-2 .back {
-  background-color: #e0e0e0;
+  background-color: #f3f5ff;
+
   transform: rotateX(180deg);
 }
 
 /* Row 3 colors: front red, back new purple */
 .row3 .card-1 .front {
-  background-color: #e0e0e0;}
+  background-color: #f3f5ff;}
 .row3 .card-1 .back {
   background-color: #FF7575;
   transform: rotateX(180deg);
@@ -81,6 +85,6 @@
   background-color: #FF7575;
 }
 .row3 .card-2 .back {
-  background-color: #e0e0e0;
+  background-color: #f3f5ff;
     transform: rotateX(180deg);
 }

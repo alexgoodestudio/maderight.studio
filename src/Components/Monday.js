@@ -5,7 +5,7 @@ import "./Style.css";
 function Monday() {
   const row1Ref = useRef();
   const row2Ref = useRef();
-  const row3Ref = useRef(); // new ref for row 3
+  const row3Ref = useRef(); 
 
   const handleHover = (rowRef, hover) => {
     const cards = rowRef.current.querySelectorAll(".flip-card");
@@ -17,7 +17,7 @@ function Monday() {
   };
 
   return (
-    <div className="bg-dark container mt-5">
+    <div className="bg-sky-200 container vh-100 mt-5">
       {/* Row 1 */}
       <div
         className="flip-row mb-4 flip-container row1"
