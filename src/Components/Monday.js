@@ -17,8 +17,8 @@ function Monday() {
   };
 
   return (
-    <div className="bg-sky-200 container vh-100 mt-5">
-      {/* Row 1 */}
+    <div className="vh-100 mission-body bg-amber-950 text-white">
+      {/* Row 1: Creativity + Technology */}
       <div
         className="flip-row mb-4 flip-container row1"
         ref={row1Ref}
@@ -26,16 +26,16 @@ function Monday() {
         onMouseLeave={() => handleHover(row1Ref, false)}
       >
         <div className="flip-card card-1 col-4 br">
-          <div className="front br">Front Hello</div>
-          <div className="back br">Back Hello</div>
+          <div className="front br">Creativity</div>
+          <div className="back br">We craft modern web designs that inspire and connect with people.</div>
         </div>
         <div className="flip-card card-2 col-8 br">
-          <div className="front br">Front Goodbye</div>
-          <div className="back br">Back Goodbye</div>
+          <div className="front br">Technology</div>
+          <div className="back br">From front-end GSAP animations to full-stack solutions, we make ideas come alive online.</div>
         </div>
       </div>
 
-      {/* Row 2 */}
+      {/* Row 2: Strategy + Experience */}
       <div
         className="flip-row mb-4 flip-container row2"
         ref={row2Ref}
@@ -43,16 +43,16 @@ function Monday() {
         onMouseLeave={() => handleHover(row2Ref, false)}
       >
         <div className="flip-card card-2 col-8 br">
-          <div className="front br">Front Hello</div>
-          <div className="back br">Back Hello</div>
+          <div className="front br">Strategy</div>
+          <div className="back br">We align design and technology with purpose—helping brands to grow their digital presence.</div>
         </div>
         <div className="flip-card card-1 col-4 br">
-          <div className="front br">Front Goodbye</div>
-          <div className="back br">Back Goodbye</div>
+          <div className="front br">Experience</div>
+          <div className="back br">Every project blends usability, storytelling, and seamless interaction.</div>
         </div>
       </div>
 
-      {/* Row 3 */}
+      {/* Row 3: Vision + Growth */}
       <div
         className="flip-row mb-4 flip-container row3"
         ref={row3Ref}
@@ -60,12 +60,12 @@ function Monday() {
         onMouseLeave={() => handleHover(row3Ref, false)}
       >
         <div className="flip-card card-1 col-4 br">
-          <div className="front br">Front Hello</div>
-          <div className="back br">Back Hello</div>
+          <div className="front br">Vision</div>
+          <div className="back br">We see the web as a canvas—merging design and code to create something lasting.</div>
         </div>
         <div className="flip-card card-2 col-8 br">
-          <div className="front br">Front Goodbye</div>
-          <div className="back br">Back Goodbye</div>
+          <div className="front br">Growth</div>
+          <div className="back br">We help brands not only launch—but thrive—with thoughtful digital design.</div>
         </div>
       </div>
     </div>

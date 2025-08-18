@@ -7,12 +7,12 @@ function Storage(){
 
     return(
         <div className="bg-white">
-            <h1>Holder of components</h1>
+           
             <section>
                 <Opener/>
                 <Mission/>
-                <Monday/>
                 <MotionPath/>
+                <Monday/>
             </section>
 
         </div>

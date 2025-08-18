@@ -27,15 +27,13 @@ function Mission() {
     tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1 });
   }, []);
 
-  const text = `this will be the section that scroll on top of Dashboard that highlights
-        through mission statement with scrollTrigger like storytelling effect`;
+  const text = `We bring creativity and technology together to craft web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
 
   return (
     <div className="bg-amber-950 ">
-      <h3 className="text-white">mission section</h3>
       <p
         ref={container}
-        className="display-4 px-5 py-5 mt-5 leading-relaxed text-white"
+        className=" story display-5  py-5  leading-relaxed  text-white mission-body"
       >
         {text.split(" ").map((word, i) => (
           <span key={i} className="word inline-block mr-2">

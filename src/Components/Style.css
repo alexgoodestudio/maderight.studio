@@ -43,11 +43,11 @@
   
 }
 .row1 .card-1 .back {
-  background-color: #02CA73;
+  background-color: #E9D5FF;
   transform: rotateX(180deg);
 }
 .row1 .card-2 .front {
-  background-color: #02CA73;
+  background-color: #E9D5FF;
 }
 .row1 .card-2 .back {
   background-color: #f3f5ff;
@@ -60,12 +60,12 @@
 
 }
 .row2 .card-1 .back {
-  background-color: #6162FF;
+  background-color: #E9D5FF;
   color: white;
   transform: rotateX(180deg);
 }
 .row2 .card-2 .front {
-  background-color: #6162FF;
+  background-color: #E9D5FF;
   color: white;
 }
 .row2 .card-2 .back {
@@ -78,13 +78,31 @@
 .row3 .card-1 .front {
   background-color: #f3f5ff;}
 .row3 .card-1 .back {
-  background-color: #FF7575;
+  background-color: #E9D5FF;
   transform: rotateX(180deg);
 }
 .row3 .card-2 .front {
-  background-color: #FF7575;
+  background-color: #E9D5FF;
 }
 .row3 .card-2 .back {
   background-color: #f3f5ff;
     transform: rotateX(180deg);
+}
+
+
+.story-wrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;  /* perfect centering */
+  padding: 0 50%;
+}
+.story {
+  text-align: center;
+  max-width: 68ch;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.mission-body{
+  padding: 10%;
 }
