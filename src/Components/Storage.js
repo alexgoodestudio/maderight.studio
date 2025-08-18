@@ -1,7 +1,8 @@
 import Opener from "./Opener";
 import Mission from "./Mission";
-import Monday from "./Monday";
-import MotionPath from "./MotionPath";
+import Banner from "./Banner";
+import Services from "./Services";
+import Footer from "./Footer";
 
 function Storage(){
 
@@ -11,8 +12,9 @@ function Storage(){
             <section>
                 <Opener/>
                 <Mission/>
-                <MotionPath/>
-                <Monday/>
+                <Services/>
+                <Banner/>
+                <Footer/>
             </section>
 
         </div>

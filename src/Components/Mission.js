@@ -15,7 +15,7 @@ function Mission() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container.current,
-        start: "top center",     // pin starts when top hits viewport top
+        start: "center center",     // pin starts when top hits viewport top
         end: "+=1000",        // adjust for your text length
         scrub: true,
         pin: true,
@@ -27,13 +27,13 @@ function Mission() {
     tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1 });
   }, []);
 
-  const text = `We bring creativity and technology together to craft web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
+const text = `NeatFreak Cleaning Services delivers professional, reliable, and eco-friendly home cleaning solutions for busy families and professionals. Our mission is to provide spotless, healthy living spaces with exceptional attention to detail, using environmentally safe products. From one-time deep cleans to recurring services, we help clients maintain a fresh, organized, and welcoming home—every time.`;
 
   return (
     <div className="bg-amber-950 ">
       <p
         ref={container}
-        className=" story display-5  py-5  leading-relaxed  text-white mission-body"
+        className=" story text-5xl leading-relaxed  text-white mission-body"
       >
         {text.split(" ").map((word, i) => (
           <span key={i} className="word inline-block mr-2">
