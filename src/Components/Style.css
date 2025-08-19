@@ -151,6 +151,23 @@
   border-color: #78350F; /* now the border changes on hover */
   outline-color: #78350F; /* changes outline if visible */
 }
+.btn-email {
+  color: #78350F;
+  background-color: #E9D5FF;;
+  border: 2px solid transparent; /* ensure border exists */
+  border-radius: 20px;
+  outline: 2px solid transparent; /* optional, for focus/outline */
+  transition: all 0.3s ease;
+    border-color: #78350F; /* now the border changes on hover */
+  outline-color: #78350FFF; 
+}
+
+.btn-email:hover {
+  color: #E9D5FF;
+  background-color: #78350F;
+  border-color: #E9D5FF; /* now the border changes on hover */
+  outline-color: #E9D5FF; /* changes outline if visible */
+}
 /* ------------------------------
    TEXT SIZE SYSTEM
 --------------------------------*/

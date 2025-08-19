@@ -7,18 +7,11 @@ import "./Style.css";
 function Services() {
   const serviceData = [
     {
-      title: "Refresh Your Home",
+      title: "The Lemich Clinic",
       subtitle: "One-Time Clean",
       image: Card1,
-      description: `Our One-Time Clean service is ideal for those who need a single,
-        thorough cleaning to refresh their home. It's perfect for special
-        occasions, seasonal cleaning, or just to give your space a reset.
-        This comprehensive service includes a detailed cleaning of all
-        rooms, focusing on hard-to-reach areas and ensuring every corner
-        sparkles. We use environmentally safe products, guaranteeing not
-        just a clean home but also one that's safe and healthy for you and
-        your family.`,
-      link: "/neatfreak/request",
+      description: `Our work with The Lemich Clinic focused on creating a modern, patient-centered website that reflects their commitment to care. We combined clean design with intuitive navigation and mobile optimization, ensuring a seamless experience for every visitor. From brand alignment to technical performance, this project highlights our ability to transform healthcare services into engaging, trustworthy digital experiences.`,
+      link: "https://lemichclinic-front-end.onrender.com/",
     },
     {
       title: "Recurring Cleaning Services",
@@ -52,13 +45,9 @@ function Services() {
 
   return (
     <div className="bg-purple-200 py-5 px-5">
-      <h1 className="text-gray-800 text-start mb-5">Our Services</h1>
+      <h1 className="text-gray-800 text-start mb-5">Featured Work:</h1>
       <div className="bg-purple-100 mb-4 text-gray-800 br"> 
-        <p className="text-md py-3 text-start px-3">
-  At NeatFreak, we provide professional cleaning services tailored to your needs. 
-  Whether it’s a one-time deep clean, recurring maintenance, or a move-in/out cleanup, 
-  we make your home spotless, safe, and comfortable.
-</p>
+
       </div>
       <div className="row g-4">
         {serviceData.map((service, idx) => (
@@ -82,7 +71,7 @@ function Services() {
                   to={service.link}
                   className="btn btn-outline-secondary w-full p-2 text-center"
                 >
-                  Request a <span className="font-bold">Free</span> Estimate!
+                  Visit
                 </Link>
               </div>
             </div>

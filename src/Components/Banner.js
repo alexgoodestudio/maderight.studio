@@ -6,7 +6,6 @@ import "./Style.css";
 function Banner() {
   const textRef = useRef();
 
-  // useGSAP handles setup and cleanup automatically
   useGSAP(() => {
     const el = textRef.current;
     const containerWidth = el.parentElement.offsetWidth;
@@ -15,7 +14,6 @@ function Banner() {
     // immediately position offscreen to the right
     gsap.set(el, { x: containerWidth });
 
-    // animate smoothly to the left, repeat infinitely
     gsap.to(el, {
       x: -textWidth - containerWidth,
       duration: 20,
@@ -27,7 +25,7 @@ function Banner() {
   return (
     <div className="banner-container bg-dark ">
       <span ref={textRef} className="banner-text">
-        The key to a happy marriage is hiring a regular house cleaner. Save on therapy. Hire us today!
+         How can we help you make an impact? Lets talk about it. Hire us today!
       </span>
     </div>
   );
