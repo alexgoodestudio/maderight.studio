@@ -23,9 +23,9 @@ function Banner() {
   });
 
   return (
-    <div className="banner-container bg-dark ">
-      <span ref={textRef} className="banner-text">
-         How can we help you make an impact? Lets talk about it. Hire us today!
+    <div className="banner-container bg-amber-950 ">
+      <span ref={textRef} className="banner-text text-white">
+         How can we help you make an impact? Lets talk about it.
       </span>
     </div>
   );
