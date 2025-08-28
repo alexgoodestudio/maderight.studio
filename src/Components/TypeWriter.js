@@ -7,8 +7,9 @@ function Typewriter() {
   const words = [
     "Experimental Web Projects",
     "Performance & Optimization",
-    "Frontend Animation & Interaction Development",
     "Mobile-First Responsive Layouts",
+    "Frontend Animation",
+    "Interaction Design",
 
   ];
 
