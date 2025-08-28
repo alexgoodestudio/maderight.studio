@@ -81,7 +81,7 @@ function Opener() {
   return (
     <div className="vh-100 d-flex justify-content-center align-items-center">
       <section className="text-center text-dark">
-        <h1 className="text-12xl text-gray-800 flex justify-center gap-4">
+        <h1 className="text-12xl text-gray-900 flex justify-center gap-4">
           {/* Wrapper matches text size */}
           <span className="inline-block overflow-hidden leading-none">
             <span ref={madeRef} className="inline-block">Made</span>

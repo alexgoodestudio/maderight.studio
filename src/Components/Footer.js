@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="bg-amber-950 banner-texttext-sm py-4 px-5 border-t-2">
       <div className="max-w-6xl mx-auto text-center">
-        © {year} Made Right Studios
+        © {year} Made Right Studios | Columbia, South Carolina
       </div>
     </footer>
   );

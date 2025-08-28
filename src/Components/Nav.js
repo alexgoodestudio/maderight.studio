@@ -25,65 +25,61 @@ function Nav() {
   }, [isOpen]);
 
   return (
-    <nav className="navbar navbar-light bg-slate-300 text-slate-900">
-      <div className="container-fluid">
-        {/* Brand */}
-        <button className="navbar-brand btn btn-link p-0" onClick={() => {}}>
-          Made Right Studio
-        </button>
-
-        {/* Always show toggler */}
+    <nav className="navbar navbar-light bg-slate-100 text-slate-800 flex flex-col text-start">
+      {/* Always fixed header row */}
+      <div className="container-fluid d-flex justify-content-between align-items-center">
+        <button className="navbar-brand btn btn-link p-0 "><span className="font-bold">Alex Goode</span> | Made Right</button>
         <button
-          className="navbar-toggler d-block" // force display
+          className="navbar-toggler d-block"
           type="button"
           onClick={() => setIsOpen(!isOpen)}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+      </div>
 
-        {/* Collapsible content */}
-        <div
-          className={`container mt-3 ${isOpen ? "d-block" : "d-none"}`}
-          ref={navContentRef}
-        >
-          {/* Row 1 */}
-          <div className="row mb-3">
-            <div className="col-12   p-3">
-              <h4>Row 1 - Full Width</h4>
-              <p>Some filler text for the full-width column.</p>
-            </div>
+      {/* Collapsible content BELOW, doesn’t push brand/toggler */}
+      <div
+        className={`w-100 px-3 mt-2 ${isOpen ? "d-block" : "d-none"}`}
+        ref={navContentRef}
+      >
+        {/* Row 1 */}
+        <div className="row mb-3">
+          <div className="col-12 text-slate-800 p-3">
+            <h4>Links</h4>
+            <p className="text-md">Check out my work, and other places you can find me!</p>
           </div>
+        </div>
 
-          {/* Row 2 */}
-          <div className="row mb-3">
-            <div className="col-lg-4 col-12  p-3">
-              <h5>Row 2 - Column 1</h5>
-              <p>Filler text for column 1.</p>
-            </div>
-            <div className="col-lg-4 col-12   p-3">
-              <h5>Row 2 - Column 2</h5>
-              <p>Filler text for column 2.</p>
-            </div>
-            <div className="col-lg-4 col-12   p-3">
-              <h5>Row 2 - Column 3</h5>
-              <p>Filler text for column 3.</p>
-            </div>
+        {/* Row 2 */}
+        <div className="row mb-3">
+          <div className="col-lg-4 col-12 text-slate-800 p-3">
+            <h5>Github</h5>
+            <p className="text-md">Wanna see my work?</p>
           </div>
+          <div className="col-lg-4 col-12 text-slate-800 p-3">
+            <h5>LinkedIn</h5>
+            <p className="text-md">Lets Connect</p>
+          </div>
+          <div className="col-lg-4 col-12 text-slate-800 p-3">
+            <h5>Made Right Studios </h5>
+            <p className="text-md">Creative Web Design and Technology Studio</p>
+          </div>
+        </div>
 
-          {/* Row 3 */}
-          <div className="row mb-3">
-            <div className="col-lg-4 col-12   p-3">
-              <h5>Row 3 - Column 1</h5>
-              <p>Filler text for column 1.</p>
-            </div>
-            <div className="col-lg-4 col-12   p-3">
-              <h5>Row 3 - Column 2</h5>
-              <p>Filler text for column 2.</p>
-            </div>
-            <div className="col-lg-4 col-12   p-3">
-              <h5>Row 3 - Column 3</h5>
-              <p>Filler text for column 3.</p>
-            </div>
+        {/* Row 3 */}
+        <div className="row mb-3">
+          <div className="col-lg-4 col-12 text-slate-800 p-3">
+            <h5>Instagram</h5>
+            <p className="text-md">See what I'm doing</p>
+          </div>
+          <div className="col-lg-4 col-12 text-slate-800 p-3">
+            <h5>The Lemich Clinic</h5>
+            <p className="text-md">Featured: Recent work</p>
+          </div>
+          <div className="col-lg-4 col-12 text-slate-800 p-3">
+            <h5>Rosewood Cleaning Services</h5>
+            <p className="text-md">Featured: Recent work</p>
           </div>
         </div>
       </div>

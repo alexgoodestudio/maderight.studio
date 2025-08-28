@@ -13,10 +13,10 @@ function Featured() {
       description: `Our work with The Lemich Clinic focused on creating a modern, patient-centered website that reflects their commitment to care. We combined clean design with intuitive navigation and mobile optimization, ensuring a seamless experience for every visitor. From brand alignment to technical performance, this project highlights our ability to transform healthcare services into engaging, trustworthy digital experiences.`,
       link: "https://lemichclinic-front-end.onrender.com/",
     },
-            {
+    {
       title: "Rosewood Cleaning Services",
       subtitle: "Rosewood Cleaning Services",
-      image: Card3,
+      image: Card2,
       description: `Portfolio | Alex Goode showcases modern, user-focused web development projects with an emphasis on interactive, engaging interfaces. Combining clean, responsive design with carefully crafted micro-interactions, each project highlights both creativity and technical expertise. From React-based front-end development to full-stack solutions with Node, Express, and PostgreSQL, this portfolio demonstrates a strong commitment to building functional, visually compelling digital experiences that help businesses grow and users enjoy seamless, intuitive interactions.`,
       link: "/neatfreak/request",
     },
@@ -24,7 +24,7 @@ function Featured() {
     {
       title: "Full-Stack Developer | Alex Goode",
       subtitle: "Full-Stack Developer Portfolio",
-      image: Card2,
+      image: Card3,
       description: `Portfolio | Alex Goode showcases modern, user-focused web development projects with an emphasis on interactive, engaging interfaces. Combining clean, responsive design with carefully crafted micro-interactions, each project highlights both creativity and technical expertise. From React-based front-end development to full-stack solutions with Node, Express, and PostgreSQL, this portfolio demonstrates a strong commitment to building functional, visually compelling digital experiences that help businesses grow and users enjoy seamless, intuitive interactions.`,
       link: "/neatfreak/request",
     },
@@ -32,7 +32,7 @@ function Featured() {
   ];
 
   return (
-    <div className="bg-slate-300 featured-body">
+    <div className="bg-white featured-body">
       <h1 className="text-gray-800 text-start mb-5">Featured Work:</h1>
 
       <div className="row g-4">
