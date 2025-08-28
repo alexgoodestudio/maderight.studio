@@ -48,7 +48,7 @@ function Typewriter() {
 
   return (
     <div className="flex items-center">
-      <h3 className="text-white text-2xl">
+      <h3 className="text-white text-xl">
         <span ref={txtRef}></span>
         <span className="ml-1 border-r-2 border-white animate-blink"></span>
       </h3>
