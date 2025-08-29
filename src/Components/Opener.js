@@ -82,15 +82,17 @@ function Opener() {
     <div className="vh-100 d-flex justify-content-center align-items-center">
       <section className="text-center text-dark">
         <h1 className="text-opener text-gray-900 flex justify-center gap-4">
+          
           {/* Wrapper matches text size */}
           <span className="inline-block overflow-hidden leading-none">
             <span ref={madeRef} className="inline-block">Made</span>
           </span>
-<span className="inline-block overflow-hidden leading-none pb-4">
-  <span ref={rightRef} className="inline-block">Right</span>
-</span>
+
+          <span className="inline-block overflow-hidden leading-none pb-4">
+            <span ref={rightRef} className="inline-block">Right</span>
+          </span>
         </h1>
-        <h4 className="text-2xl text-gray-600 mb-5">
+        <h4 className="text-xl text-gray-600 mb-5">
           A Creative Web Design and Technology Studio.
         </h4>
       </section>
