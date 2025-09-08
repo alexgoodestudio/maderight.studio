@@ -17,7 +17,7 @@ function Featured() {
       title: "Rosewood Cleaning Services",
       subtitle: "Rosewood Cleaning Services",
       image: Card2,
-      description: `Portfolio | Alex Goode showcases modern, user-focused web development projects with an emphasis on interactive, engaging interfaces. Combining clean, responsive design with carefully crafted micro-interactions, each project highlights both creativity and technical expertise. From React-based front-end development to full-stack solutions with Node, Express, and PostgreSQL, this portfolio demonstrates a strong commitment to building functional, visually compelling digital experiences that help businesses grow and users enjoy seamless, intuitive interactions.`,
+      description: `Rosewood Cleaning Services’ website is a React project showcasing advanced GSAP animations, including ScrollTrigger and timeline effects. The site is fully responsive, styled with Bootstrap and Tailwind, and emphasizes both interactivity and visual appeal.`,
       link: "https://rosewoodcleaning.netlify.app/",
     },
 
