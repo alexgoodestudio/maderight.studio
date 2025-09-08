@@ -26,7 +26,7 @@ function Featured() {
       subtitle: "Full-Stack Developer Portfolio",
       image: Card3,
       description: `Portfolio | Alex Goode showcases modern, user-focused web development projects with an emphasis on interactive, engaging interfaces. Combining clean, responsive design with carefully crafted micro-interactions, each project highlights both creativity and technical expertise. From React-based front-end development to full-stack solutions with Node, Express, and PostgreSQL, this portfolio demonstrates a strong commitment to building functional, visually compelling digital experiences that help businesses grow and users enjoy seamless, intuitive interactions.`,
-      link: "/neatfreak/request",
+      link: "http://alexgoode.netlify.app/",
     },
 
   ];
