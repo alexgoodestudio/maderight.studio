@@ -28,7 +28,7 @@ function Nav() {
     <nav className="navbar navbar-light bg-slate-100 text-slate-800 flex flex-col text-start">
       {/* Always fixed header row */}
       <div className="container-fluid d-flex justify-content-between align-items-center">
-        <button className="navbar-brand btn btn-link p-0 "><span className="font-bold">Alex Goode</span> | Made Right</button>
+        <button className="navbar-brand btn btn-link p-0 ">Made Right</button>
         <button
           className="navbar-toggler d-block"
           type="button"

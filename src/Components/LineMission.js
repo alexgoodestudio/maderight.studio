@@ -91,7 +91,7 @@ function Mission() {
     });
   }, []);
 
-  const text = `With all that being said, we are here to help solve all your web-bsed business needs. Whether that be technology consulting, improving your search results, to defining your UX/UI, we are to help you grow in all ways digital. With backgrounds ranging in Full-Stack Software Engineering, Web Design, to User Experience, we can take on web projects from start to finish.`;
+  const text = `With all that being said, we are here to help solve all your web-based business needs. Whether that be technology consulting, improving your search results, to defining your UX/UI, we are to help you grow in all ways digital. With backgrounds ranging in Full-Stack Software Engineering, Web Design, to User Experience, we can take on web projects from start to finish.`;
 
   return (
     <div className="bg-green-200 min-h-screen flex items-center justify-center">
