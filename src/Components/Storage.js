@@ -1,10 +1,11 @@
 import Opener from "./Opener";
-import Mission from "./Mission";
+import ScrollMission from "./ScrollMission";
 import Banner from "./Banner";
 import Featured from "./Featured";
 import Footer from "./Footer";
 import Services from "./Services"
 import Nav from "./Nav";
+import LineMission from "./LineMission";
 
 function Storage(){
 
@@ -14,7 +15,8 @@ function Storage(){
             <section>
                 <Nav/>
                 <Opener/>
-                <Mission/>
+                <ScrollMission/>
+                <LineMission/>
                 <Services/>
                 <Featured/>
                 <Banner/>
