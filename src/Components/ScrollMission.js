@@ -33,7 +33,7 @@ const text = `At Made Right, we bring creativity and technology together to craf
     <div className="bg-amber-300 ">
       <p
         ref={container}
-        className=" story text-5xl leading-relaxed  text-amber-800 mission-body"
+        className=" story text-5xl leading-relaxed  text-amber-900  mission-body"
       >
         {text.split(" ").map((word, i) => (
           <span key={i} className="word inline-block mr-2">
