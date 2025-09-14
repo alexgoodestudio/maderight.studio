@@ -23,7 +23,7 @@ function Opener() {
   }, []);
 
   return (
-    <div className="vh-100  bg-opener d-flex justify-content-center align-items-center">
+    <div className="vh-100  bg-orange d-flex justify-content-center align-items-center">
       <section className="text-center text-dark">
         <h1
           className="text-opener eighties text-white d-flex justify-content-center"

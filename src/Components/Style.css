@@ -7,12 +7,12 @@
     font-display: swap;
 }
 
-
-
 .eighties {
   font-family: 'EightiesComeback', sans-serif;
   font-weight: 300;
 }
+
+
 .br {
   border-radius: 1rem;
 }
@@ -151,7 +151,7 @@
   padding-bottom: 120px;
 }
 
-.bg-opener{
+.bg-orange{
   background-color: #FF6600;
 }
 

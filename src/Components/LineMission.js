@@ -93,10 +93,10 @@ function LineMission() {
 
   const text = `From technology consulting and SEO to UX/UI design and full-stack development, we provide end-to-end solutions for your digital business needs. Our team combines expertise in web design, software development, and user experience to deliver projects from concept to completion—helping you grow and thrive in the digital space.`;
   return (
-    <div className="bg-yellow-100 min-h-screen flex items-center justify-center">
+    <div className=" min-h-screen flex items-center justify-center">
       <p
         ref={container}
-        className="story text-5xl leading-relaxed text-yellow-900 mission-body max-w-6xl px-8 p"
+        className="story text-5xl leading-relaxed text-dark mission-body max-w-6xl px-8 p"
       >
         {text}
       

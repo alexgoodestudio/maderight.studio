@@ -48,15 +48,15 @@ function Typewriter() {
   }, []);
 
   return (
-    <div className="flex items-center">
-      <h3 className="text-white text-xl">
+    <div className="flex items-center ">
+      <h3 className="text-blue-700 text-xl">
         <span ref={txtRef}></span>
-        <span className="ml-1 border-r-2 border-white animate-blink"></span>
+        <span className="ml-1 border-r-2  border-white animate-blink"></span>
       </h3>
 
       <style jsx>{`
         @keyframes blink {
-          0%, 100% { border-color: white; }
+          0%, 100% { border-color: green; }
           50% { border-color: transparent; }
         }
         .animate-blink {

@@ -16,8 +16,8 @@ function Storage(){
                 <Opener/>
                 <ScrollMission/>
                 <Services/>
-                <LineMission/>
                 <Featured/>
+                <LineMission/>
                 <Banner/>
                 <Footer/>
             </section>
