@@ -30,7 +30,7 @@ function SrcollMission() {
 const text = `At Made Right, we bring creativity and technology together to craft web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
 
   return (
-    <div className="bg-amber-300 ">
+    <div className="bg-orange-100 ">
       <p
         ref={container}
         className=" story text-5xl leading-relaxed  text-amber-900  mission-body"

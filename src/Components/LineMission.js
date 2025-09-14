@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 
-function Mission() {
+function LineMission() {
   const container = useRef();
 
   gsap.registerPlugin(ScrollTrigger);
@@ -91,18 +91,19 @@ function Mission() {
     });
   }, []);
 
-  const text = `With that being said, we are here to help solve all your web-based business needs. Whether that be technology consulting, improving your search results, to defining your UX/UI design, we are to help you grow in all ways digital. With backgrounds ranging from Full-Stack Software Development, Web Design, to User Experience, we can take on web projects from start to finish.`;
-
+  const text = `From technology consulting and SEO to UX/UI design and full-stack development, we provide end-to-end solutions for your digital business needs. Our team combines expertise in web design, software development, and user experience to deliver projects from concept to completion—helping you grow and thrive in the digital space.`;
   return (
-    <div className="bg-green-200 min-h-screen flex items-center justify-center">
+    <div className="bg-yellow-100 min-h-screen flex items-center justify-center">
       <p
         ref={container}
-        className="story text-5xl leading-relaxed text-green-950 mission-body max-w-6xl px-8 p"
+        className="story text-5xl leading-relaxed text-yellow-900 mission-body max-w-6xl px-8 p"
       >
         {text}
+      
       </p>
+
     </div>
   );
 }
 
-export default Mission;
+export default LineMission;

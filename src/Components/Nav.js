@@ -28,7 +28,7 @@ function Nav() {
     <nav className="navbar navbar-light bg-slate-100 text-slate-800 flex flex-col text-start">
       {/* Always fixed header row */}
       <div className="container-fluid d-flex justify-content-between align-items-center">
-        <button className="navbar-brand btn btn-link p-0 ">Made Right</button>
+        <button className="navbar-brand btn btn-link p-0">Made Right</button>
         <button
           className="navbar-toggler d-block"
           type="button"
@@ -38,7 +38,7 @@ function Nav() {
         </button>
       </div>
 
-      {/* Collapsible content BELOW, doesn’t push brand/toggler */}
+      {/* Collapsible content */}
       <div
         className={`w-100 px-3 mt-2 ${isOpen ? "d-block" : "d-none"}`}
         ref={navContentRef}
@@ -47,38 +47,66 @@ function Nav() {
         <div className="row mb-3">
           <div className="col-12 text-slate-800 p-3">
             <h4>Links</h4>
-            <p className="text-md">Check out my work, and other places you can find me!</p>
+            <p className="text-md">
+              Check out my work, and other places you can find me!
+            </p>
           </div>
         </div>
 
         {/* Row 2 */}
         <div className="row mb-3">
           <div className="col-lg-4 col-12 text-slate-800 p-3">
-            <h5>Github</h5>
-            <p className="text-md">Wanna see my work?</p>
+            <h5>
+              <a href="https://github.com/alexgoodestudio" target="_blank" rel="noopener noreferrer">
+                Github
+              </a>
+            </h5>
+            <p className="text-md">Wanna see our code?</p>
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
-            <h5>LinkedIn</h5>
+            <h5>
+              <a href="https://www.linkedin.com/in/alexgoodestudio/" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+            </h5>
             <p className="text-md">Lets Connect</p>
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
-            <h5>Made Right Studios </h5>
-            <p className="text-md">Creative Web Design and Technology Studio</p>
+            <h5>
+              <a href="https://maderightstudios.com" target="_blank" rel="noopener noreferrer">
+                Made Right Studio
+              </a>
+            </h5>
+            <p className="text-md">
+              Creative Web Design and Technology Studio
+            </p>
           </div>
         </div>
 
         {/* Row 3 */}
         <div className="row mb-3">
           <div className="col-lg-4 col-12 text-slate-800 p-3">
-            <h5>Instagram</h5>
+            <h5>
+              <a href="https://instagram.com/maderight.studio" target="_blank" rel="noopener noreferrer">
+                Instagram
+              </a>
+            </h5>
             <p className="text-md">See what I'm doing</p>
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
-            <h5>The Lemich Clinic</h5>
+            <h5>
+              <a href="https://lemichclinic-front-end.onrender.com/" target="_blank" rel="noopener noreferrer">
+                The Lemich Clinic
+              </a>
+            </h5>
             <p className="text-md">Featured: Recent work</p>
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
-            <h5>Rosewood Cleaning Services</h5>
+            <h5>
+              <a href="https://rosewoodcleaning.netlify.app" target="_blank" rel="noopener noreferrer">
+                Rosewood Cleaning Services
+              </a>
+            </h5>
             <p className="text-md">Featured: Recent work</p>
           </div>
         </div>

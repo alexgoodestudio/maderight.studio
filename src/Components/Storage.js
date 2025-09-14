@@ -10,14 +10,13 @@ import LineMission from "./LineMission";
 function Storage(){
 
     return(
-        <div className="bg-white">
-           
+        <div className="bg-white">        
             <section>
                 <Nav/>
                 <Opener/>
                 <ScrollMission/>
-                <LineMission/>
                 <Services/>
+                <LineMission/>
                 <Featured/>
                 <Banner/>
                 <Footer/>
