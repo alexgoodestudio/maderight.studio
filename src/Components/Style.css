@@ -118,7 +118,11 @@
   line-height: 1.6;
 }
 .contact {
-  height: 65vh; /* 75% of the viewport height */
+  height: 65vh; 
+}
+
+.services {
+  height: 75vh; 
 }
 
 .line-mission{
