@@ -6,6 +6,8 @@ import Footer from "./Footer";
 import Services from "./Services"
 import Nav from "./Nav";
 import LineMission from "./LineMission";
+// import Random from "./Random";
+import Contact from "./Contact";
 
 function Storage(){
 
@@ -18,6 +20,8 @@ function Storage(){
                 <Services/>
                 <Featured/>
                 <LineMission/>
+                {/* <Random/> */}
+                <Contact/>
                 <Banner/>
                 <Footer/>
             </section>

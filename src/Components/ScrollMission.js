@@ -27,13 +27,13 @@ function SrcollMission() {
     tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1 });
   }, []);
 
-const text = `At Made Right, we bring creativity and technology together to craft web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
+const text = `At Made Right, we bring creativity and technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
 
   return (
-    <div className="bg-white ">
+    <div className="bg-white  ">
 <p
   ref={container}
-  className="story text-5xl leading-relaxed text-black mission-body"
+  className="story text-4xl leading-relaxed text-black mission-body"
 >
   {text.split(" ").map((word, i) => {
     // Split word into letters and punctuation
@@ -43,10 +43,10 @@ const text = `At Made Right, we bring creativity and technology together to craf
 
     // Determine color for specific words
     let colorClass = "";
-    if (letters === "Made" || letters === "Right") colorClass = "text-green-600";
-    else if (letters === "inspire") colorClass = "text-orange-500";
-    else if (letters === "purposeful") colorClass = "text-pink-400";
-    else if (letters === "functional") colorClass = "text-blue-500"; // updated for "functional"
+  
+     if (letters === "technology") colorClass = "text-orange-500";
+    else if (letters === "creativity") colorClass = "text-pink-400";
+    else if (letters === "") colorClass = "text-blue-600"; // updated for "functional"
 
     return (
       <span key={i} className="inline-block mr-2">

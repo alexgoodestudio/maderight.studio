@@ -73,12 +73,12 @@ function Nav() {
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
             <h5>
-              <a href="https://maderightstudios.com" target="_blank" rel="noopener noreferrer">
-                Made Right Studio
+              <a href="http://alexgoode.netlify.app/" target="_blank" rel="noopener noreferrer">
+                Owner
               </a>
             </h5>
             <p className="text-md">
-              Creative Web Design and Technology Studio
+              Alex Goode Portfolio
             </p>
           </div>
         </div>

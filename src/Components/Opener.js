@@ -8,22 +8,24 @@ function Opener() {
   const rightRef = useRef(null);
 
   useGSAP(() => {
+    // Bounce in "Made"
     gsap.from(madeRef.current, {
-      y: 200, // slide up
-      duration: 1.25,
-      ease: "power3.out",
+      y: 200,
+      duration: 1.5,
+      ease: "bounce.out",
     });
 
+    // Bounce in "Right" slightly delayed
     gsap.from(rightRef.current, {
-      y: -200, // slide down
-      duration: 1.25,
-      ease: "power3.out",
+      y: -200,
+      duration: 1.5,
+      ease: "bounce.out",
       delay: 0.2,
     });
   }, []);
 
   return (
-    <div className="vh-100  bg-orange d-flex justify-content-center align-items-center">
+    <div className="vh-100 bg-orange d-flex justify-content-center align-items-center">
       <section className="text-center text-dark">
         <h1
           className="text-opener eighties text-white d-flex justify-content-center"

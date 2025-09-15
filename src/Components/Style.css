@@ -117,13 +117,19 @@
   margin: 0 auto;
   line-height: 1.6;
 }
+.contact {
+  height: 65vh; /* 75% of the viewport height */
+}
 
-
+.line-mission{
+  height: 85vh;
+}
 .mission-body{
   padding-left: 10%;
   padding-right: 10%;
   padding-top: 20%;
   padding-bottom: 20%;
+  text-align: start;
 }
 
 .banner-container {
@@ -153,6 +159,17 @@
 
 .bg-orange{
   background-color: #FF6600;
+}
+
+.btn-contact{
+    
+    color:white;
+   border-radius: 10px;
+}
+
+.contact-body{
+  padding-left: 18%;
+  padding-right: 18%;
 }
 
 .btn-call {
