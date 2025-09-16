@@ -44,8 +44,8 @@ const text = `At Made Right, we bring creativity and technology together to deve
     // Determine color for specific words
     let colorClass = "";
   
-     if (letters === "technology") colorClass = "text-orange-500";
-    else if (letters === "creativity") colorClass = "text-pink-400";
+     if (letters === "technology") colorClass = "text-orange-600";
+    else if (letters === "creativity") colorClass = "text-green-800";
     else if (letters === "") colorClass = "text-blue-600"; // updated for "functional"
 
     return (
