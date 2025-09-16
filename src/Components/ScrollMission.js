@@ -44,12 +44,14 @@ const text = `At Made Right, we bring creativity and technology together to deve
     // Determine color for specific words
     let colorClass = "";
   
-     if (letters === "technology") colorClass = "text-orange-600";
-    else if (letters === "creativity") colorClass = "text-green-800";
-    else if (letters === "") colorClass = "text-blue-600"; // updated for "functional"
+    if (letters === "creativity") colorClass = "text-indigo-600";
+    else if (letters === "technology") colorClass = "text-lime-600";
+    else if (letters === "Made") colorClass = "text-orange-500";
+    else if (letters === "Right") colorClass = "text-orange-500";
+
 
     return (
-      <span key={i} className="inline-block mr-2">
+      <span key={i} className="inline-block mr-2 ">
         <span className={`word ${colorClass}`}>
           {letters}
         </span>

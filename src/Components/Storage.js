@@ -5,7 +5,7 @@ import Featured from "./Featured";
 import Footer from "./Footer";
 import Services from "./Services"
 import Nav from "./Nav";
-import LineMission from "./LineMission";
+// import LineMission from "./LineMission";
 // import Random from "./Random";
 import Contact from "./Contact";
 
@@ -19,7 +19,7 @@ function Storage(){
                 <ScrollMission/>
                 <Services/>
                 <Featured/>
-                <LineMission/>
+                {/* <LineMission/> */}
                 {/* <Random/> */}
                 <Contact/>
                 <Banner/>
