@@ -33,7 +33,7 @@ const text = `At Made Right, we bring creativity and technology together to deve
     <div className="bg-white  ">
 <p
   ref={container}
-  className="story text-4xl leading-relaxed text-black mission-body"
+  className="story text-4xl leading-relaxed text-slate-500 mission-body"
 >
   {text.split(" ").map((word, i) => {
     // Split word into letters and punctuation
@@ -44,10 +44,10 @@ const text = `At Made Right, we bring creativity and technology together to deve
     // Determine color for specific words
     let colorClass = "";
   
-    if (letters === "creativity") colorClass = "text-indigo-600";
+    if (letters === "creativity") colorClass = "text-indigo-500";
     else if (letters === "technology") colorClass = "text-lime-600";
-    else if (letters === "Made") colorClass = "text-orange-500";
-    else if (letters === "Right") colorClass = "text-orange-500";
+    else if (letters === "Made") colorClass = "text-orange-400";
+    else if (letters === "Right") colorClass = "text-orange-400";
 
 
     return (
