@@ -11,8 +11,9 @@ function Banner() {
     const containerWidth = el.parentElement.offsetWidth;
     const textWidth = el.offsetWidth;
 
-    // immediately position offscreen to the right
-    gsap.set(el, { x: containerWidth });
+    // position text to start 1/3 across the screen
+    const startPosition = containerWidth / 3;
+    gsap.set(el, { x: startPosition });
 
     gsap.to(el, {
       x: -textWidth - containerWidth,

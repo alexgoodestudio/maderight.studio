@@ -21,6 +21,7 @@ function Typewriter() {
     const wait = 2000;
 
     const type = () => {
+      if (!txtRef.current) return; 
       const currentWord = words[wordIndex];
       const currentText = isDeleting
         ? currentWord.substring(0, charIndex - 1)

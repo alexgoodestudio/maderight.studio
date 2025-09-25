@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 
-function SrcollMission() {
+function ScrollMission() {
   const container = useRef();
 
   gsap.registerPlugin(ScrollTrigger);
@@ -27,13 +27,13 @@ function SrcollMission() {
     tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1 });
   }, []);
 
-const text = `At Made Right, we bring creativity and technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
+const text = `At Made Right, we bring creativity + technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
 
   return (
     <div className="bg-white  ">
 <p
   ref={container}
-  className="story text-4xl leading-relaxed text-slate-500 mission-body"
+  className="story text-5xl leading-relaxed text-slate-500 mission-body"
 >
   {text.split(" ").map((word, i) => {
     // Split word into letters and punctuation
@@ -46,8 +46,8 @@ const text = `At Made Right, we bring creativity and technology together to deve
   
     if (letters === "creativity") colorClass = "text-indigo-500";
     else if (letters === "technology") colorClass = "text-lime-600";
-    else if (letters === "Made") colorClass = "text-orange-400";
-    else if (letters === "Right") colorClass = "text-orange-400";
+    else if (letters === "Made") colorClass = "";
+    else if (letters === "Right") colorClass = "";
 
 
     return (
@@ -65,4 +65,4 @@ const text = `At Made Right, we bring creativity and technology together to deve
   );
 }
 
-export default SrcollMission;
+export default ScrollMission;
