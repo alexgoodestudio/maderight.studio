@@ -95,7 +95,7 @@ function Nav() {
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
             <h5>
-              <a href="https://lemichclinic-front-end.onrender.com/" target="_blank" rel="noopener noreferrer">
+              <a href="https://lemichclinic.netlify.app" target="_blank" rel="noopener noreferrer">
                 The Lemich Clinic
               </a>
             </h5>

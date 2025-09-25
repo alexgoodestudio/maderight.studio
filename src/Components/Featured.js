@@ -15,7 +15,7 @@ function Featured() {
       subtitle: "Home of Military Mental Health",
       image: Vid3,
       description: `Our work with The Lemich Clinic focused on creating a modern, patient-centered website that reflects their commitment to care. We combined clean design with intuitive navigation and mobile optimization, ensuring a seamless experience for every visitor. From brand alignment to technical performance, this project highlights our ability to transform healthcare services into engaging, trustworthy digital experiences.`,
-      link: "https://lemichclinic-front-end.onrender.com/",
+      link: "https://lemichclinic.netlify.app/",
       type: "video",
     },
     {
