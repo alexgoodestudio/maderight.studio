@@ -13,7 +13,7 @@ function Featured() {
     {
       title: "The Lemich Clinic",
       subtitle: "Home of Military Mental Health",
-      image: Vid3,
+      image: Vid,
       description: `Our work with The Lemich Clinic focused on creating a modern, patient-centered website that reflects their commitment to care. We combined clean design with intuitive navigation and mobile optimization, ensuring a seamless experience for every visitor. From brand alignment to technical performance, this project highlights our ability to transform healthcare services into engaging, trustworthy digital experiences.`,
       link: "https://lemichclinic.netlify.app/",
       type: "video",
@@ -21,7 +21,7 @@ function Featured() {
     {
       title: "Rosewood Cleaning Services",
       subtitle: "Rosewood Cleaning Services",
-      image: Vid,
+      image: Vid3,
       description: `Rosewood Cleaning Services’ website is a React project showcasing advanced GSAP animations, including ScrollTrigger and timeline effects. The site is fully responsive, styled with Bootstrap and Tailwind, and emphasizes both interactivity and visual appeal.`,
       link: "https://rosewoodcleaning.netlify.app/",
       type: "video",
