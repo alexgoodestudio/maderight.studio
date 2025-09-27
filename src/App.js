@@ -1,12 +1,16 @@
 import './App.css';
 import Layout from "./Layout";
+import Banner from "./Components/Banner";
+import Footer from "./Components/Footer"; 
 
 function App() {
   return (
-    <div className="App bg-white" >
-      <header className="App-header">
+    <div className="App" >
+      
         <Layout />
-      </header>
+        <Banner/>
+        <Footer/>
+     
     </div>
   );
 }

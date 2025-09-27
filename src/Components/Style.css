@@ -218,6 +218,21 @@
   line-height: 1.1;
 }
 
+.light {
+  font-weight: 300;
+  line-height: 1.68;
+  letter-spacing: 0.01em;
+  color: #6c757d;
+  max-width: 65ch;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+
 .heading-secondary {
   font-weight: 500;
   letter-spacing: -0.015em;

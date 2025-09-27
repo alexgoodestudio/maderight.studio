@@ -1,8 +1,6 @@
 import Opener from "./Opener";
 import ScrollMission from "./ScrollMission";
-import Banner from "./Banner";
 import Featured from "./Featured";
-import Footer from "./Footer";
 import Services from "./Services"
 import Nav from "./Nav";
 // import LineMission from "./LineMission";
@@ -22,8 +20,7 @@ function Storage(){
                 {/* <LineMission/> */}
                 {/* <Random/> */}
                 <Contact/>
-                <Banner/>
-                <Footer/>
+                
             </section>
 
         </div>

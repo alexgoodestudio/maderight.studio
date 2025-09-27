@@ -24,7 +24,7 @@ function Banner() {
   });
 
   return (
-    <div className="banner-container bg-orange">
+    <div className="banner-container bg-green-900">
       <span ref={textRef} className="banner-text text-white">
          How can we help you make an impact? Lets talk about it.
       </span>

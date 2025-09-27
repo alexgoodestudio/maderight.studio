@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,9 @@ function Nav() {
     <nav className="navbar navbar-light bg-slate-100 text-slate-800 flex flex-col text-start">
       {/* Always fixed header row */}
       <div className="container-fluid d-flex justify-content-between align-items-center">
-        <button className="navbar-brand btn btn-link p-0">Made Right</button>
+        <Link to="/" className="navbar-brand text-decoration-none text-slate-800">
+          Made Right
+        </Link>
         <button
           className="navbar-toggler d-block"
           type="button"
@@ -37,7 +40,6 @@ function Nav() {
           <span className="navbar-toggler-icon"></span>
         </button>
       </div>
-
       {/* Collapsible content */}
       <div
         className={`w-100 px-3 mt-2 ${isOpen ? "d-block" : "d-none"}`}

@@ -25,7 +25,7 @@ function Opener() {
   }, []);
 
   return (
-    <div className="vh-100 bg-orange d-flex justify-content-center align-items-center">
+    <div className="vh-100 bg-green-900 d-flex justify-content-center align-items-center">
       <section className="text-center text-dark">
         <h1
           className="text-opener eighties text-white d-flex justify-content-center"
@@ -49,8 +49,8 @@ function Opener() {
             </span>
           </span>
         </h1>
-        <h4 className="text-xl text-white mb-5">
-          A Creative Web Design and Technology Studio.
+        <h4 className="text-3xl light text-white mb-5">
+          An independent creative web design and technology studio.
         </h4>
       </section>
     </div>

@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="text-sm bg-slate-100 text-slate-800 py-4 px-5 ">
       <div className="max-w-6xl mx-auto text-center">
-        © {year} • Made Right Studios 
+        © <span className="font-mono">{year}</span> • Made Right Studios 
       </div>
     </footer>
   );
