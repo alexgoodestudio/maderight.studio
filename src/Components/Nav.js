@@ -58,16 +58,14 @@ function Nav() {
         {/* Row 2 */}
         <div className="row mb-3">
           <div className="col-lg-4 col-12 text-slate-800 p-3">
-            <h5>
-              <a href="https://github.com/alexgoodestudio" target="_blank" rel="noopener noreferrer">
-                Github
-              </a>
-            </h5>
-            <p className="text-md">Wanna see our code?</p>
+            <Link to="/our-process" className="block no-underline text-slate-800">
+              <h5>Our Process</h5>
+              <p className="text-md">Step by step</p>
+            </Link>
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
             <h5>
-              <a href="https://www.linkedin.com/in/alexgoodestudio/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/alexgoodestudio/" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
             </h5>
@@ -75,7 +73,7 @@ function Nav() {
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
             <h5>
-              <a href="http://alexgoode.netlify.app/" target="_blank" rel="noopener noreferrer">
+              <a href="http://alexgoode.netlify.app/" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
                 Owner
               </a>
             </h5>
@@ -89,7 +87,7 @@ function Nav() {
         <div className="row mb-3">
           <div className="col-lg-4 col-12 text-slate-800 p-3">
             <h5>
-              <a href="https://instagram.com/maderight.studio" target="_blank" rel="noopener noreferrer">
+              <a href="https://instagram.com/maderight.studio" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
                 Instagram
               </a>
             </h5>
@@ -97,7 +95,7 @@ function Nav() {
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
             <h5>
-              <a href="https://lemichclinic.netlify.app" target="_blank" rel="noopener noreferrer">
+              <a href="https://lemichclinic.netlify.app" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
                 The Lemich Clinic
               </a>
             </h5>
@@ -105,7 +103,7 @@ function Nav() {
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
             <h5>
-              <a href="https://rosewoodcleaning.netlify.app" target="_blank" rel="noopener noreferrer">
+              <a href="https://rosewoodcleaning.netlify.app" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
                 Rosewood Cleaning Services
               </a>
             </h5>

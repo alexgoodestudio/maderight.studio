@@ -6,7 +6,7 @@ function WebRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Storage />} />
-      <Route path="/process" element={<OurProcess />} />
+      <Route path="/our-process" element={<OurProcess />} />
     </Routes>
   );
 }
