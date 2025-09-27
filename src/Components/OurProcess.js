@@ -1,8 +1,6 @@
 import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
-import Footer from "./Footer";
-import Banner from "./Banner";
 import Nav from "./Nav";
 
 function OurProcess() {
