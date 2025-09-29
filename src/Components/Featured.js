@@ -71,12 +71,14 @@ function Featured() {
                 </p>
               </div>
               <div className="card-footer p-3">
-                <Link
-                  to={service.link}
-                  className="btn btn-outline-secondary w-full p-2 text-center"
-                >
-                  Visit
-                </Link>
+               <div className="flex">
+  <Link
+    to={service.link}
+    className="bg-green-900 text-white font-bold no-underline px-4 rounded w-full p-2 text-center"
+  >
+    Visit
+  </Link>
+</div>
               </div>
             </div>
           </div>
