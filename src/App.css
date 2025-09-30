@@ -6,6 +6,34 @@
   height: 40vmin;
   pointer-events: none;
 }
+/* Footer-specific motion architecture */
+.transition-colors {
+  transition: color 0.3s ease;
+}
+
+footer a {
+  position: relative;
+}
+
+footer a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+  width: 100%;
+}
+
+/* Ensure proper spacing for footer sections */
+.footer-section {
+  will-change: opacity, transform;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

@@ -49,7 +49,7 @@ function Nav() {
         <div className="row mb-3">
           <div className="col-12 text-slate-800 p-3">
             <h4>Links</h4>
-            <p className="text-md">
+            <p className="text-sm text-slate-600">
               Check out my work, and other places you can find me!
             </p>
           </div>
@@ -60,7 +60,7 @@ function Nav() {
           <div className="col-lg-4 col-12 text-slate-800 p-3">
             <Link to="/our-process" className="block no-underline text-slate-800">
               <h5>Our Process</h5>
-              <p className="text-md">Step by step</p>
+              <p className="text-sm text-slate-600">Step by step </p>
             </Link>
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
@@ -69,7 +69,7 @@ function Nav() {
                 LinkedIn
               </a>
             </h5>
-            <p className="text-md">Lets Connect</p>
+            <p className="text-sm text-slate-600">Lets Connect</p>
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
             <h5>
@@ -77,7 +77,7 @@ function Nav() {
                 Owner
               </a>
             </h5>
-            <p className="text-md">
+            <p className="text-sm text-slate-600">
               Alex Goode Portfolio
             </p>
           </div>
@@ -91,7 +91,7 @@ function Nav() {
                 Instagram
               </a>
             </h5>
-            <p className="text-md">See what I'm doing</p>
+            <p className="text-sm text-slate-600">Made Right Studio</p>
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
             <h5>
@@ -99,7 +99,7 @@ function Nav() {
                 The Lemich Clinic
               </a>
             </h5>
-            <p className="text-md">Featured: Recent work</p>
+            <p className="text-sm text-slate-600">Recent work</p>
           </div>
           <div className="col-lg-4 col-12 text-slate-800 p-3">
             <h5>
@@ -107,7 +107,7 @@ function Nav() {
                 Rosewood Cleaning Services
               </a>
             </h5>
-            <p className="text-md">Featured: Recent work</p>
+            <p className="text-sm text-slate-600">Recent work</p>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Nav from "./Nav";
+import Contact from "./Contact";  
 
 function OurProcess() {
   const containerRef = useRef();
@@ -89,7 +90,7 @@ function OurProcess() {
     <section className="bg-white text-slate-900" ref={containerRef}>
       <Nav />
       
-      <div className="py-5">
+      <div className="">
         <div className="">
           <div className="row ">
             <div className="col-12 ">
@@ -141,6 +142,7 @@ function OurProcess() {
               </div>
 
             </div>
+        <Contact/>
           </div>
         </div>
       </div>
