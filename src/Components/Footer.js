@@ -68,6 +68,14 @@ function Footer() {
                   Studio
                 </h6>
                 <ul className="list-unstyled">
+                   <li className="mb-3">
+                    <Link 
+                      to="/" 
+                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                    >
+                      Home
+                    </Link>
+                  </li>
                   <li className="mb-3">
                     <Link 
                       to="/our-process" 
@@ -76,16 +84,7 @@ function Footer() {
                       Our Process
                     </Link>
                   </li>
-                  <li className="mb-3">
-                    <a 
-                      href="http://alexgoode.netlify.app/" 
-                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      Founder
-                    </a>
-                  </li>
+
                 </ul>
               </div>
 
@@ -113,6 +112,16 @@ function Footer() {
                       rel="noopener noreferrer"
                     >
                       Rosewood Cleaning
+                    </a>
+                  </li>
+                                    <li className="mb-3">
+                    <a 
+                      href="http://alexgoode.netlify.app/" 
+                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      Alex Goode Portfolio
                     </a>
                   </li>
                 </ul>
