@@ -39,7 +39,7 @@ function Footer() {
   }, { scope: footerRef });
 
   return (
-    <footer ref={footerRef} className="bg-emerald-950 text-slate-100 pt-32 pb-8 ">
+    <footer ref={footerRef} className="bg-slate-900 text-slate-100 pt-32 pb-8 ">
       <div className="container-fluid px-4 px-lg-5">
         
         {/* Primary Content Grid */}
@@ -54,7 +54,7 @@ function Footer() {
               An independent creative web design and technology studio.
             </p>
             <p className="text-sm text-slate-400 pe-lg-4">
-              Design systems and institutional-quality craftsmanship for small businesses with vision. We build modular, magazine-quality digital experiences that scale.
+              Design systems and institutional-quality craftsmanship for small businesses. We build modular, digital experiences that scale.
             </p>
           </div>
 
