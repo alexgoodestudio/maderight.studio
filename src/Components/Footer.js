@@ -39,7 +39,7 @@ function Footer() {
   }, { scope: footerRef });
 
   return (
-    <footer ref={footerRef} className="bg-slate-900 text-slate-100 pt-32 pb-8 ">
+    <footer ref={footerRef} className="bg-emerald-950 text-slate-100 pt-32 pb-8 ">
       <div className="container-fluid px-4 px-lg-5">
         
         {/* Primary Content Grid */}
