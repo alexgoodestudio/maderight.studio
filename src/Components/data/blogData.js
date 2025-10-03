@@ -298,7 +298,7 @@ export const blogPosts = [
             <li class="text-md text-slate-700 mb-2"><strong>Local focus:</strong> Understanding Columbia's creative business community and what resonates with local customers</li>
           </ul>
           <p class="text-md text-slate-700">
-            Best for: Independent businesses that want sophisticated, custom design without enterprise-level budgets. <a href="/contact" class="text-decoration-none" style="color: #0066cc;">Schedule a consultation</a> to discuss your project.
+            Best for: Independent businesses that want sophisticated, custom design without enterprise-level budgets. <a href="/home" class="text-decoration-none" style="color: #0066cc;">Schedule a consultation</a> to discuss your project.
           </p>
         </div>
 

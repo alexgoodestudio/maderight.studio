@@ -42,16 +42,18 @@ function Nav() {
             </button>
             {isCompanyOpen && (
               <div
-                className="absolute top-full left-0 mt-2 w-44 bg-white rounded-xl shadow-lg py-1 z-50"
+                className="absolute top-full left-0 pt-2 w-44 z-50"
                 onMouseEnter={() => setIsCompanyOpen(true)}
                 onMouseLeave={() => setIsCompanyOpen(false)}
               >
-                <a href="https://www.linkedin.com/in/alexgoodestudio/" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-xs text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1">
-                  LinkedIn
-                </a>
-                <a href="https://instagram.com/maderight.studio" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-xs text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1">
-                  Instagram
-                </a>
+                <div className="bg-white rounded-xl shadow-lg py-1">
+                  <a href="https://www.linkedin.com/in/alexgoodestudio/" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-xs text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1">
+                    LinkedIn
+                  </a>
+                  <a href="https://instagram.com/maderight.studio" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-xs text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1">
+                    Instagram
+                  </a>
+                </div>
               </div>
             )}
           </div>
@@ -70,22 +72,24 @@ function Nav() {
             </button>
             {isFeaturedOpen && (
               <div
-                className="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-lg py-1 z-50"
+                className="absolute top-full left-0 pt-2 w-52 z-50"
                 onMouseEnter={() => setIsFeaturedOpen(true)}
                 onMouseLeave={() => setIsFeaturedOpen(false)}
               >
-                <a href="http://alexgoode.netlify.app/" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 hover:bg-gray-100 no-underline rounded-lg mx-1">
-                  <div className="text-xs font-medium text-gray-900">Owner</div>
-                  <div className="text-xs text-gray-500 mt-0.5">Alex Goode Portfolio</div>
-                </a>
-                <a href="https://lemichclinic.netlify.app" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 hover:bg-gray-100 no-underline rounded-lg mx-1">
-                  <div className="text-xs font-medium text-gray-900">The Lemich Clinic</div>
-                  <div className="text-xs text-gray-500 mt-0.5">Healthcare Website</div>
-                </a>
-                <a href="https://rosewoodcleaning.netlify.app" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 hover:bg-gray-100 no-underline rounded-lg mx-1">
-                  <div className="text-xs font-medium text-gray-900">Rosewood Cleaning</div>
-                  <div className="text-xs text-gray-500 mt-0.5">Service Business</div>
-                </a>
+                <div className="bg-white rounded-xl shadow-lg py-1">
+                  <a href="http://alexgoode.netlify.app/" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 hover:bg-gray-100 no-underline rounded-lg mx-1">
+                    <div className="text-xs font-medium text-gray-900">Owner</div>
+                    <div className="text-xs text-gray-500 mt-0.5">Alex Goode Portfolio</div>
+                  </a>
+                  <a href="https://lemichclinic.netlify.app" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 hover:bg-gray-100 no-underline rounded-lg mx-1">
+                    <div className="text-xs font-medium text-gray-900">The Lemich Clinic</div>
+                    <div className="text-xs text-gray-500 mt-0.5">Healthcare Website</div>
+                  </a>
+                  <a href="https://rosewoodcleaning.netlify.app" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 hover:bg-gray-100 no-underline rounded-lg mx-1">
+                    <div className="text-xs font-medium text-gray-900">Rosewood Cleaning</div>
+                    <div className="text-xs text-gray-500 mt-0.5">Service Business</div>
+                  </a>
+                </div>
               </div>
             )}
           </div>
