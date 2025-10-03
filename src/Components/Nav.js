@@ -29,8 +29,8 @@ function Nav() {
     <nav className="navbar navbar-light bg-slate-100 text-slate-800 flex flex-col text-start">
       {/* Always fixed header row */}
       <div className="container-fluid d-flex justify-content-between align-items-center">
-        <Link to="/" className="navbar-brand text-decoration-none text-slate-800">
-          Made Right
+        <Link to="/" className="text-2xl text-decoration-none font-mono ms-2 font-semibold text-green-900 ">
+           Made Right 
         </Link>
         <button
           className="navbar-toggler d-block"
@@ -57,13 +57,21 @@ function Nav() {
 
         {/* Row 2 */}
         <div className="row mb-3">
-          <div className="col-lg-4 col-12 text-slate-800 p-3">
+          <div className="col-lg-3 col-12 text-slate-800 p-3">
             <Link to="/our-process" className="block no-underline text-slate-800">
               <h5>Our Process</h5>
               <p className="text-sm text-slate-600">Step by step </p>
             </Link>
           </div>
-          <div className="col-lg-4 col-12 text-slate-800 p-3">
+
+           <div className="col-lg-3 col-12 text-slate-800 p-3">
+            <Link to="/blog" className="block no-underline text-slate-800">
+              <h5>Our Blog</h5>
+              <p className="text-sm text-slate-600">Learn how to optimize your website</p>
+            </Link>
+          </div>
+          
+          <div className="col-lg-3 col-12 text-slate-800 p-3">
             <h5>
               <a href="https://www.linkedin.com/in/alexgoodestudio/" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
                 LinkedIn
@@ -71,7 +79,7 @@ function Nav() {
             </h5>
             <p className="text-sm text-slate-600">Lets Connect</p>
           </div>
-          <div className="col-lg-4 col-12 text-slate-800 p-3">
+          <div className="col-lg-3 col-12 text-slate-800 p-3">
             <h5>
               <a href="http://alexgoode.netlify.app/" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
                 Owner
@@ -85,7 +93,7 @@ function Nav() {
 
         {/* Row 3 */}
         <div className="row mb-3">
-          <div className="col-lg-4 col-12 text-slate-800 p-3">
+          <div className="col-lg-3 col-12 text-slate-800 p-3">
             <h5>
               <a href="https://instagram.com/maderight.studio" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
                 Instagram
@@ -93,7 +101,7 @@ function Nav() {
             </h5>
             <p className="text-sm text-slate-600">Made Right Studio</p>
           </div>
-          <div className="col-lg-4 col-12 text-slate-800 p-3">
+          <div className="col-lg-3 col-12 text-slate-800 p-3">
             <h5>
               <a href="https://lemichclinic.netlify.app" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
                 The Lemich Clinic
@@ -101,7 +109,7 @@ function Nav() {
             </h5>
             <p className="text-sm text-slate-600">Recent work</p>
           </div>
-          <div className="col-lg-4 col-12 text-slate-800 p-3">
+          <div className="col-lg-3 col-12 text-slate-800 p-3">
             <h5>
               <a href="https://rosewoodcleaning.netlify.app" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
                 Rosewood Cleaning Services
