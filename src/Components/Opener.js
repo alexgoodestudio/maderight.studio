@@ -6,10 +6,10 @@ import "./Style.css";
 function Opener() {
   const madeRef = useRef(null);
   const rightRef = useRef(null);
-    const handleContactClick = () => {
-    // Opens email app with prefilled "to" address
-    window.location.href = "mailto:alexgoode2@gmail.com";
-  };
+  //   const handleContactClick = () => {
+  //   // Opens email app with prefilled "to" address
+  //   window.location.href = "mailto:alexgoode2@gmail.com";
+  // };
 
   useGSAP(() => {
     // Bounce in "Made"
@@ -53,15 +53,15 @@ function Opener() {
             </span>
           </span>
         </h1>
-        <h4 className="text-2xl light text-white mb-5">
-          An independent creative web design and technology studio in Columbia, South Carolina
+        <h4 className="text-3xl light text-white mb-5">
+          An independent creative web design and technology studio.
         </h4>
-                <button
+                {/* <button
           onClick={handleContactClick}
-          className="btn-contact bg-teal-600 px-5 py-3 text-lg text-white rounded-lg"
+          className="btn-contact bg-teal-600 px-5 mt-5 py-3 text-lg text-white font-medium rounded-lg"
         >
-          Say Hi!
-        </button>
+         Hello.
+        </button> */}
       </section>
     </div>
   );
