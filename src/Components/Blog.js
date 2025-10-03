@@ -4,6 +4,9 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ArrowRight, Calendar, User } from 'lucide-react';
 import { blogPosts } from './data/blogData';
+import Nav from "./Nav";
+import Contact from "./Contact";  
+
 
 const MOTION = {
   instant: 0.15,
@@ -51,6 +54,7 @@ function Blog() {
 
   return (
     <div ref={containerRef} className="bg-slate-50 min-vh-100">
+      <Nav/>
       <Helmet>
         <title>Made Right Studio | Our Blog</title>
         <meta name="description" content="Insights and resources for small businesses looking to enhance their online presence through effective web design and SEO strategies." />
@@ -169,6 +173,7 @@ function Blog() {
         </div>
 
       </div>
+      <Contact/>
     </div>
   );
 }

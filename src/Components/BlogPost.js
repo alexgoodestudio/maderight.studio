@@ -5,6 +5,9 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ArrowLeft, Calendar, User } from 'lucide-react';
 import { blogPosts } from './data/blogData'
+import Nav from "./Nav";
+import Contact from "./Contact";  
+
 
 const MOTION = {
   instant: 0.15,
@@ -13,6 +16,10 @@ const MOTION = {
   slow: 0.8,
   story: 1.2
 };
+  const handleContactClick = () => {
+    // Opens email app with prefilled "to" address
+    window.location.href = "mailto:alexgoode2@gmail.com";
+  };
 
 function BlogPost() {
   const { slug } = useParams();
@@ -58,6 +65,7 @@ function BlogPost() {
 
   return (
     <div ref={containerRef} className="bg-slate-50 min-vh-100">
+      <Nav/>
       <Helmet>
         <title>{post.title} | The Lemich Clinic</title>
         <meta name="description" content={post.description} />
@@ -164,21 +172,18 @@ function BlogPost() {
                 <span>Back to all articles</span>
               </a>
               
-              <a 
-                href="/contact" 
-                className="btn btn-dark text-sm fw-semibold px-4 py-2 blog-cta-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLinkClick('/contact');
-                }}
-              >
-                Schedule Consultation
-              </a>
+        <button
+          onClick={handleContactClick}
+          className="btn-contact bg-slate-900 px-4 py-2 text-sm text-white rounded-lg"
+        >
+          Contact Us
+        </button>
             </div>
           </div>
         </footer>
 
       </article>
+      <Contact/>
     </div>
   );
 }
