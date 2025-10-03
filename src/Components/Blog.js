@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-// import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ArrowRight, Calendar, User } from 'lucide-react';
@@ -51,10 +51,10 @@ function Blog() {
 
   return (
     <div ref={containerRef} className="bg-slate-50 min-vh-100">
-      {/* <Helmet>
+      <Helmet>
         <title>Made Right Studio | Our Blog</title>
         <meta name="description" content="Insights and resources for small businesses looking to enhance their online presence through effective web design and SEO strategies." />
-      </Helmet> */}
+      </Helmet>
       
       <div className="container py-5">
         

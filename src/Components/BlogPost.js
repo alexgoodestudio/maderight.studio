@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-// import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 import { useParams, Navigate } from 'react-router-dom';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
@@ -58,14 +58,14 @@ function BlogPost() {
 
   return (
     <div ref={containerRef} className="bg-slate-50 min-vh-100">
-      {/* <Helmet>
+      <Helmet>
         <title>{post.title} | The Lemich Clinic</title>
         <meta name="description" content={post.description} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.description} />
         <meta property="og:type" content="article" />
         <meta name="author" content={post.author} />
-      </Helmet> */}
+      </Helmet>
       
       <article className="container py-5">
         
