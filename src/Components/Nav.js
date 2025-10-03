@@ -99,7 +99,7 @@ function Nav() {
             onClick={handleContactClick}
             className="bg-white text-green-950 px-4 py-1.5 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors ml-1 cursor-pointer border-0"
           >
-            Book a Demo
+            Contact Us
           </button>
         </div>
       </nav>
@@ -157,7 +157,7 @@ function Nav() {
                   </a>
 
                   <a href="mailto:alexgoode2@gmail.com" className="mt-2 bg-white text-green-950 px-4 py-2 rounded-full text-center text-sm font-medium no-underline">
-                    Book a Discovery Call
+                    Contact Us
                   </a>
                 </div>
               </div>
