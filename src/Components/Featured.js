@@ -74,9 +74,9 @@ function Featured() {
                <div className="flex">
   <Link
     to={service.link}
-    className="bg-green-900 text-white font-bold no-underline px-4 rounded w-full p-2 text-center"
+    className="bg-green-900 font-mono  text-white font-medium no-underline hover:bg-green-950 hover:italic px-4 rounded w-full p-2 text-center"
   >
-    Visit
+    View Project
   </Link>
 </div>
               </div>
