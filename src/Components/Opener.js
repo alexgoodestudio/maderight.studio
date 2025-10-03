@@ -53,8 +53,8 @@ function Opener() {
             </span>
           </span>
         </h1>
-        <h4 className="text-3xl light text-white mb-5">
-          An independent creative web design and technology studio.
+        <h4 className="text-3xl  light text-white mb-5">
+          An independent creative <span className=" eighties ">web design</span> and <span className="font-medium ">technology</span> studio.
         </h4>
                 {/* <button
           onClick={handleContactClick}

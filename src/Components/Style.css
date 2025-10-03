@@ -119,6 +119,15 @@
 .services {
   height: 75vh; 
 }
+.spaced-underline {
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  display: inline-block;
+}
+.spaced-letters {
+  letter-spacing: 0.015em;
+}
 
 .line-mission{
   height: 85vh;
