@@ -17,7 +17,7 @@ function Contact() {
           onClick={handleContactClick}
           className="btn-contact bg-orange-900 px-4 py-2 text-sm text-white rounded-lg"
         >
-          Contact
+          Contact Us
         </button>
       </div>
     </div>
