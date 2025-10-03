@@ -96,11 +96,11 @@ function OurProcess() {
             <div className="col-12 ">
               
               <div className="row mb-5 ">
-                <div className="col-12 col-lg-8 mx-auto text-center">
+                <div className="col-12  col-lg-8 mx-auto text-center">
                   <div ref={metadataRef} className="text-sm text-slate-600 mb-4">
                     Our Approach — How We Work
                   </div>
-                  <h1 ref={headingRef} className="text-11xl font-bold mb-4">
+                  <h1 ref={headingRef} className="text-7xl font-bold mb-4">
                     Our Process
                   </h1>
                   <p ref={subtitleRef} className="text-lg text-slate-700">

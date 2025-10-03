@@ -1,125 +1,160 @@
-import React, { useState, useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
 function Nav() {
-  const [isOpen, setIsOpen] = useState(false);
-  const navContentRef = useRef(null);
-
-  useEffect(() => {
-    if (isOpen) {
-      gsap.fromTo(
-        navContentRef.current.children,
-        { y: -20, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.1, duration: 0.4, ease: "power2.out" }
-      );
-    } else {
-      gsap.to(navContentRef.current.children, {
-        y: -20,
-        opacity: 0,
-        stagger: 0.05,
-        duration: 0.3,
-        ease: "power2.in",
-      });
-    }
-  }, [isOpen]);
+  const [isCompanyOpen, setIsCompanyOpen] = useState(false);
+  const [isFeaturedOpen, setIsFeaturedOpen] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   return (
-    <nav className="navbar navbar-light bg-slate-100 text-slate-800 flex flex-col text-start">
-      {/* Always fixed header row */}
-      <div className="container-fluid d-flex justify-content-between align-items-center">
-        <Link to="/" className="text-2xl text-decoration-none font-mono ms-2 font-semibold text-green-900 ">
-           Made Right 
-        </Link>
-        <button
-          className="navbar-toggler d-block"
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-      </div>
-      {/* Collapsible content */}
-      <div
-        className={`w-100 px-3 mt-2 ${isOpen ? "d-block" : "d-none"}`}
-        ref={navContentRef}
-      >
-        {/* Row 1 */}
-        <div className="row mb-3">
-          <div className="col-12 text-slate-800 p-3">
-            <h4>Links</h4>
-            <p className="text-sm text-slate-600">
-              Check out my work, and other places you can find me!
-            </p>
-          </div>
-        </div>
+    <>
+      {/* Desktop Navigation - Sticky */}
+      <nav className="hidden md:flex justify-center sticky top-0 z-50 px-4 py-4">
+        <div className="bg-green-950 rounded-full px-5 py-2 flex items-center gap-5 shadow-lg">
+          {/* Logo */}
+          <a href="/" className="flex items-center gap-2 text-white font-semibold text-sm no-underline pr-3 border-r border-green-800">
+            Made Right
+          </a>
 
-        {/* Row 2 */}
-        <div className="row mb-3">
-          <div className="col-lg-3 col-12 text-slate-800 p-3">
-            <Link to="/our-process" className="block no-underline text-slate-800">
-              <h5>Our Process</h5>
-              <p className="text-sm text-slate-600">Step by step </p>
-            </Link>
+          {/* Navigation Links */}
+          <a href="/our-process" className="text-white text-xs hover:text-gray-300 transition-colors no-underline">
+            Our Process
+          </a>
+
+          <a href="/blog" className="text-white text-xs hover:text-gray-300 transition-colors no-underline">
+            Blog
+          </a>
+
+          {/* Socials Dropdown */}
+          <div className="relative">
+            <button
+              className="text-white text-xs hover:text-gray-300 transition-colors flex items-center gap-1"
+              onMouseEnter={() => setIsCompanyOpen(true)}
+              onMouseLeave={() => setIsCompanyOpen(false)}
+            >
+              Socials
+              <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {isCompanyOpen && (
+              <div
+                className="absolute top-full left-0 mt-2 w-44 bg-white rounded-xl shadow-lg py-1 z-50"
+                onMouseEnter={() => setIsCompanyOpen(true)}
+                onMouseLeave={() => setIsCompanyOpen(false)}
+              >
+                <a href="https://www.linkedin.com/in/alexgoodestudio/" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-xs text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1">
+                  LinkedIn
+                </a>
+                <a href="https://instagram.com/maderight.studio" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-xs text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1">
+                  Instagram
+                </a>
+              </div>
+            )}
           </div>
 
-           <div className="col-lg-3 col-12 text-slate-800 p-3">
-            <Link to="/blog" className="block no-underline text-slate-800">
-              <h5>Our Blog</h5>
-              <p className="text-sm text-slate-600">Learn how to optimize your website</p>
-            </Link>
+          {/* Featured Work Dropdown */}
+          <div className="relative">
+            <button
+              className="text-white text-xs hover:text-gray-300 transition-colors flex items-center gap-1"
+              onMouseEnter={() => setIsFeaturedOpen(true)}
+              onMouseLeave={() => setIsFeaturedOpen(false)}
+            >
+              Featured Work
+              <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {isFeaturedOpen && (
+              <div
+                className="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-lg py-1 z-50"
+                onMouseEnter={() => setIsFeaturedOpen(true)}
+                onMouseLeave={() => setIsFeaturedOpen(false)}
+              >
+                <a href="http://alexgoode.netlify.app/" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 hover:bg-gray-100 no-underline rounded-lg mx-1">
+                  <div className="text-xs font-medium text-gray-900">Owner</div>
+                  <div className="text-xs text-gray-500 mt-0.5">Alex Goode Portfolio</div>
+                </a>
+                <a href="https://lemichclinic.netlify.app" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 hover:bg-gray-100 no-underline rounded-lg mx-1">
+                  <div className="text-xs font-medium text-gray-900">The Lemich Clinic</div>
+                  <div className="text-xs text-gray-500 mt-0.5">Healthcare Website</div>
+                </a>
+                <a href="https://rosewoodcleaning.netlify.app" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 hover:bg-gray-100 no-underline rounded-lg mx-1">
+                  <div className="text-xs font-medium text-gray-900">Rosewood Cleaning</div>
+                  <div className="text-xs text-gray-500 mt-0.5">Service Business</div>
+                </a>
+              </div>
+            )}
           </div>
-          
-          <div className="col-lg-3 col-12 text-slate-800 p-3">
-            <h5>
-              <a href="https://www.linkedin.com/in/alexgoodestudio/" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
-            </h5>
-            <p className="text-sm text-slate-600">Lets Connect</p>
-          </div>
-          <div className="col-lg-3 col-12 text-slate-800 p-3">
-            <h5>
-              <a href="http://alexgoode.netlify.app/" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
-                Owner
-              </a>
-            </h5>
-            <p className="text-sm text-slate-600">
-              Alex Goode Portfolio
-            </p>
-          </div>
-        </div>
 
-        {/* Row 3 */}
-        <div className="row mb-3">
-          <div className="col-lg-3 col-12 text-slate-800 p-3">
-            <h5>
-              <a href="https://instagram.com/maderight.studio" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
-                Instagram
-              </a>
-            </h5>
-            <p className="text-sm text-slate-600">Made Right Studio</p>
-          </div>
-          <div className="col-lg-3 col-12 text-slate-800 p-3">
-            <h5>
-              <a href="https://lemichclinic.netlify.app" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
-                The Lemich Clinic
-              </a>
-            </h5>
-            <p className="text-sm text-slate-600">Recent work</p>
-          </div>
-          <div className="col-lg-3 col-12 text-slate-800 p-3">
-            <h5>
-              <a href="https://rosewoodcleaning.netlify.app" className="block no-underline text-slate-800" target="_blank" rel="noopener noreferrer">
-                Rosewood Cleaning Services
-              </a>
-            </h5>
-            <p className="text-sm text-slate-600">Recent work</p>
-          </div>
+          {/* CTA Button */}
+          <a href="mailto:alexgoode2@gmail.com" className="bg-white text-green-950 px-4 py-1.5 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors ml-1 no-underline">
+            Book a Demo
+          </a>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Mobile Navigation */}
+      <nav className="md:hidden sticky top-3 z-50 px-3 pt-2 pb-4">
+        <div className="bg-green-950 rounded-lg">
+          <div className="flex justify-between items-center px-4 py-2">
+            <a href="/" className="flex items-center gap-2 text-white font-semibold text-base no-underline">
+              Made Right
+            </a>
+            <button
+              onClick={() => setIsMobileOpen(!isMobileOpen)}
+              className="bg-white text-green-950 px-4 py-2 rounded-lg text-sm font-medium"
+            >
+              Menu
+            </button>
+          </div>
+
+          {isMobileOpen && (
+            <div className="bg-white rounded-b-lg">
+              <div className="px-4 pb-4 border-t border-gray-100">
+                <div className="flex flex-col gap-1 pt-2">
+                  <a href="/our-process" className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg no-underline">
+                    Our Process
+                  </a>
+                  <a href="/blog" className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg no-underline">
+                    Blog
+                  </a>
+
+                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-1">
+                    Socials
+                  </div>
+                  <a href="https://www.linkedin.com/in/alexgoodestudio/" target="_blank" rel="noopener noreferrer" className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg no-underline">
+                    LinkedIn
+                  </a>
+                  <a href="https://instagram.com/maderight.studio" target="_blank" rel="noopener noreferrer" className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg no-underline">
+                    Instagram
+                  </a>
+
+                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-1">
+                    Featured Work
+                  </div>
+                  <a href="http://alexgoode.netlify.app/" target="_blank" rel="noopener noreferrer" className="px-3 py-2 hover:bg-gray-100 rounded-lg no-underline">
+                    <div className="text-sm font-medium text-gray-900">Owner</div>
+                    <div className="text-xs text-gray-500 mt-0.5">Alex Goode Portfolio</div>
+                  </a>
+                  <a href="https://lemichclinic.netlify.app" target="_blank" rel="noopener noreferrer" className="px-3 py-2 hover:bg-gray-100 rounded-lg no-underline">
+                    <div className="text-sm font-medium text-gray-900">The Lemich Clinic</div>
+                    <div className="text-xs text-gray-500 mt-0.5">Healthcare Website</div>
+                  </a>
+                  <a href="https://rosewoodcleaning.netlify.app" target="_blank" rel="noopener noreferrer" className="px-3 py-2 hover:bg-gray-100 rounded-lg no-underline">
+                    <div className="text-sm font-medium text-gray-900">Rosewood Cleaning</div>
+                    <div className="text-xs text-gray-500 mt-0.5">Service Business</div>
+                  </a>
+
+                  <a href="#contact" className="mt-2 bg-green-950 text-white px-4 py-2 rounded-full text-center text-sm font-medium no-underline">
+                    Book a Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </nav>
+    </>
   );
 }
 

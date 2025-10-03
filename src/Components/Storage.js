@@ -6,12 +6,14 @@ import Nav from "./Nav";
 // import LineMission from "./LineMission";
 // import Random from "./Random";
 import Contact from "./Contact";
+// import NavBanner from "./NavBanner";
 
 function Storage(){
 
     return(
-        <div className="bg-white">        
+        <div className="bg-green-900 ">        
             <section>
+                {/* <NavBanner/> */}
                 <Nav/>
                 <Opener/>
                 <ScrollMission/>
