@@ -81,16 +81,21 @@ function OurProcess() {
     },
     {
       number: "05",
+      title: "Unit Testing",
+      description: "We rigorously test components and functionality to ensure everything works flawlessly across all devices."
+    },
+    {
+      number: "06",
       title: "Launch",
-      description: "Once live, your team can update content and create new pages whenever you need."
+      description: "Your site goes live with optimized performance, security, and ongoing support to keep everything running smoothly."
     }
   ];
 
   return (
-    <section className="bg-white text-slate-900" ref={containerRef}>
+    <section className="bg-white text-slate-900 " ref={containerRef}>
       <Nav />
       
-      <div className="">
+      <div className="px-5">
         <div className="">
           <div className="row ">
             <div className="col-12 ">
@@ -114,7 +119,7 @@ function OurProcess() {
                 {processSteps.map((step, index) => (
                   <div 
                     key={index}
-                    className={`${index === 4 ? 'col-12' : 'col-md-6'} mb-4`}
+                    className="col-md-6 mb-4"
                   >
                     <div 
                       ref={el => stepRefs.current[index] = el}
@@ -142,12 +147,12 @@ function OurProcess() {
               </div>
 
             </div>
-        <Contact/>
           </div>
         </div>
       </div>
 
   
+        <Contact/>
     </section>
   );
 }
