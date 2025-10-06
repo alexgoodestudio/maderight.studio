@@ -57,7 +57,7 @@ useGSAP(() => {
 }, []);
 
   return (
-    <div className="vh-92 bg-green-900  d-flex justify-content-center align-items-center">
+    <div className="vh-92 bg-teal-950  d-flex justify-content-center align-items-center">
       <section ref={sectionRef} className="text-center ">
         <h1
           className="text-opener eighties text-white  d-flex justify-content-center"

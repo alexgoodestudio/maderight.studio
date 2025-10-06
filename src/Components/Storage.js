@@ -11,7 +11,7 @@ import Stats from "./Stats";
 function Storage(){
 
     return(
-        <div className="bg-green-900 ">        
+        <div className="bg-teal-950">        
             <section>
                 <Nav/>
                 <Opener/>

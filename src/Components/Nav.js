@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 
 function Nav() {
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
@@ -12,11 +12,11 @@ function Nav() {
   return (
     <>
       {/* Desktop Navigation - Sticky */}
-      <nav className="hidden md:flex justify-center sticky top-0 z-50 px-4 py-4 -mt-1">
-        <div className="bg-teal-950 rounded-full px-5 py-2 flex items-center gap-5 shadow-lg">
+      <nav className="hidden  md:flex justify-center sticky top-0 z-50 px-4 py-4 -mt-1">
+        <div className="bg-teal-900 rounded-full px-5 py-2 flex items-center gap-5 shadow-lg">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 text-white font-semibold text-sm no-underline pr-3 border-r border-green-800">
-            Made Right
+            Made Right  
           </a>
 
           {/* Navigation Links */}
@@ -106,10 +106,10 @@ function Nav() {
 
       {/* Mobile Navigation */}
       <nav className="md:hidden sticky top-0  z-50 px-3 pt-2 pb-4">
-        <div className="bg-green-950 rounded-lg">
+        <div className="bg-teal-900 rounded-lg">
           <div className="flex justify-between items-center px-4 py-2">
             <a href="/" className="flex items-center gap-2 text-white font-semibold text-base no-underline">
-              Made Right
+              Made Right 
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}

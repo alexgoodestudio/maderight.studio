@@ -47,7 +47,7 @@ function Footer() {
           
           {/* Studio Statement */}
           <div className="col-lg-5 col-12 mb-5 mb-lg-0 footer-section">
-            <h2 className="text-4xl font-bold mb-4 text-slate-100">
+            <h2 className="text-6xl eighties font-bold mb-4 text-slate-100">
               Made Right
             </h2>
             <p className="text-lg text-slate-300 mb-5 pe-lg-5">
