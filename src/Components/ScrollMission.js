@@ -18,19 +18,18 @@ function ScrollMission() {
     const particles = [];
     
     const tailwindColors = [
-      '#f472b6', // pink-400
-      '#a78bfa', // violet-400
-      '#60a5fa', // blue-400
-      '#34d399', // emerald-400
-      '#fbbf24', // amber-400
-      '#fb923c', // orange-400
-      '#f87171', // red-400
-      '#2dd4bf', // teal-400
-      '#a3e635', // lime-400
-      '#c084fc', // purple-400
+      '#f9a8d4', // pink-300
+      '#c4b5fd', // violet-300
+      '#93c5fd', // blue-300
+      '#6ee7b7', // emerald-300
+      '#fcd34d', // amber-300
+      '#fdba74', // orange-300
+      '#fca5a5', // red-300
+      '#5eead4', // teal-300
+      '#bef264', // lime-300
+      '#d8b4fe', // purple-300
     ];
 
-    // Get text bounds for particle containment
     const updateParticleBounds = () => {
       const bounds = textElement.getBoundingClientRect();
       wrapper.style.top = `${bounds.top}px`;
@@ -64,19 +63,49 @@ function ScrollMission() {
       wrapper.appendChild(particle);
       particles.push(particle);
 
+      // Primary movement - increased range and faster
       gsap.to(particle, {
-        x: gsap.utils.random(-120, 120),
-        y: gsap.utils.random(-120, 120),
-        duration: gsap.utils.random(8, 15),
+        x: gsap.utils.random(-200, 200),
+        y: gsap.utils.random(-200, 200),
+        duration: gsap.utils.random(5, 10),
         ease: 'sine.inOut',
         repeat: -1,
         yoyo: true,
-        delay: i * 0.15
+        delay: i * 0.1
       });
 
+      // Scale animation - more dramatic
       gsap.to(particle, {
-        scale: gsap.utils.random(0.8, 1.2),
+        scale: gsap.utils.random(0.6, 1.4),
+        duration: gsap.utils.random(1.5, 3),
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true
+      });
+
+      // Rotation - continuous spin
+      gsap.to(particle, {
+        rotation: 360,
+        duration: gsap.utils.random(4, 8),
+        ease: 'none',
+        repeat: -1
+      });
+
+      // Secondary floating movement
+      gsap.to(particle, {
+        x: `+=${gsap.utils.random(-50, 50)}`,
+        y: `+=${gsap.utils.random(-50, 50)}`,
         duration: gsap.utils.random(2, 4),
+        ease: 'power1.inOut',
+        repeat: -1,
+        yoyo: true,
+        delay: gsap.utils.random(0, 2)
+      });
+
+      // Opacity pulse
+      gsap.to(particle, {
+        opacity: gsap.utils.random(0.3, 0.8),
+        duration: gsap.utils.random(2, 5),
         ease: 'sine.inOut',
         repeat: -1,
         yoyo: true
@@ -84,29 +113,35 @@ function ScrollMission() {
 
       particle.addEventListener('mouseenter', () => {
         gsap.to(particle, {
-          scale: 2,
-          duration: 0.3,
-          ease: 'back.out(1.7)'
+          scale: 2.5,
+          duration: 0.2,
+          ease: 'back.out(2)'
         });
       });
 
       particle.addEventListener('mouseleave', () => {
         gsap.to(particle, {
           scale: 1,
-          duration: 0.4,
-          ease: 'elastic.out(1, 0.5)'
+          duration: 0.5,
+          ease: 'elastic.out(1, 0.4)'
         });
       });
 
       particle.addEventListener('click', () => {
         gsap.to(particle, {
-          y: '-=100',
+          x: gsap.utils.random(-300, 300),
+          y: gsap.utils.random(-300, 300),
+          rotation: gsap.utils.random(360, 720),
+          scale: 0,
           opacity: 0,
-          duration: 0.6,
+          duration: 0.8,
           ease: 'power2.out',
           onComplete: () => {
             gsap.set(particle, {
+              x: 0,
               y: 0,
+              rotation: 0,
+              scale: 1,
               opacity: 0.6
             });
           }
@@ -114,7 +149,6 @@ function ScrollMission() {
       });
     }
 
-    // Update particle wrapper position on scroll
     const handleScroll = () => {
       updateParticleBounds();
     };
