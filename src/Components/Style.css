@@ -11,7 +11,9 @@
   font-family: 'EightiesComeback', sans-serif;
   font-weight: 300;
 }
-
+.vh-92 {
+  height: 92vh;
+}
 
 .br {
   border-radius: 1rem;
@@ -19,7 +21,7 @@
 
 /* Perspective wrapper */
 .flip-container {
-  perspective: 900px; /* subtle, natural depth */
+  perspective: 900px; 
 }
 
 /* Row wrapper */
@@ -103,8 +105,6 @@
   background-color: #f3f5ff;
     transform: rotateX(180deg);
 }
-
-
 
 .story {
   text-align: center;
@@ -212,9 +212,7 @@
   padding-bottom: 120px;
 }
 
-.bg-orange{
-  background-color: #FF6600;
-}
+
 
 .btn-contact{
     
@@ -267,20 +265,38 @@
   container-type: inline-size;
 }
 
-/* Self Aware Typography System */
+/* Metric card hover enhancement */
+.bg-white.border.border-slate-200 {
+  transition: border-color 0.3s ease;
+}
+
+.bg-white.border.border-slate-200:hover {
+  border-color: #64748b;
+}
+
+/* Chart responsiveness */
+@media (max-width: 768px) {
+  svg text {
+    font-size: 0.65rem !important;
+  }
+}
+
+/* Ensure smooth progress bar animations */
+.progress-fill {
+  will-change: transform;
+}
 .heading-primary {
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.1;
 }
 
+
 .light {
   font-weight: 300;
   line-height: 1.68;
   letter-spacing: 0.01em;
-  color: #6c757d;
   max-width: 65ch;
-
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -358,16 +374,6 @@
 .hover-underline:hover {
   text-decoration: underline;
 }
-
-/* Tailwind Color Extensions */
-.border-slate-900 { border-color: #0f172a !important; }
-.border-slate-600 { border-color: #475569 !important; }
-.bg-slate-50 { background-color: #f8fafc; }
-.bg-slate-900 { background-color: #0f172a; }
-.text-slate-300 { color: #cbd5e1; }
-.text-slate-400 { color: #94a3b8; }
-.text-slate-500 { color: #64748b; }
-.text-slate-600 { color: #475569; }
 
 /* Font System */
 .font-mono {
@@ -462,7 +468,7 @@
 /* ------------------------------    TEXT SIZE SYSTEM --------------------------------*/
 
 /* Headings */
-  .text-opener{ font-size: 12rem;}
+.text-opener{ font-size: 12rem;}
 .text-12xl { font-size: 10rem; line-height: 1.05; } /* ~160px */
 .text-11xl { font-size: 8rem;  line-height: 1.08; } /* ~128px */
 .text-10xl { font-size: 7rem;  line-height: 1.1;  } /* ~112px */

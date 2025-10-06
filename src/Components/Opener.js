@@ -57,13 +57,13 @@ useGSAP(() => {
 }, []);
 
   return (
-    <div className="vh-100 bg-green-900 d-flex justify-content-center align-items-center">
-      <section ref={sectionRef} className="text-center text-dark">
+    <div className="vh-92 bg-green-900  d-flex justify-content-center align-items-center">
+      <section ref={sectionRef} className="text-center ">
         <h1
-          className="text-opener eighties text-white d-flex justify-content-center"
+          className="text-opener eighties text-white  d-flex justify-content-center"
           style={{ paddingLeft: "1.25rem", paddingRight: "1.25rem" }}
         >
-          <span className="d-inline-block">
+          <span className="d-inline-block ">
             <span ref={madeRef} className="d-inline-block me-lg-5 me-3">
               Made
             </span>
@@ -76,7 +76,7 @@ useGSAP(() => {
           </span>
         </h1>
         
-        <h4 ref={taglineRef} className="text-3xl  light text-white mb-5">
+        <h4 ref={taglineRef} className="text-3xl  pt-4  font-light text-white mb-5">
           <span className="word">An</span>{' '}
           <span className="word">independent</span>{' '}
           <span className="word">creative</span>{' '}
@@ -84,6 +84,8 @@ useGSAP(() => {
           <span className="word">and</span>{' '}
           <span className="word emphasis">technology</span>{' '}
           <span className="word">studio.</span>
+          <br/>
+        <p  className=" word text-sm tracking-wider mt-4 text-white">Located in <span className="">Columbia, South Carolina</span></p>
         </h4>
       </section>
     </div>

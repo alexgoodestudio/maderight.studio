@@ -94,11 +94,6 @@ function Services() {
       title: "UX/UI Design", 
       description: "Research-Driven Experiences",
       expertise: "Accessibility-First"
-    },
-    { 
-      title: "Digital Consulting", 
-      description: "Strategy & Technology Planning",
-      expertise: "Process Optimization"
     }
   ];
 
@@ -108,7 +103,7 @@ function Services() {
         <div className="row">
           <div className="col-12 px-4 px-md-5">
             
-            <div className="row mb-5">
+            <div className=" text-start row mb-5">
               <div className="col-12 col-lg-8">
                 <h2 ref={headingRef} className="text-6xl font-bold mb-3">
                   What We Do.

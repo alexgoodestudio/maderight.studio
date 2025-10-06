@@ -6,19 +6,19 @@ import Nav from "./Nav";
 // import LineMission from "./LineMission";
 // import Random from "./Random";
 import Contact from "./Contact";
-// import NavBanner from "./NavBanner";
+import Stats from "./Stats";
 
 function Storage(){
 
     return(
         <div className="bg-green-900 ">        
             <section>
-                {/* <NavBanner/> */}
                 <Nav/>
                 <Opener/>
                 <ScrollMission/>
                 <Services/>
                 <Featured/>
+                <Stats/>
                 {/* <LineMission/> */}
                 {/* <Random/> */}
                 <Contact/>

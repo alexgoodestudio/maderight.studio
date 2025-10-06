@@ -17,18 +17,18 @@ function ScrollMission() {
     const textElement = container.current;
     const particles = [];
     
-    const tailwindColors = [
-      '#f9a8d4', // pink-300
-      '#c4b5fd', // violet-300
-      '#93c5fd', // blue-300
-      '#6ee7b7', // emerald-300
-      '#fcd34d', // amber-300
-      '#fdba74', // orange-300
-      '#fca5a5', // red-300
-      '#5eead4', // teal-300
-      '#bef264', // lime-300
-      '#d8b4fe', // purple-300
-    ];
+const tailwindColors = [
+  '#fbcfe8', // pink-200
+  '#ddd6fe', // violet-200
+  '#bfdbfe', // blue-200
+  '#a7f3d0', // emerald-200
+  '#fde68a', // amber-200
+  '#fed7aa', // orange-200
+  '#fecaca', // red-200
+  '#99f6e4', // teal-200
+  '#d9f99d', // lime-200
+  '#e9d5ff', // purple-200
+];
 
     const updateParticleBounds = () => {
       const bounds = textElement.getBoundingClientRect();
@@ -65,8 +65,8 @@ function ScrollMission() {
 
       // Primary movement - increased range and faster
       gsap.to(particle, {
-        x: gsap.utils.random(-200, 200),
-        y: gsap.utils.random(-200, 200),
+        x: gsap.utils.random(-600, 600),
+        y: gsap.utils.random(-600, 600),
         duration: gsap.utils.random(5, 10),
         ease: 'sine.inOut',
         repeat: -1,
@@ -186,7 +186,7 @@ function ScrollMission() {
   const text = `At Made Right, we bring creativity + technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
 
   return (
-    <div className="bg-white">
+    <div className="bg-white ">
       <div 
         ref={particleWrapperRef}
         style={{
@@ -199,7 +199,7 @@ function ScrollMission() {
       
       <p
         ref={container}
-        className="story text-3xl leading-relaxed text-slate-500 mission-body"
+        className="story text-3xl  text-slate-400 leading-relaxed mission-body"
       >
         {text.split(" ").map((word, i) => {
           const match = word.match(/^(\w+)(\W*)$/);
@@ -207,11 +207,11 @@ function ScrollMission() {
           const punctuation = match ? match[2] : "";
 
           let colorClass = "";
-          if (letters === "creativity") colorClass = "text-blue-400 eighties";
-          else if (letters === "technology") colorClass = "text-blue-800 eighties";
+          if (letters === "creativity") colorClass = "text-blue-400 ";
+          else if (letters === "technology") colorClass = "text-blue-500 ";
 
           return (
-            <span key={i} className="inline-block light mr-2">
+            <span key={i} className="inline-block  light mr-2">
               <span className={`word ${colorClass}`}>
                 {letters}
               </span>

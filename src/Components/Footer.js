@@ -54,7 +54,7 @@ function Footer() {
               An independent creative web design and technology studio.
             </p>
             <p className="text-sm text-slate-400 pe-lg-4">
-              Design systems and institutional-quality craftsmanship for small businesses. We build modular, digital experiences that for long term growth.
+              Technology and Design systems for small businesses. We build modular, digital experiences for long term growth.
             </p>
           </div>
 

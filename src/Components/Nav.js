@@ -13,7 +13,7 @@ function Nav() {
     <>
       {/* Desktop Navigation - Sticky */}
       <nav className="hidden md:flex justify-center sticky top-0 z-50 px-4 py-4 -mt-1">
-        <div className="bg-green-950 rounded-full px-5 py-2 flex items-center gap-5 shadow-lg">
+        <div className="bg-teal-950 rounded-full px-5 py-2 flex items-center gap-5 shadow-lg">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 text-white font-semibold text-sm no-underline pr-3 border-r border-green-800">
             Made Right
@@ -120,7 +120,7 @@ function Nav() {
           </div>
 
           {isMobileOpen && (
-            <div className="bg-green-950 rounded-b-lg">
+            <div className="bg-green-900 rounded-b-lg">
               <div className="px-4 pb-4">
                 <div className="flex flex-col gap-1 pt-2">
                   <a href="/our-process" className="px-3 py-2 text-sm text-white hover:bg-green-900 rounded-lg no-underline">
