@@ -3,65 +3,88 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import "./Style.css";
 
+const MOTION = {
+  instant: 0.15,
+  quick: 0.3,
+  smooth: 0.5,
+  slow: 0.8,
+  story: 1.2
+};
+
 function Opener() {
   const madeRef = useRef(null);
   const rightRef = useRef(null);
-  //   const handleContactClick = () => {
-  //   // Opens email app with prefilled "to" address
-  //   window.location.href = "mailto:alexgoode2@gmail.com";
-  // };
+  const taglineRef = useRef(null);
+  const sectionRef = useRef(null);
 
-  useGSAP(() => {
-    // Bounce in "Made"
-    gsap.from(madeRef.current, {
-      y: 200,
-      duration: 1.5,
-      ease: "bounce.out",
+useGSAP(() => {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  if (prefersReducedMotion) {
+    gsap.set([madeRef.current, rightRef.current, taglineRef.current], { 
+      opacity: 1
     });
+    return;
+  }
 
-    // Bounce in "Right" slightly delayed
-    gsap.from(rightRef.current, {
-      y: -200,
-      duration: 1.5,
-      ease: "bounce.out",
-      delay: 0.2,
-    });
-  }, []);
+  const tl = gsap.timeline();
+
+  tl.from([madeRef.current, rightRef.current], {
+    rotationX: -90,
+    transformOrigin: 'center bottom',
+    opacity: 0,
+    filter: 'blur(20px)',
+    duration: MOTION.story,
+    stagger: 0.2,
+    ease: 'power3.out'
+  })
+  .from(taglineRef.current.querySelectorAll('.word'), {
+    y: 40,
+    opacity: 0,
+    rotateX: 45,
+    transformOrigin: 'center top',
+    duration: MOTION.smooth,
+    stagger: 0.06,
+    ease: 'power2.out'
+  }, `-=${MOTION.smooth}`)
+  .to(taglineRef.current.querySelectorAll('.emphasis'), {
+    // fontWeight: '600',
+    duration: MOTION.quick,
+    stagger: 0.15,
+    ease: 'power1.inOut'
+  }, `-=${MOTION.instant}`);
+
+}, []);
 
   return (
     <div className="vh-100 bg-green-900 d-flex justify-content-center align-items-center">
-      <section className="text-center text-dark">
+      <section ref={sectionRef} className="text-center text-dark">
         <h1
           className="text-opener eighties text-white d-flex justify-content-center"
           style={{ paddingLeft: "1.25rem", paddingRight: "1.25rem" }}
         >
-          <span
-            className="d-inline-block"
-            style={{ overflow: "hidden", lineHeight: "1" }}
-          >
+          <span className="d-inline-block">
             <span ref={madeRef} className="d-inline-block me-lg-5 me-3">
               Made
             </span>
           </span>
 
-          <span
-            className="d-inline-block pb-4"
-            style={{ overflow: "hidden", lineHeight: "1" }}
-          >
+          <span className="d-inline-block" >
             <span ref={rightRef} className="d-inline-block">
               Right
             </span>
           </span>
         </h1>
-        <h4 className="text-3xl  light text-white mb-5">
-          An independent creative <span className="">web design</span> and <span className="">technology</span> studio.
+        
+        <h4 ref={taglineRef} className="text-3xl  light text-white mb-5">
+          <span className="word">An</span>{' '}
+          <span className="word">independent</span>{' '}
+          <span className="word">creative</span>{' '}
+          <span className="word emphasis">web design</span>{' '}
+          <span className="word">and</span>{' '}
+          <span className="word emphasis">technology</span>{' '}
+          <span className="word">studio.</span>
         </h4>
-                {/* <button
-          onClick={handleContactClick}
-          className="btn-contact bg-teal-600 px-5 mt-5 py-3 text-lg text-white font-medium rounded-lg"
-        >
-         Hello.
-        </button> */}
       </section>
     </div>
   );
