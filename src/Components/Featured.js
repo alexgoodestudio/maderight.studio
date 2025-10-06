@@ -38,7 +38,7 @@ function Featured() {
 
   return (
     <div className="bg-white featured-body">
-      <h1 className="text-gray-800 text-3xl font-bold text-start mb-5">Featured Work:</h1>
+      <h1 className="text-gray-800 text-6xl font-bold text-start mb-5">Featured Work:</h1>
 
       <div className="row g-4">
         {serviceData.map((service, idx) => (
@@ -72,13 +72,13 @@ function Featured() {
               </div>
               <div className="card-footer p-3">
                <div className="flex">
-  <Link
-    to={service.link}
-    className="bg-teal-900 font-mono  text-white  no-underline hover:bg-green-950 hover:italic px-4 rounded w-full p-2 text-center"
-  >
-    View Project
-  </Link>
-</div>
+              <Link
+                to={service.link}
+                className="bg-teal-900 font-mono  text-white  no-underline hover:bg-green-950 hover:italic px-4 rounded w-full p-2 text-center"
+              >
+                View Project
+              </Link>
+            </div>
               </div>
             </div>
           </div>

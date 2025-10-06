@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 function ScrollMission() {
   const container = useRef();
   const particleWrapperRef = useRef();
+  const particlesRef = useRef([]);
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -17,18 +18,18 @@ function ScrollMission() {
     const textElement = container.current;
     const particles = [];
     
-const tailwindColors = [
-  '#fbcfe8', // pink-200
-  '#ddd6fe', // violet-200
-  '#bfdbfe', // blue-200
-  '#a7f3d0', // emerald-200
-  '#fde68a', // amber-200
-  '#fed7aa', // orange-200
-  '#fecaca', // red-200
-  '#99f6e4', // teal-200
-  '#d9f99d', // lime-200
-  '#e9d5ff', // purple-200
-];
+    const tailwindColors = [
+      '#fbcfe8', // pink-200
+      '#ddd6fe', // violet-200
+      '#bfdbfe', // blue-200
+      '#a7f3d0', // emerald-200
+      '#fde68a', // amber-200
+      '#fed7aa', // orange-200
+      '#fecaca', // red-200
+      '#99f6e4', // teal-200
+      '#d9f99d', // lime-200
+      '#e9d5ff', // purple-200
+    ];
 
     const updateParticleBounds = () => {
       const bounds = textElement.getBoundingClientRect();
@@ -62,6 +63,7 @@ const tailwindColors = [
       
       wrapper.appendChild(particle);
       particles.push(particle);
+      particlesRef.current.push(particle);
 
       // Primary movement - increased range and faster
       gsap.to(particle, {
@@ -173,14 +175,42 @@ const tailwindColors = [
       scrollTrigger: {
         trigger: container.current,
         start: "center center",
-        end: "+=1000",
+        end: "+=2500", // Extended for text + hold + confetti exit
         scrub: true,
         pin: true,
         anticipatePin: 1,
+        onUpdate: (self) => {
+          // When we're 70% through (after text is done and hold period), animate confetti out
+          if (self.progress > 0.7 && particlesRef.current.length > 0) {
+            particlesRef.current.forEach((particle, index) => {
+              // Kill all infinite animations
+              gsap.killTweensOf(particle);
+              
+              // Animate out
+              gsap.to(particle, {
+                y: -1000,
+                x: gsap.utils.random(-200, 200),
+                opacity: 0,
+                rotation: gsap.utils.random(360, 720),
+                duration: 0.8,
+                delay: index * 0.03,
+                ease: 'power2.in'
+              });
+            });
+            // Clear the array so this only runs once
+            particlesRef.current = [];
+          }
+        }
       },
     });
 
-    tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1 });
+    // Text animation takes first 50% of scroll
+    tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1 }, 0);
+    
+    // Hold everything at full opacity for 20% (from 50% to 70%)
+    tl.to({}, { duration: 0.2 });
+    
+    // Confetti exits during remaining 30% (handled by onUpdate callback)
   }, []);
 
   const text = `At Made Right, we bring creativity + technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
