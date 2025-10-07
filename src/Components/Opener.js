@@ -85,7 +85,7 @@ useGSAP(() => {
           <span className="word emphasis">technology</span>{' '}
           <span className="word">studio.</span>
           <br/>
-        <p  className=" word text-sm tracking-wider mt-4 text-white">Located in <span className="">Columbia, South Carolina</span></p>
+        <p  className=" word text-sm tracking-wider mt-4 text-white font-mono">Located in <span className="">Columbia, South Carolina</span></p>
         </h4>
       </section>
     </div>
