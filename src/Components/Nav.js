@@ -15,7 +15,7 @@ function Nav() {
       <nav className="hidden  md:flex justify-center sticky top-0 z-50 px-4 py-4 -mt-1">
         <div className="bg-teal-900 rounded-full px-5 py-2 flex items-center gap-5 shadow-lg">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 text-white font-semibold text-sm no-underline pr-3 border-r border-green-800">
+          <a href="/" className="flex items-center  gap-2 text-white font-semibold text-sm no-underline pr-3 border-r border-green-800">
             Made Right  
           </a>
 
@@ -47,9 +47,7 @@ function Nav() {
                 onMouseLeave={() => setIsCompanyOpen(false)}
               >
                 <div className="bg-white rounded-xl shadow-lg py-1">
-                  <a href="https://www.linkedin.com/in/alexgoodestudio/" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-xs text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1">
-                    LinkedIn
-                  </a>
+      
                   <a href="https://instagram.com/maderight.studio" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-xs text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1">
                     Instagram
                   </a>
@@ -108,7 +106,7 @@ function Nav() {
       <nav className="md:hidden sticky top-0  z-50 px-3 pt-2 pb-4">
         <div className="bg-teal-900 rounded-lg">
           <div className="flex justify-between items-center px-4 py-2">
-            <a href="/" className="flex items-center gap-2 text-white font-semibold text-base no-underline">
+            <a href="/" className="flex items-center gap-2  text-white font-semibold text-base no-underline">
               Made Right 
             </a>
             <button
