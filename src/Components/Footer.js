@@ -134,14 +134,7 @@ function Footer() {
                 </h6>
                 <ul className="list-unstyled">
                   <li className="mb-3">
-                    <a 
-                      href="https://www.linkedin.com/in/alexgoodestudio/" 
-                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      LinkedIn
-                    </a>
+            
                   </li>
                   <li className="mb-3">
                     <a 
