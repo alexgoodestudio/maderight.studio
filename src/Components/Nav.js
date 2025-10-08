@@ -120,7 +120,7 @@ function Nav() {
           </div>
 
           {isMobileOpen && (
-            <div className="bg-green-900 rounded-b-lg">
+            <div className="bg-slate-900 rounded-b-lg">
               <div className="px-4 pb-4">
                 <div className="flex flex-col gap-1 pt-2">
                   <a href="/our-process" className="px-3 py-2 text-sm text-white hover:bg-green-900 rounded-lg no-underline">
