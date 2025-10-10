@@ -66,7 +66,7 @@ function Opener() {
       rotateX: 45,
       transformOrigin: 'center top',
       duration: MOTION.smooth,
-      stagger: 0.15,
+      stagger: 0.1,
       ease: 'power2.out'
     }, `-=${MOTION.smooth}`)
     .to(taglineRef.current.querySelectorAll('.emphasis'), {
