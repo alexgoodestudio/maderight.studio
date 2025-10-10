@@ -27,10 +27,10 @@ function Featured() {
       type: "video",
     },
     {
-      title: "Full-Stack Developer | Alex Goode",
-      subtitle: "Full-Stack Developer Portfolio",
+      title: "Alex Goode Portfolio",
+      subtitle: "Full-Stack Developer ",
       image: Vid2,
-      description: `Portfolio | Alex Goode showcases modern, user-focused web development projects with an emphasis on interactive, engaging interfaces. Combining clean, responsive design with carefully crafted micro-interactions, each project highlights both creativity and technical expertise. From React-based front-end development to full-stack solutions with Node, Express, and PostgreSQL, this portfolio demonstrates a strong commitment to building functional, visually compelling digital experiences that help businesses grow and users enjoy seamless, intuitive interactions.`,
+      description: `Alex Goode's Portfolio website showcases modern, user-focused web development projects with an emphasis on interactive, engaging interfaces. Combining clean, responsive design with carefully crafted micro-interactions, each project highlights both creativity and technical expertise. From React-based front-end development to thoughtfully designed UX/UI, this portfolio demonstrates our abilities to building functional, aesthetically pleasing digital interactions.`,
       link: "http://alexgoode.netlify.app/",
       type: "video",
     },
@@ -76,7 +76,7 @@ function Featured() {
                 to={service.link}
                 className="bg-teal-900 font-mono  text-white  no-underline hover:bg-green-950 hover:italic px-4 rounded w-full p-2 text-center"
               >
-                View Project
+                {`View ${service.title}`}
               </Link>
             </div>
               </div>

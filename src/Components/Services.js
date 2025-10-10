@@ -72,7 +72,7 @@ function Services() {
     },
     { 
       title: "REST API Development", 
-      description: "Scalable Backend Architecture",
+      description: "Client-Server Communication",
       expertise: "Performance-First"
     },
     { 

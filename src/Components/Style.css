@@ -20,9 +20,7 @@
 .br {
   border-radius: 1rem;
 }
-.wave-icon {
-  will-change: transform;
-}
+
 /* Perspective wrapper */
 .flip-container {
   perspective: 900px; 

@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { Hand } from 'lucide-react';
 
 const MOTION = {
   instant: 0.15,
@@ -38,9 +37,7 @@ function Contact() {
     <div className="row contact">
       <div className="col-lg-12 col-12 bg-slate-100 contact text-dark d-flex flex-column justify-content-center items-center text-center p-4">
         <h3 className="mb-3 d-flex align-items-center justify-content-center gap-3">
-          <span ref={waveRef} className="wave-icon d-inline-block">
-            <Hand size={32} strokeWidth={1.5} />
-          </span>
+
           Interested in working together?
         </h3>
         <p className="text-lg contact-body mb-4">

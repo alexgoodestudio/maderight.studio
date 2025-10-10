@@ -229,7 +229,7 @@ function ScrollMission() {
       
       <p
         ref={container}
-        className="story text-3xl  text-slate-400 leading-relaxed mission-body"
+        className="story text-4xl  text-slate-400 leading-relaxed mission-body"
       >
         {text.split(" ").map((word, i) => {
           const match = word.match(/^(\w+)(\W*)$/);
