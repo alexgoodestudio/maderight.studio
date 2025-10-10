@@ -22,14 +22,11 @@ function Opener() {
   React.useEffect(() => {
     const loadFont = async () => {
       try {
-        // Wait for the specific font to load
         await document.fonts.load('1em eighties');
-        // Or wait for all fonts to be ready
         await document.fonts.ready;
         setFontLoaded(true);
       } catch (error) {
         console.error('Font loading error:', error);
-        // Fallback: show content anyway after timeout
         setTimeout(() => setFontLoaded(true), 2000);
       }
     };
@@ -51,29 +48,71 @@ function Opener() {
 
     const tl = gsap.timeline();
 
-    tl.from([madeRef.current, rightRef.current], {
-      rotationX: -90,
-      // rotationY: -180,
-      transformOrigin: 'center bottom',
-      opacity: 0,
-      duration: MOTION.story,
-      stagger: 0.3,
-      ease: 'power3.out'
-    })
-    .from(taglineRef.current.querySelectorAll('.word'), {
-      y: 40,
-      opacity: 0,
-      rotateX: 45,
-      transformOrigin: 'center top',
-      duration: MOTION.smooth,
-      stagger: 0.1,
-      ease: 'power2.out'
-    }, `-=${MOTION.smooth}`)
-    .to(taglineRef.current.querySelectorAll('.emphasis'), {
-      duration: MOTION.quick,
-      stagger: 0.15,
-      ease: 'power1.inOut'
-    }, `-=${MOTION.instant}`);
+    // Calculate starting positions based on viewport size (responsive)
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    // Use percentages of viewport for responsive positioning
+    // Start "Made" in top-left corner
+    const madeStartX = -viewportWidth * 0.25; // 25% of viewport width to the left
+    const madeStartY = -viewportHeight * 0.25; // 25% of viewport height up
+    
+    // Start "Right" in bottom-right corner  
+    const rightStartX = viewportWidth * 0.25; // 25% of viewport width to the right
+    const rightStartY = viewportHeight * 0.25; // 25% of viewport height down
+
+    // Set initial positions
+    gsap.set(madeRef.current, {
+      x: madeStartX,
+      y: madeStartY,
+      opacity: 1
+    });
+
+    gsap.set(rightRef.current, {
+      x: rightStartX,
+      y: rightStartY,
+      opacity: 1
+    });
+
+    // Animation sequence
+    tl
+      // Step 1: Move both vertically to center (y: 0)
+      .to(madeRef.current, {
+        y: 0,
+        duration: MOTION.story,
+        ease: 'power3.out'
+      })
+      .to(rightRef.current, {
+        y: 0,
+        duration: MOTION.story,
+        ease: 'power3.out'
+      }, '<') // '<' makes it start at the same time as previous animation
+      // Step 2: Move both horizontally to center (x: 0)
+      .to(madeRef.current, {
+        x: 0,
+        duration: MOTION.story,
+        ease: 'power3.out'
+      })
+      .to(rightRef.current, {
+        x: 0,
+        duration: MOTION.story,
+        ease: 'power3.out'
+      }, '<')
+      // Animate tagline
+      .from(taglineRef.current.querySelectorAll('.word'), {
+        y: 40,
+        opacity: 0,
+        rotateX: 45,
+        transformOrigin: 'center top',
+        duration: MOTION.smooth,
+        stagger: 0.12,
+        ease: 'power2.out'
+      }, `-=${MOTION.smooth}`)
+      .to(taglineRef.current.querySelectorAll('.emphasis'), {
+        duration: MOTION.quick,
+        stagger: 0.15,
+        ease: 'power1.inOut'
+      }, `-=${MOTION.instant}`);
 
   }, [fontLoaded]);
 

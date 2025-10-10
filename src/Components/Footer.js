@@ -1,45 +1,12 @@
-import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const MOTION = {
-  smooth: 0.5,
-  slow: 0.8
-};
 
 function Footer() {
   const year = new Date().getFullYear();
-  const footerRef = useRef(null);
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  useGSAP(() => {
-    if (!prefersReducedMotion) {
-      const sections = gsap.utils.toArray('.footer-section');
-      
-      sections.forEach((section, index) => {
-        gsap.from(section, {
-          opacity: 0,
-          y: 30,
-          duration: MOTION.smooth,
-          ease: "power2.out",
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: footerRef.current,
-            start: "top 85%",
-            toggleActions: "play none none none"
-          },
-          delay: index * 0.08
-        });
-      });
-    }
-  }, { scope: footerRef });
 
   return (
-    <footer ref={footerRef} className="bg-teal-950 text-slate-100 pt-32 pb-8 ">
+    <footer  className="bg-teal-950 text-slate-100 pt-32 pb-8 ">
       <div className="container-fluid px-4 px-lg-5">
         
         {/* Primary Content Grid */}
