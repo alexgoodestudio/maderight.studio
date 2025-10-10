@@ -53,11 +53,11 @@ function Opener() {
 
     tl.from([madeRef.current, rightRef.current], {
       rotationX: -90,
+      // rotationY: -180,
       transformOrigin: 'center bottom',
       opacity: 0,
-      filter: 'blur(20px)',
       duration: MOTION.story,
-      stagger: 0.2,
+      stagger: 0.3,
       ease: 'power3.out'
     })
     .from(taglineRef.current.querySelectorAll('.word'), {
@@ -66,7 +66,7 @@ function Opener() {
       rotateX: 45,
       transformOrigin: 'center top',
       duration: MOTION.smooth,
-      stagger: 0.06,
+      stagger: 0.15,
       ease: 'power2.out'
     }, `-=${MOTION.smooth}`)
     .to(taglineRef.current.querySelectorAll('.emphasis'), {

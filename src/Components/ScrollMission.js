@@ -229,7 +229,7 @@ function ScrollMission() {
       
       <p
         ref={container}
-        className="story text-4xl  text-slate-400 leading-relaxed mission-body"
+        className="story mission-text  text-slate-400 leading-relaxed mission-body"
       >
         {text.split(" ").map((word, i) => {
           const match = word.match(/^(\w+)(\W*)$/);
@@ -238,7 +238,7 @@ function ScrollMission() {
 
           let colorClass = "";
           if (letters === "creativity") colorClass = "text-blue-400 ";
-          else if (letters === "technology") colorClass = "text-blue-500 ";
+          else if (letters === "technology") colorClass = "text-blue-600 ";
 
           return (
             <span key={i} className="inline-block  light mr-2">
