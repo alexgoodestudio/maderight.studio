@@ -68,7 +68,7 @@ function Services() {
     { 
       title: "Back-End Development", 
       description: "APIs, Databases & Infrastructure",
-      expertise: "Headless Systems"
+      expertise: "Data Management"
     },
     { 
       title: "REST API Development", 
