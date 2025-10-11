@@ -116,7 +116,7 @@ function Services() {
 
             <div className="row mb-5">
               <div className="col-12 col-lg-10">
-                <div className="border border-slate-900 p-4 bg-blue-50 rounded-xl">
+                <div className="border border-slate-900 p-4 bg-teal-50 rounded-xl">
                   <Typewriter />
                 </div>
               </div>
@@ -169,6 +169,7 @@ function Services() {
                     Every project begins with understanding your goals. We build scalable, 
                     component-based systems that evolve with your business.
                   </p>
+                 
                   <div className="mt-auto pt-4">
                     <Link 
                       to="/process" 
