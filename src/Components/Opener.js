@@ -46,78 +46,108 @@ function Opener() {
       return;
     }
 
-    const tl = gsap.timeline();
+    // Wait for next frame to ensure elements are rendered
+    requestAnimationFrame(() => {
+      // Calculate starting positions based on viewport and element size
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      const edgePadding = 60; // Padding from screen edges
+      
+      // Get actual element dimensions using getBoundingClientRect for accurate measurements
+      const madeRect = madeRef.current.getBoundingClientRect();
+      const rightRect = rightRef.current.getBoundingClientRect();
+      
+      const madeWidth = madeRect.width;
+      const madeHeight = madeRect.height;
+      const rightWidth = rightRect.width;
+      const rightHeight = rightRect.height;
+      
+      console.log('Made dimensions:', madeWidth, madeHeight);
+      console.log('Right dimensions:', rightWidth, rightHeight);
+      console.log('Viewport:', viewportWidth, viewportHeight);
+      
+      // Calculate how far from current center position we need to move
+      // Current position of elements (they're centered)
+      const madeCenterX = madeRect.left + madeWidth / 2;
+      const madeCenterY = madeRect.top + madeHeight / 2;
+      const rightCenterX = rightRect.left + rightWidth / 2;
+      const rightCenterY = rightRect.top + rightHeight / 2;
+      
+      // Target positions (corners with padding)
+      const madeTargetX = edgePadding + madeWidth / 2; // Left edge at padding
+      const madeTargetY = edgePadding + madeHeight / 2; // Top edge at padding
+      const rightTargetX = viewportWidth - edgePadding - rightWidth / 2; // Right edge at padding
+      const rightTargetY = viewportHeight - edgePadding - rightHeight / 2; // Bottom edge at padding
+      
+      // Calculate transform distances
+      const madeStartX = madeTargetX - madeCenterX;
+      const madeStartY = madeTargetY - madeCenterY;
+      const rightStartX = rightTargetX - rightCenterX;
+      const rightStartY = rightTargetY - rightCenterY;
+      
+      console.log('Made start transform:', madeStartX, madeStartY);
+      console.log('Right start transform:', rightStartX, rightStartY);
 
-    // Calculate starting positions based on viewport size (responsive)
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-    
-    // Use percentages of viewport for responsive positioning
-    // Start "Made" in top-left corner
-    const madeStartX = -viewportWidth * 0.25; // 25% of viewport width to the left
-    const madeStartY = -viewportHeight * 0.25; // 25% of viewport height up
-    
-    // Start "Right" in bottom-right corner  
-    const rightStartX = viewportWidth * 0.25; // 25% of viewport width to the right
-    const rightStartY = viewportHeight * 0.25; // 25% of viewport height down
+      const tl = gsap.timeline();
 
-    // Set initial positions
-    gsap.set(madeRef.current, {
-      x: madeStartX,
-      y: madeStartY,
-      opacity: 1
+      // Set initial positions
+      gsap.set(madeRef.current, {
+        x: madeStartX,
+        y: madeStartY,
+        opacity: 1
+      });
+
+      gsap.set(rightRef.current, {
+        x: rightStartX,
+        y: rightStartY,
+        opacity: 1
+      });
+
+      // Animation sequence
+      tl
+        // Step 1: Move both vertically to center (y: 0)
+        .to(madeRef.current, {
+          y: 0,
+          duration: MOTION.story,
+          ease: 'power3.out'
+        })
+        .to(rightRef.current, {
+          y: 0,
+          duration: MOTION.story,
+          ease: 'power3.out'
+        }, '<')
+        // Step 2: Move both horizontally to center (x: 0)
+        .to(madeRef.current, {
+          x: 0,
+          duration: MOTION.story,
+          ease: 'power3.out'
+        })
+        .to(rightRef.current, {
+          x: 0,
+          duration: MOTION.story,
+          ease: 'power3.out'
+        }, '<')
+        // Animate tagline
+        .from(taglineRef.current.querySelectorAll('.word'), {
+          y: 40,
+          opacity: 0,
+          rotateX: 45,
+          transformOrigin: 'center top',
+          duration: MOTION.smooth,
+          stagger: 0.12,
+          ease: 'power2.out'
+        }, `-=${MOTION.smooth}`)
+        .to(taglineRef.current.querySelectorAll('.emphasis'), {
+          duration: MOTION.quick,
+          stagger: 0.15,
+          ease: 'power1.inOut'
+        }, `-=${MOTION.instant}`);
     });
-
-    gsap.set(rightRef.current, {
-      x: rightStartX,
-      y: rightStartY,
-      opacity: 1
-    });
-
-    // Animation sequence
-    tl
-      // Step 1: Move both vertically to center (y: 0)
-      .to(madeRef.current, {
-        y: 0,
-        duration: MOTION.story,
-        ease: 'power3.out'
-      })
-      .to(rightRef.current, {
-        y: 0,
-        duration: MOTION.story,
-        ease: 'power3.out'
-      }, '<') // '<' makes it start at the same time as previous animation
-      // Step 2: Move both horizontally to center (x: 0)
-      .to(madeRef.current, {
-        x: 0,
-        duration: MOTION.story,
-        ease: 'power3.out'
-      })
-      .to(rightRef.current, {
-        x: 0,
-        duration: MOTION.story,
-        ease: 'power3.out'
-      }, '<')
-      // Animate tagline
-      .from(taglineRef.current.querySelectorAll('.word'), {
-        y: 40,
-        opacity: 0,
-        rotateX: 45,
-        transformOrigin: 'center top',
-        duration: MOTION.smooth,
-        stagger: 0.12,
-        ease: 'power2.out'
-      }, `-=${MOTION.smooth}`)
-      .to(taglineRef.current.querySelectorAll('.emphasis'), {
-        duration: MOTION.quick,
-        stagger: 0.15,
-        ease: 'power1.inOut'
-      }, `-=${MOTION.instant}`);
 
   }, [fontLoaded]);
 
   return (
-    <div className="vh-92 bg-teal-950 d-flex justify-content-center align-items-center">
+    <div className="vh-92 bg-teal-950 d-flex justify-content-center align-items-center" style={{ overflow: 'hidden' }}>
       <section 
         ref={sectionRef} 
         className="text-center"
