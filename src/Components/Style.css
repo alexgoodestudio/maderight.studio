@@ -9,6 +9,9 @@
 body {
   overflow-x: hidden;
 }
+
+
+
 .eighties {
   font-family: 'EightiesComeback', sans-serif;
   font-weight: 300;
@@ -431,7 +434,9 @@ body {
   .content-module {
     padding: clamp(2rem, 6vw, 4rem) 0;
   }
-  
+  .hide{
+  display: none;
+}
   .service-module {
     min-height: 80px;
     padding: 1rem !important;

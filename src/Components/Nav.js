@@ -95,7 +95,7 @@ function Nav() {
           {/* CTA Button */}
           <button 
             onClick={handleContactClick}
-            className="bg-white text-green-950 px-4 py-1.5 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors ml-1 cursor-pointer border-0"
+            className="bg-white text-green-950  px-4 py-1.5 rounded-full text-xs transition-colors ml-1 cursor-pointer border-0"
           >
             Contact Us
           </button>
