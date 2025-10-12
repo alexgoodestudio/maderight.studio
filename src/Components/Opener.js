@@ -37,6 +37,9 @@ function Opener() {
   useGSAP(() => {
     if (!fontLoaded) return;
 
+    // Ensure all refs are ready
+    if (!madeRef.current || !rightRef.current || !taglineRef.current) return;
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     if (prefersReducedMotion) {
@@ -48,38 +51,61 @@ function Opener() {
 
     // Wait for next frame to ensure elements are rendered
     requestAnimationFrame(() => {
+      // Double-check refs are still valid
+      if (!madeRef.current || !rightRef.current || !taglineRef.current) return;
+      
+      const taglineWords = taglineRef.current.querySelectorAll('.word');
+      const taglineEmphasis = taglineRef.current.querySelectorAll('.emphasis');
+      
+      // Ensure tagline elements exist
+      if (taglineWords.length === 0) return;
       const viewportWidth = window.innerWidth;
       const isMobile = viewportWidth < 768; // Mobile breakpoint
       
       const tl = gsap.timeline();
 
       if (isMobile) {
-        // Mobile animation: slide in from opposite sides sequentially
+        // Mobile animation: both vertical and horizontal movement without overlap
+        const verticalOffset = 100; // Keeps them on different tracks
+        
+        // Made starts from left + top, Right starts from right + bottom
         gsap.set(madeRef.current, {
-          x: -viewportWidth,
+          x: -viewportWidth / 2,
+          y: -verticalOffset,
           opacity: 1
         });
 
         gsap.set(rightRef.current, {
-          x: viewportWidth,
+          x: viewportWidth / 2,
+          y: verticalOffset,
           opacity: 1
         });
 
         tl
-          // Made slides in from left
+          // Step 1: Both move horizontally toward center (staying on different vertical tracks)
           .to(madeRef.current, {
             x: 0,
             duration: MOTION.story,
             ease: 'power3.out'
           })
-          // Right slides in from right after Made is settled
           .to(rightRef.current, {
             x: 0,
             duration: MOTION.story,
             ease: 'power3.out'
-          }, `-=${MOTION.smooth}`)
+          }, '<')
+          // Step 2: Both move vertically to center (y: 0)
+          .to(madeRef.current, {
+            y: 0,
+            duration: MOTION.story,
+            ease: 'power3.out'
+          })
+          .to(rightRef.current, {
+            y: 0,
+            duration: MOTION.story,
+            ease: 'power3.out'
+          }, '<')
           // Animate tagline
-          .from(taglineRef.current.querySelectorAll('.word'), {
+          .from(taglineWords, {
             y: 40,
             opacity: 0,
             rotateX: 45,
@@ -88,7 +114,7 @@ function Opener() {
             stagger: 0.12,
             ease: 'power2.out'
           }, `-=${MOTION.smooth}`)
-          .to(taglineRef.current.querySelectorAll('.emphasis'), {
+          .to(taglineEmphasis, {
             duration: MOTION.quick,
             stagger: 0.15,
             ease: 'power1.inOut'
@@ -154,7 +180,7 @@ function Opener() {
             duration: MOTION.story,
             ease: 'power3.out'
           }, '<')
-          .from(taglineRef.current.querySelectorAll('.word'), {
+          .from(taglineWords, {
             y: 40,
             opacity: 0,
             rotateX: 45,
@@ -163,7 +189,7 @@ function Opener() {
             stagger: 0.12,
             ease: 'power2.out'
           }, `-=${MOTION.smooth}`)
-          .to(taglineRef.current.querySelectorAll('.emphasis'), {
+          .to(taglineEmphasis, {
             duration: MOTION.quick,
             stagger: 0.15,
             ease: 'power1.inOut'
