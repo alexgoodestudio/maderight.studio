@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 
 function Nav() {
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
@@ -12,10 +12,11 @@ function Nav() {
   return (
     <>
       {/* Desktop Navigation - Sticky */}
-      <nav className="hidden  md:flex justify-center sticky top-0 z-50 px-4 py-4 -mt-1">
-        <div className="bg-teal-900 rounded-full px-5 py-2 flex items-center gap-5 shadow-lg">
+      <nav className="hidden md:flex justify-between items-center sticky top-0 z-50 px-4 py-4 -mt-1">
+        {/* Main Navigation Pill */}
+        <div className="bg-teal-900 rounded-full px-5 py-2 flex items-center gap-5 shadow-lg mx-auto">
           {/* Logo */}
-          <a href="/" className="flex items-center  gap-2 text-white font-semibold text-sm no-underline pr-3 border-r border-green-800">
+          <a href="/" className="flex items-center gap-2 text-white font-semibold text-sm no-underline pr-3 border-r border-green-800">
             Made Right  
           </a>
 
@@ -47,7 +48,6 @@ function Nav() {
                 onMouseLeave={() => setIsCompanyOpen(false)}
               >
                 <div className="bg-white rounded-xl shadow-lg py-1">
-      
                   <a href="https://instagram.com/maderight.studio" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-xs text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1">
                     Instagram
                   </a>
@@ -95,18 +95,36 @@ function Nav() {
           {/* CTA Button */}
           <button 
             onClick={handleContactClick}
-            className="bg-white text-green-950  px-4 py-1.5 rounded-full text-xs transition-colors ml-1 cursor-pointer border-0"
+            className="bg-white text-green-950 px-4 py-1.5 rounded-full text-xs transition-colors ml-1 cursor-pointer border-0"
           >
             Contact Us
           </button>
         </div>
+
+        {/* Right Side Links - Isolated */}
+        <div className="flex items-center gap-3">
+          <a 
+            href="/about" 
+            className=" bg-white text-slate-950 py-2 px-5  rounded-md text-xs font-medium  transition-colors no-underline"
+            style={{ letterSpacing: '0.02em' }}
+          >
+            About 
+          </a>
+          <a 
+            href="/team" 
+            className="text-white bg-teal-900 py-2 px-5 rounded-md text-xs font-medium hover:text-slate-600 transition-colors no-underline"
+            style={{ letterSpacing: '0.02em' }}
+          >
+            Team 
+          </a>
+        </div>
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className="md:hidden sticky top-0  z-50 px-3 pt-2 pb-4">
+      <nav className="md:hidden sticky top-0 z-50 px-3 pt-2 pb-4">
         <div className="bg-teal-900 rounded-lg">
           <div className="flex justify-between items-center px-4 py-2">
-            <a href="/" className="flex items-center gap-2  text-white font-semibold text-base no-underline">
+            <a href="/" className="flex items-center gap-2 text-white font-semibold text-base no-underline">
               Made Right 
             </a>
             <button
@@ -126,6 +144,12 @@ function Nav() {
                   </a>
                   <a href="/blog" className="px-3 py-2 text-sm text-white hover:bg-green-900 rounded-lg no-underline">
                     Blog
+                  </a>
+                  <a href="/about" className="px-3 py-2 text-sm text-white hover:bg-green-900 rounded-lg no-underline">
+                    About
+                  </a>
+                  <a href="/team" className="px-3 py-2 text-sm text-white hover:bg-green-900 rounded-lg no-underline">
+                    Team
                   </a>
 
                   <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-1">
