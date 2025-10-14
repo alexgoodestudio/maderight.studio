@@ -47,14 +47,14 @@ function Typewriter() {
 
   return (
     <div className="flex items-center justify-between rounded-lg">
-      <h3 className="text-secondary text-xl border bg-white border-gray-300 rounded-xl ps-4 py-2 flex-1 mx-4 text-left">
+      <h3 className="text-secondary text-xl border bg-white border-gray-300 rounded-xl ps-4 py-2 flex-1  text-left">
         <span ref={txtRef}></span>
-        <span className="ml-1 border-r-2 border-white animate-blink"></span>
+        <span className="ml-1 border-r-2 border-gray animate-blink"></span>
       </h3>
 
       <Link 
         to="/our-process"
-        className="px-4 py-2 hide bg-teal-900 no-underline text-white rounded whitespace-nowrap hover:bg-teal-950 transition-colors"
+        className="px-4 py-2 hide bg-teal-900 ms-3 no-underline text-white rounded whitespace-nowrap hover:bg-teal-950 transition-colors"
       >
         Our Process
       </Link>
