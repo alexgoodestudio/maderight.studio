@@ -12,7 +12,7 @@ function Nav() {
   return (
     <>
       {/* Desktop Navigation - Sticky */}
-      <nav className="hidden md:flex justify-between items-center sticky top-0 z-50 px-4 py-4 -mt-1">
+      <nav className="hidden md:flex justify-between items-center sticky bg-transparent top-0 z-50 px-4 py-4 -mt-1">
         {/* Main Navigation Pill */}
         <div className="bg-teal-900 rounded-full px-5 py-2 flex items-center gap-5 shadow-lg mx-auto">
           {/* Logo */}
@@ -21,45 +21,22 @@ function Nav() {
           </a>
 
           {/* Navigation Links */}
-          <a href="/our-process" className="text-white text-xs hover:text-gray-300 transition-colors no-underline">
+          <a href="/about" className="text-white text-sm hover:text-gray-300 transition-colors no-underline">
+            About
+          </a>
+
+     
+
+          <a href="/team" className="text-white text-sm hover:text-gray-300 transition-colors no-underline">
+            Team
+          </a>
+     <a href="/our-process" className="text-white text-sm hover:text-gray-300 transition-colors no-underline">
             Our Process
           </a>
-
-          <a href="/blog" className="text-white text-xs hover:text-gray-300 transition-colors no-underline">
-            Blog
-          </a>
-
-          {/* Socials Dropdown */}
-          <div className="relative">
-            <button
-              className="text-white text-xs hover:text-gray-300 transition-colors flex items-center gap-1"
-              onMouseEnter={() => setIsCompanyOpen(true)}
-              onMouseLeave={() => setIsCompanyOpen(false)}
-            >
-              Socials
-              <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {isCompanyOpen && (
-              <div
-                className="absolute top-full left-0 pt-2 w-44 z-50"
-                onMouseEnter={() => setIsCompanyOpen(true)}
-                onMouseLeave={() => setIsCompanyOpen(false)}
-              >
-                <div className="bg-white rounded-xl shadow-lg py-1">
-                  <a href="https://instagram.com/maderight.studio" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-xs text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1">
-                    Instagram
-                  </a>
-                </div>
-              </div>
-            )}
-          </div>
-
           {/* Featured Work Dropdown */}
           <div className="relative">
             <button
-              className="text-white text-xs hover:text-gray-300 transition-colors flex items-center gap-1"
+              className="text-white text-sm hover:text-gray-300 transition-colors flex items-center gap-1"
               onMouseEnter={() => setIsFeaturedOpen(true)}
               onMouseLeave={() => setIsFeaturedOpen(false)}
             >
@@ -95,7 +72,7 @@ function Nav() {
           {/* CTA Button */}
           <button 
             onClick={handleContactClick}
-            className="bg-white text-green-950 px-4 py-1.5 rounded-full text-xs transition-colors ml-1 cursor-pointer border-0"
+            className="bg-white text-green-950 px-4 py-1.5 rounded-full text-sm transition-colors ml-1 cursor-pointer border-0"
           >
             Contact Us
           </button>
@@ -103,20 +80,42 @@ function Nav() {
 
         {/* Right Side Links - Isolated */}
         <div className="flex items-center gap-3">
+          
           <a 
-            href="/about" 
-            className=" bg-white text-slate-950 py-2 px-5  rounded-md text-xs font-medium  transition-colors no-underline"
+            href="/blog" 
+            className=" bg-white text-slate-950 border border-gray py-2 px-5  rounded-md text-sm font-medium  transition-colors no-underline"
             style={{ letterSpacing: '0.02em' }}
           >
-            About 
+            Blog
           </a>
-          <a 
-            href="/team" 
-            className="text-white bg-teal-900 py-2 px-5 rounded-md text-xs font-medium hover:text-slate-600 transition-colors no-underline"
-            style={{ letterSpacing: '0.02em' }}
-          >
-            Team 
-          </a>
+          
+          {/* Socials Dropdown */}
+          <div className="relative">
+            <button
+              className="text-white bg-teal-900 py-2 px-5 rounded-md text-sm font-medium hover:text-slate-300 transition-colors flex items-center gap-1"
+              style={{ letterSpacing: '0.02em' }}
+              onMouseEnter={() => setIsCompanyOpen(true)}
+              onMouseLeave={() => setIsCompanyOpen(false)}
+            >
+              Socials
+              <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {isCompanyOpen && (
+              <div
+                className="absolute top-full right-0 pt-2 w-44 z-50"
+                onMouseEnter={() => setIsCompanyOpen(true)}
+                onMouseLeave={() => setIsCompanyOpen(false)}
+              >
+                <div className="bg-white rounded-xl shadow-lg py-1">
+                  <a href="https://instagram.com/maderight.studio" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-xs text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1">
+                    Instagram
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </nav>
 
