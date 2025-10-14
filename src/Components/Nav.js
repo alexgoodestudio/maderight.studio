@@ -21,22 +21,22 @@ function Nav() {
           </a>
 
           {/* Navigation Links */}
-          <a href="/about" className="text-white text-sm hover:text-gray-300 transition-colors no-underline">
+          <a href="/about" className="text-white text-xs hover:text-gray-300 transition-colors no-underline">
             About
           </a>
 
      
 
-          <a href="/team" className="text-white text-sm hover:text-gray-300 transition-colors no-underline">
+          <a href="/team" className="text-white text-xs hover:text-gray-300 transition-colors no-underline">
             Team
           </a>
-     <a href="/our-process" className="text-white text-sm hover:text-gray-300 transition-colors no-underline">
+     <a href="/our-process" className="text-white text-xs hover:text-gray-300 transition-colors no-underline">
             Our Process
           </a>
           {/* Featured Work Dropdown */}
           <div className="relative">
             <button
-              className="text-white text-sm hover:text-gray-300 transition-colors flex items-center gap-1"
+              className="text-white text-xs hover:text-gray-300 transition-colors flex items-center gap-1"
               onMouseEnter={() => setIsFeaturedOpen(true)}
               onMouseLeave={() => setIsFeaturedOpen(false)}
             >
@@ -72,7 +72,7 @@ function Nav() {
           {/* CTA Button */}
           <button 
             onClick={handleContactClick}
-            className="bg-white text-green-950 px-4 py-1.5 rounded-full text-sm transition-colors ml-1 cursor-pointer border-0"
+            className="bg-white text-green-950 px-4 py-1.5 rounded-full text-xs transition-colors ml-1 cursor-pointer border-0"
           >
             Contact Us
           </button>
@@ -83,7 +83,7 @@ function Nav() {
           
           <a 
             href="/blog" 
-            className=" bg-white text-slate-950 border border-gray py-2 px-5  rounded-md text-sm font-medium  transition-colors no-underline"
+            className=" bg-white text-slate-950 border border-gray py-2 px-5  rounded-md text-xs font-medium  transition-colors no-underline"
             style={{ letterSpacing: '0.02em' }}
           >
             Blog
@@ -92,7 +92,7 @@ function Nav() {
           {/* Socials Dropdown */}
           <div className="relative">
             <button
-              className="text-white bg-teal-900 py-2 px-5 rounded-md text-sm font-medium hover:text-slate-300 transition-colors flex items-center gap-1"
+              className="text-white bg-teal-900 py-2 px-5 rounded-md text-xs font-medium hover:text-slate-300 transition-colors flex items-center gap-1"
               style={{ letterSpacing: '0.02em' }}
               onMouseEnter={() => setIsCompanyOpen(true)}
               onMouseLeave={() => setIsCompanyOpen(false)}
@@ -154,9 +154,7 @@ function Nav() {
                   <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-1">
                     Socials
                   </div>
-                  <a href="https://www.linkedin.com/in/alexgoodestudio/" target="_blank" rel="noopener noreferrer" className="px-3 py-2 text-sm text-white hover:bg-green-900 rounded-lg no-underline">
-                    LinkedIn
-                  </a>
+   
                   <a href="https://instagram.com/maderight.studio" target="_blank" rel="noopener noreferrer" className="px-3 py-2 text-sm text-white hover:bg-green-900 rounded-lg no-underline">
                     Instagram
                   </a>
