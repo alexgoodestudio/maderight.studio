@@ -133,8 +133,8 @@ function Stats() {
                   Time Reclaimed
                 </div>
                 <h2 ref={headingRef} className="text-6xl font-bold mb-4">
-                  <span ref={totalHoursRef} className="text-slate-900">0</span> hours 
-                  <span className="text-slate-400"> saved monthly</span>
+                  <span ref={totalHoursRef} className="text-slate-900 eighties">0</span>  <span className="text-slate-900 eighties">hours</span>
+                  <span className="text-slate-400 eighties"> saved monthly</span>
                 </h2>
                 <p className="text-lg text-slate-700">
                   For small creative businesses, a well-built system isn't about traffic 

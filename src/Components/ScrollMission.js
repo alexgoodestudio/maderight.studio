@@ -47,10 +47,13 @@ function ScrollMission() {
       const startY = gsap.utils.random(5, 95);
       const color = tailwindColors[Math.floor(Math.random() * tailwindColors.length)];
       
+      // Keep at least half (9) at standard size, randomize the rest
+      const size = i < 9 ? 14 : gsap.utils.random(8, 22);
+      
       particle.style.cssText = `
         position: absolute;
-        width: 14px;
-        height: 14px;
+        width: ${size}px;
+        height: ${size}px;
         border-radius: 50%;
         background-color: ${color};
         opacity: 0.6;
@@ -229,7 +232,7 @@ function ScrollMission() {
       
       <p
         ref={container}
-        className="story mission-text  text-slate-400 leading-relaxed mission-body"
+        className="story mission-text  text-teal-800 leading-relaxed mission-body"
       >
         {text.split(" ").map((word, i) => {
           const match = word.match(/^(\w+)(\W*)$/);
@@ -237,8 +240,8 @@ function ScrollMission() {
           const punctuation = match ? match[2] : "";
 
           let colorClass = "";
-          if (letters === "creativity") colorClass = "text-sky-500 ";
-          else if (letters === "technology") colorClass = "text-sky-600 ";
+          if (letters === "creativity") colorClass = "text-sky-400 ";
+          else if (letters === "technology") colorClass = "text-sky-400 ";
 
           return (
             <span key={i} className="inline-block  light mr-2">

@@ -36,7 +36,7 @@ function Contact() {
   return (
     <div className="row contact">
       <div className="col-lg-12 col-12 bg-slate-100 contact text-dark d-flex flex-column justify-content-center items-center text-center p-4">
-        <h3 className="mb-3 d-flex align-items-center justify-content-center gap-3">
+        <h3 className="eighties mb-3 d-flex align-items-center justify-content-center gap-3">
 
           Interested in working together?
         </h3>

@@ -83,7 +83,7 @@ function Nav() {
           
           <a 
             href="/blog" 
-            className=" bg-white text-slate-950 border border-gray py-2 px-5  rounded-md text-xs font-medium  transition-colors no-underline"
+            className=" border-white text-white border border-gray py-2 px-5  rounded-md text-xs font-medium  transition-colors no-underline"
             style={{ letterSpacing: '0.02em' }}
           >
             Blog
