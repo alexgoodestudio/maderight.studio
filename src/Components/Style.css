@@ -199,10 +199,10 @@ body {
   height: 85vh;
 }
 .mission-body{
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 20%;
-  padding-bottom: 20%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 20vh; /* Use vh instead of % */
+  padding-bottom: 20vh;
   text-align: start;
 }
 .blog-post-content h2 {
@@ -527,7 +527,7 @@ body {
 /* ------------------------------    TEXT SIZE SYSTEM --------------------------------*/
 
 /* Large Display - tight tracking */
-.text-opener{ font-size: 12rem;}
+.text-opener{ font-size: 13rem;}
 .text-12xl { font-size: 10rem; line-height: 1.05; } /* ~160px */
 .text-11xl { font-size: 8rem;  line-height: 1.08; } /* ~128px */
 .text-10xl { font-size: 7rem;  line-height: 1.1;  } /* ~112px */
@@ -587,11 +587,12 @@ body {
 }
 
 .mission-body{
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 10%;
-  padding-bottom: 10%;
-  text-align: start;
+
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 25vh; /* Adjust to vertically center */
+    padding-bottom: 25vh;
+    text-align: start;
 }
   
   .banner-text {

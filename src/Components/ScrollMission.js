@@ -213,10 +213,10 @@ function ScrollMission() {
     // Confetti exits during remaining 30% (handled by onUpdate callback)
   }, []);
 
-  const text = `At Made Right, we bring creativity + technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
+  const text = `Made Right is a design-focused web development studio based in Columbia, South Carolina. We bring creativity and technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
 
   return (
-    <div className="bg-white ">
+    <div className="bg-white">
       <div 
         ref={particleWrapperRef}
         style={{
@@ -237,8 +237,8 @@ function ScrollMission() {
           const punctuation = match ? match[2] : "";
 
           let colorClass = "";
-          if (letters === "creativity") colorClass = "text-blue-400 ";
-          else if (letters === "technology") colorClass = "text-blue-600 ";
+          if (letters === "creativity") colorClass = "text-sky-500 ";
+          else if (letters === "technology") colorClass = "text-sky-600 ";
 
           return (
             <span key={i} className="inline-block  light mr-2">

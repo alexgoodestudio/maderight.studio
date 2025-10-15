@@ -1,14 +1,16 @@
 import React, { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import "./Style.css";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const MOTION = {
   instant: 0.15,
   quick: 0.3,
   smooth: 0.5,
   slow: 0.8,
-  story: 1.2
+  story: .925
 };
 
 function Opener() {
@@ -60,15 +62,13 @@ function Opener() {
       // Ensure tagline elements exist
       if (taglineWords.length === 0) return;
       const viewportWidth = window.innerWidth;
-      const isMobile = viewportWidth < 768; // Mobile breakpoint
+      const isMobile = viewportWidth < 768;
       
       const tl = gsap.timeline();
 
       if (isMobile) {
-        // Mobile animation: both vertical and horizontal movement without overlap
-        const verticalOffset = 100; // Keeps them on different tracks
+        const verticalOffset = 100;
         
-        // Made starts from left + top, Right starts from right + bottom
         gsap.set(madeRef.current, {
           x: -viewportWidth / 2,
           y: -verticalOffset,
@@ -82,7 +82,6 @@ function Opener() {
         });
 
         tl
-          // Step 1: Both move horizontally toward center (staying on different vertical tracks)
           .to(madeRef.current, {
             x: 0,
             duration: MOTION.story,
@@ -93,7 +92,6 @@ function Opener() {
             duration: MOTION.story,
             ease: 'power3.out'
           }, '<')
-          // Step 2: Both move vertically to center (y: 0)
           .to(madeRef.current, {
             y: 0,
             duration: MOTION.story,
@@ -104,7 +102,6 @@ function Opener() {
             duration: MOTION.story,
             ease: 'power3.out'
           }, '<')
-          // Animate tagline
           .from(taglineWords, {
             y: 40,
             opacity: 0,
@@ -120,7 +117,6 @@ function Opener() {
             ease: 'power1.inOut'
           }, `-=${MOTION.instant}`);
       } else {
-        // Desktop/tablet animation: original corner animation
         const viewportHeight = window.innerHeight;
         const edgePadding = 60;
         
@@ -195,12 +191,64 @@ function Opener() {
             ease: 'power1.inOut'
           }, `-=${MOTION.instant}`);
       }
+      
+      // REVERSIBLE scroll-triggered split animation - randomized directions
+      const madeLetters = madeRef.current.querySelectorAll('.letter');
+      const rightLetters = rightRef.current.querySelectorAll('.letter');
+      
+      const splitTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 20%',
+          end: 'top top',
+          scrub: 2
+        }
+      });
+      
+      // Animate each letter in "Made" to fly off in random directions
+      madeLetters.forEach((letter) => {
+        const angle = Math.random() * 360; // Random angle 0-360 degrees
+        const distance = viewportWidth * (0.15 + Math.random() * 0.25); // Random distance 0.15-0.4x viewport (stays on screen)
+        const x = Math.cos(angle * Math.PI / 180) * distance;
+        const y = Math.sin(angle * Math.PI / 180) * distance;
+        const rotation = Math.random() * 720 - 360; // Random rotation -360 to 360
+        
+        splitTl.to(letter, {
+          x: x,
+          y: y,
+          rotation: rotation,
+          ease: 'power2.inOut'
+        }, 0);
+      });
+      
+      // Animate each letter in "Right" to fly off in random directions
+      rightLetters.forEach((letter) => {
+        const angle = Math.random() * 360;
+        const distance = viewportWidth * (0.15 + Math.random() * 0.25); // Random distance 0.15-0.4x viewport (stays on screen)
+        const x = Math.cos(angle * Math.PI / 180) * distance;
+        const y = Math.sin(angle * Math.PI / 180) * distance;
+        const rotation = Math.random() * 720 - 360;
+        
+        splitTl.to(letter, {
+          x: x,
+          y: y,
+          rotation: rotation,
+          ease: 'power2.inOut'
+        }, 0);
+      });
+      
+      // Fade out tagline
+      splitTl.to(taglineRef.current, {
+        opacity: 0,
+        y: -50,
+        ease: 'power2.inOut'
+      }, 0);
     });
 
   }, [fontLoaded]);
 
   return (
-    <div className="vh-92 bg-teal-950 d-flex justify-content-center align-items-center" style={{ overflow: 'hidden' }}>
+    <div className="vh-100 bg-teal-950 d-flex justify-content-center align-items-center" style={{ overflow: 'hidden' }}>
       <section 
         ref={sectionRef} 
         className="text-center"
@@ -212,18 +260,25 @@ function Opener() {
         >
           <span className="d-inline-block">
             <span ref={madeRef} className="d-inline-block me-lg-5 me-3">
-              Made
+              <span className="letter d-inline-block">M</span>
+              <span className="letter d-inline-block">a</span>
+              <span className="letter d-inline-block">d</span>
+              <span className="letter d-inline-block">e</span>
             </span>
           </span>
 
           <span className="d-inline-block">
             <span ref={rightRef} className="d-inline-block">
-              Right
+              <span className="letter d-inline-block">R</span>
+              <span className="letter d-inline-block">i</span>
+              <span className="letter d-inline-block">g</span>
+              <span className="letter d-inline-block">h</span>
+              <span className="letter d-inline-block">t</span>
             </span>
           </span>
         </h1>
         
-        <h4 ref={taglineRef} className="text-3xl pt-4 font-light text-white mb-5">
+        <h2 ref={taglineRef} className="text-3xl pt-4 font-light text-white mb-5">
           <span className="word">An</span>{' '}
           <span className="word">independent</span>{' '}
           <span className="word">creative</span>{' '}
@@ -232,10 +287,10 @@ function Opener() {
           <span className="word emphasis">technology</span>{' '}
           <span className="word">studio.</span>
           <br/>
-          <p className="word text-sm tracking-wider mt-4 text-white font-mono">
+          <h2 className="word text-sm tracking-wider mt-4 text-white font-mono">
             Located in <span className="">Columbia, South Carolina</span>
-          </p>
-        </h4>
+          </h2>
+        </h2>
       </section>
     </div>
   );
