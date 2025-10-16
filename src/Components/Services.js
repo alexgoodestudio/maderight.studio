@@ -105,7 +105,7 @@ function Services() {
             
             <div className=" text-start row mb-5">
               <div className="col-12 col-lg-8">
-                <h2 ref={headingRef} className="text-6xl eighties font-bold mb-3">
+                <h2 ref={headingRef} className="text-5xl eighties font-bold mb-3">
                   What We Do.
                 </h2>
                 <div ref={metadataRef} className="text-sm text-slate-600 mb-4">
@@ -163,7 +163,7 @@ function Services() {
                     Our Approach
                   </div>
                   <h3 className="text-2xl font-medium mb-3">
-                    Made Right Studio
+                    Modular by Design
                   </h3>
                   <p className="text-sm text-slate-300 mb-4">
                     Every project begins with understanding your goals. We build 

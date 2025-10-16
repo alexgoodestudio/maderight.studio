@@ -277,7 +277,7 @@ function Opener() {
           </span>
         </h1>
         
-        <h2 ref={taglineRef} className="text-3xl pt-4 font-light text-white mb-5">
+        <h2 ref={taglineRef} className="text-2xl tracking-wider pt-4 font-light text-white mb-5">
           <span className="word">An</span>{' '}
           <span className="word">independent</span>{' '}
           <span className="word">creative</span>{' '}
@@ -286,7 +286,7 @@ function Opener() {
           <span className="word emphasis">technology</span>{' '}
           <span className="word">studio.</span>
           <br/>
-          <h2 className=" text-sm tracking-wider italic mt-3 text-slate-200 font-mono">
+          <h2 className=" text-sm tracking-wider mt-3 text-white font-mono">
             Based in <span className="">Columbia, South Carolina</span>
           </h2>
         </h2>

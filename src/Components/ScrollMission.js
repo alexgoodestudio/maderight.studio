@@ -223,7 +223,7 @@ const text = `Made Right Studio is a two-person, design-focused web development 
       
       <p
         ref={container}
-        className="story mission-text text-slate-600  leading-relaxed mission-body"
+        className="story mission-text text-slate-700  leading-relaxed mission-body"
       >
         {text.split(" ").map((word, i) => {
           const match = word.match(/^(\w+)(\W*)$/);
@@ -231,7 +231,7 @@ const text = `Made Right Studio is a two-person, design-focused web development 
           const punctuation = match ? match[2] : "";
 
           let colorClass = "";
-          if (letters === "Made" || letters === "Right" || letters === "Studio" ) colorClass = "text-teal-600";
+          if (letters === "Made" || letters === "Right" || letters === "Studio" ) colorClass = "text-teal-700";
 
           return (
             <span key={i} className="inline-block  light mr-2">

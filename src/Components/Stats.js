@@ -125,9 +125,9 @@ function Stats() {
                 <div className="text-xs text-slate-600 mb-3">
                   Time Reclaimed
                 </div>
-                <h2 ref={headingRef} className="text-6xl  mb-4">
+                <h2 ref={headingRef} className="text-5xl  mb-4">
                   <span ref={totalHoursRef} className="text-teal-800 eighties ">0</span>  <span className="text-slate-800 eighties">hours</span>
-                  <span className="text-slate-400 text-3xl font-extralight italic"> saved monthly</span>
+                  <span className="text-slate-400 text-4xl font-light"> saved monthly</span>
                 </h2>
                 <p className="text-lg text-slate-700">
                   For small creative businesses, a well-built system is about reclaiming the time you lose fighting with your website. 

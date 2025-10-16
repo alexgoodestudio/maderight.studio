@@ -649,7 +649,7 @@ body {
 
 @media (min-width: 1024px) {
   .mission-text {
-    font-size: 2.2rem; /* text-5xl - desktop */
+    font-size: 1.8rem; /* text-5xl - desktop */
     line-height: 1.25;
   }
 }

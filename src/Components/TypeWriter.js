@@ -47,7 +47,7 @@ function Typewriter() {
 
   return (
     <div className="flex items-center justify-between rounded-lg">
-      <h3 className="text-secondary text-xl border bg-white border-gray-300 rounded-xl ps-4 py-2 flex-1  text-left">
+      <h3 className="text-secondary text-lg border bg-white border-gray-300 rounded-xl ps-4 py-2 flex-1  text-left">
         <span ref={txtRef}></span>
         <span className="ml-1 border-r-2 border-gray animate-blink"></span>
       </h3>
