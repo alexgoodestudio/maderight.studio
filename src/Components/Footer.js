@@ -31,7 +31,7 @@ function Footer() {
               
               {/* Studio Links */}
               <div className="col-md-4 col-6 mb-4 mb-md-0 footer-section">
-                <h6 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">
+                <h6 className="text-xs font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
                   Studio
                 </h6>
                 <ul className="list-unstyled">
@@ -57,7 +57,7 @@ function Footer() {
 
               {/* Work Links */}
               <div className="col-md-4 col-6 mb-4 mb-md-0 footer-section">
-                <h6 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">
+                <h6 className="text-xs font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
                   Recent Work
                 </h6>
                 <ul className="list-unstyled">
@@ -96,7 +96,7 @@ function Footer() {
 
               {/* Connect Links */}
               <div className="col-md-4 col-12 footer-section">
-                <h6 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">
+                <h6 className="text-xs font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
                   Connect
                 </h6>
                 <ul className="list-unstyled">
@@ -123,13 +123,13 @@ function Footer() {
         {/* Bottom Bar */}
         <div className="row align-items-center footer-section">
           <div className="col-md-6 col-12 mb-3 mb-md-0">
-            <p className="text-xs text-slate-500 mb-0">
+            <p className="text-xs text-slate-200 mb-0">
               © {year} Made Right Studios — Columbia, South Carolina
             </p>
           </div>
           <div className="col-md-6 col-12 text-md-end">
-            <p className="text-xs text-slate-500 mb-0">
-              Built with React + Vite
+            <p className="text-xs text-slate-200 mb-0 tracking-wider">
+              hello@maderight.studio
             </p>
           </div>
         </div>

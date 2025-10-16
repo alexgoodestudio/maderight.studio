@@ -2,8 +2,8 @@ function Random() {
 
 
   return (
-    <div className="py-5 text-4xl tracking-wider font-mono bg-pink-100 ">
-      <span className=""></span><span className="font-semibold ">hello@maderight.studio</span>
+    <div className="py-3 text-xl tracking-wide font-mono bg-slate-200 ">
+      <span className=" text-slate-600">hello@maderight.studio</span>
     </div>
   );
 }

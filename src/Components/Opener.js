@@ -205,12 +205,12 @@ function Opener() {
         }
       });
       
-    madeLetters.forEach((letter) => {
+      madeLetters.forEach((letter) => {
         const angle = Math.random() * 360; // Random angle 0-360 degrees
         const distance = viewportWidth * (0.045 + Math.random() * 0.075); // 70% reduction: 0.045-0.12x viewport
         const x = Math.cos(angle * Math.PI / 180) * distance;
         const y = Math.sin(angle * Math.PI / 180) * distance;
-        const rotation = Math.random() * 720 - 360; // Random rotation -360 to 360
+        const rotation = Math.random() * 360 - 180; // Random rotation -180 to 180 (half of original)
         
         splitTl.to(letter, {
           x: x,
@@ -226,7 +226,7 @@ function Opener() {
         const distance = viewportWidth * (0.045 + Math.random() * 0.075); // 70% reduction: 0.045-0.12x viewport
         const x = Math.cos(angle * Math.PI / 180) * distance;
         const y = Math.sin(angle * Math.PI / 180) * distance;
-        const rotation = Math.random() * 720 - 360;
+        const rotation = Math.random() * 360 - 180; // Random rotation -180 to 180 (half of original)
         
         splitTl.to(letter, {
           x: x,

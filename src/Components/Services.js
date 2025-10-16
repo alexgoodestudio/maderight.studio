@@ -132,7 +132,7 @@ function Services() {
                       ref={el => moduleRefs.current[index] = el}
                       className="border-bottom border-end border-slate-900 p-4 cursor-pointer bg-white"
                     >
-                      <div className="row align-items-center">
+                      <div className="row align-items-center ">
                         <div className="col-2 col-md-1">
                           <span className="service-number font-mono text-xs text-slate-500">
                             {String(index + 1).padStart(2, '0')}
@@ -163,10 +163,10 @@ function Services() {
                     Our Approach
                   </div>
                   <h3 className="text-2xl font-medium mb-3">
-                    Modular by Design
+                    Made Right Studio
                   </h3>
                   <p className="text-sm text-slate-300 mb-4">
-                    Every project begins with understanding your goals. We build scalable, 
+                    Every project begins with understanding your goals. We build 
                     component-based systems that evolve with your business.
                   </p>
                  

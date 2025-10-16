@@ -40,7 +40,7 @@ function ScrollMission() {
       const startY = gsap.utils.random(5, 95);
       const color = tailwindColors[i % 2];
       // Keep at least half (9) at standard size, randomize the rest
-      const size = i < 9 ? 40 : gsap.utils.random(8, 22);
+      const size = i < 12 ? 30 : gsap.utils.random(8, 22);
       
       particle.style.cssText = `
         position: absolute;
@@ -208,8 +208,7 @@ function ScrollMission() {
     // Confetti exits during remaining 30% (handled by onUpdate callback)
   }, []);
 
-  const text = `Made Right is a design-focused web development studio based in Columbia, South Carolina. We bring creativity and technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
-
+const text = `Made Right Studio is a two-person, design-focused web development company based in Columbia, South Carolina. Our goal is to bring creativity and technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
   return (
     <div className="bg-white tracking-tight">
       <div 
@@ -224,7 +223,7 @@ function ScrollMission() {
       
       <p
         ref={container}
-        className="story mission-text text-teal-700 leading-relaxed mission-body"
+        className="story mission-text text-slate-600  leading-relaxed mission-body"
       >
         {text.split(" ").map((word, i) => {
           const match = word.match(/^(\w+)(\W*)$/);
@@ -232,8 +231,7 @@ function ScrollMission() {
           const punctuation = match ? match[2] : "";
 
           let colorClass = "";
-          if (letters === "creativity") colorClass = "text-lime-500 ";
-          else if (letters === "technology") colorClass = "text-lime-500 ";
+          if (letters === "Made" || letters === "Right" || letters === "Studio" ) colorClass = "text-teal-600";
 
           return (
             <span key={i} className="inline-block  light mr-2">
