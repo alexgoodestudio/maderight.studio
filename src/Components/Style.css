@@ -205,6 +205,15 @@ body {
   padding-bottom: 20vh;
   text-align: start;
 }
+
+
+.team-member-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--stone-200);
+}
 .blog-post-content h2 {
   margin-top: 3rem;
   margin-bottom: 1rem;
@@ -653,3 +662,5 @@ body {
     line-height: 1.25;
   }
 }
+
+
