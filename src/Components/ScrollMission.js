@@ -20,15 +20,8 @@ function ScrollMission() {
     
     const tailwindColors = [
       '#fbcfe8', // pink-200
-      '#ddd6fe', // violet-200
-      '#bfdbfe', // blue-200
       '#a7f3d0', // emerald-200
-      '#fde68a', // amber-200
-      '#fed7aa', // orange-200
-      '#fecaca', // red-200
-      '#99f6e4', // teal-200
-      '#d9f99d', // lime-200
-      '#e9d5ff', // purple-200
+  
     ];
 
     const updateParticleBounds = () => {
@@ -41,14 +34,13 @@ function ScrollMission() {
 
     updateParticleBounds();
 
-    for (let i = 0; i < 18; i++) {
+  for (let i = 0; i < 8; i++) {
       const particle = document.createElement('div');
       const startX = gsap.utils.random(5, 95);
       const startY = gsap.utils.random(5, 95);
-      const color = tailwindColors[Math.floor(Math.random() * tailwindColors.length)];
-      
+      const color = tailwindColors[i % 2];
       // Keep at least half (9) at standard size, randomize the rest
-      const size = i < 9 ? 14 : gsap.utils.random(8, 22);
+      const size = i < 9 ? 40 : gsap.utils.random(8, 22);
       
       particle.style.cssText = `
         position: absolute;
@@ -219,7 +211,7 @@ function ScrollMission() {
   const text = `Made Right is a design-focused web development studio based in Columbia, South Carolina. We bring creativity and technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
 
   return (
-    <div className="bg-white">
+    <div className="bg-white tracking-tight">
       <div 
         ref={particleWrapperRef}
         style={{
@@ -232,7 +224,7 @@ function ScrollMission() {
       
       <p
         ref={container}
-        className="story mission-text  text-teal-800 leading-relaxed mission-body"
+        className="story mission-text text-teal-700 leading-relaxed mission-body"
       >
         {text.split(" ").map((word, i) => {
           const match = word.match(/^(\w+)(\W*)$/);
@@ -240,8 +232,8 @@ function ScrollMission() {
           const punctuation = match ? match[2] : "";
 
           let colorClass = "";
-          if (letters === "creativity") colorClass = "text-sky-400 ";
-          else if (letters === "technology") colorClass = "text-sky-400 ";
+          if (letters === "creativity") colorClass = "text-blue-400 ";
+          else if (letters === "technology") colorClass = "text-blue-400 ";
 
           return (
             <span key={i} className="inline-block  light mr-2">

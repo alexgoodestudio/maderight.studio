@@ -30,7 +30,7 @@ function Contact() {
   }, []);
 
   const handleContactClick = () => {
-    window.location.href = "mailto:alexgoode2@gmail.com";
+    window.location.href = "mailto:hello@maderight.studio";
   };
 
   return (

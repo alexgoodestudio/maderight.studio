@@ -205,10 +205,9 @@ function Opener() {
         }
       });
       
-      // Animate each letter in "Made" to fly off in random directions
-      madeLetters.forEach((letter) => {
+    madeLetters.forEach((letter) => {
         const angle = Math.random() * 360; // Random angle 0-360 degrees
-        const distance = viewportWidth * (0.15 + Math.random() * 0.25); // Random distance 0.15-0.4x viewport (stays on screen)
+        const distance = viewportWidth * (0.045 + Math.random() * 0.075); // 70% reduction: 0.045-0.12x viewport
         const x = Math.cos(angle * Math.PI / 180) * distance;
         const y = Math.sin(angle * Math.PI / 180) * distance;
         const rotation = Math.random() * 720 - 360; // Random rotation -360 to 360
@@ -224,7 +223,7 @@ function Opener() {
       // Animate each letter in "Right" to fly off in random directions
       rightLetters.forEach((letter) => {
         const angle = Math.random() * 360;
-        const distance = viewportWidth * (0.15 + Math.random() * 0.25); // Random distance 0.15-0.4x viewport (stays on screen)
+        const distance = viewportWidth * (0.045 + Math.random() * 0.075); // 70% reduction: 0.045-0.12x viewport
         const x = Math.cos(angle * Math.PI / 180) * distance;
         const y = Math.sin(angle * Math.PI / 180) * distance;
         const rotation = Math.random() * 720 - 360;
@@ -287,8 +286,8 @@ function Opener() {
           <span className="word emphasis">technology</span>{' '}
           <span className="word">studio.</span>
           <br/>
-          <h2 className="word text-sm tracking-wider mt-4 text-white font-mono">
-            Located in <span className="">Columbia, South Carolina</span>
+          <h2 className=" text-sm tracking-wider italic mt-3 text-slate-300 font-mono">
+            Based in <span className="">Columbia, South Carolina</span>
           </h2>
         </h2>
       </section>

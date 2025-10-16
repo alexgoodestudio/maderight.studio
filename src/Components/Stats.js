@@ -20,7 +20,7 @@ function Stats() {
       optimized: 30,
       label: 'Product photos, menu changes, event posts'
     },
-        {
+    {
       task: 'Mobile experience fixes',
       typical: 90,
       optimized: 0,
@@ -82,13 +82,6 @@ function Stats() {
           start: 'top 80%',
           once: true,
           onEnter: () => {
-            gsap.from(metric, {
-              opacity: 0,
-              x: index % 2 === 0 ? -30 : 30,
-              duration: 0.8,
-              ease: 'power2.out'
-            });
-
             gsap.from(progressBar, {
               scaleX: 0,
               transformOrigin: 'left',
@@ -132,9 +125,9 @@ function Stats() {
                 <div className="text-xs text-slate-600 mb-3">
                   Time Reclaimed
                 </div>
-                <h2 ref={headingRef} className="text-6xl font-bold mb-4">
+                <h2 ref={headingRef} className="text-6xl  mb-4">
                   <span ref={totalHoursRef} className="text-slate-900 eighties">0</span>  <span className="text-slate-900 eighties">hours</span>
-                  <span className="text-slate-400 eighties"> saved monthly</span>
+                  <span className="text-slate-400 font-extralight italic"> saved monthly</span>
                 </h2>
                 <p className="text-lg text-slate-700">
                   For small creative businesses, a well-built system isn't about traffic 
@@ -206,8 +199,6 @@ function Stats() {
                 </div>
               ))}
             </div>
-
-   
 
           </div>
         </div>
