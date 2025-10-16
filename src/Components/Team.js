@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Nick from "./Images/nick-min.jpg";
 import Alex from "./Images/self-min.jpg";
+import Nav from './Nav';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,6 +73,8 @@ function Team() {
   }, { scope: sectionRef });
 
   return (
+    <div>
+      <Nav/>
     <section 
       ref={sectionRef} 
       className="team-section"
@@ -119,6 +122,7 @@ function Team() {
         </div>
       </div>
     </section>
+    </div>
   );
 }
 
@@ -240,10 +244,7 @@ const styles = `
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
-    .team-member-card:hover {
-      transform: translateY(-4px);
-    }
-    
+
     .team-member-image-container {
       position: relative;
       width: 100%;
@@ -329,9 +330,7 @@ const styles = `
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
     
-    .team-member-card[data-focal="true"]:hover {
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    }
+
   }
 `;
 
