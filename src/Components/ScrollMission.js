@@ -232,8 +232,8 @@ function ScrollMission() {
           const punctuation = match ? match[2] : "";
 
           let colorClass = "";
-          if (letters === "creativity") colorClass = "text-blue-400 ";
-          else if (letters === "technology") colorClass = "text-blue-400 ";
+          if (letters === "creativity") colorClass = "text-lime-500 ";
+          else if (letters === "technology") colorClass = "text-lime-500 ";
 
           return (
             <span key={i} className="inline-block  light mr-2">

@@ -286,7 +286,7 @@ function Opener() {
           <span className="word emphasis">technology</span>{' '}
           <span className="word">studio.</span>
           <br/>
-          <h2 className=" text-sm tracking-wider italic mt-3 text-slate-300 font-mono">
+          <h2 className=" text-sm tracking-wider italic mt-3 text-slate-200 font-mono">
             Based in <span className="">Columbia, South Carolina</span>
           </h2>
         </h2>
