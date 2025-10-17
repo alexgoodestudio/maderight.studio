@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import Opener from "./Opener";
 import ScrollMission from "./ScrollMission";
 import Featured from "./Featured";
@@ -8,22 +9,102 @@ import Contact from "./Contact";
 import Stats from "./Stats";
 
 function Storage(){
+    const siteUrl = "https://maderight.studio"; 
+    const pageTitle = "Made Right Studio — Web Design and Development Systems for Long-term Growth";
+    const pageDescription = "Independent creative web design and technology studio in Columbia, SC. ";
+    const ogImage = `${siteUrl}/og-image.png`;
 
     return(
-        <div className="bg-teal-950">        
-            <section>
-                <Nav/>
-                <Opener/>
-                <ScrollMission/>
-                <Services/>
-                <Featured/>
-                <Stats/>
-                <Contact/>
-                <Random/>
+        <>
+            <Helmet>
+                {/* Primary Meta Tags (overrides index.html fallbacks) */}
+                <title>{pageTitle}</title>
+                <meta name="description" content={pageDescription} />
+                <link rel="canonical" href={siteUrl} />
                 
-            </section>
-
-        </div>
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={siteUrl} />
+                <meta property="og:title" content={pageTitle} />
+                <meta property="og:description" content={pageDescription} />
+                <meta property="og:image" content={ogImage} />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta property="og:locale" content="en_US" />
+                <meta property="og:site_name" content="Made Right Studio" />
+                
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:url" content={siteUrl} />
+                <meta name="twitter:title" content={pageTitle} />
+                <meta name="twitter:description" content={pageDescription} />
+                <meta name="twitter:image" content={ogImage} />
+                
+                {/* Additional SEO */}
+                <meta name="author" content="Made Right Studio" />
+                <meta name="keywords" content="web design Columbia SC, design systems, progressive small business, museum quality design, modular web development, independent creative studio" />
+                
+                {/* Structured Data - Organization */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Organization",
+                        "name": "Made Right Studio",
+                        "description": "Independent web design and technology studio specializing in modular design systems for progressive small businesses",
+                        "url": siteUrl,
+                        "logo": `${siteUrl}/logo.svg`,
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Columbia",
+                            "addressRegion": "SC",
+                            "addressCountry": "US"
+                        },
+                        "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": "34.0007",
+                            "longitude": "-81.0348"
+                        }
+                    })}
+                </script>
+                
+                {/* Structured Data - Professional Service */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "ProfessionalService",
+                        "name": "Made Right Studio",
+                        "image": ogImage,
+                        "priceRange": "$$",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Columbia",
+                            "addressRegion": "SC",
+                            "addressCountry": "US"
+                        },
+                        "description": pageDescription,
+                        "url": siteUrl,
+                        "serviceType": ["Web Design", "Design Systems", "Web Development", "Brand Identity"],
+                        "areaServed": {
+                            "@type": "State",
+                            "name": "South Carolina"
+                        }
+                    })}
+                </script>
+            </Helmet>
+            
+            <div className="bg-teal-950">        
+                <section>
+                    <Nav/>
+                    <Opener/>
+                    <ScrollMission/>
+                    <Services/>
+                    <Featured/>
+                    <Stats/>
+                    <Contact/>
+                    <Random/>
+                </section>
+            </div>
+        </>
     )
 }
 

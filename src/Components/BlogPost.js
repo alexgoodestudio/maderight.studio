@@ -67,7 +67,7 @@ function BlogPost() {
     <div ref={containerRef} className="bg-slate-50 min-vh-100">
       <Nav/>
       <Helmet>
-        <title>{post.title} | The Lemich Clinic</title>
+        <title>{post.title} | Made Right Studio</title>
         <meta name="description" content={post.description} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.description} />

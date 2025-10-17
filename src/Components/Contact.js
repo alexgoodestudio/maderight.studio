@@ -47,9 +47,9 @@ function Contact() {
         </p>
         <button
           onClick={handleContactClick}
-          className="btn-contact font-mono bg-teal-800 px-4 py-3 text-sm text-white rounded"
+          className="btn-contact text-xl font-mono bg-teal-800 px-5 py-3  text-white rounded"
         >
-          Contact Us
+          Email
         </button>
       </div>
     </div>
