@@ -42,7 +42,7 @@ function Storage(){
                 
                 {/* Additional SEO */}
                 <meta name="author" content="Made Right Studio" />
-                <meta name="keywords" content="web design Columbia SC, design systems, progressive small business, museum quality design, modular web development, independent creative studio" />
+                <meta name="keywords" content="Web Design and Development in Columbia South Carolina " />
                 
                 {/* Structured Data - Organization */}
                 <script type="application/ld+json">
@@ -83,7 +83,7 @@ function Storage(){
                         },
                         "description": pageDescription,
                         "url": siteUrl,
-                        "serviceType": ["Web Design", "Design Systems", "Web Development", "Brand Identity"],
+                        "serviceType": ["Web Design", "Web Development", "SEO", "Brand Identity"],
                         "areaServed": {
                             "@type": "State",
                             "name": "South Carolina"
