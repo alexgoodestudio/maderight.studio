@@ -199,8 +199,7 @@ body {
   height: 85vh;
 }
 .mission-body{
-  padding-left: 5%;
-  padding-right: 5%;
+
   padding-top: 20vh; /* Use vh instead of % */
   padding-bottom: 20vh;
   text-align: start;
@@ -287,8 +286,9 @@ body {
 }
 
 .contact-body{
-  padding-left: 18%;
-  padding-right: 18%;
+  padding-left: 33%;
+  padding-right: 33%;
+  margin-top: 2%;
 }
 
 .btn-call {
@@ -594,6 +594,10 @@ body {
   padding-top: 80px;
   padding-bottom: 120px;
 }
+.contact-body{
+  padding-left: 10%;
+  padding-right: 10%;
+}
 
 .mission-body{
 
@@ -658,7 +662,7 @@ body {
 
 @media (min-width: 1024px) {
   .mission-text {
-    font-size: 1.8rem; /* text-5xl - desktop */
+    font-size: 1.9rem; /* text-5xl - desktop */
     line-height: 1.25;
   }
 }

@@ -12,7 +12,7 @@ function Nav() {
   return (
     <>
       {/* Desktop Navigation - Sticky */}
-      <nav className="hidden md:flex justify-between items-center sticky bg-transparent top-0 z-50 px-4 py-4 -mt-1">
+      <nav className="hidden md:flex justify-between items-center sticky bg-teal-950 top-0 z-50 px-4 py-4 -mt-1">
         {/* Main Navigation Pill */}
         <div className="bg-teal-900 rounded-full px-5 py-2 flex items-center gap-5 shadow-lg mx-auto">
           {/* Logo */}
