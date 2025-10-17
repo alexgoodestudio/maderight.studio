@@ -51,6 +51,22 @@ function Footer() {
                       Our Process
                     </Link>
                   </li>
+                                    <li className="mb-3">
+                    <Link 
+                      to="/about" 
+                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                    >
+                      About
+                    </Link>
+                  </li>
+                                    <li className="mb-3">
+                    <Link 
+                      to="/team" 
+                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                    >
+                      Team
+                    </Link>
+                  </li>
 
                 </ul>
               </div>
@@ -122,7 +138,7 @@ function Footer() {
 
         {/* Bottom Bar */}
         <div className="row align-items-center footer-section">
-          <div className="col-md-6 col-12 mb-3 mb-md-0">
+          <div className="col-md-5 col-12 mb-3 mb-md-0">
             <p className="text-xs text-slate-200 mb-0">
               © {year} Made Right Studios — Columbia, South Carolina
             </p>
