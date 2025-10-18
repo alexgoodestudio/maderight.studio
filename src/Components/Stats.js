@@ -126,7 +126,7 @@ function Stats() {
                   Time Reclaimed
                 </div>
                 <h2 ref={headingRef} className="text-5xl  mb-4">
-                  <span ref={totalHoursRef} className="text-teal-800 eighties ">0</span>  <span className="text-slate-800 eighties">hours</span>
+                  <span ref={totalHoursRef} className=" eighties ">0</span>  <span className="text-slate-800 eighties">hours</span>
                   <span className="text-slate-400 text-4xl font-light"> saved monthly</span>
                 </h2>
                 <p className="text-lg text-slate-700">
