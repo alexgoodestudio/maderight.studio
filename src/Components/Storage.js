@@ -1,12 +1,13 @@
 import { Helmet } from 'react-helmet-async';
 import Opener from "./Opener";
-import ScrollMission from "./ScrollMission";
+// import ScrollMission from "./ScrollMission";
 import Featured from "./Featured";
 import Services from "./Services"
 import Nav from "./Nav";
 import Random from "./Random";
 import Contact from "./Contact";
 import Stats from "./Stats";
+import Mission from './Mission';
 
 function Storage(){
     const siteUrl = "https://maderight.studio"; 
@@ -96,7 +97,8 @@ function Storage(){
                 <section>
                     <Nav/>
                     <Opener/>
-                    <ScrollMission/>
+                    <Mission/>
+                    {/* <ScrollMission/> */}
                     <Services/>
                     <Featured/>
                     <Stats/>

@@ -11,6 +11,10 @@ html, body {
   width: 100%;
 }
 
+.powder-blue{
+  color: #7faafcff;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -594,6 +598,9 @@ body {
   padding-top: 80px;
   padding-bottom: 120px;
 }
+  .mission-p{
+        font-size: 2.5rem; /* text-4xl - iPad */
+  }
 .contact-body{
   padding-left: 10%;
   padding-right: 10%;
@@ -646,7 +653,13 @@ body {
   .text-md   { font-size: 0.8125rem; }
   .text-sm   { font-size: 0.75rem; }
   .text-xs   { font-size: 0.6875rem; }
+  
+  .mission-p{
+        font-size: 1.5rem; /* text-4xl - iPad */
+  }
 }
+
+
 /* Mission text responsive sizing */
 .mission-text {
   font-size: 1.25rem; /* text-3xl - mobile */
@@ -658,6 +671,10 @@ body {
     font-size: 2.25rem; /* text-4xl - iPad */
     line-height: 1.3;
   }
+    .mission-p{
+        font-size: 3.25rem; /* text-4xl - iPad */
+  }
+
 }
 
 @media (min-width: 1024px) {
