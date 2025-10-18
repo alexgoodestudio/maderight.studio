@@ -54,7 +54,7 @@ function Typewriter() {
 
       <Link 
         to="/our-process"
-        className="px-4 py-2 hide bg-teal-900 ms-3 no-underline text-white rounded whitespace-nowrap hover:bg-teal-950 transition-colors"
+        className="px-4 py-2 hide bg-sky-500 ms-3 no-underline text-white rounded whitespace-nowrap hover:bg-teal-950 transition-colors"
       >
         Our Process
       </Link>
