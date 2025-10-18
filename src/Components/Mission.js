@@ -1,3 +1,97 @@
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
+
+function Mission() {
+  const container = useRef();
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    const words = container.current.querySelectorAll(".word");
+
+    // Group words into lines based on Y position
+    const lineGroups = [];
+    const tolerance = 5;
+    
+    words.forEach((word) => {
+      const wordTop = word.getBoundingClientRect().top;
+      let foundLine = false;
+      
+      for (let line of lineGroups) {
+        const lineTop = line[0].getBoundingClientRect().top;
+        if (Math.abs(wordTop - lineTop) < tolerance) {
+          line.push(word);
+          foundLine = true;
+          break;
+        }
+      }
+      
+      if (!foundLine) {
+        lineGroups.push([word]);
+      }
+    });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        start: "center center",
+        end: "+=5000",
+        scrub: 1.5,
+        pin: true,
+        anticipatePin: 1,
+      },
+    });
+
+    // Fade in words
+    tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1, duration: 1 }, 0);
+    
+    // Hold
+    tl.to({}, { duration: 0.3 });
+    
+    // Slide out lines - NO opacity fade, linear movement
+    lineGroups.forEach((lineWords, lineIndex) => {
+      const direction = lineIndex % 2 === 0 ? 1500 : -1500;
+      tl.to(lineWords, {
+        x: direction,
+        duration: 2,
+        ease: 'none'
+      }, '<');
+    });
+
+  }, []);
+
+  const text = "Made Right is a two-person, design-focused web development company based in Columbia, South Carolina. Our goal is to bring creativity and technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.";
+
+  return (
+    <section className="bg-white mission-p py-5 text-start px-lg-5 px-3">
+      <p ref={container} className="mission-body">
+        {text.split(" ").map((word, i) => {
+          const match = word.match(/^(\w+)(\W*)$/);
+          const letters = match ? match[1] : word;
+          const punctuation = match ? match[2] : "";
+
+          let colorClass = "";
+          if (letters === "Made" || letters === "Right") {
+            colorClass = "text-sky-500";
+          }
+
+          return (
+            <span key={i} className="inline-block mr-2">
+              <span className={`word ${colorClass}`}>
+                {letters}
+              </span>
+              {punctuation && <span className="word">{punctuation}</span>}
+            </span>
+          );
+        })}
+      </p>
+    </section>
+  );
+}
+
+export default Mission;
 // import React, { useRef, useEffect } from "react";
 // import gsap from "gsap";
 // import { ScrollTrigger } from "gsap/all";
@@ -240,93 +334,3 @@
 
 // export default Mission;
 
-import React, { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
-import { useGSAP } from "@gsap/react";
-
-function Mission() {
-  const container = useRef();
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  useGSAP(() => {
-    const words = container.current.querySelectorAll(".word");
-
-    // Group words into lines based on Y position
-    const lineGroups = [];
-    const tolerance = 5;
-    
-    words.forEach((word) => {
-      const wordTop = word.getBoundingClientRect().top;
-      let foundLine = false;
-      
-      for (let line of lineGroups) {
-        const lineTop = line[0].getBoundingClientRect().top;
-        if (Math.abs(wordTop - lineTop) < tolerance) {
-          line.push(word);
-          foundLine = true;
-          break;
-        }
-      }
-      
-      if (!foundLine) {
-        lineGroups.push([word]);
-      }
-    });
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container.current,
-        start: "center center",
-        end: "+=3000",
-        scrub: true,
-        pin: true,
-        anticipatePin: 1,
-      },
-    });
-
-    tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1 }, 0);
-    tl.to({}, { duration: 0.2 });
-    
-    lineGroups.forEach((lineWords, lineIndex) => {
-      const direction = lineIndex % 2 === 0 ? 1000 : -1000;
-      tl.to(lineWords, {
-        x: direction,
-        opacity: 0,
-        ease: 'power2.in'
-      }, '<');
-    });
-
-  }, []);
-
-  const text = "Made Right is a two-person, design-focused web development company based in Columbia, South Carolina. Our goal is to bring creativity and technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.";
-
-  return (
-    <section className="bg-white mission-p py-5 text-start px-lg-5 px-3">
-      <p ref={container} className="mission-body">
-        {text.split(" ").map((word, i) => {
-          const match = word.match(/^(\w+)(\W*)$/);
-          const letters = match ? match[1] : word;
-          const punctuation = match ? match[2] : "";
-
-          let colorClass = "";
-          if (letters === "Made" || letters === "Right") {
-            colorClass = "text-sky-400";
-          }
-
-          return (
-            <span key={i} className="inline-block mr-2">
-              <span className={`word ${colorClass}`}>
-                {letters}
-              </span>
-              {punctuation && <span className="word">{punctuation}</span>}
-            </span>
-          );
-        })}
-      </p>
-    </section>
-  );
-}
-
-export default Mission;
