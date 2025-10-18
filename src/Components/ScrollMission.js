@@ -208,7 +208,7 @@ function ScrollMission() {
     // Confetti exits during remaining 30% (handled by onUpdate callback)
   }, []);
 
-const text = `Made Right Studio is a two-person, design-focused web development company based in Columbia, South Carolina. Our goal is to bring creativity and technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
+const text = `Made Right is a two-person, design-focused web development company based in Columbia, South Carolina. Our goal is to bring creativity and technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.`;
   return (
     <div className="bg-white tracking-tight">
       <div 
