@@ -50,12 +50,11 @@ function Mission() {
     // Hold
     tl.to({}, { duration: 0.3 });
     
-    // Slide out lines with opacity fade
+    // Slide out lines - NO opacity fade, linear movement
     lineGroups.forEach((lineWords, lineIndex) => {
       const direction = lineIndex % 2 === 0 ? 1500 : -1500;
       tl.to(lineWords, {
         x: direction,
-        opacity: 0,
         duration: 2,
         ease: 'none'
       }, '<');

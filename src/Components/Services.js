@@ -172,7 +172,7 @@ function Services() {
                  
                   <div className="mt-auto pt-4">
                     <Link 
-                      to="/process" 
+                      to="/our-process" 
                       className="text-white text-sm font-medium"
                     >
                       View Our Process →
