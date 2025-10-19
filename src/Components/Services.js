@@ -105,7 +105,7 @@ function Services() {
             
             <div className=" text-start row mb-5">
               <div className="col-12 col-lg-8">
-                <h2 ref={headingRef} className="text-5xl  font-bold mb-3">
+                <h2 ref={headingRef} className="text-6xl  font-bold mb-3">
                   What We Do.
                 </h2>
                 <div ref={metadataRef} className="text-sm text-slate-600 mb-4">
