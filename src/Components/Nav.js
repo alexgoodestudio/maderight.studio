@@ -5,9 +5,15 @@ function Nav() {
   const [isFeaturedOpen, setIsFeaturedOpen] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
+  // Get current pathname
+  const currentPath = window.location.pathname;
+
   const handleContactClick = () => {
     window.location.href = "mailto:alexgoode2@gmail.com";
   };
+
+  // Helper function to check if link is active
+  const isActive = (path) => currentPath === path;
 
   return (
     <>
@@ -21,18 +27,39 @@ function Nav() {
           </a>
 
           {/* Navigation Links */}
-          <a href="/about" className="text-white text-xs hover:text-gray-300 transition-colors no-underline">
+          <a 
+            href="/about" 
+            className={`text-xs transition-colors no-underline px-3 py-1.5 rounded-full ${
+              isActive('/about') 
+                ? 'bg-white text-teal-950 font-medium' 
+                : 'text-white hover:text-gray-300'
+            }`}
+          >
             About
           </a>
 
-     
-
-          <a href="/team" className="text-white text-xs hover:text-gray-300 transition-colors no-underline">
+          <a 
+            href="/team" 
+            className={`text-xs transition-colors no-underline px-3 py-1.5 rounded-full ${
+              isActive('/team') 
+                ? 'bg-white text-teal-950 font-medium' 
+                : 'text-white hover:text-gray-300'
+            }`}
+          >
             Team
           </a>
-     <a href="/our-process" className="text-white text-xs hover:text-gray-300 transition-colors no-underline">
+
+          <a 
+            href="/our-process" 
+            className={`text-xs transition-colors no-underline px-3 py-1.5 rounded-full ${
+              isActive('/our-process') 
+                ? 'bg-white text-teal-950 font-medium' 
+                : 'text-white hover:text-gray-300'
+            }`}
+          >
             Our Process
           </a>
+
           {/* Featured Work Dropdown */}
           <div className="relative">
             <button
@@ -68,27 +95,30 @@ function Nav() {
               </div>
             )}
           </div>
-
-          {/* CTA Button */}
-          <button 
-            onClick={handleContactClick}
-            className="bg-white text-green-950 px-4 py-1.5 rounded-full text-xs transition-colors ml-1 cursor-pointer border-0"
-          >
-            Contact Us
-          </button>
+        <a 
+          href="/blog" 
+          className={`text-xs transition-colors no-underline px-3 py-1.5 rounded-full ${
+            isActive('/blog') 
+              ? 'bg-white text-teal-950 font-medium' 
+              : 'text-white hover:text-gray-300'
+          }`}
+          style={{ letterSpacing: '0.02em' }}
+        >
+          Blog
+        </a>
         </div>
+
+        {/* Blog Link - Between pill and right side */}
+
 
         {/* Right Side Links - Isolated */}
         <div className="flex items-center gap-3">
-          
-          <a 
-            href="/blog" 
-            className=" border-white text-white border border-gray py-2 px-5  rounded-md text-xs font-medium  transition-colors no-underline"
-            style={{ letterSpacing: '0.02em' }}
+          <button 
+            onClick={handleContactClick}
+            className="bg-white text-green-950 px-5 py-2 rounded-full text-xs transition-colors ml-1 cursor-pointer border-0"
           >
-            Blog
-          </a>
-          
+            Email Us
+          </button>
           {/* Socials Dropdown */}
           <div className="relative">
             <button
@@ -138,16 +168,44 @@ function Nav() {
             <div className="bg-slate-900 rounded-b-lg">
               <div className="px-4 pb-4">
                 <div className="flex flex-col gap-1 pt-2">
-                  <a href="/our-process" className="px-3 py-2 text-sm text-white hover:bg-green-900 rounded-lg no-underline">
+                  <a 
+                    href="/our-process" 
+                    className={`px-3 py-2 text-sm rounded-lg no-underline ${
+                      isActive('/our-process')
+                        ? 'bg-white text-teal-950 font-medium'
+                        : 'text-white hover:bg-green-900'
+                    }`}
+                  >
                     Our Process
                   </a>
-                  <a href="/blog" className="px-3 py-2 text-sm text-white hover:bg-green-900 rounded-lg no-underline">
+                  <a 
+                    href="/blog" 
+                    className={`px-3 py-2 text-sm rounded-lg no-underline ${
+                      isActive('/blog')
+                        ? 'bg-white text-teal-950 font-medium'
+                        : 'text-white hover:bg-green-900'
+                    }`}
+                  >
                     Blog
                   </a>
-                  <a href="/about" className="px-3 py-2 text-sm text-white hover:bg-green-900 rounded-lg no-underline">
+                  <a 
+                    href="/about" 
+                    className={`px-3 py-2 text-sm rounded-lg no-underline ${
+                      isActive('/about')
+                        ? 'bg-white text-teal-950 font-medium'
+                        : 'text-white hover:bg-green-900'
+                    }`}
+                  >
                     About
                   </a>
-                  <a href="/team" className="px-3 py-2 text-sm text-white hover:bg-green-900 rounded-lg no-underline">
+                  <a 
+                    href="/team" 
+                    className={`px-3 py-2 text-sm rounded-lg no-underline ${
+                      isActive('/team')
+                        ? 'bg-white text-teal-950 font-medium'
+                        : 'text-white hover:bg-green-900'
+                    }`}
+                  >
                     Team
                   </a>
 
