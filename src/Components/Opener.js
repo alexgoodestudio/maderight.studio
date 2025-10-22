@@ -539,7 +539,12 @@ function Opener() {
   const rightRef = useRef(null);
   const taglineRef = useRef(null);
   const sectionRef = useRef(null);
+  const buttonTextRef = useRef(null);
   const [fontLoaded, setFontLoaded] = useState(false);
+  const [colorIndex, setColorIndex] = useState(0);
+
+  // Button color cycle - craft culture palette
+  const colors = ['bg-teal-600','bg-sky-600'];
 
   // Wait for font to load
   React.useEffect(() => {
@@ -638,6 +643,25 @@ function Opener() {
 
   }, [fontLoaded]);
 
+  const handleButtonHover = () => {
+    // Cycle to next color
+    setColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
+    
+    // Subtle GSAP animation - refined letter stagger
+    if (buttonTextRef.current) {
+      const letters = buttonTextRef.current.querySelectorAll('.letter');
+      
+      gsap.to(letters, {
+        y: -4,
+        duration: MOTION.quick,
+        stagger: 0.03,
+        ease: 'power2.out',
+        yoyo: true,
+        repeat: 1
+      });
+    }
+  };
+
   return (
     <div className="vh-100 bg-teal-950 d-flex justify-content-center align-items-center" style={{ overflow: 'hidden' }}>
       <section 
@@ -682,6 +706,22 @@ function Opener() {
             Based in <span className="">Columbia, South Carolina</span>
           </h2>
         </h2>
+        
+        <button 
+          className={`${colors[colorIndex]} px-5 py-3 rounded text-white font-medium tracking-wide transition-colors duration-500`}
+          onMouseEnter={handleButtonHover}
+        >
+          <span ref={buttonTextRef} className="d-inline-block font-mono text-md font-semibold">
+            <span className="letter d-inline-block">C</span>
+            <span className="letter d-inline-block">o</span>
+            <span className="letter d-inline-block">n</span>
+            <span className="letter d-inline-block">t</span>
+            <span className="letter d-inline-block">a</span>
+            <span className="letter d-inline-block">c</span>
+            <span className="letter d-inline-block">t</span>
+
+          </span>
+        </button>
       </section>
     </div>
   );
