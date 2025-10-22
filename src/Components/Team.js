@@ -4,6 +4,8 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Nick from "./Images/nick-min.jpg";
 import Alex from "./Images/self-min.jpg";
+import NavBanner from './NavBanner';
+
 import Nav from './Nav';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -74,6 +76,7 @@ function Team() {
 
   return (
     <div>
+      <NavBanner/>
       <Nav/>
     <section 
       ref={sectionRef} 

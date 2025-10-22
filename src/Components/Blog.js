@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ArrowRight, Calendar, User } from 'lucide-react';
 import { blogPosts } from './data/blogData';
+import NavBanner from './NavBanner';
 import Nav from "./Nav";
 import Contact from "./Contact";  
 
@@ -54,6 +55,7 @@ function Blog() {
 
   return (
     <div ref={containerRef} className="bg-slate-50 min-vh-100">
+      <NavBanner/>
       <Nav/>
       <Helmet>
         <title>Made Right Studio | Our Blog</title>

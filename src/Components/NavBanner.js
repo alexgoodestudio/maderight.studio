@@ -1,8 +1,11 @@
 function NavBanner() {
   return (
-    <div className="bg-green-900 text-white pt-4 ">
-      <p className="text-sm">Your one-stop solution for all website needs</p>
+    <div className="bg-sky-200 text-sky-800 text-center pt-3 pb-1">
+      <p className="text-base font-medium tracking-wide">
+       ✄┈ Made Right Studio — Web Design & Development — Columbia, South Carolina
+      </p>
     </div>
   );
 }
+
 export default NavBanner;

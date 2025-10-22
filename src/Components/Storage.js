@@ -9,6 +9,7 @@ import Contact from "./Contact";
 import Stats from "./Stats";
 import Mission from './Mission';
 // import Playground from "./Playground"
+import NavBanner from './NavBanner';
 
 function Storage(){
     const siteUrl = "https://maderight.studio"; 
@@ -96,6 +97,7 @@ function Storage(){
             
             <div className="bg-teal-950">        
                 <section>
+                    <NavBanner/>
                     <Nav/>
                     <Opener/>
                    
