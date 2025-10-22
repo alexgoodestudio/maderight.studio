@@ -223,13 +223,14 @@ function Mission() {
     // Hold
     tl.to({}, { duration: 0.3 });
     
-    // Slide out lines - NO opacity fade, linear movement
+    // Slide out lines with opacity fade - move 40% across
     lineGroups.forEach((lineWords, lineIndex) => {
-      const direction = lineIndex % 2 === 0 ? 1500 : -1500;
+      const direction = lineIndex % 2 === 0 ? '40vw' : '-40vw';
       tl.to(lineWords, {
         x: direction,
-        duration: 2,
-        ease: 'none'
+        opacity: 0,
+        duration: 1.5,
+        ease: 'power1.out'
       }, '<');
     });
 
@@ -238,7 +239,7 @@ function Mission() {
   const text = "Made Right is a design-focused web development company based in Columbia, South Carolina ☀️. Our goal is to bring creativity and technology together to develop web experiences that are as functional as they are beautiful. We focus on thoughtful design, smooth interactions, and purposeful strategy—helping brands grow their presence with websites that inspire, engage, and perform.";
 
   return (
-    <section className="bg-white mission-p py-5 text-start px-lg-5 px-3">
+    <section className="bg-white   mission-p py-5 text-start px-lg-5 px-3">
       <div 
         ref={particleWrapperRef}
         style={{

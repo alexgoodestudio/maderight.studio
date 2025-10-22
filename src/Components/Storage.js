@@ -8,6 +8,7 @@ import Random from "./Random";
 import Contact from "./Contact";
 import Stats from "./Stats";
 import Mission from './Mission';
+// import Playground from "./Playground"
 
 function Storage(){
     const siteUrl = "https://maderight.studio"; 
@@ -104,6 +105,7 @@ function Storage(){
                     <Featured/>
                     <Stats/>
                     <Contact/>
+                    {/* <Playground/> */}
                     <Random/>
                 </section>
             </div>
