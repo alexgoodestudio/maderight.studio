@@ -103,8 +103,8 @@ function Storage(){
                    
                     <Mission/>
                     {/* <ScrollMission/> */}
-                    <Services/>
                     <Featured/>
+                    <Services/>
                     <Stats/>
                     <Contact/>
                     {/* <Playground/> */}
