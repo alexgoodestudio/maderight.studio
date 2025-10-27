@@ -7,6 +7,7 @@ function Mission() {
   const container = useRef();
   const particleWrapperRef = useRef();
   const particlesRef = useRef([]);
+  const hasFadedInRef = useRef(false);
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -47,7 +48,7 @@ function Mission() {
         height: ${size}px;
         border-radius: 50%;
         background-color: ${color};
-        opacity: 0.6;
+        opacity: 0;
         pointer-events: auto;
         left: ${startX}%;
         top: ${startY}%;
@@ -96,15 +97,6 @@ function Mission() {
         repeat: -1,
         yoyo: true,
         delay: gsap.utils.random(0, 2)
-      });
-
-      // Opacity pulse
-      gsap.to(particle, {
-        opacity: gsap.utils.random(0.3, 0.8),
-        duration: gsap.utils.random(2, 5),
-        ease: 'sine.inOut',
-        repeat: -1,
-        yoyo: true
       });
 
       particle.addEventListener('mouseenter', () => {
@@ -196,6 +188,31 @@ function Mission() {
         pin: true,
         anticipatePin: 1,
         onUpdate: (self) => {
+          // Fade in particles at 15% scroll progress
+          if (self.progress > 0.15 && !hasFadedInRef.current && particlesRef.current.length > 0) {
+            hasFadedInRef.current = true;
+            
+            particlesRef.current.forEach((particle, index) => {
+              const targetOpacity = gsap.utils.random(0.3, 0.8);
+              gsap.to(particle, {
+                opacity: targetOpacity,
+                duration: 1.5,
+                delay: index * 0.1,
+                ease: 'power2.out',
+                onComplete: () => {
+                  // Start opacity pulse after fade-in completes
+                  gsap.to(particle, {
+                    opacity: gsap.utils.random(0.3, 0.8),
+                    duration: gsap.utils.random(2, 5),
+                    ease: 'sine.inOut',
+                    repeat: -1,
+                    yoyo: true
+                  });
+                }
+              });
+            });
+          }
+          
           // Trigger bubbles to fly away at 75% scroll progress
           if (self.progress > 0.75 && particlesRef.current.length > 0) {
             particlesRef.current.forEach((particle, index) => {

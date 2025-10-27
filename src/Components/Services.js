@@ -68,7 +68,12 @@ function Services() {
     { 
       title: "Back-End Development", 
       description: "APIs, Databases & Infrastructure",
-      expertise: "Data Management"
+      expertise: "Data Management/ Content Management Systems"
+    },
+    { 
+      title: "Search Engine Optimization", 
+      description: "Technical & Content Strategy",
+      expertise: "Core Web Vitals, Next.js Optimization"
     },
     { 
       title: "REST API Development", 
@@ -76,20 +81,11 @@ function Services() {
       expertise: "Performance-First"
     },
     { 
-      title: "Creative Web Design", 
-      description: "Brand-Forward",
-      expertise: "Design Systems"
-    },
-    { 
       title: "Interactive Design", 
       description: "GSAP & Micro-interactions",
       expertise: "Subtle Motion"
     },
-    { 
-      title: "Search Engine Optimization", 
-      description: "Technical & Content Strategy",
-      expertise: "Core Web Vitals"
-    },
+
     { 
       title: "UX/UI Design", 
       description: "Research-Driven Experiences",
