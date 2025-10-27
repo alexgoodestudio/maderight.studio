@@ -45,22 +45,24 @@ function Featured() {
           <div key={idx} className="col-lg-4 col-md-6">
             <div className="rounded-2xl shadow-md overflow-hidden flex flex-col h-full text-start transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg card-animate">
               {/* Render video OR image */}
-              {service.type === "video" ? (
-                <video
-                  src={service.image}
-                  className="card-img-top object-cover w-full h-48"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
-              ) : (
-                <img
-                  src={service.image}
-                  className="card-img-top object-cover w-full h-48"
-                  alt={service.subtitle}
-                />
-              )}
+{service.type === "video" ? (
+  <video
+    className="card-img-top object-cover w-full h-48"
+    autoPlay
+    muted
+    loop
+    playsInline
+  >
+    <source src={service.image.replace('.mov', '.webm')} type="video/webm" />
+    <source src={service.image} type="video/mp4" />
+  </video>
+) : (
+  <img
+    src={service.image}
+    className="card-img-top object-cover w-full h-48"
+    alt={service.subtitle}
+  />
+)}
 
               <div className="card-body p-5 flex-grow-1">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
