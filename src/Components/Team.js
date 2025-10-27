@@ -2,7 +2,6 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import Nick from "./Images/nick-min.jpg";
 import Alex from "./Images/self-min.jpg";
 import NavBanner from './NavBanner';
 
@@ -23,13 +22,6 @@ const TEAM_MEMBERS = [
     bio: "Full-Stack Web Developer/ Designer with a focus on Front-End Web Development in React.js. Graduate of Promineo Tech's Front End Software Development Program and Chegg Skills (formerly Thinkful) Full-Stack Software Engineering Immersion Program. He is the founder and owner of Made Right.",
     image: Alex,
     focal: true
-  },
-  {
-    name: "Nick Perry",
-    role: "Project Manager",
-    bio: "Formerly a small business owner, Nick is well trained to orchestrate client relationships, timelines and help keep your project moving forward. As an IT enthusiast, he contributes toward quality assuarance and SEO of our products.",
-    image: Nick,
-    focal: false
   }
 ];
 

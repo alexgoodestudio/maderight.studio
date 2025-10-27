@@ -71,8 +71,7 @@ function About() {
   const timeline = [
     { year: '2023', event: "Alex Goode completed Promineo Tech's front-end development program and Thinkful's full-stack engineering immersion program" },
     { year: 'April 2025', event: 'Made Right Studio founded in Columbia, SC' },
-    { year: 'August 2025', event: 'Nick Perry joins as Project Manager' },
-    { year: 'Today', event: 'Accepting new clients' }
+    { year: 'Today', event: 'Now accepting new clients' }
   ];
 
   return (
@@ -265,16 +264,14 @@ function About() {
                   <h3 className='text-teal-900 eighties'>Origins</h3>
                   
                   <p className="body-text">
-                    Made Right Studio was started in April of 2025 in Columbia, South Carolina by Alex Goode. 
+                    Made Right Studio was started in April 2025 in Columbia, South Carolina by Alex Goode. 
                     After completing Promineo Tech's Front End Software Development Program and Thinkful's 
-                    Full-Stack Software Engineering Immersion Program back in 2023, as a long-time hobbyist 
-                    of graphic design, the goal was to build a creative design-first web development studio 
-                    for helping small businesses grow and engage their audience.
-                  </p>
-                  
-                  <p className="body-text">
-                    In August, after bringing on our new Project Manager, Nick Perry, Made Right is officially 
-                    ready for taking in new clients.
+                    Full-Stack Software Engineering Immersion Program in 2023, combined with years of graphic 
+                    design experience, the goal was clear: build a design-first web development studio that 
+                    helps small businesses stand out with fast, high-performing websites. We pride ourselves 
+                    on combining design and development expertise with strategic SEO—using Next.js optimization, 
+                    Semrush analysis, metadata implementation, and other proven techniques to deliver sites that 
+                    load faster, rank higher, and convert better.
                   </p>
                 </div>
               </div>
