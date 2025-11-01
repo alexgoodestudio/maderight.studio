@@ -29,14 +29,14 @@ function OurProcess() {
       number: "01",
       title: "Discovery",
       description: "We start by learning about your goals, your brand, and your audience. Deep-dive sessions ensure we understand what success looks like for you.",
-      deliverables: ["Stakeholder interviews", "Competitive analysis", "User research summary"],
+      deliverables: ["Discovery Call", "Competitive analysis", "User research summary"],
       duration: "1 week"
     },
     {
       number: "02", 
       title: "Design System",
       description: "We create reusable building blocks that make your site flexible and easy to grow. Typography, color, spacing—all mathematically precise.",
-      deliverables: ["Component library", "Style guide", "Design tokens"],
+      deliverables: ["Component library", "Style guide", "Design Guides"],
       duration: "2 weeks"
     },
     {
