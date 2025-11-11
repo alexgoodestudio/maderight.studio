@@ -87,7 +87,7 @@ function Services() {
         <div className="row">
           <div className="col-12">
             
-            <div className="text-start row mb-5">
+            <div className="text-start ms-2 ms-lg-5 row mb-5">
               <div className="col-12 col-lg-8">
                 <h2 ref={headingRef} className="text-6xl font-bold mb-3">
                   What We Do.
@@ -114,13 +114,13 @@ function Services() {
                         <span className="service-number font-mono text-xs text-slate-500 text-start" style={{ width: '5%', flexShrink: 0 }}>
                           {String(index + 1).padStart(2, '0')}
                         </span>
-                        <h3 className="text-xl font-medium mb-0 text-start" style={{ width: '28%', flexShrink: 0 }}>
+                        <h3 className="text-xl font-medium mb-0 text-start" style={{ width: '25%', flexShrink: 0 }}>
                           {service.title}
                         </h3>
-                        <p className="text-sm text-slate-600 mb-0 text-start" style={{ width: '32%', flexShrink: 0 }}>
+                        <p className="text-sm text-slate-600 mb-0 text-start" style={{ width: '30%', flexShrink: 0 }}>
                           {service.description}
                         </p>
-                        <p className="text-xs text-slate-500 font-medium mb-0 text-start" style={{ width: '30%', flexShrink: 0 }}>
+                        <p className="text-xs text-slate-500 font-medium mb-0 text-start" style={{ width: '35%', flexShrink: 0 }}>
                           {service.expertise}
                         </p>
                       </div>
