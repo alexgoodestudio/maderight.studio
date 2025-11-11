@@ -314,7 +314,7 @@ function Mission() {
         }}
       />
       
-      <h2 ref={container} className="mission-body ">
+      <p ref={container} className="mission-body ">
         {text.split(" ").map((word, i) => {
           const match = word.match(/^(\w+)(\W*)$/);
           const letters = match ? match[1] : word;
@@ -334,7 +334,7 @@ function Mission() {
             </span>
           );
         })}
-      </h2>
+      </p>
     </section>
   );
 }

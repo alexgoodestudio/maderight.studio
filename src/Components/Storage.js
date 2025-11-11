@@ -4,7 +4,7 @@ import Opener from "./Opener";
 import Featured from "./Featured";
 import Services from "./Services"
 import Nav from "./Nav";
-import Random from "./Random";
+// import Random from "./Random";
 import Contact from "./Contact";
 import Stats from "./Stats";
 import Mission from './Mission';
@@ -108,7 +108,7 @@ function Storage(){
                     <Stats/>
                     <Contact/>
                     {/* <Playground/> */}
-                    <Random/>
+                    {/* <Random/> */}
                 </section>
             </div>
         </>
