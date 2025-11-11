@@ -179,14 +179,25 @@ function Mission() {
       }
     });
 
+    // Create pin-only ScrollTrigger
+    // Timeline breakdown: fade-in (1) + hold (0.3) + slide-out (1.5) = 2.8 total duration
+    // Pin through: fade-in + hold + 10% of slide-out = 46.4% + 5.4% = 51.8% of animation
+    // 51.8% of 3000px = ~1560px
+    ScrollTrigger.create({
+      trigger: container.current,
+      start: "center center",
+      end: "+=2400", // Unpins when text is ~10% off screen
+      pin: true,
+      anticipatePin: 1,
+    });
+
+    // Create animation timeline with longer duration (not pinned)
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container.current,
         start: "center center",
-        end: "+=5000",
+        end: "+=3000", // Full slide-off animation continues as page scrolls
         scrub: 1.5,
-        pin: true,
-        anticipatePin: 1,
         onUpdate: (self) => {
           // Fade in particles at 15% scroll progress
           if (self.progress > 0.15 && !hasFadedInRef.current && particlesRef.current.length > 0) {
@@ -214,7 +225,7 @@ function Mission() {
           }
           
           // Trigger bubbles to fly away at 75% scroll progress
-          if (self.progress > 0.55 && particlesRef.current.length > 0) {
+          if (self.progress > 0.75 && particlesRef.current.length > 0) {
             particlesRef.current.forEach((particle, index) => {
               gsap.killTweensOf(particle);
               
@@ -240,7 +251,7 @@ function Mission() {
     // Hold
     tl.to({}, { duration: 0.3 });
     
-    // Slide out lines with opacity fade - move 40% across
+    // Slide out lines - continues even after unpin
     lineGroups.forEach((lineWords, lineIndex) => {
       const direction = lineIndex % 2 === 0 ? '40vw' : '-40vw';
       tl.to(lineWords, {

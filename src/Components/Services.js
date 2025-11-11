@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -7,6 +7,7 @@ function Services() {
   const moduleRefs = useRef([]);
   const headingRef = useRef();
   const metadataRef = useRef();
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   useGSAP(() => {
     const modules = moduleRefs.current.filter(Boolean);
@@ -35,71 +36,60 @@ function Services() {
       }
     );
 
-    // Gentle hover interactions
-    modules.forEach((module) => {
-      if (!module) return;
-      
-      const serviceNumber = module.querySelector('.service-number');
-      const serviceContent = module.querySelector('.service-content');
-      
-      module.addEventListener('mouseenter', () => {
-        gsap.to(module, { y: -4, duration: 0.3, ease: "power2.out" });
-        gsap.to(serviceNumber, { color: '#0f172a', duration: 0.3, ease: "power2.out" });
-        gsap.to(serviceContent, { x: 8, duration: 0.3, ease: "power2.out" });
-      });
-
-      module.addEventListener('mouseleave', () => {
-        gsap.to(module, { y: 0, duration: 0.3, ease: "power2.out" });
-        gsap.to(serviceNumber, { color: '#64748b', duration: 0.3, ease: "power2.out" });
-        gsap.to(serviceContent, { x: 0, duration: 0.3, ease: "power2.out" });
-      });
-    });
-
   }, { scope: containerRef });
+
+  const toggleExpand = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
   const services = [
     { 
       title: "Front-End Development", 
       description: "React Framework",
-      expertise: "Component Architecture"
+      expertise: "Component Architecture, State Management",
+      bgColor: "#B8E5F0"
     },
     { 
       title: "Back-End Development", 
       description: "APIs, Databases & Infrastructure",
-      expertise: "Data Management/ Content Management Systems"
+      expertise: "Data Management and Content Management Systems",
+      bgColor: "#F5D4D9"
     },
     { 
       title: "Search Engine Optimization", 
       description: "Technical & Content Strategy",
-      expertise: "Core Web Vitals, Next.js Optimization"
+      expertise: "Core Web Vitals, Next.js Optimization",
+      bgColor: "#D4E8D4"
     },
     { 
       title: "REST API Development", 
       description: "Client-Server Communication",
-      expertise: "Performance-First"
+      expertise: "Scalable API Architecture",
+      bgColor: "#D4C5E8"
     },
     { 
       title: "Interactive Design", 
       description: "GSAP & Micro-interactions",
-      expertise: "Subtle Motion"
+      expertise: "Subtle Motion and User Engagement",
+      bgColor: "#F5E8C8"
     },
-
     { 
       title: "UX/UI Design", 
       description: "Research-Driven Experiences",
-      expertise: "Accessibility-First"
+      expertise: "Accessibility-First",
+      bgColor: "#E8F0F5"
     }
   ];
 
   return (
     <div className="bg-white text-slate-900 content-module" ref={containerRef}>
-      <div className="container-fluid">
+      <div className="">
         <div className="row">
-          <div className="col-12 px-4 px-md-5">
+          <div className="col-12">
             
-            <div className=" text-start row mb-5">
+            <div className="text-start row mb-5">
               <div className="col-12 col-lg-8">
-                <h2 ref={headingRef} className="text-6xl  font-bold mb-3">
+                <h2 ref={headingRef} className="text-6xl font-bold mb-3">
                   What We Do.
                 </h2>
                 <div ref={metadataRef} className="text-sm text-slate-600 mb-4">
@@ -108,45 +98,79 @@ function Services() {
               </div>
             </div>
 
-
-
             <div className="row g-0">
-              
-              <div className="col-12 col-lg-12">
+              <div className="col-12">
                 <div className="border-top border-start border-slate-900">
                   {services.map((service, index) => (
                     <div 
                       key={index}
                       ref={el => moduleRefs.current[index] = el}
-                      className="border-bottom border-end border-slate-900 p-4 cursor-pointer bg-white"
+                      className="border-bottom border-end border-slate-900 p-4"
+                      style={{ backgroundColor: service.bgColor, cursor: 'pointer' }}
+                      onClick={() => toggleExpand(index)}
                     >
-                      <div className="row align-items-center ">
-                        <div className="col-2 col-md-1">
-                          <span className="service-number font-mono text-xs text-slate-500">
-                            {String(index + 1).padStart(2, '0')}
-                          </span>
-                        </div>
-                        <div className="col-10 col-md-11">
-                          <div className="service-content">
-                            <h3 className="text-xl font-medium mb-1">
+                      {/* Desktop Layout */}
+                      <div className="d-none d-lg-flex align-items-center justify-content-between">
+                        <span className="service-number font-mono text-xs text-slate-500 text-start" style={{ width: '5%', flexShrink: 0 }}>
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+                        <h3 className="text-xl font-medium mb-0 text-start" style={{ width: '28%', flexShrink: 0 }}>
+                          {service.title}
+                        </h3>
+                        <p className="text-sm text-slate-600 mb-0 text-start" style={{ width: '32%', flexShrink: 0 }}>
+                          {service.description}
+                        </p>
+                        <p className="text-xs text-slate-500 font-medium mb-0 text-start" style={{ width: '30%', flexShrink: 0 }}>
+                          {service.expertise}
+                        </p>
+                      </div>
+
+                      {/* Mobile Layout */}
+                      <div className="d-lg-none">
+                        <div className="d-flex align-items-center justify-content-between">
+                          <div className="d-flex align-items-center gap-3">
+                            <span className="service-number font-mono text-xs text-slate-500">
+                              {String(index + 1).padStart(2, '0')}
+                            </span>
+                            <h3 className="text-xl font-medium mb-0">
                               {service.title}
                             </h3>
-                            <p className="text-sm text-slate-600 mb-1">
+                          </div>
+                          <svg 
+                            width="20" 
+                            height="20" 
+                            viewBox="0 0 20 20" 
+                            fill="none" 
+                            style={{ 
+                              transform: expandedIndex === index ? 'rotate(180deg)' : 'rotate(0deg)',
+                              transition: 'transform 0.3s ease'
+                            }}
+                          >
+                            <path 
+                              d="M5 7.5L10 12.5L15 7.5" 
+                              stroke="currentColor" 
+                              strokeWidth="2" 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        
+                        {expandedIndex === index && (
+                          <div className="mt-3 ps-4">
+                            <p className="text-sm text-slate-600 mb-2">
                               {service.description}
                             </p>
-                            <p className="text-xs text-slate-500 font-medium">
+                            <p className="text-xs text-slate-500 font-medium mb-0">
                               {service.expertise}
                             </p>
                           </div>
-                        </div>
+                        )}
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-
-
-              
             </div>
 
           </div>
