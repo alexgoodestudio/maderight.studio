@@ -18,9 +18,7 @@ function Opener() {
   const rightRef = useRef(null);
   const taglineRef = useRef(null);
   const sectionRef = useRef(null);
-  const containerRef = useRef(null);
   const [fontLoaded, setFontLoaded] = useState(false);
-  const [animationComplete, setAnimationComplete] = useState(false);
 
   React.useEffect(() => {
     const loadFont = async () => {
@@ -48,7 +46,6 @@ function Opener() {
       gsap.set([madeRef.current, rightRef.current, taglineRef.current], { 
         opacity: 1
       });
-      setAnimationComplete(true);
       return;
     }
 
@@ -63,12 +60,7 @@ function Opener() {
       const viewportWidth = window.innerWidth;
       const verticalOffset = 100;
       
-      const tl = gsap.timeline({
-        onComplete: () => {
-          // Remove overflow hidden once animation completes
-          setAnimationComplete(true);
-        }
-      });
+      const tl = gsap.timeline();
 
       gsap.set(madeRef.current, {
         x: -viewportWidth / 2,
@@ -123,66 +115,83 @@ function Opener() {
 
   return (
     <div 
-      ref={containerRef}
-      className="vh-100 bg-teal-950 d-flex justify-content-center align-items-center" 
+      className="bg-teal-950 d-flex justify-content-center align-items-center" 
       style={{ 
-        overflow: animationComplete ? 'visible' : 'hidden',
-        touchAction: 'pan-y', // Allow vertical scrolling
-        WebkitOverflowScrolling: 'touch', // Smooth scrolling on iOS
+        minHeight: '100vh',
+        position: 'relative',
       }}
     >
-      <section 
-        ref={sectionRef} 
-        className="text-center"
-        style={{ opacity: fontLoaded ? 1 : 0 }}
+      <div 
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          overflow: 'hidden',
+          pointerEvents: 'none',
+        }}
       >
-        <h1
-          className="text-opener eighties text-white d-flex justify-content-center"
-          style={{ paddingLeft: "1.25rem", paddingRight: "1.25rem" }}
+        <section 
+          ref={sectionRef} 
+          className="text-center"
+          style={{ 
+            opacity: fontLoaded ? 1 : 0,
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '100%',
+          }}
         >
-          <span className="d-inline-block">
-            <span ref={madeRef} className="d-inline-block me-lg-5 me-3">
-              <span className="letter d-inline-block">M</span>
-              <span className="letter d-inline-block">a</span>
-              <span className="letter d-inline-block">d</span>
-              <span className="letter d-inline-block">e</span>
+          <h1
+            className="text-opener eighties text-white d-flex justify-content-center"
+            style={{ paddingLeft: "1.25rem", paddingRight: "1.25rem" }}
+          >
+            <span className="d-inline-block">
+              <span ref={madeRef} className="d-inline-block me-lg-5 me-3">
+                <span className="letter d-inline-block">M</span>
+                <span className="letter d-inline-block">a</span>
+                <span className="letter d-inline-block">d</span>
+                <span className="letter d-inline-block">e</span>
+              </span>
             </span>
-          </span>
 
-          <span className="d-inline-block">
-            <span ref={rightRef} className="d-inline-block">
-              <span className="letter d-inline-block">R</span>
-              <span className="letter d-inline-block">i</span>
-              <span className="letter d-inline-block">g</span>
-              <span className="letter d-inline-block">h</span>
-              <span className="letter d-inline-block">t</span>
+            <span className="d-inline-block">
+              <span ref={rightRef} className="d-inline-block">
+                <span className="letter d-inline-block">R</span>
+                <span className="letter d-inline-block">i</span>
+                <span className="letter d-inline-block">g</span>
+                <span className="letter d-inline-block">h</span>
+                <span className="letter d-inline-block">t</span>
+              </span>
             </span>
-          </span>
-        </h1>
-        
-        <h2 ref={taglineRef} className="text-2xl tracking-wider pt-4 font-light text-white mb-5">
-          <section className="d-inline-block text-center pb-3 px-4 md:px-6">
-            <div>
-              <span className="word">An</span>{' '}
-              <span className="word">independent</span>{' '}
-              <span className="word">creative</span>{' '}
-              <span className="word emphasis">web design</span>{' '}
-              <span className="word">and</span>{' '}
-              <span className="word emphasis">technology</span>{' '}
-              <span className="word">studio.</span>
+          </h1>
+          
+          <h2 ref={taglineRef} className="text-2xl tracking-wider pt-4 font-light text-white mb-5">
+            <section className="d-inline-block text-center pb-3 px-4 md:px-6">
+              <div>
+                <span className="word">An</span>{' '}
+                <span className="word">independent</span>{' '}
+                <span className="word">creative</span>{' '}
+                <span className="word emphasis">web design</span>{' '}
+                <span className="word">and</span>{' '}
+                <span className="word emphasis">technology</span>{' '}
+                <span className="word">studio.</span>
+              </div>
+              <div className="mt-2 w-100" style={{ borderBottom: '1px solid currentColor' }}></div>
+            </section>
+
+            <br />
+
+            <div className="d-flex justify-content-center ">
+              <span className="text-sm tracking-wider px-2  text-white font-mono">
+                Based in Columbia, South Carolina
+              </span>
             </div>
-            <div className="mt-2 w-100" style={{ borderBottom: '1px solid currentColor' }}></div>
-          </section>
-
-          <br />
-
-          <div className="d-flex justify-content-center ">
-            <span className="text-sm tracking-wider px-2  text-white font-mono">
-              Based in Columbia, South Carolina
-            </span>
-          </div>
-        </h2>
-      </section>
+          </h2>
+        </section>
+      </div>
     </div>
   );
 }

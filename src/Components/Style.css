@@ -28,16 +28,19 @@
 html, body {
   overflow-x: hidden;
   width: 100%;
+}
 
+body {
+  overflow-x: hidden;
+  overflow-y: auto; 
+  -webkit-overflow-scrolling: touch; 
 }
 
 .powder-blue{
   color: #7faafcff;
 }
 
-body {
-  overflow-x: hidden;
-}
+
 
 
 /* Team Section - Uniform Image Sizing */
