@@ -121,7 +121,7 @@ function Opener() {
 
 
   return (
-    <div className="vh-100 bg-teal-950 d-flex justify-content-center align-items-center" style={{ overflow: 'hidden' }}>
+    <div className="vh-100 bg-teal-950 d-flex justify-content-center align-items-center" >
       <section 
         ref={sectionRef} 
         className="text-center"

@@ -194,13 +194,16 @@ function Mission() {
       const lineGroups = getLineGroups();
 
       // Create pin-only ScrollTrigger
-      ScrollTrigger.create({
-        trigger: container.current,
-        start: "center center",
-        end: "+=2400",
-        pin: true,
-        anticipatePin: 1,
-      });
+ScrollTrigger.create({
+  trigger: container.current,
+  start: "center center",
+  end: "+=2400",
+  pin: true,
+  anticipatePin: 1,
+  pinSpacing: true,  // ADD THIS - prevents layout shift
+  invalidateOnRefresh: true,  // ADD THIS - recalculates on resize
+  fastScrollEnd: true,  // ADD THIS - allows momentum to continue
+});
 
       // Create animation timeline
       const tl = gsap.timeline({
@@ -304,15 +307,17 @@ function Mission() {
 
   return (
     <section className="bg-white gs mission-p py-5 text-start px-lg-5 px-3">
-      <div 
-        ref={particleWrapperRef}
-        style={{
-          position: 'fixed',
-          pointerEvents: 'none',
-          zIndex: 0,
-          overflow: 'hidden'
-        }}
-      />
+<div 
+  ref={particleWrapperRef}
+  style={{
+    position: 'fixed',
+    pointerEvents: 'none',
+    zIndex: 0,
+    overflow: 'hidden',
+    willChange: 'transform',  // ADD THIS - GPU acceleration
+    touchAction: 'none',  // ADD THIS - don't capture touch events
+  }}
+/>
       
       <p ref={container} className="mission-body ">
         {text.split(" ").map((word, i) => {
