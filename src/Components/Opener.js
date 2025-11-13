@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -18,9 +18,10 @@ function Opener() {
   const rightRef = useRef(null);
   const taglineRef = useRef(null);
   const sectionRef = useRef(null);
+  const containerRef = useRef(null);
   const [fontLoaded, setFontLoaded] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const loadFont = async () => {
       try {
         await document.fonts.load('1em eighties');
@@ -33,6 +34,19 @@ function Opener() {
     };
 
     loadFont();
+  }, []);
+
+  // Cleanup any scroll locks on mount/unmount
+  useEffect(() => {
+    // Ensure scroll is enabled
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    
+    return () => {
+      // Cleanup on unmount
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
   }, []);
 
   useGSAP(() => {
@@ -115,83 +129,75 @@ function Opener() {
 
   return (
     <div 
-      className="bg-teal-950 d-flex justify-content-center align-items-center" 
+      ref={containerRef}
+      className="bg-teal-950" 
       style={{ 
         minHeight: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '2rem 0',
         position: 'relative',
       }}
     >
-      <div 
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          overflow: 'hidden',
-          pointerEvents: 'none',
+      <section 
+        ref={sectionRef} 
+        className="text-center"
+        style={{ 
+          opacity: fontLoaded ? 1 : 0,
+          maxWidth: '100%',
         }}
       >
-        <section 
-          ref={sectionRef} 
-          className="text-center"
+        <h1
+          className="text-opener eighties text-white d-flex justify-content-center"
           style={{ 
-            opacity: fontLoaded ? 1 : 0,
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '100%',
+            paddingLeft: "1.25rem", 
+            paddingRight: "1.25rem",
           }}
         >
-          <h1
-            className="text-opener eighties text-white d-flex justify-content-center"
-            style={{ paddingLeft: "1.25rem", paddingRight: "1.25rem" }}
-          >
-            <span className="d-inline-block">
-              <span ref={madeRef} className="d-inline-block me-lg-5 me-3">
-                <span className="letter d-inline-block">M</span>
-                <span className="letter d-inline-block">a</span>
-                <span className="letter d-inline-block">d</span>
-                <span className="letter d-inline-block">e</span>
-              </span>
+          <span className="d-inline-block">
+            <span ref={madeRef} className="d-inline-block me-lg-5 me-3">
+              <span className="letter d-inline-block">M</span>
+              <span className="letter d-inline-block">a</span>
+              <span className="letter d-inline-block">d</span>
+              <span className="letter d-inline-block">e</span>
             </span>
+          </span>
 
-            <span className="d-inline-block">
-              <span ref={rightRef} className="d-inline-block">
-                <span className="letter d-inline-block">R</span>
-                <span className="letter d-inline-block">i</span>
-                <span className="letter d-inline-block">g</span>
-                <span className="letter d-inline-block">h</span>
-                <span className="letter d-inline-block">t</span>
-              </span>
+          <span className="d-inline-block">
+            <span ref={rightRef} className="d-inline-block">
+              <span className="letter d-inline-block">R</span>
+              <span className="letter d-inline-block">i</span>
+              <span className="letter d-inline-block">g</span>
+              <span className="letter d-inline-block">h</span>
+              <span className="letter d-inline-block">t</span>
             </span>
-          </h1>
-          
-          <h2 ref={taglineRef} className="text-2xl tracking-wider pt-4 font-light text-white mb-5">
-            <section className="d-inline-block text-center pb-3 px-4 md:px-6">
-              <div>
-                <span className="word">An</span>{' '}
-                <span className="word">independent</span>{' '}
-                <span className="word">creative</span>{' '}
-                <span className="word emphasis">web design</span>{' '}
-                <span className="word">and</span>{' '}
-                <span className="word emphasis">technology</span>{' '}
-                <span className="word">studio.</span>
-              </div>
-              <div className="mt-2 w-100" style={{ borderBottom: '1px solid currentColor' }}></div>
-            </section>
-
-            <br />
-
-            <div className="d-flex justify-content-center ">
-              <span className="text-sm tracking-wider px-2  text-white font-mono">
-                Based in Columbia, South Carolina
-              </span>
+          </span>
+        </h1>
+        
+        <h2 ref={taglineRef} className="text-2xl tracking-wider pt-4 font-light text-white mb-5">
+          <section className="d-inline-block text-center pb-3 px-4 md:px-6">
+            <div>
+              <span className="word">An</span>{' '}
+              <span className="word">independent</span>{' '}
+              <span className="word">creative</span>{' '}
+              <span className="word emphasis">web design</span>{' '}
+              <span className="word">and</span>{' '}
+              <span className="word emphasis">technology</span>{' '}
+              <span className="word">studio.</span>
             </div>
-          </h2>
-        </section>
-      </div>
+            <div className="mt-2 w-100" style={{ borderBottom: '1px solid currentColor' }}></div>
+          </section>
+
+          <br />
+
+          <div className="d-flex justify-content-center ">
+            <span className="text-sm tracking-wider px-2  text-white font-mono">
+              Based in Columbia, South Carolina
+            </span>
+          </div>
+        </h2>
+      </section>
     </div>
   );
 }

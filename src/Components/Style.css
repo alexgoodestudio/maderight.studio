@@ -25,23 +25,22 @@
   font-display: block; 
 }
 
-html, body {
+html {
   overflow-x: hidden;
   width: 100%;
 }
 
 body {
   overflow-x: hidden;
-  overflow-y: auto; 
-  -webkit-overflow-scrolling: touch; 
+  overflow-y: auto; /* Explicitly allow vertical scroll */
+  width: 100%;
+  position: relative; /* Prevent scroll issues */
+  -webkit-overflow-scrolling: touch;
 }
 
 .powder-blue{
   color: #7faafcff;
 }
-
-
-
 
 /* Team Section - Uniform Image Sizing */
 .team-image-container {
