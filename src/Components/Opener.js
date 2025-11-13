@@ -18,8 +18,8 @@ function Opener() {
   const rightRef = useRef(null);
   const taglineRef = useRef(null);
   const sectionRef = useRef(null);
-  const containerRef = useRef(null);
   const [fontLoaded, setFontLoaded] = useState(false);
+
 
   // Wait for font to load
   React.useEffect(() => {
@@ -47,8 +47,7 @@ function Opener() {
     
     if (prefersReducedMotion) {
       gsap.set([madeRef.current, rightRef.current, taglineRef.current], { 
-        opacity: 1,
-        clearProps: "all"
+        opacity: 1
       });
       return;
     }
@@ -66,14 +65,7 @@ function Opener() {
       const viewportWidth = window.innerWidth;
       const verticalOffset = 100;
       
-      const tl = gsap.timeline({
-        onComplete: () => {
-          // Clear all transforms after animation completes
-          gsap.set([madeRef.current, rightRef.current, ...taglineWords], {
-            clearProps: "transform,transformOrigin,will-change"
-          });
-        }
-      });
+      const tl = gsap.timeline();
 
       gsap.set(madeRef.current, {
         x: -viewportWidth / 2,
@@ -124,31 +116,20 @@ function Opener() {
         }, `-=${MOTION.instant}`);
     });
 
-  }, { scope: containerRef, dependencies: [fontLoaded] });
+  }, [fontLoaded]);
+
+
 
   return (
-    <div 
-      ref={containerRef}
-      className="bg-teal-950" 
-      style={{ 
-        minHeight: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '2rem 1.25rem',
-        position: 'relative'
-      }}
-    >
+    <div className="vh-100 bg-teal-950 d-flex justify-content-center align-items-center" >
       <section 
         ref={sectionRef} 
         className="text-center"
-        style={{ 
-          opacity: fontLoaded ? 1 : 0,
-          maxWidth: '100%'
-        }}
+        style={{ opacity: fontLoaded ? 1 : 0 }}
       >
         <h1
           className="text-opener eighties text-white d-flex justify-content-center"
+          style={{ paddingLeft: "1.25rem", paddingRight: "1.25rem" }}
         >
           <span className="d-inline-block">
             <span ref={madeRef} className="d-inline-block me-lg-5 me-3">
@@ -170,28 +151,32 @@ function Opener() {
           </span>
         </h1>
         
-        <h2 ref={taglineRef} className="text-2xl tracking-wider pt-4 font-light text-white mb-5">
-          <div className="d-inline-block text-center pb-3 px-4">
-            <div>
-              <span className="word">An</span>{' '}
-              <span className="word">independent</span>{' '}
-              <span className="word">creative</span>{' '}
-              <span className="word emphasis">web design</span>{' '}
-              <span className="word">and</span>{' '}
-              <span className="word emphasis">technology</span>{' '}
-              <span className="word">studio.</span>
-            </div>
-            <div className="mt-2 w-100" style={{ borderBottom: '1px solid currentColor' }}></div>
-          </div>
+<h2 ref={taglineRef} className="text-2xl tracking-wider pt-4 font-light text-white mb-5">
+  <section className="d-inline-block text-center pb-3 px-4 md:px-6">
+    <div>
+      <span className="word">An</span>{' '}
+      <span className="word">independent</span>{' '}
+      <span className="word">creative</span>{' '}
+      <span className="word emphasis">web design</span>{' '}
+      <span className="word">and</span>{' '}
+      <span className="word emphasis">technology</span>{' '}
+      <span className="word">studio.</span>
+    </div>
+    <div className="mt-2 w-100" style={{ borderBottom: '1px solid currentColor' }}></div>
+  </section>
 
-          <br />
+  <br />
 
-          <div className="d-flex justify-content-center">
-            <span className="text-sm tracking-wider px-2 text-white font-mono">
-              Based in Columbia, South Carolina
-            </span>
-          </div>
-        </h2>
+  <div className="d-flex justify-content-center ">
+    <span className="text-sm tracking-wider px-2  text-white font-mono">
+      Based in Columbia, South Carolina
+    </span>
+  </div>
+</h2>
+
+        
+
+
       </section>
     </div>
   );
