@@ -8,26 +8,25 @@ gsap.registerPlugin(ScrollTrigger);
 const MOTION = {
   instant: 0.15,
   quick: 0.3,
-  smooth: 0.4, // Reduced from 0.5
+  smooth: 0.5,
   slow: 0.8,
-  story: 0.7 // Reduced from 0.925 - animation completes faster
+  story: .925
 };
 
 function Opener() {
   const madeRef = useRef(null);
   const rightRef = useRef(null);
   const taglineRef = useRef(null);
+  const sectionRef = useRef(null);
   const containerRef = useRef(null);
   const [fontLoaded, setFontLoaded] = useState(false);
-  const [animationComplete, setAnimationComplete] = useState(false);
 
   useEffect(() => {
     const loadFont = async () => {
       try {
-        await document.fonts.load('300 1em EightiesComeback');
+        await document.fonts.load('1em eighties');
         await document.fonts.ready;
-        // Small delay to ensure font is fully rendered
-        setTimeout(() => setFontLoaded(true), 100);
+        setFontLoaded(true);
       } catch (error) {
         console.error('Font loading error:', error);
         setTimeout(() => setFontLoaded(true), 2000);
@@ -48,68 +47,80 @@ function Opener() {
         opacity: 1,
         clearProps: "all"
       });
-      setAnimationComplete(true);
       return;
     }
 
-    const taglineWords = taglineRef.current.querySelectorAll('.word');
-    const taglineEmphasis = taglineRef.current.querySelectorAll('.emphasis');
-    
-    if (taglineWords.length === 0) {
-      setAnimationComplete(true);
-      return;
-    }
-    
-    const viewportWidth = window.innerWidth;
-    const verticalOffset = 100;
-    
-    const tl = gsap.timeline({
-      onComplete: () => {
-        // Clear all transforms after animation
-        gsap.set([madeRef.current, rightRef.current, ...taglineWords], {
-          clearProps: "transform,will-change"
-        });
-        setAnimationComplete(true);
-      }
-    });
+    requestAnimationFrame(() => {
+      if (!madeRef.current || !rightRef.current || !taglineRef.current) return;
+      
+      const taglineWords = taglineRef.current.querySelectorAll('.word');
+      const taglineEmphasis = taglineRef.current.querySelectorAll('.emphasis');
+      
+      if (taglineWords.length === 0) return;
+      
+      const viewportWidth = window.innerWidth;
+      const verticalOffset = 100;
+      
+      const tl = gsap.timeline({
+        onComplete: () => {
+          // CRITICAL: Clear all GSAP-added inline transforms
+          gsap.set(taglineWords, { clearProps: "transform,transformOrigin,will-change" });
+          gsap.set([madeRef.current, rightRef.current], { clearProps: "will-change" });
+        }
+      });
 
-    // Set will-change before animation
-    gsap.set([madeRef.current, rightRef.current], {
-      willChange: "transform"
-    });
+      gsap.set(madeRef.current, {
+        x: -viewportWidth / 2,
+        y: -verticalOffset,
+        opacity: 1
+      });
 
-    gsap.set(madeRef.current, {
-      x: -viewportWidth / 2,
-      y: -verticalOffset,
-      opacity: 1
-    });
+      gsap.set(rightRef.current, {
+        x: viewportWidth / 2,
+        y: verticalOffset,
+        opacity: 1
+      });
 
-    gsap.set(rightRef.current, {
-      x: viewportWidth / 2,
-      y: verticalOffset,
-      opacity: 1
+      tl
+        .to(madeRef.current, {
+          x: 0,
+          duration: MOTION.story,
+          ease: 'power3.out'
+        })
+        .to(rightRef.current, {
+          x: 0,
+          duration: MOTION.story,
+          ease: 'power3.out'
+        }, '<')
+        .to(madeRef.current, {
+          y: 0,
+          duration: MOTION.story,
+          ease: 'power3.out'
+        })
+        .to(rightRef.current, {
+          y: 0,
+          duration: MOTION.story,
+          ease: 'power3.out'
+        }, '<')
+        .from(taglineWords, {
+          y: 40,
+          opacity: 0,
+          rotateX: 45,
+          transformOrigin: 'center top',
+          duration: MOTION.smooth,
+          stagger: 0.12,
+          ease: 'power2.out',
+          // CRITICAL: Clear transforms immediately after each word completes
+          onComplete: function() {
+            gsap.set(this.targets(), { clearProps: "transform,transformOrigin" });
+          }
+        }, `-=${MOTION.smooth}`)
+        .to(taglineEmphasis, {
+          duration: MOTION.quick,
+          stagger: 0.15,
+          ease: 'power1.inOut'
+        }, `-=${MOTION.instant}`);
     });
-
-    tl
-      .to([madeRef.current, rightRef.current], {
-        x: 0,
-        y: 0,
-        duration: MOTION.story,
-        ease: 'power3.out'
-      })
-      .from(taglineWords, {
-        y: 20, // Reduced from 40
-        opacity: 0,
-        duration: MOTION.smooth,
-        stagger: 0.08, // Reduced from 0.12
-        ease: 'power2.out',
-        clearProps: "transform,will-change"
-      }, `-=${MOTION.smooth * 0.3}`)
-      .to(taglineEmphasis, {
-        duration: MOTION.quick,
-        stagger: 0.1,
-        ease: 'power1.inOut'
-      }, `-=${MOTION.instant}`);
 
   }, { scope: containerRef, dependencies: [fontLoaded] });
 
@@ -122,71 +133,66 @@ function Opener() {
         paddingBottom: 'clamp(100px, 20vh, 200px)',
         paddingLeft: '1.25rem',
         paddingRight: '1.25rem',
-        position: 'relative',
-        touchAction: 'pan-y', // Allow vertical scroll
         WebkitOverflowScrolling: 'touch',
+        touchAction: 'pan-y',
       }}
     >
-      <div
-        style={{
+      <section 
+        ref={sectionRef} 
+        className="text-center"
+        style={{ 
           opacity: fontLoaded ? 1 : 0,
-          transition: 'opacity 0.3s ease',
           margin: '0 auto',
           maxWidth: '100%',
-          pointerEvents: animationComplete ? 'auto' : 'none', // Prevent touch interference during animation
         }}
       >
         <h1
-          className="text-opener eighties text-white text-center mb-4"
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-          }}
+          className="text-opener eighties text-white d-flex justify-content-center"
+          style={{ paddingLeft: "1.25rem", paddingRight: "1.25rem" }}
         >
-          <span style={{ display: 'inline-block' }}>
-            <span ref={madeRef} style={{ display: 'inline-block', marginRight: 'clamp(1rem, 3vw, 3rem)' }}>
-              <span style={{ display: 'inline-block' }}>M</span>
-              <span style={{ display: 'inline-block' }}>a</span>
-              <span style={{ display: 'inline-block' }}>d</span>
-              <span style={{ display: 'inline-block' }}>e</span>
+          <span className="d-inline-block">
+            <span ref={madeRef} className="d-inline-block me-lg-5 me-3">
+              <span className="letter d-inline-block">M</span>
+              <span className="letter d-inline-block">a</span>
+              <span className="letter d-inline-block">d</span>
+              <span className="letter d-inline-block">e</span>
             </span>
           </span>
 
-          <span style={{ display: 'inline-block' }}>
-            <span ref={rightRef} style={{ display: 'inline-block' }}>
-              <span style={{ display: 'inline-block' }}>R</span>
-              <span style={{ display: 'inline-block' }}>i</span>
-              <span style={{ display: 'inline-block' }}>g</span>
-              <span style={{ display: 'inline-block' }}>h</span>
-              <span style={{ display: 'inline-block' }}>t</span>
+          <span className="d-inline-block">
+            <span ref={rightRef} className="d-inline-block">
+              <span className="letter d-inline-block">R</span>
+              <span className="letter d-inline-block">i</span>
+              <span className="letter d-inline-block">g</span>
+              <span className="letter d-inline-block">h</span>
+              <span className="letter d-inline-block">t</span>
             </span>
           </span>
         </h1>
         
-        <div className="text-center">
-          <div ref={taglineRef} className="text-2xl tracking-wider pt-4 font-light text-white">
-            <div className="pb-3 px-4">
-              <div style={{ marginBottom: '1rem' }}>
-                <span className="word">An</span>{' '}
-                <span className="word">independent</span>{' '}
-                <span className="word">creative</span>{' '}
-                <span className="word emphasis">web design</span>{' '}
-                <span className="word">and</span>{' '}
-                <span className="word emphasis">technology</span>{' '}
-                <span className="word">studio.</span>
-              </div>
-              <div style={{ borderBottom: '1px solid currentColor', width: '100%' }}></div>
+        <h2 ref={taglineRef} className="text-2xl tracking-wider pt-4 font-light text-white mb-5">
+          <div className="d-inline-block text-center pb-3 px-4">
+            <div>
+              <span className="word">An</span>{' '}
+              <span className="word">independent</span>{' '}
+              <span className="word">creative</span>{' '}
+              <span className="word emphasis">web design</span>{' '}
+              <span className="word">and</span>{' '}
+              <span className="word emphasis">technology</span>{' '}
+              <span className="word">studio.</span>
             </div>
-
-            <div className="mt-4">
-              <span className="text-sm tracking-wider text-white font-mono">
-                Based in Columbia, South Carolina
-              </span>
-            </div>
+            <div className="mt-2 w-100" style={{ borderBottom: '1px solid currentColor' }}></div>
           </div>
-        </div>
-      </div>
+
+          <br />
+
+          <div className="d-flex justify-content-center">
+            <span className="text-sm tracking-wider px-2 text-white font-mono">
+              Based in Columbia, South Carolina
+            </span>
+          </div>
+        </h2>
+      </section>
     </div>
   );
 }
