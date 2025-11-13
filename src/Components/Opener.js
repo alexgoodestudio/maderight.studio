@@ -18,7 +18,6 @@ function Opener() {
   const rightRef = useRef(null);
   const taglineRef = useRef(null);
   const sectionRef = useRef(null);
-  const containerRef = useRef(null);
   const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
@@ -34,19 +33,6 @@ function Opener() {
     };
 
     loadFont();
-  }, []);
-
-  // Cleanup any scroll locks on mount/unmount
-  useEffect(() => {
-    // Ensure scroll is enabled
-    document.body.style.overflow = '';
-    document.documentElement.style.overflow = '';
-    
-    return () => {
-      // Cleanup on unmount
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    };
   }, []);
 
   useGSAP(() => {
@@ -129,15 +115,12 @@ function Opener() {
 
   return (
     <div 
-      ref={containerRef}
       className="bg-teal-950" 
       style={{ 
-        minHeight: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '2rem 0',
-        position: 'relative',
+        paddingTop: 'max(20vh, 100px)',
+        paddingBottom: 'max(20vh, 100px)',
+        paddingLeft: '1.25rem',
+        paddingRight: '1.25rem',
       }}
     >
       <section 
@@ -145,15 +128,12 @@ function Opener() {
         className="text-center"
         style={{ 
           opacity: fontLoaded ? 1 : 0,
+          margin: '0 auto',
           maxWidth: '100%',
         }}
       >
         <h1
           className="text-opener eighties text-white d-flex justify-content-center"
-          style={{ 
-            paddingLeft: "1.25rem", 
-            paddingRight: "1.25rem",
-          }}
         >
           <span className="d-inline-block">
             <span ref={madeRef} className="d-inline-block me-lg-5 me-3">
@@ -176,7 +156,7 @@ function Opener() {
         </h1>
         
         <h2 ref={taglineRef} className="text-2xl tracking-wider pt-4 font-light text-white mb-5">
-          <section className="d-inline-block text-center pb-3 px-4 md:px-6">
+          <div className="d-inline-block text-center pb-3 px-4">
             <div>
               <span className="word">An</span>{' '}
               <span className="word">independent</span>{' '}
@@ -187,12 +167,12 @@ function Opener() {
               <span className="word">studio.</span>
             </div>
             <div className="mt-2 w-100" style={{ borderBottom: '1px solid currentColor' }}></div>
-          </section>
+          </div>
 
           <br />
 
-          <div className="d-flex justify-content-center ">
-            <span className="text-sm tracking-wider px-2  text-white font-mono">
+          <div className="d-flex justify-content-center">
+            <span className="text-sm tracking-wider px-2 text-white font-mono">
               Based in Columbia, South Carolina
             </span>
           </div>
