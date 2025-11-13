@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -18,10 +18,11 @@ function Opener() {
   const rightRef = useRef(null);
   const taglineRef = useRef(null);
   const sectionRef = useRef(null);
-  const containerRef = useRef(null);
   const [fontLoaded, setFontLoaded] = useState(false);
 
-  useEffect(() => {
+
+  // Wait for font to load
+  React.useEffect(() => {
     const loadFont = async () => {
       try {
         await document.fonts.load('1em eighties');
@@ -38,36 +39,33 @@ function Opener() {
 
   useGSAP(() => {
     if (!fontLoaded) return;
+
+    // Ensure all refs are ready
     if (!madeRef.current || !rightRef.current || !taglineRef.current) return;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     if (prefersReducedMotion) {
       gsap.set([madeRef.current, rightRef.current, taglineRef.current], { 
-        opacity: 1,
-        clearProps: "all"
+        opacity: 1
       });
       return;
     }
 
+    // Wait for next frame to ensure elements are rendered
     requestAnimationFrame(() => {
+      // Double-check refs are still valid
       if (!madeRef.current || !rightRef.current || !taglineRef.current) return;
       
       const taglineWords = taglineRef.current.querySelectorAll('.word');
       const taglineEmphasis = taglineRef.current.querySelectorAll('.emphasis');
       
+      // Ensure tagline elements exist
       if (taglineWords.length === 0) return;
-      
       const viewportWidth = window.innerWidth;
       const verticalOffset = 100;
       
-      const tl = gsap.timeline({
-        onComplete: () => {
-          // CRITICAL: Clear all GSAP-added inline transforms
-          gsap.set(taglineWords, { clearProps: "transform,transformOrigin,will-change" });
-          gsap.set([madeRef.current, rightRef.current], { clearProps: "will-change" });
-        }
-      });
+      const tl = gsap.timeline();
 
       gsap.set(madeRef.current, {
         x: -viewportWidth / 2,
@@ -109,11 +107,7 @@ function Opener() {
           transformOrigin: 'center top',
           duration: MOTION.smooth,
           stagger: 0.12,
-          ease: 'power2.out',
-          // CRITICAL: Clear transforms immediately after each word completes
-          onComplete: function() {
-            gsap.set(this.targets(), { clearProps: "transform,transformOrigin" });
-          }
+          ease: 'power2.out'
         }, `-=${MOTION.smooth}`)
         .to(taglineEmphasis, {
           duration: MOTION.quick,
@@ -122,29 +116,16 @@ function Opener() {
         }, `-=${MOTION.instant}`);
     });
 
-  }, { scope: containerRef, dependencies: [fontLoaded] });
+  }, [fontLoaded]);
+
+
 
   return (
-    <div 
-      ref={containerRef}
-      className="bg-teal-950" 
-      style={{ 
-        paddingTop: 'clamp(100px, 20vh, 200px)',
-        paddingBottom: 'clamp(100px, 20vh, 200px)',
-        paddingLeft: '1.25rem',
-        paddingRight: '1.25rem',
-        WebkitOverflowScrolling: 'touch',
-        touchAction: 'pan-y',
-      }}
-    >
+    <div className="vh-100 bg-teal-950 d-flex justify-content-center align-items-center" style={{ overflow: 'hidden' }}>
       <section 
         ref={sectionRef} 
         className="text-center"
-        style={{ 
-          opacity: fontLoaded ? 1 : 0,
-          margin: '0 auto',
-          maxWidth: '100%',
-        }}
+        style={{ opacity: fontLoaded ? 1 : 0 }}
       >
         <h1
           className="text-opener eighties text-white d-flex justify-content-center"
@@ -170,28 +151,32 @@ function Opener() {
           </span>
         </h1>
         
-        <h2 ref={taglineRef} className="text-2xl tracking-wider pt-4 font-light text-white mb-5">
-          <div className="d-inline-block text-center pb-3 px-4">
-            <div>
-              <span className="word">An</span>{' '}
-              <span className="word">independent</span>{' '}
-              <span className="word">creative</span>{' '}
-              <span className="word emphasis">web design</span>{' '}
-              <span className="word">and</span>{' '}
-              <span className="word emphasis">technology</span>{' '}
-              <span className="word">studio.</span>
-            </div>
-            <div className="mt-2 w-100" style={{ borderBottom: '1px solid currentColor' }}></div>
-          </div>
+<h2 ref={taglineRef} className="text-2xl tracking-wider pt-4 font-light text-white mb-5">
+  <section className="d-inline-block text-center pb-3 px-4 md:px-6">
+    <div>
+      <span className="word">An</span>{' '}
+      <span className="word">independent</span>{' '}
+      <span className="word">creative</span>{' '}
+      <span className="word emphasis">web design</span>{' '}
+      <span className="word">and</span>{' '}
+      <span className="word emphasis">technology</span>{' '}
+      <span className="word">studio.</span>
+    </div>
+    <div className="mt-2 w-100" style={{ borderBottom: '1px solid currentColor' }}></div>
+  </section>
 
-          <br />
+  <br />
 
-          <div className="d-flex justify-content-center">
-            <span className="text-sm tracking-wider px-2 text-white font-mono">
-              Based in Columbia, South Carolina
-            </span>
-          </div>
-        </h2>
+  <div className="d-flex justify-content-center ">
+    <span className="text-sm tracking-wider px-2  text-white font-mono">
+      Based in Columbia, South Carolina
+    </span>
+  </div>
+</h2>
+
+        
+
+
       </section>
     </div>
   );
