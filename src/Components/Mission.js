@@ -137,7 +137,7 @@ function Mission() {
       });
     }
 
-    // THROTTLED scroll handler - only updates every 100ms
+    // Throttled scroll handler
     let scrollTimeout;
     const handleScroll = () => {
       if (scrollTimeout) return;
@@ -163,28 +163,6 @@ function Mission() {
 
   useGSAP(() => {
     const words = container.current.querySelectorAll(".word");
-
-    // Group words into lines based on Y position
-    const lineGroups = [];
-    const tolerance = 5;
-    
-    words.forEach((word) => {
-      const wordTop = word.getBoundingClientRect().top;
-      let foundLine = false;
-      
-      for (let line of lineGroups) {
-        const lineTop = line[0].getBoundingClientRect().top;
-        if (Math.abs(wordTop - lineTop) < tolerance) {
-          line.push(word);
-          foundLine = true;
-          break;
-        }
-      }
-      
-      if (!foundLine) {
-        lineGroups.push([word]);
-      }
-    });
 
     // SINGLE UNIFIED SCROLLTRIGGER - pin and animation together
     const tl = gsap.timeline({
@@ -244,18 +222,14 @@ function Mission() {
     // Fade in words
     tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1, duration: 1 }, 0);
     
-    // Hold
-    tl.to({}, { duration: 0.3 });
+    // Hold at full opacity
+    tl.to({}, { duration: 1 });
     
-    // Slide out lines
-    lineGroups.forEach((lineWords, lineIndex) => {
-      const direction = lineIndex % 2 === 0 ? '40vw' : '-40vw';
-      tl.to(lineWords, {
-        x: direction,
-        opacity: 0,
-        duration: 1.5,
-        ease: 'power1.out'
-      }, '<');
+    // Simple fade out all words together
+    tl.to(words, {
+      opacity: 0,
+      duration: 1.5,
+      ease: 'power1.out'
     });
 
   }, []);
