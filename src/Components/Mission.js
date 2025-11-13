@@ -137,11 +137,17 @@ function Mission() {
       });
     }
 
+    // THROTTLED scroll handler - only updates every 100ms
+    let scrollTimeout;
     const handleScroll = () => {
-      updateParticleBounds();
+      if (scrollTimeout) return;
+      scrollTimeout = setTimeout(() => {
+        updateParticleBounds();
+        scrollTimeout = null;
+      }, 100);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll);
 
     return () => {
@@ -151,155 +157,106 @@ function Mission() {
       });
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
+      if (scrollTimeout) clearTimeout(scrollTimeout);
     };
   }, []);
 
   useGSAP(() => {
     const words = container.current.querySelectorAll(".word");
 
-    // Function to group words into lines based on Y position
-    const getLineGroups = () => {
-      const lineGroups = [];
-      const tolerance = 5;
+    // Group words into lines based on Y position
+    const lineGroups = [];
+    const tolerance = 5;
+    
+    words.forEach((word) => {
+      const wordTop = word.getBoundingClientRect().top;
+      let foundLine = false;
       
-      words.forEach((word) => {
-        const wordTop = word.getBoundingClientRect().top;
-        let foundLine = false;
-        
-        for (let line of lineGroups) {
-          const lineTop = line[0].getBoundingClientRect().top;
-          if (Math.abs(wordTop - lineTop) < tolerance) {
-            line.push(word);
-            foundLine = true;
-            break;
-          }
+      for (let line of lineGroups) {
+        const lineTop = line[0].getBoundingClientRect().top;
+        if (Math.abs(wordTop - lineTop) < tolerance) {
+          line.push(word);
+          foundLine = true;
+          break;
         }
-        
-        if (!foundLine) {
-          lineGroups.push([word]);
-        }
-      });
+      }
       
-      return lineGroups;
-    };
+      if (!foundLine) {
+        lineGroups.push([word]);
+      }
+    });
 
-    const createAnimation = () => {
-      // Clear existing ScrollTriggers for this container
-      ScrollTrigger.getAll().forEach(st => {
-        if (st.vars.trigger === container.current) {
-          st.kill();
-        }
-      });
-
-      const lineGroups = getLineGroups();
-
-      // Create pin-only ScrollTrigger
-      ScrollTrigger.create({
+    // SINGLE UNIFIED SCROLLTRIGGER - pin and animation together
+    const tl = gsap.timeline({
+      scrollTrigger: {
         trigger: container.current,
         start: "center center",
-        end: "+=2400",
+        end: "+=5000",
+        scrub: 1.5,
         pin: true,
         anticipatePin: 1,
-        pinSpacing: true,  // ADD THIS - prevents layout shift
-        invalidateOnRefresh: true,  // ADD THIS - recalculates on resize
-        fastScrollEnd: true,  // ADD THIS - allows momentum to continue
-      });
-
-      // Create animation timeline
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: container.current,
-          start: "center center",
-          end: "+=3000",
-          scrub: 1.5,
-          onUpdate: (self) => {
-            // Fade in particles at 15% scroll progress
-            if (self.progress > 0.15 && !hasFadedInRef.current && particlesRef.current.length > 0) {
-              hasFadedInRef.current = true;
-              
-              particlesRef.current.forEach((particle, index) => {
-                const targetOpacity = gsap.utils.random(0.3, 0.8);
-                gsap.to(particle, {
-                  opacity: targetOpacity,
-                  duration: 1.5,
-                  delay: index * 0.1,
-                  ease: 'power2.out',
-                  onComplete: () => {
-                    gsap.to(particle, {
-                      opacity: gsap.utils.random(0.3, 0.8),
-                      duration: gsap.utils.random(2, 5),
-                      ease: 'sine.inOut',
-                      repeat: -1,
-                      yoyo: true
-                    });
-                  }
-                });
-              });
-            }
+        onUpdate: (self) => {
+          // Fade in particles at 15% scroll progress
+          if (self.progress > 0.15 && !hasFadedInRef.current && particlesRef.current.length > 0) {
+            hasFadedInRef.current = true;
             
-            // Trigger bubbles to fly away at 75% scroll progress
-            if (self.progress > 0.75 && particlesRef.current.length > 0) {
-              particlesRef.current.forEach((particle, index) => {
-                gsap.killTweensOf(particle);
-                
-                gsap.to(particle, {
-                  y: -1000,
-                  x: gsap.utils.random(-200, 200),
-                  opacity: 0,
-                  rotation: gsap.utils.random(360, 720),
-                  duration: 0.8,
-                  delay: index * 0.03,
-                  ease: 'power2.in'
-                });
+            particlesRef.current.forEach((particle, index) => {
+              const targetOpacity = gsap.utils.random(0.3, 0.8);
+              gsap.to(particle, {
+                opacity: targetOpacity,
+                duration: 1.5,
+                delay: index * 0.1,
+                ease: 'power2.out',
+                onComplete: () => {
+                  gsap.to(particle, {
+                    opacity: gsap.utils.random(0.3, 0.8),
+                    duration: gsap.utils.random(2, 5),
+                    ease: 'sine.inOut',
+                    repeat: -1,
+                    yoyo: true
+                  });
+                }
               });
-              particlesRef.current = [];
-            }
+            });
           }
-        },
-      });
+          
+          // Trigger bubbles to fly away at 75% scroll progress
+          if (self.progress > 0.75 && particlesRef.current.length > 0) {
+            particlesRef.current.forEach((particle, index) => {
+              gsap.killTweensOf(particle);
+              
+              gsap.to(particle, {
+                y: -1000,
+                x: gsap.utils.random(-200, 200),
+                opacity: 0,
+                rotation: gsap.utils.random(360, 720),
+                duration: 0.8,
+                delay: index * 0.03,
+                ease: 'power2.in'
+              });
+            });
+            particlesRef.current = [];
+          }
+        }
+      },
+    });
 
-      // Fade in words
-      tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1, duration: 1 }, 0);
-      
-      // Hold
-      tl.to({}, { duration: 0.3 });
-      
-      // Slide out lines
-      lineGroups.forEach((lineWords, lineIndex) => {
-        const direction = lineIndex % 2 === 0 ? '40vw' : '-40vw';
-        tl.to(lineWords, {
-          x: direction,
-          opacity: 0,
-          duration: 1.5,
-          ease: 'power1.out'
-        }, '<');
-      });
-    };
-
-    // Create initial animation
-    createAnimation();
-
-    // Recreate animation on resize with debounce
-    let resizeTimeout;
-    const handleResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        // Reset word positions and opacity
-        gsap.set(words, { x: 0, opacity: 1 });
-        hasFadedInRef.current = false;
-        
-        // Recreate animation with new line groupings
-        createAnimation();
-        ScrollTrigger.refresh();
-      }, 250);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(resizeTimeout);
-    };
+    // Fade in words
+    tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1, duration: 1 }, 0);
+    
+    // Hold
+    tl.to({}, { duration: 0.3 });
+    
+    // Slide out lines
+    lineGroups.forEach((lineWords, lineIndex) => {
+      const direction = lineIndex % 2 === 0 ? '40vw' : '-40vw';
+      tl.to(lineWords, {
+        x: direction,
+        opacity: 0,
+        duration: 1.5,
+        ease: 'power1.out'
+      }, '<');
+    });
 
   }, []);
 
@@ -314,8 +271,7 @@ function Mission() {
           pointerEvents: 'none',
           zIndex: 0,
           overflow: 'hidden',
-          willChange: 'transform',  // ADD THIS - GPU acceleration
-          touchAction: 'none',  // ADD THIS - don't capture touch events
+          willChange: 'transform',
         }}
       />
       
