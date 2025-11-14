@@ -64,7 +64,7 @@ function Featured() {
   />
 )}
 
-              <div className="card-body p-5 gs flex-grow-1">
+              <div className="card-body p-5  flex-grow-1">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
                   {service.title}
                 </h3>

@@ -169,7 +169,7 @@ function About() {
 
         .origins-card h3 {
           font-size: var(--text-3xl);
-          font-weight: 600;
+       
           color: var(--color-text-primary);
           margin-bottom: var(--space-5);
           letter-spacing: -0.01em;

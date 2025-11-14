@@ -192,8 +192,8 @@ function OurProcess() {
         }
 
         .main-heading {
-          font-size: clamp(2.5rem, 6vw, 5rem);
-          font-weight: 700;
+          font-size: clamp(3rem, 6vw, 3rem);
+ 
           line-height: 1.1;
           letter-spacing: -0.02em;
           color: var(--slate-900);
@@ -342,7 +342,7 @@ function OurProcess() {
 
         .cta-heading {
           font-size: 2.25rem;
-          font-weight: 600;
+  
           color: var(--slate-900);
           margin-bottom: var(--space-3);
           letter-spacing: -0.01em;
@@ -443,7 +443,7 @@ function OurProcess() {
             <p ref={metadataRef} className="metadata">
               Our Approach — How We Work
             </p>
-            <h1 ref={headingRef} className="main-heading">
+            <h1 ref={headingRef} className="main-heading eighties">
               Our Process
             </h1>
             <p ref={subtitleRef} className="subtitle">
@@ -484,7 +484,7 @@ function OurProcess() {
 
           {/* CTA */}
           <div ref={ctaRef} className="cta-section">
-            <h2 className="cta-heading">Ready to get started?</h2>
+            <h2 className="cta-heading eighties">Ready to get started?</h2>
             <p className="cta-text">
               Let's build something great together. Reach out and we'll schedule 
               a free consultation to discuss your project.

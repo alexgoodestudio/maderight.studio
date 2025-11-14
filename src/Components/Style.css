@@ -1,10 +1,25 @@
+/* =============================================================================
+   MADE RIGHT STUDIO - GLOBAL STYLES
+   Design System: 8px base unit | 70/25/5 color rule | Mobile-first
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   CUSTOM FONTS
+   ----------------------------------------------------------------------------- */
 @font-face {
-    font-family: 'EightiesComeback';
-    src: url('./Fonts/EightiesComeback-LtSmCn.woff2') format('woff2'),
-        url('./Fonts/EightiesComeback-LtSmCn.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'EightiesComeback';
+  src: url('./Fonts/EightiesComeback-LtSmCn.woff2') format('woff2'),
+       url('./Fonts/EightiesComeback-LtSmCn.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'gs';
+  src: url('./Fonts/GeneralSans-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-display: swap;
 }
 
 .eighties {
@@ -13,18 +28,14 @@
   font-display: block; 
 }
 
-@font-face {
-    font-family: 'gs';
-    src: url('./Fonts/GeneralSans-Regular.woff2') format('woff2');
-    font-style: normal;
-    font-display: swap;
-}
-
 .gs {
   font-family: 'gs', sans-serif;
   font-display: block; 
 }
 
+/* -----------------------------------------------------------------------------
+   BASE RESETS & DOCUMENT SETUP
+   ----------------------------------------------------------------------------- */
 html {
   overflow-x: hidden;
   width: 100%;
@@ -32,22 +43,171 @@ html {
 
 body {
   overflow-x: hidden;
-  overflow-y: auto; /* Explicitly allow vertical scroll */
+  overflow-y: auto;
   width: 100%;
-  position: relative; /* Prevent scroll issues */
+  position: relative;
   -webkit-overflow-scrolling: touch;
 }
 
-.powder-blue{
+/* -----------------------------------------------------------------------------
+   TYPOGRAPHY SYSTEM
+   Modular scale with responsive adjustments
+   ----------------------------------------------------------------------------- */
+
+/* Large Display Typography (tight tracking) */
+.text-opener { font-size: 13rem; letter-spacing: -0.035em; line-height: 1.05; }
+.text-12xl { font-size: 10rem; letter-spacing: -0.035em; line-height: 1.05; }
+.text-11xl { font-size: 8rem; letter-spacing: -0.03em; line-height: 1.08; }
+.text-10xl { font-size: 7rem; letter-spacing: -0.03em; line-height: 1.1; }
+.text-9xl { font-size: 6rem; letter-spacing: -0.025em; line-height: 1.1; }
+.text-8xl { font-size: 5rem; letter-spacing: -0.025em; line-height: 1.15; }
+.text-7xl { font-size: 4.5rem; letter-spacing: -0.02em; line-height: 1.15; }
+.text-6xl { font-size: 4rem; letter-spacing: -0.015em; line-height: 1.2; }
+.text-5xl { font-size: 3rem; letter-spacing: -0.015em; line-height: 1.25; }
+.text-4xl { font-size: 2.25rem; letter-spacing: -0.01em; line-height: 1.3; }
+.text-3xl { font-size: 1.875rem; letter-spacing: -0.005em; line-height: 1.35; }
+.text-2xl { font-size: 1.5rem; letter-spacing: 0; line-height: 1.4; }
+.text-xl { font-size: 1.25rem; letter-spacing: 0; line-height: 1.45; }
+.text-lg { font-size: 1.125rem; letter-spacing: 0.005em; line-height: 1.5; }
+
+/* Body Text (readable tracking) */
+.text-base { font-size: 1rem; letter-spacing: -0.01em; line-height: 1.6; }
+.text-md { font-size: 0.9375rem; letter-spacing: 0.005em; line-height: 1.6; }
+.text-sm { font-size: 0.875rem; letter-spacing: 0.01em; line-height: 1.5; }
+.text-xs { font-size: 0.75rem; letter-spacing: 0.02em; line-height: 1.4; }
+
+/* Utility Typography */
+.text-label { 
+  font-size: 0.875rem; 
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em; 
+}
+
+.text-button { font-size: 0.875rem; font-weight: 600; letter-spacing: 0.01em; }
+.text-caption { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; }
+
+/* Typography Styles */
+.heading-primary {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+.heading-secondary {
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+
+.body-primary {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: #6c757d;
+}
+
+.body-secondary {
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+  line-height: 1.68;
+  letter-spacing: 0.01em;
+  max-width: 65ch;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+.metadata {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.spaced-letters {
+  letter-spacing: 0.015em;
+}
+
+.spaced-underline {
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  display: inline-block;
+}
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.emphasis {
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+/* -----------------------------------------------------------------------------
+   UTILITY CLASSES
+   ----------------------------------------------------------------------------- */
+.powder-blue {
   color: #7faafcff;
 }
 
-/* Team Section - Uniform Image Sizing */
+.vh-92 {
+  height: 92vh;
+}
+
+.br {
+  border-radius: 1rem;
+}
+
+.hide {
+  display: none;
+}
+
+/* -----------------------------------------------------------------------------
+   MISSION SECTION
+   ----------------------------------------------------------------------------- */
+.line-mission {
+  height: 85vh;
+}
+
+.mission-body {
+  padding: 20vh 0;
+  text-align: start;
+  letter-spacing: 0.005em;
+  line-height: 1.55;
+  word-spacing: 0.05em;
+}
+
+.mission-body .word {
+  display: inline-block;
+  white-space: nowrap;
+  letter-spacing: 0.005em;
+}
+
+.mission-text {
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+/* -----------------------------------------------------------------------------
+   TEAM SECTION
+   ----------------------------------------------------------------------------- */
 .team-image-container {
   width: 100%;
   height: 500px;
   position: relative;
-  background-color: #f5f5f4; /* stone-100 fallback */
+  background-color: #f5f5f4;
+  overflow: hidden;
 }
 
 .team-image {
@@ -59,7 +219,6 @@ body {
   transition: filter 0.3s ease, transform 0.5s ease;
 }
 
-/* Alex's image - show top portion */
 .team-image-top {
   object-position: top center;
 }
@@ -69,45 +228,26 @@ body {
   transform: scale(1.02);
 }
 
-.card-content {
-  padding-top: 0.5rem;
+.team-member-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--stone-200);
 }
 
-
-
-/* Responsive adjustments */
-@media (max-width: 991px) {
-  .team-image-container {
-    height: 400px;
-  }
-}
-
-@media (max-width: 768px) {
-  .team-image-container {
-    height: 350px;
-  }
-}
-
-.vh-92 {
-  height: 92vh;
-}
-
-.br {
-  border-radius: 1rem;
-}
-
-/* Perspective wrapper */
+/* -----------------------------------------------------------------------------
+   FLIP CARDS (Process/Services)
+   ----------------------------------------------------------------------------- */
 .flip-container {
   perspective: 900px; 
 }
 
-/* Row wrapper */
 .flip-row {
   display: flex;
   gap: 1rem;
 }
 
-/* Each card */
 .flip-card {
   position: relative;
   flex: 1;
@@ -115,7 +255,6 @@ body {
   transform-style: preserve-3d;
 }
 
-/* Front and back faces */
 .flip-card .front,
 .flip-card .back {
   position: absolute;
@@ -131,115 +270,139 @@ body {
   color: #000;
 }
 
-/* Row 1 colors: front green, back new purple */
-.row1 .card-1 .front {
-  background-color: #f3f5ff;
-  
-}
-.row1 .card-1 .back {
-  background-color: #E9D5FF;
-  transform: rotateX(180deg);
-}
-.row1 .card-2 .front {
-  background-color: #E9D5FF;
-}
-.row1 .card-2 .back {
-  background-color: #f3f5ff;
-  transform: rotateX(180deg);
+/* Row 1 */
+.row1 .card-1 .front { background-color: #f3f5ff; }
+.row1 .card-1 .back { background-color: #E9D5FF; transform: rotateX(180deg); }
+.row1 .card-2 .front { background-color: #E9D5FF; }
+.row1 .card-2 .back { background-color: #f3f5ff; transform: rotateX(180deg); }
+
+/* Row 2 */
+.row2 .card-1 .front { background-color: #f3f5ff; }
+.row2 .card-1 .back { background-color: #E9D5FF; color: white; transform: rotateX(180deg); }
+.row2 .card-2 .front { background-color: #E9D5FF; color: white; }
+.row2 .card-2 .back { background-color: #f3f5ff; transform: rotateX(180deg); }
+
+/* Row 3 */
+.row3 .card-1 .front { background-color: #f3f5ff; }
+.row3 .card-1 .back { background-color: #E9D5FF; transform: rotateX(180deg); }
+.row3 .card-2 .front { background-color: #E9D5FF; }
+.row3 .card-2 .back { background-color: #f3f5ff; transform: rotateX(180deg); }
+
+/* -----------------------------------------------------------------------------
+   SERVICES MODULE
+   ----------------------------------------------------------------------------- */
+.services {
+  height: 75vh; 
 }
 
-/* Row 2 colors: keep light purple / gray */
-.row2 .card-1 .front {
-  background-color: #f3f5ff;
-
-}
-.row2 .card-1 .back {
-  background-color: #E9D5FF;
-  color: white;
-  transform: rotateX(180deg);
-}
-.row2 .card-2 .front {
-  background-color: #E9D5FF;
-  color: white;
-}
-.row2 .card-2 .back {
-  background-color: #f3f5ff;
-
-  transform: rotateX(180deg);
+.content-module {
+  padding: clamp(4rem, 8vw, 8rem) 0;
+  container-type: inline-size;
 }
 
-/* Row 3 colors: front red, back new purple */
-.row3 .card-1 .front {
-  background-color: #f3f5ff;}
-.row3 .card-1 .back {
-  background-color: #E9D5FF;
-  transform: rotateX(180deg);
-}
-.row3 .card-2 .front {
-  background-color: #E9D5FF;
-}
-.row3 .card-2 .back {
-  background-color: #f3f5ff;
-    transform: rotateX(180deg);
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.story {
-  text-align: center;
-  max-width: 68ch;
-  margin: 0 auto;
-  line-height: 1.6;
+.service-module {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
+
+.service-module:hover {
+  background-color: #f8fafc;
+}
+
+.service-content {
+  will-change: transform;
+}
+
+.service-number {
+  will-change: color;
+}
+
+.typewriter-module {
+  border-radius: 0;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.process-module {
+  min-height: 400px;
+}
+
+.grid-asymmetrical {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+/* Ensure consistent border colors */
+.border-slate-900 { 
+  border-color: #0f172a !important; 
+}
+
+/* -----------------------------------------------------------------------------
+   CONTACT SECTION
+   ----------------------------------------------------------------------------- */
 .contact {
   height: 65vh; 
 }
 
-.services {
-  height: 75vh; 
-}
-.spaced-underline {
-  text-decoration: none;
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 2px;
-  display: inline-block;
-}
-.spaced-letters {
-  letter-spacing: 0.015em;
-}
-.word {
-  display: inline-block;
-  white-space: nowrap;
+.contact-body {
+  padding: 2% 33%;
 }
 
-.emphasis {
-  display: inline-block;
-  transition: color 0.3s ease;
+.btn-call {
+  color: #E9D5FF;
+  background-color: #78350F;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  outline: 2px solid transparent;
+  transition: all 0.3s ease;
 }
 
-.line-mission{
-  height: 85vh;
-}
-.mission-body {
-  padding-top: 20vh;
-  padding-bottom: 20vh;
-  text-align: start;
-  letter-spacing: 0.005em; /* Slightly more open */
-  line-height: 1.55;
-  word-spacing: 0.05em; /* Add subtle word spacing */
+.btn-call:hover {
+  background-color: #E9D5FF;
+  color: #78350F;
+  border-color: #78350F;
+  outline-color: #78350F;
 }
 
-.mission-body .word {
-  display: inline-block;
-  white-space: nowrap;
-  letter-spacing: 0.005em;
+.btn-email {
+  color: #78350F;
+  background-color: #E9D5FF;
+  border: 2px solid #78350F;
+  border-radius: 20px;
+  outline: 2px solid transparent;
+  transition: all 0.3s ease;
 }
 
-.team-member-image-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  background: var(--stone-200);
+.btn-email:hover {
+  color: #E9D5FF;
+  background-color: #78350F;
 }
+
+.btn-contact {
+  color: white;
+  border-radius: 10px;
+}
+
+/* -----------------------------------------------------------------------------
+   FEATURED WORK
+   ----------------------------------------------------------------------------- */
+.featured-body {
+  padding: 80px 50px 120px;
+}
+
+/* -----------------------------------------------------------------------------
+   BLOG
+   ----------------------------------------------------------------------------- */
 .blog-post-content h2 {
   margin-top: 3rem;
   margin-bottom: 1rem;
@@ -279,179 +442,38 @@ body {
   text-decoration: underline;
 }
 
+/* -----------------------------------------------------------------------------
+   BANNER
+   ----------------------------------------------------------------------------- */
 .banner-container {
   position: relative;
   width: 100%;
   overflow: hidden;
-  height: 180px; /* adjust to fit your text */
+  height: 180px;
 }
-
 
 .banner-text {
-  position: absolute;   /* take it out of page flow */
-  white-space: nowrap;  /* keep it on one line */
+  position: absolute;
+  white-space: nowrap;
   font-size: 50pt;
   font-weight: bold;
-  top: 50%;             /* vertically center */
+  top: 50%;
   transform: translateY(-50%);
-
 }
 
-.featured-body{
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 80px;
-  padding-bottom: 120px;
-}
-
-
-
-.btn-contact{
-    
-    color:white;
-   border-radius: 10px;
-}
-
-.contact-body{
-  padding-left: 33%;
-  padding-right: 33%;
-  margin-top: 2%;
-}
-
-.btn-call {
-  color: #E9D5FF;
-  background-color: #78350F;
-  border: 2px solid transparent; /* ensure border exists */
-  border-radius: 20px;
-  outline: 2px solid transparent; /* optional, for focus/outline */
-  transition: all 0.3s ease;
-}
-
-.btn-call:hover {
-  background-color: #E9D5FF;
-  color: #78350F;
-  border-color: #78350F; /* now the border changes on hover */
-  outline-color: #78350F; /* changes outline if visible */
-}
-.btn-email {
-  color: #78350F;
-  background-color: #E9D5FF;;
-  border: 2px solid transparent; /* ensure border exists */
-  border-radius: 20px;
-  outline: 2px solid transparent; /* optional, for focus/outline */
-  transition: all 0.3s ease;
-    border-color: #78350F; /* now the border changes on hover */
-  outline-color: #78350FFF; 
-}
-
-.btn-email:hover {
-  color: #E9D5FF;
-  background-color: #78350F;
-
-}
-
-/* Services Module - Self Aware Studio Methodology */
-
-/* Content Module Pattern */
-.content-module {
-  padding: clamp(4rem, 8vw, 8rem) 0;
-  container-type: inline-size;
-}
-
-/* Metric card hover enhancement */
-.bg-white.border.border-slate-200 {
-  transition: border-color 0.3s ease;
-}
-
-.bg-white.border.border-slate-200:hover {
-  border-color: #64748b;
-}
-
-/* Chart responsiveness */
-@media (max-width: 768px) {
-  svg text {
-    font-size: 0.65rem !important;
-  }
-}
-
-/* Ensure smooth progress bar animations */
-.progress-fill {
-  will-change: transform;
-}
-.heading-primary {
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-}
-
-
-.light {
-  font-weight: 300;
-  line-height: 1.68;
-  letter-spacing: 0.01em;
-  max-width: 65ch;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  hyphens: auto;
-  word-break: break-word;
-}
-
-
-.heading-secondary {
-  font-weight: 500;
-  letter-spacing: -0.015em;
-  line-height: 1.3;
-}
-
-.body-secondary {
+/* -----------------------------------------------------------------------------
+   STORY
+   ----------------------------------------------------------------------------- */
+.story {
+  text-align: center;
+  max-width: 68ch;
+  margin: 0 auto;
   line-height: 1.6;
-  font-weight: 400;
 }
 
-.metadata {
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* Modular Grid System */
-.services-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-/* Ensure consistent border colors */
-.border-slate-900 { 
-  border-color: #0f172a !important; 
-}
-
-.service-module {
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-}
-
-.service-module:hover {
-  background-color: #f8fafc;
-}
-
-/* Typewriter Module */
-.typewriter-module {
-  border-radius: 0;
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-}
-
-/* Process Module */
-.process-module {
-  min-height: 400px;
-}
-
-/* Interactive Elements */
+/* -----------------------------------------------------------------------------
+   UTILITIES
+   ----------------------------------------------------------------------------- */
 .cursor-pointer {
   cursor: pointer;
 }
@@ -468,40 +490,52 @@ body {
   text-decoration: underline;
 }
 
-/* Font System */
 .font-mono {
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
-.heading-primary {
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-  color: #0f172a; /* slate-900 */
+
+/* -----------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   Mobile-first approach: Base styles are mobile, scale up for larger screens
+   ----------------------------------------------------------------------------- */
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) {
+  .mission-text {
+    font-size: 2.25rem;
+    line-height: 1.3;
+  }
+  
+  .mission-p {
+    font-size: 3.25rem;
+  }
+
+  .mission-body {
+    padding: 20vh 5%;
+  }
 }
 
-.body-primary {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #6c757d; /* muted gray */
+/* Desktop: 992px+ */
+@media (min-width: 992px) {
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-/* Section Spacing */
-.content-module {
-  padding: clamp(3rem, 8vw, 8rem) 0;
-  container-type: inline-size;
+/* Large Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .mission-text {
+    font-size: 1.9rem;
+    line-height: 1.25;
+  }
 }
 
-/* Grid Layout */
-.grid-asymmetrical {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 992px) {
+/* Tablet Down: < 992px */
+@media (max-width: 991px) {
+  .team-image-container {
+    height: 400px;
+  }
+  
   .services-grid {
     grid-template-columns: 1fr;
   }
@@ -516,13 +550,32 @@ body {
   }
 }
 
+/* Large Screens: 1200px+ (Scale down from base) */
+@media (max-width: 1200px) {
+  .text-opener { font-size: 8rem; }
+  .text-12xl { font-size: 8rem; }
+  .text-11xl { font-size: 6.5rem; }
+  .text-10xl { font-size: 5.75rem; }
+  .text-9xl { font-size: 5rem; }
+  .text-8xl { font-size: 4.25rem; }
+  .text-7xl { font-size: 3.75rem; }
+  .text-6xl { font-size: 3.5rem; }
+  .text-5xl { font-size: 2.75rem; }
+  .text-4xl { font-size: 2rem; }
+  .text-3xl { font-size: 1.75rem; }
+  .text-2xl { font-size: 1.375rem; }
+}
+
+/* Tablet: < 768px */
 @media (max-width: 768px) {
+  .team-image-container {
+    height: 350px;
+  }
+  
   .content-module {
     padding: clamp(2rem, 6vw, 4rem) 0;
   }
-  .hide{
-  display: none;
-}
+  
   .service-module {
     min-height: 80px;
     padding: 1rem !important;
@@ -531,180 +584,111 @@ body {
   .services-grid {
     border-left: 1px solid #1e293b;
   }
+  
+  .contact-body {
+    padding: 2% 10%;
+  }
+  
+  .featured-body {
+    padding: 80px 30px 120px;
+  }
+  
+  .mission-body {
+    padding: 25vh 5%;
+    text-align: start;
+  }
+  
+  .mission-p {
+    font-size: 2.25rem;
+  }
+  
+  .banner-text {
+    font-size: 3.75rem;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  /* Typography scale adjustments */
+  .text-opener { font-size: 5rem; }
+  .text-12xl { font-size: 6.5rem; }
+  .text-11xl { font-size: 5.25rem; }
+  .text-10xl { font-size: 4.5rem; }
+  .text-9xl { font-size: 4.25rem; }
+  .text-8xl { font-size: 3.75rem; }
+  .text-7xl { font-size: 3.25rem; }
+  .text-6xl { font-size: 3rem; }
+  .text-5xl { font-size: 2.25rem; }
+  .text-4xl { font-size: 1.875rem; }
+  .text-3xl { font-size: 1.5rem; }
+  .text-2xl { font-size: 1.25rem; }
+  .text-xl { font-size: 1.125rem; }
+  .text-lg { font-size: 1rem; }
 }
 
-/* Performance Optimizations */
-.service-content {
-  will-change: transform;
+/* Mobile: < 480px */
+@media (max-width: 480px) {
+  .mission-p {
+    font-size: 1.25rem;
+  }
+  
+  /* Typography scale for small screens */
+  .text-opener { font-size: 4.5rem; }
+  .text-12xl { font-size: 5rem; }
+  .text-11xl { font-size: 4.25rem; }
+  .text-10xl { font-size: 3.5rem; }
+  .text-9xl { font-size: 3.5rem; }
+  .text-8xl { font-size: 3rem; }
+  .text-7xl { font-size: 2.5rem; }
+  .text-6xl { font-size: 2.5rem; }
+  .text-5xl { font-size: 2rem; }
+  .text-4xl { font-size: 1.5rem; }
+  .text-3xl { font-size: 1.25rem; }
+  .text-2xl { font-size: 1.125rem; }
+  .text-xl { font-size: 1rem; }
+  .text-lg { font-size: 0.9375rem; }
+  .text-base { font-size: 0.875rem; }
+  .text-md { font-size: 0.8125rem; }
+  .text-sm { font-size: 0.75rem; }
+  .text-xs { font-size: 0.6875rem; }
 }
 
-.service-number {
-  will-change: color;
-}
-
-/* Accessibility */
+/* -----------------------------------------------------------------------------
+   ACCESSIBILITY
+   ----------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .service-module {
     transition: none;
   }
   
   .service-content,
-  .service-number {
+  .service-number,
+  .team-image,
+  .emphasis {
     will-change: auto;
+    transition: none;
   }
 }
 
-/* Container Query for Module Responsiveness */
+/* -----------------------------------------------------------------------------
+   PERFORMANCE OPTIMIZATIONS
+   ----------------------------------------------------------------------------- */
+.bg-white.border.border-slate-200 {
+  transition: border-color 0.3s ease;
+}
+
+.bg-white.border.border-slate-200:hover {
+  border-color: #64748b;
+}
+
+.progress-fill {
+  will-change: transform;
+}
+
+/* Container Query Support */
 @container (max-width: 600px) {
   .services-grid {
     grid-template-columns: 1fr;
   }
 }
-/* ------------------------------    TEXT SIZE SYSTEM --------------------------------*/
-
-/* Large Display - tight tracking */
-.text-opener{ font-size: 13rem;}
-.text-12xl { font-size: 10rem; line-height: 1.05; } /* ~160px */
-.text-11xl { font-size: 8rem;  line-height: 1.08; } /* ~128px */
-.text-10xl { font-size: 7rem;  line-height: 1.1;  } /* ~112px */
-.text-9xl  { font-size: 6rem;  line-height: 1.1;  }
-.text-8xl  { font-size: 5rem;  line-height: 1.15; }
-.text-7xl  { font-size: 4.5rem;line-height: 1.15; }
-.text-6xl  { font-size: 4rem;  line-height: 1.2; }
-.text-5xl  { font-size: 3rem;  line-height: 1.25; }
-.text-4xl  { font-size: 2.25rem; line-height: 1.3; }
-.text-3xl  { font-size: 1.875rem; line-height: 1.35; }
-.text-2xl  { font-size: 1.5rem;  line-height: 1.4; }
-.text-xl   { font-size: 1.25rem; line-height: 1.45; }
-.text-lg   { font-size: 1.125rem; line-height: 1.5; }
-.text-base { font-size: 1rem; line-height: 1.6; }
-
-/* Body / Paragraphs */
-.text-md { font-size: 0.9375rem; line-height: 1.6; }
-.text-sm { font-size: 0.875rem; line-height: 1.5; }
-.text-xs { font-size: 0.75rem;  line-height: 1.4; }
-
-
-/* Uppercase labels - VERY generous */
-.text-label { 
-  font-size: 0.875rem; 
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.15em; 
-}
-
-/* Buttons / Small text */
-.text-button { font-size: 0.875rem; font-weight: 600; }
-.text-caption { font-size: 0.75rem; font-weight: 400; }
-
-
-/* Utility: responsive scaling for smaller screens */
-@media (max-width: 1200px) {
-  .text-opener{ font-size: 8rem;}
-  .text-12xl { font-size: 8rem; }
-  .text-11xl { font-size: 6.5rem; }
-  .text-10xl { font-size: 5.75rem; }
-  .text-9xl  { font-size: 5rem; }
-  .text-8xl  { font-size: 4.25rem; }
-  .text-7xl  { font-size: 3.75rem; }
-  .text-6xl  { font-size: 3.5rem; }
-  .text-5xl  { font-size: 2.75rem; }
-  .text-4xl  { font-size: 2rem; }
-  .text-3xl  { font-size: 1.75rem; }
-  .text-2xl  { font-size: 1.375rem; }
-}
-
-@media (max-width: 768px) {
-  .featured-body{
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 80px;
-  padding-bottom: 120px;
-}
-  .mission-p{
-        font-size: 2.25rem; /* text-4xl - iPad */
-  }
-.contact-body{
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
-.mission-body{
-
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 25vh; /* Adjust to vertically center */
-    padding-bottom: 25vh;
-    text-align: start;
-}
-  
-  .banner-text {
-    font-size: 3.75rem;
-  }
-  .text-opener{ font-size: 5rem;}
-  .text-12xl { font-size: 6.5rem; }
-  .text-11xl { font-size: 5.25rem; }
-  .text-10xl { font-size: 4.5rem; }
-  .text-9xl  { font-size: 4.25rem; }
-  .text-8xl  { font-size: 3.75rem; }
-  .text-7xl  { font-size: 3.25rem; }
-  .text-6xl  { font-size: 3rem; }
-  .text-5xl  { font-size: 2.25rem; }
-  .text-4xl  { font-size: 1.875rem; }
-  .text-3xl  { font-size: 1.5rem; }
-  .text-2xl  { font-size: 1.25rem; }
-  .text-xl   { font-size: 1.125rem; }
-  .text-lg   { font-size: 1rem; }
-}
-
-@media (max-width: 480px) {
-    .text-opener{ font-size: 4.5rem;}
-  .text-12xl { font-size: 5rem; }
-  .text-11xl { font-size: 4.25rem; }
-  .text-10xl { font-size: 3.5rem; }
-  .text-9xl  { font-size: 3.5rem; }
-  .text-8xl  { font-size: 3rem; }
-  .text-7xl  { font-size: 2.5rem; }
-  .text-6xl  { font-size: 2.5rem; }
-  .text-5xl  { font-size: 2rem; }
-  .text-4xl  { font-size: 1.5rem; }
-  .text-3xl  { font-size: 1.25rem; }
-  .text-2xl  { font-size: 1.125rem; }
-  .text-xl   { font-size: 1rem; }
-  .text-lg   { font-size: 0.9375rem; }
-  .text-base { font-size: 0.875rem; }
-  .text-md   { font-size: 0.8125rem; }
-  .text-sm   { font-size: 0.75rem; }
-  .text-xs   { font-size: 0.6875rem; }
-  
-  .mission-p{
-        font-size: 1.5rem; /* text-4xl - iPad */
-  }
-}
-
-
-/* Mission text responsive sizing */
-.mission-text {
-  font-size: 1.25rem; /* text-3xl - mobile */
-  line-height: 1.35;
-}
-
-@media (min-width: 768px) {
-  .mission-text {
-    font-size: 2.25rem; /* text-4xl - iPad */
-    line-height: 1.3;
-  }
-    .mission-p{
-        font-size: 3.25rem; /* text-4xl - iPad */
-  }
-
-}
-
-@media (min-width: 1024px) {
-  .mission-text {
-    font-size: 1.9rem; /* text-5xl - desktop */
-    line-height: 1.25;
-  }
-}
-
-

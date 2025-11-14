@@ -86,7 +86,7 @@ function Team() {
         >
           <h1 className="team-heading">
             <div className="heading-line-wrapper">
-              <span className="team-heading-line">Our Team</span>
+              <span className="team-heading-line eighties">Our Team</span>
             </div>
           </h1>
         </header>
