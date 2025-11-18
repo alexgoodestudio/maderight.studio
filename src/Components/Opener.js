@@ -19,6 +19,7 @@ function Opener() {
   const rightRef = useRef(null);
   const taglineRef = useRef(null);
   const sectionRef = useRef(null);
+  const borderRef = useRef(null);
   const [fontLoaded, setFontLoaded] = useState(false);
 
 
@@ -60,9 +61,14 @@ function Opener() {
       
       const taglineWords = taglineRef.current.querySelectorAll('.word');
       const taglineEmphasis = taglineRef.current.querySelectorAll('.emphasis');
-      
+
       // Ensure tagline elements exist
       if (taglineWords.length === 0) return;
+
+      // Set border initial state
+      if (borderRef.current) {
+        gsap.set(borderRef.current, { scaleX: 0, opacity: 0 });
+      }
       const viewportWidth = window.innerWidth;
       const verticalOffset = 100;
       
@@ -114,7 +120,14 @@ function Opener() {
           duration: MOTION.quick,
           stagger: 0.15,
           ease: 'power1.inOut'
-        }, `-=${MOTION.instant}`);
+        }, `-=${MOTION.instant}`)
+        .to(borderRef.current, {
+          scaleX: 1,
+          opacity: 1,
+          duration: MOTION.smooth,
+          ease: 'power2.out',
+          transformOrigin: 'left center'
+        }, `-=${MOTION.quick}`);
     });
 
   }, [fontLoaded]);
@@ -152,17 +165,66 @@ function Opener() {
           </span>
         </h1>
         
-        <h2 ref={taglineRef} className="text-xl tracking-wider mt-lg-2 mt-5 text-slate-100 pt-4 font-light mb-5">
+        <h2 ref={taglineRef} className="text-xl mt-lg-2 mt-5 text-slate-100 pt-4 font-light mb-5" style={{ letterSpacing: '0.005em' }}>
           <section className="d-inline-block text-center pb-2 px-2 md:px-6">
             <div>
-              <span className="word">An</span>{' '}
-              <span className="word">independent</span>{' '}
-              <span className="word emphasis">web design</span>{' '}
-              <span className="word">and</span>{' '}
-              <span className="word emphasis">technology</span>{' '}
-              <span className="word">studio</span>
+              <span className="word">
+                <span className="letter d-inline-block">A</span>
+                <span className="letter d-inline-block">n</span>
+              </span>{' '}
+              <span className="word">
+                <span className="letter d-inline-block">i</span>
+                <span className="letter d-inline-block">n</span>
+                <span className="letter d-inline-block">d</span>
+                <span className="letter d-inline-block">e</span>
+                <span className="letter d-inline-block">p</span>
+                <span className="letter d-inline-block">e</span>
+                <span className="letter d-inline-block">n</span>
+                <span className="letter d-inline-block">d</span>
+                <span className="letter d-inline-block">e</span>
+                <span className="letter d-inline-block">n</span>
+                <span className="letter d-inline-block">t</span>
+              </span>{' '}
+              <span className="word emphasis">
+                <span className="letter d-inline-block">w</span>
+                <span className="letter d-inline-block">e</span>
+                <span className="letter d-inline-block">b</span>
+              </span>{' '}
+              <span className="word emphasis">
+                <span className="letter d-inline-block">d</span>
+                <span className="letter d-inline-block">e</span>
+                <span className="letter d-inline-block">s</span>
+                <span className="letter d-inline-block">i</span>
+                <span className="letter d-inline-block">g</span>
+                <span className="letter d-inline-block">n</span>
+              </span>{' '}
+              <span className="word">
+                <span className="letter d-inline-block">a</span>
+                <span className="letter d-inline-block">n</span>
+                <span className="letter d-inline-block">d</span>
+              </span>{' '}
+              <span className="word emphasis">
+                <span className="letter d-inline-block">t</span>
+                <span className="letter d-inline-block">e</span>
+                <span className="letter d-inline-block">c</span>
+                <span className="letter d-inline-block">h</span>
+                <span className="letter d-inline-block">n</span>
+                <span className="letter d-inline-block">o</span>
+                <span className="letter d-inline-block">l</span>
+                <span className="letter d-inline-block">o</span>
+                <span className="letter d-inline-block">g</span>
+                <span className="letter d-inline-block">y</span>
+              </span>{' '}
+              <span className="word">
+                <span className="letter d-inline-block">s</span>
+                <span className="letter d-inline-block">t</span>
+                <span className="letter d-inline-block">u</span>
+                <span className="letter d-inline-block">d</span>
+                <span className="letter d-inline-block">i</span>
+                <span className="letter d-inline-block">o</span>
+              </span>
             </div>
-            <div className="mt-2 w-100" style={{ borderBottom: '1px solid ' }}></div>
+            <div ref={borderRef} className="mt-2 w-100" style={{ borderBottom: '1px solid ' }}></div>
           </section>
 
           <br />

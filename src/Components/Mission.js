@@ -237,7 +237,7 @@ function Mission() {
   const text = "Made Right is a design-focused web development studio based in Columbia, South Carolina. Our goal is to bring creativity and technology together to develop high performing websites that feel inspired. We focus on thoughtful design, and purposeful strategy—helping brands grow their presence with websites that communicate clearly, build trust, and drive results.";
 
   return (
-    <section className="bg-white gs  mission-p py-5  text-start px-lg-5 px-3">
+    <section className="bg-white gs  mission-p py-5 text-start px-lg-0 px-1">
       <div 
         ref={particleWrapperRef}
         style={{
@@ -257,11 +257,11 @@ function Mission() {
 
           let colorClass = "";
           if (letters === "Made" || letters === "Right") {
-            colorClass = "text-sky-500";
+            colorClass = "text-sky-400";
           }
 
           return (
-            <span key={i} className="inline-block mr-2 text-teal-800">
+            <span key={i} className="inline-block mr-2  text-teal-900">
               <span className={`word ${colorClass}`}>
                 {letters}
               </span>

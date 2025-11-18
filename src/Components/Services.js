@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Services() {
   const containerRef = useRef();
@@ -59,6 +62,47 @@ function Services() {
           card.removeEventListener('mouseleave', card._magLeave);
         });
       };
+    }
+
+    // Mobile scroll-triggered scale (non-hover devices)
+    if (!prefersReducedMotion && !isPointerFine) {
+      const cards = q('.service-card');
+
+      cards.forEach((card) => {
+        ScrollTrigger.create({
+          trigger: card,
+          start: 'top 85%',
+          end: 'bottom 15%',
+          onEnter: () => {
+            gsap.to(card, {
+              scale: 1.02,
+              duration: 0.4,
+              ease: 'power2.out'
+            });
+          },
+          onLeave: () => {
+            gsap.to(card, {
+              scale: 1,
+              duration: 0.3,
+              ease: 'power2.out'
+            });
+          },
+          onEnterBack: () => {
+            gsap.to(card, {
+              scale: 1.02,
+              duration: 0.4,
+              ease: 'power2.out'
+            });
+          },
+          onLeaveBack: () => {
+            gsap.to(card, {
+              scale: 1,
+              duration: 0.3,
+              ease: 'power2.out'
+            });
+          }
+        });
+      });
     }
 
     // Entrance animations
