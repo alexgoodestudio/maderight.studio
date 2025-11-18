@@ -26,9 +26,10 @@ function Services() {
           const y = e.clientY - rect.top - rect.height / 2;
 
           gsap.to(card, {
-            x: x * 0.05,
-            y: y * 0.05,
-            duration: 0.4,
+            x: x * 0.08,
+            y: y * 0.08,
+            scale: 1.02,
+            duration: 0.3,
             ease: 'power2.out',
           });
         };
@@ -37,19 +38,23 @@ function Services() {
           gsap.to(card, {
             x: 0,
             y: 0,
-            duration: 0.6,
+            scale: 1,
+            duration: 0.5,
             ease: 'power2.out',
           });
         };
 
+        card.addEventListener('mouseenter', handleMove);
         card.addEventListener('mousemove', handleMove);
         card.addEventListener('mouseleave', handleLeave);
+        card._magEnter = handleMove;
         card._magMove = handleMove;
         card._magLeave = handleLeave;
       });
 
       return () => {
         cards.forEach((card) => {
+          card.removeEventListener('mouseenter', card._magEnter);
           card.removeEventListener('mousemove', card._magMove);
           card.removeEventListener('mouseleave', card._magLeave);
         });
@@ -88,41 +93,47 @@ function Services() {
   };
 
   const services = [
-    { 
-      title: "Front-End Development", 
-      description: "React Framework",
-      expertise: "Component Architecture, State Management",
-      bgColor: "#B8E5F0"
+    {
+      title: "Front-End Development",
+      description: "React & Next.js Applications",
+      expertise: "Component-driven architecture with server-side rendering and optimized performance",
+      bgColor: "#FFF7AF",
+      textColor: "#2B2B2B"
     },
-    { 
-      title: "Back-End Development", 
-      description: "APIs, Databases & Infrastructure",
-      expertise: "Data Management and Content Management Systems",
-      bgColor: "#F5D4D9"
+    {
+      title: "Content Management",
+      description: "Sanity.io & Headless CMS",
+      expertise: "Structured content, real-time collaboration, and flexible content modeling",
+      bgColor: "#816281",
+      textColor: "#F2D4E5"
     },
-    { 
-      title: "Search Engine Optimization", 
-      description: "Technical & Content Strategy",
-      expertise: "Core Web Vitals, Next.js Optimization",
-      bgColor: "#D4E8D4"
+    {
+      title: "Search Engine Optimization",
+      description: "Technical SEO & Performance",
+      expertise: "Next.js optimization, Core Web Vitals, semantic markup, and search visibility",
+      bgColor: "#BB879D",
+      textColor: "#1E1435"
     },
-    { 
-      title: "REST API Development", 
-      description: "Client-Server Communication",
-      expertise: "Scalable API Architecture",
-      bgColor: "#D4C5E8"
+    {
+      title: "Interactive Design",
+      description: "Motion & Micro-interactions",
+      expertise: "GSAP-powered animations, scroll triggers, and engaging user experiences",
+      bgColor: "#2C4B45",
+      textColor: "#E8DAC8"
     },
-    { 
-      title: "Interactive Design", 
-      description: "GSAP & Micro-interactions",
-      expertise: "Subtle Motion and User Engagement",
-      bgColor: "#F5E8C8"
+    {
+      title: "Web Design Systems",
+      description: "Thoughtful Design Systems",
+      expertise: "Cohesive color palettes, typography scales, and reusable components",
+      bgColor: "#A1ADEB",
+      textColor: "#2A2440"
     },
-    { 
-      title: "UX/UI Design", 
-      description: "Research-Driven Experiences",
-      expertise: "Accessibility-First",
-      bgColor: "#E8F0F5"
+    {
+      title: "Accessibility & UX",
+      description: "Inclusive User Experiences",
+      expertise: "WCAG compliance, semantic HTML, and user-centered design principles",
+      bgColor: "#C5C9D1",
+      textColor: "#31304A"
     }
   ];
 
@@ -189,49 +200,56 @@ function Services() {
                         {/* Desktop Layout */}
                         <div className="d-none d-lg-flex align-items-start py-4 px-4">
                           <span
-                            className="font-mono text-xs text-slate-500 text-start"
-                            style={{ 
-                              width: '5%', 
+                            className="font-mono text-xs text-start"
+                            style={{
+                              width: '5%',
                               flexShrink: 0,
                               letterSpacing: '0.02em',
-                              paddingTop: '2px'
+                              paddingTop: '2px',
+                              color: service.textColor,
+                              opacity: 0.7
                             }}
                             aria-label={`Service ${index + 1} of ${services.length}`}
                           >
                             {String(index + 1).padStart(2, '0')}
                           </span>
-                          
+
                           <h3
                             className="text-xl font-medium mb-0 text-start"
-                            style={{ 
-                              width: '25%', 
+                            style={{
+                              width: '25%',
                               flexShrink: 0,
                               letterSpacing: '-0.005em',
-                              lineHeight: '1.3'
+                              lineHeight: '1.3',
+                              color: service.textColor
                             }}
                           >
                             {service.title}
                           </h3>
-                          
+
                           <p
-                            className="text-sm text-slate-600 mb-0 text-start"
-                            style={{ 
-                              width: '30%', 
+                            className="text-sm mb-0 text-start"
+                            style={{
+                              width: '30%',
                               flexShrink: 0,
                               letterSpacing: '-0.01em',
-                              lineHeight: '1.5'
+                              lineHeight: '1.5',
+                              color: service.textColor,
+                              opacity: 0.85
                             }}
                           >
                             {service.description}
                           </p>
-                          
+
                           <p
-                            className="text-xs text-slate-500 font-medium mb-0 text-start"
-                            style={{ 
-                              width: '35%', 
+                            className="text-xs font-medium mb-0 text-start"
+                            style={{
+                              width: '35%',
                               flexShrink: 0,
                               letterSpacing: '0.005em',
-                              lineHeight: '1.5'
+                              lineHeight: '1.5',
+                              color: service.textColor,
+                              opacity: 0.8
                             }}
                           >
                             {service.expertise}
@@ -248,31 +266,38 @@ function Services() {
                           >
                             <div className="d-flex align-items-center justify-content-between">
                               <div className="d-flex align-items-center gap-3">
-                                <span 
-                                  className="font-mono text-xs text-slate-500"
-                                  style={{ letterSpacing: '0.02em' }}
+                                <span
+                                  className="font-mono text-xs"
+                                  style={{
+                                    letterSpacing: '0.02em',
+                                    color: service.textColor,
+                                    opacity: 0.7
+                                  }}
                                   aria-label={`Service ${index + 1} of ${services.length}`}
                                 >
                                   {String(index + 1).padStart(2, '0')}
                                 </span>
-                                <h3 
+                                <h3
                                   className="text-xl font-medium mb-0"
-                                  style={{ letterSpacing: '-0.005em' }}
+                                  style={{
+                                    letterSpacing: '-0.005em',
+                                    color: service.textColor
+                                  }}
                                 >
                                   {service.title}
                                 </h3>
                               </div>
-                              
+
                               <svg
                                 width="20"
                                 height="20"
                                 viewBox="0 0 20 20"
                                 fill="none"
-                                className="text-slate-900"
                                 style={{
                                   transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
                                   transition: 'transform 0.3s ease',
-                                  flexShrink: 0
+                                  flexShrink: 0,
+                                  color: service.textColor
                                 }}
                                 aria-hidden="true"
                               >
@@ -288,27 +313,31 @@ function Services() {
                           </button>
 
                           {isExpanded && (
-                            <div 
+                            <div
                               id={`service-detail-${index}`}
                               className="px-4 pb-4 pt-0 ps-5"
-                              style={{ 
+                              style={{
                                 animation: 'fadeIn 0.3s ease'
                               }}
                             >
-                              <p 
-                                className="text-sm text-slate-600 mb-2"
-                                style={{ 
+                              <p
+                                className="text-sm mb-2"
+                                style={{
                                   letterSpacing: '-0.01em',
-                                  lineHeight: '1.5'
+                                  lineHeight: '1.5',
+                                  color: service.textColor,
+                                  opacity: 0.85
                                 }}
                               >
                                 {service.description}
                               </p>
-                              <p 
-                                className="text-xs text-slate-500 font-medium mb-0"
-                                style={{ 
+                              <p
+                                className="text-xs font-medium mb-0"
+                                style={{
                                   letterSpacing: '0.005em',
-                                  lineHeight: '1.5'
+                                  lineHeight: '1.5',
+                                  color: service.textColor,
+                                  opacity: 0.8
                                 }}
                               >
                                 {service.expertise}

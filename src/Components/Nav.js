@@ -62,7 +62,7 @@ function Nav() {
             }`}
             aria-current={isActive('/our-process') ? 'page' : undefined}
           >
-            Our Process
+           Process
           </a>
 
           {/* Featured Work Dropdown */}
@@ -136,10 +136,10 @@ function Nav() {
         <div className="flex items-center gap-3">
           <button 
             onClick={handleContactClick}
-            className="bg-white text-green-950 px-5 py-2 rounded-full text-xs transition-colors cursor-pointer border-0 hover:bg-gray-100"
+            className="bg-white text-green-950 px-5 py-2 font-bold rounded-full text-xs transition-colors cursor-pointer border-0 hover:bg-gray-100"
             aria-label="Email us"
           >
-            Email Us
+            Email 
           </button>
 
           {/* Socials Dropdown */}

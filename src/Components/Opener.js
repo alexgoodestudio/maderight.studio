@@ -2,8 +2,9 @@ import React, { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
 const MOTION = {
   instant: 0.15,
@@ -151,25 +152,24 @@ function Opener() {
           </span>
         </h1>
         
-        <h2 ref={taglineRef} className="text-2xl tracking-wider pt-4 font-light text-white mb-5">
-          <section className="d-inline-block text-center pb-3 px-4 md:px-6">
+        <h2 ref={taglineRef} className="text-xl tracking-wider mt-lg-2 mt-5 text-slate-100 pt-4 font-light mb-5">
+          <section className="d-inline-block text-center pb-2 px-2 md:px-6">
             <div>
               <span className="word">An</span>{' '}
               <span className="word">independent</span>{' '}
-              <span className="word">creative</span>{' '}
               <span className="word emphasis">web design</span>{' '}
               <span className="word">and</span>{' '}
               <span className="word emphasis">technology</span>{' '}
-              <span className="word">studio.</span>
+              <span className="word">studio</span>
             </div>
-            <div className="mt-2 w-100" style={{ borderBottom: '1px solid currentColor' }}></div>
+            <div className="mt-2 w-100" style={{ borderBottom: '1px solid ' }}></div>
           </section>
 
           <br />
 
           <div className="d-flex justify-content-center ">
-            <span className="text-sm tracking-wider px-2  text-white font-mono">
-              Based in Columbia, South Carolina
+            <span className="text-sm tracking-wider word emphasis px-2  text-slate-100 font-mono">
+              Located in Columbia, South Carolina
             </span>
           </div>
         </h2>

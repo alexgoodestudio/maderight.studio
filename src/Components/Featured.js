@@ -14,15 +14,15 @@ function Featured() {
       title: "The Lemich Clinic",
       subtitle: "Home of Military Mental Health",
       image: Vid,
-      description: `Our work with The Lemich Clinic focused on creating a modern, patient-centered website that reflects their commitment to care. We combined clean design with intuitive navigation and mobile optimization, ensuring a seamless experience for every visitor. From brand alignment to technical performance, this project highlights our ability to transform healthcare services into engaging, trustworthy digital experiences.`,
+      description: `Modern, patient-centered health-care website that reflects their commitment to Norfolk, Virginia's military community.`,
       link: "https://lemichclinic.netlify.app/",
       type: "video",
     },
     {
-      title: "Rosewood Cleaning Services",
+      title: "Rosewood Cleaning",
       subtitle: "Rosewood Cleaning Services",
       image: Vid3,
-      description: `Rosewood Cleaning Services’ website is a React project showcasing advanced GSAP animations, including ScrollTrigger and timeline effects. The site is fully responsive, styled with Bootstrap and Tailwind, and emphasizes both interactivity and visual appeal.`,
+      description: `Columbia, South Carolina cleaning service website that showcases Andrew, and Sarah's mission to provide affordable Eco-Friendly house cleaning services.`,
       link: "https://rosewoodcleaning.netlify.app/",
       type: "video",
     },
@@ -30,7 +30,7 @@ function Featured() {
       title: "Alex Goode Portfolio",
       subtitle: "Full-Stack Developer ",
       image: Vid2,
-      description: `Alex Goode's Portfolio website showcases modern, user-focused web development projects with an emphasis on interactive, engaging interfaces. Combining clean, responsive design with carefully crafted micro-interactions, each project highlights both creativity and technical expertise. From React-based front-end development to thoughtfully designed UX/UI, this portfolio demonstrates our abilities to building functional, aesthetically pleasing digital interactions.`,
+      description: `Personal web development portfolio for Made Right Studio owner, Alex Goode.`,
       link: "http://alexgoode.netlify.app/",
       type: "video",
     },
@@ -65,10 +65,10 @@ function Featured() {
 )}
 
               <div className="card-body p-5  flex-grow-1">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-4xl eighties  text-gray-800 mb-3">
                   {service.title}
                 </h3>
-                <p className="text-md leading-relaxed text-gray-600">
+                <p className="text-lg gs leading-relaxed text-gray-600">
                   {service.description}
                 </p>
               </div>

@@ -17,12 +17,10 @@ function Footer() {
             <h2 className="text-6xl eighties font-bold mb-4 text-slate-100">
               Made Right
             </h2>
-            <p className="text-lg text-slate-300 mb-5 pe-lg-5">
-              An independent creative web design and technology studio.
+            <p className="text-xl text-slate-300  pe-lg-5">
+              A creative web design and technology studio.
             </p>
-            <p className="text-sm text-slate-400 pe-lg-4">
-              Technology and design systems for small businesses. We build authentic digital experiences for long term growth.
-            </p>
+
           </div>
 
           {/* Navigation Columns */}

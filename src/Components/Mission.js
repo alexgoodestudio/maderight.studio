@@ -234,10 +234,10 @@ function Mission() {
 
   }, []);
 
-  const text = "Made Right is a design-focused web development company based in Columbia, South Carolina. Our goal is to bring creativity and technology together to develop high performing web experiences that are as functional as they are dependable. We focus on thoughtful design, and purposeful strategy—helping brands grow their presence with websites that communicate clearly, build trust, and drive results.";
+  const text = "Made Right is a design-focused web development studio based in Columbia, South Carolina. Our goal is to bring creativity and technology together to develop high performing websites that feel inspired. We focus on thoughtful design, and purposeful strategy—helping brands grow their presence with websites that communicate clearly, build trust, and drive results.";
 
   return (
-    <section className="bg-white gs mission-p py-5 text-start px-lg-5 px-3">
+    <section className="bg-white gs  mission-p py-5  text-start px-lg-5 px-3">
       <div 
         ref={particleWrapperRef}
         style={{
@@ -261,7 +261,7 @@ function Mission() {
           }
 
           return (
-            <span key={i} className="inline-block mr-2">
+            <span key={i} className="inline-block mr-2 text-teal-800">
               <span className={`word ${colorClass}`}>
                 {letters}
               </span>
