@@ -97,7 +97,6 @@ function Storage(){
             
             <div className="bg-teal-950">        
                 <section>
-                    <NavBanner/>
                     <Nav/>
                     <Opener/>
                    
@@ -107,6 +106,7 @@ function Storage(){
                     <Services/>
                     <Stats/>
                     <Contact/>
+                    <NavBanner/>
                     {/* <Playground/> */}
                     {/* <Random/> */}
                 </section>

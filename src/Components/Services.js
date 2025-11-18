@@ -195,24 +195,24 @@ function Services() {
             <header className="text-start ms-2 ms-lg-5 mb-5 mb-lg-6">
               <div className="row">
                 <div className="col-12 col-lg-8">
-                  <h2 
+                  <h2
                     id="services-heading"
-                    ref={headingRef} 
-                    className="text-6xl font-bold mb-3"
+                    ref={headingRef}
+                    className="text-5xl text-lg-6xl gs font-bold mb-3"
                     style={{ letterSpacing: '-0.015em', lineHeight: '1.1' }}
                   >
                     What We Do.
                   </h2>
-                  <p 
-                    ref={metadataRef} 
-                    className="text-xs text-slate-600 mb-0"
-                    style={{ 
-                      letterSpacing: '0.15em', 
-                      textTransform: 'uppercase',
-                      fontWeight: '500'
+                  <p
+                    ref={metadataRef}
+                    className="text-lg gs text-slate-700 mb-0"
+                    style={{
+                      letterSpacing: '-0.01em',
+                      lineHeight: '1.6',
+                      maxWidth: '60ch'
                     }}
                   >
-                    Our Capabilities — Updated 2025
+                    Our capabilities — Updated 2025
                   </p>
                 </div>
               </div>

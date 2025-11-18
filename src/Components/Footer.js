@@ -20,7 +20,7 @@ function Footer() {
             <p className="text-xl text-slate-300  pe-lg-5">
               An independent web design and technology studio.
             </p>
-            <p className="text-md text-slate-500  pe-lg-5">
+            <p className="text-md text-slate-400  pe-lg-5">
               Columbia, South Carolina
             </p>
           </div>

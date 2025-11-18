@@ -38,7 +38,29 @@ function Featured() {
 
   return (
     <div className="bg-white featured-body">
-      <h1 className="text-gray-800 text-6xl  font-bold text-start mb-5">Featured Work:</h1>
+      {/* Section Header */}
+      <header className="text-start mb-5 mb-lg-6">
+        <div className="row">
+          <div className="col-12 col-lg-8">
+            <h2
+              className="text-5xl text-lg-6xl gs font-bold mb-3"
+              style={{ letterSpacing: '-0.015em', lineHeight: '1.1' }}
+            >
+              Featured Work.
+            </h2>
+            <p
+              className="text-lg gs text-slate-700 mb-0"
+              style={{
+                letterSpacing: '-0.01em',
+                lineHeight: '1.6',
+                maxWidth: '60ch'
+              }}
+            >
+              Recent projects built with precision and purpose.
+            </p>
+          </div>
+        </div>
+      </header>
 
       <div className="row g-4">
         {serviceData.map((service, idx) => (

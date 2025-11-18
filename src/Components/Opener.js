@@ -135,7 +135,10 @@ function Opener() {
 
 
   return (
+
+
     <div className="vh-100 bg-teal-950 d-flex justify-content-center align-items-center" >
+    
       <section 
         ref={sectionRef} 
         className="text-center"
@@ -165,7 +168,7 @@ function Opener() {
           </span>
         </h1>
         
-        <h2 ref={taglineRef} className="text-xl mt-lg-2 mt-5 text-slate-100 pt-4 font-light mb-5" style={{ letterSpacing: '0.005em' }}>
+        <h2 ref={taglineRef} className="text-xl mt-lg-2 mt-2 text-slate-100 pt-4 font-light mb-5" style={{ letterSpacing: '0.005em' }}>
           <section className="d-inline-block text-center pb-2 px-2 md:px-6">
             <div>
               <span className="word">
@@ -241,6 +244,7 @@ function Opener() {
 
       </section>
     </div>
+    
   );
 }
 
