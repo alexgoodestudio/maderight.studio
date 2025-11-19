@@ -40,7 +40,7 @@ function Contact() {
 
           Interested in working together?
         </h3>
-        <p className="text-lg contact-body text-start mb-5">
+        <p className="text-lg contact-body gs text-start mb-5">
           Made Right is interested in working with you. Send us a brief of what
           you would like done. It works best if you send a budget so we can plan
           accordingly to create within your means.

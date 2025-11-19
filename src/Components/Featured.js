@@ -56,7 +56,7 @@ function Featured() {
                 maxWidth: '60ch'
               }}
             >
-              Recent projects built with precision and purpose.
+              Recent projects we want to share with you.
             </p>
           </div>
         </div>
