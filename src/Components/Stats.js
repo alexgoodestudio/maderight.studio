@@ -16,7 +16,7 @@ function Stats() {
       suffix: '%',
       label: 'Lighthouse Score',
       sublabel: 'Performance, accessibility, SEO',
-      color: '#2C4B45',
+      color: '#115e59',
       textColor: '#0f172a'
     },
     {
@@ -25,7 +25,7 @@ function Stats() {
       suffix: 's',
       label: 'Time to Interactive',
       sublabel: 'Measured on 4G mobile',
-      color: '#816281',
+      color: '#115e59',
       textColor: '#0f172a'
     },
     {
@@ -33,7 +33,7 @@ function Stats() {
       suffix: '+',
       label: 'Year Lifespan',
       sublabel: 'Built to scale, not rebuild',
-      color: '#BB879D',
+      color: '#115e59',
       textColor: '#0f172a'
     },
     {
@@ -41,7 +41,7 @@ function Stats() {
       suffix: '%',
       label: 'SEO Improvement',
       sublabel: 'vs. Wix, Squarespace, WordPress',
-      color: '#A1ADEB',
+      color: '#115e59',
       textColor: '#0f172a'
     },
   ];
@@ -134,7 +134,7 @@ function Stats() {
                       maxWidth: '60ch'
                     }}
                   >
-                    Technical precision built into every project.
+                    Built into every project are the best technical practices that help your website perform optimally for users and search engines.
                   </p>
                 </div>
               </div>

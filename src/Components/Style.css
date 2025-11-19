@@ -157,6 +157,12 @@ body {
   padding-bottom: 2px;
   display: inline-block;
 }
+.spaced-underline-2{
+  text-decoration: none;
+  border-bottom: 3px solid currentColor;
+  padding-bottom: 2px;
+  display: inline-block;
+}
 
 .word {
   display: inline-block;
@@ -403,7 +409,7 @@ body {
 }
 
 .btn-contact {
-  color: white;
+
   border-radius: 10px;
 }
 

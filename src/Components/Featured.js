@@ -87,7 +87,7 @@ function Featured() {
 )}
 
               <div className="card-body p-5  flex-grow-1">
-                <h3 className="text-4xl eighties  text-gray-800 mb-3">
+                <h3 className="text-4xl eighties spaced-underline-2 text-gray-800 mb-3">
                   {service.title}
                 </h3>
                 <p className="text-lg gs leading-relaxed text-gray-600">

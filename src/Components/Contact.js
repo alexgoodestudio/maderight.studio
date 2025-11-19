@@ -40,14 +40,14 @@ function Contact() {
 
           Interested in working together?
         </h3>
-        <p className="text-lg contact-body mb-5">
+        <p className="text-lg contact-body text-start mb-5">
           Made Right is interested in working with you. Send us a brief of what
           you would like done. It works best if you send a budget so we can plan
           accordingly to create within your means.
         </p>
         <button
           onClick={handleContactClick}
-          className="btn-contact text-lg font-mono bg-sky-500 px-5 py-3  text-white rounded"
+          className="btn-contact text-lg font-mono bg-sky-400 text-sky-50 px-5 py-3  rounded"
         >
           Email
         </button>
