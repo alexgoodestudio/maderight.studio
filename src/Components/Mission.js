@@ -10,6 +10,7 @@ function Mission() {
 
   useGSAP(() => {
     const words = container.current.querySelectorAll(".word");
+    const madeRightWords = container.current.querySelectorAll(".made-right");
 
     // SINGLE UNIFIED SCROLLTRIGGER - pin and animation together
     const tl = gsap.timeline({
@@ -29,8 +30,25 @@ function Mission() {
     // Hold at full opacity
     tl.to({}, { duration: 1 });
 
-    // Simple fade out all words together
-    tl.to(words, {
+    // Fade out all words EXCEPT "Made Right"
+    const otherWords = Array.from(words).filter(word =>
+      !word.classList.contains('made-right')
+    );
+    tl.to(otherWords, {
+      opacity: 0,
+      duration: 1.5,
+      ease: 'power1.out'
+    });
+
+    // Keep "Made Right" at full opacity while others fade
+    tl.to(madeRightWords, {
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power1.out'
+    }, '<'); // Start at same time as other words fading
+
+    // Finally fade out "Made Right"
+    tl.to(madeRightWords, {
       opacity: 0,
       duration: 1.5,
       ease: 'power1.out'
@@ -49,13 +67,16 @@ function Mission() {
           const punctuation = match ? match[2] : "";
 
           let colorClass = "";
+          let specialClass = "";
+
           if (letters === "Made" || letters === "Right") {
             colorClass = "text-sky-400";
+            specialClass = "made-right";
           }
 
           return (
             <span key={i} className="inline-block mr-2 text-teal-900">
-              <span className={`word ${colorClass}`}>
+              <span className={`word ${colorClass} ${specialClass}`}>
                 {letters}
               </span>
               {punctuation && <span className="word">{punctuation}</span>}
