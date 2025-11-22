@@ -115,67 +115,6 @@ function AnimatedText({ text, className, staggerDelay = 0.03, triggerRef, endCha
 
 function Contact() {
   const sectionRef = useRef(null);
-  const waveRef = useRef(null);
-  const bodyRef = useRef(null);
-  const buttonRef = useRef(null);
-
-  useGSAP(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    if (prefersReducedMotion) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 85%',
-        toggleActions: 'play none none none'
-      }
-    });
-
-    // Body text fades up
-    tl.fromTo(bodyRef.current,
-      {
-        y: 30,
-        opacity: 0
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: MOTION.smooth,
-        ease: 'power2.out'
-      },
-      0.6
-    );
-
-    // Button slides in
-    tl.fromTo(buttonRef.current,
-      {
-        y: 20,
-        opacity: 0
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: MOTION.quick,
-        ease: 'power2.out'
-      },
-      0.9
-    );
-
-    // Waving hand starts after everything is visible
-    if (waveRef.current) {
-      tl.to(waveRef.current, {
-        rotation: 20,
-        transformOrigin: 'bottom center',
-        duration: MOTION.smooth,
-        ease: 'power1.inOut',
-        yoyo: true,
-        repeat: -1,
-        repeatDelay: 0.8
-      }, 1.2);
-    }
-
-  }, []);
 
   const handleContactClick = () => {
     window.location.href = "mailto:hello@maderight.studio";
@@ -192,13 +131,12 @@ function Contact() {
             endChar="?"
           />
         </h3>
-        <p ref={bodyRef} className="text-lg contact-body gs text-start mb-5">
+        <p className="text-lg contact-body gs text-start mb-5">
           Made Right is interested in working with you. Send us a brief of what
           you would like done. It works best if you send a budget so we can plan
           accordingly to create within your means.
         </p>
         <button
-          ref={buttonRef}
           onClick={handleContactClick}
           className="btn-contact text-lg font-mono bg-sky-400 text-sky-50 px-5 py-3 rounded"
         >

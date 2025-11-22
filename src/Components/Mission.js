@@ -5,8 +5,51 @@ import { useGSAP } from "@gsap/react";
 
 function Mission() {
   const container = useRef();
+  const confettiContainer = useRef();
+  const confettiFired = useRef(false);
 
   gsap.registerPlugin(ScrollTrigger);
+
+  // Create and animate confetti burst
+  const triggerConfetti = () => {
+    if (confettiFired.current) return; // Only fire once
+    confettiFired.current = true;
+
+    const colors = ['#FFF7AF', '#2C4B45', '#A1ADEB'];
+    const confettiCount = 36;
+
+    for (let i = 0; i < confettiCount; i++) {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti-piece';
+
+      // Evenly distribute angles to prevent overlap
+      const angle = (i / confettiCount) * Math.PI * 2;
+      const velocity = 200 + (i % 3) * 80; // 3 rings at different distances
+      const xDest = Math.cos(angle) * velocity;
+      const yDest = Math.sin(angle) * velocity;
+
+      confetti.style.cssText = `
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background: ${colors[i % colors.length]};
+        left: 50%;
+        top: 50%;
+        opacity: 1;
+        border-radius: 50%;
+      `;
+      confettiContainer.current.appendChild(confetti);
+
+      gsap.to(confetti, {
+        x: xDest,
+        y: yDest,
+        opacity: 0,
+        duration: 2,
+        ease: 'power2.out',
+        onComplete: () => confetti.remove()
+      });
+    }
+  };
 
   useGSAP(() => {
     const words = container.current.querySelectorAll(".word");
@@ -21,6 +64,12 @@ function Mission() {
         scrub: 1.5,
         pin: true,
         anticipatePin: 1,
+        onUpdate: (self) => {
+          // Trigger confetti at ~70% progress (when Made Right is alone)
+          if (self.progress > 0.7 && !confettiFired.current) {
+            triggerConfetti();
+          }
+        }
       },
     });
 
@@ -59,7 +108,8 @@ function Mission() {
   const text = "Made Right is a design-focused web development studio based in Columbia, South Carolina. Our goal is to bring creativity and technology together to develop high-performing websites that showcases your brand. We focus on design principles, technical performance and purposeful strategy.";
 
   return (
-    <section className="bg-white gs mission-p py-5 text-start px-lg-0 px-1">
+    <section className="bg-white gs mission-p py-5 text-start px-lg-0 px-1 position-relative">
+      <div ref={confettiContainer} className="position-fixed" style={{ left: '50%', top: '50%', pointerEvents: 'none', zIndex: 9999 }} />
       <p ref={container} className="mission-body">
         {text.split(" ").map((word, i) => {
           const match = word.match(/^(\w+)(\W*)$/);
