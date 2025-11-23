@@ -65,8 +65,8 @@ function Mission() {
         pin: true,
         anticipatePin: 1,
         onUpdate: (self) => {
-          // Trigger confetti at ~70% progress (when Made Right is alone)
-          if (self.progress > 0.7 && !confettiFired.current) {
+          // Trigger confetti after Made Right has faded out (~95% progress)
+          if (self.progress > 0.95 && !confettiFired.current) {
             triggerConfetti();
           }
         }

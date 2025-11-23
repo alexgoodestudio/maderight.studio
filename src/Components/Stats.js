@@ -107,7 +107,7 @@ function Stats() {
 
   return (
     <section
-      className="bg-white text-slate-900"
+      className="bg-white text-slate-900 pb-5"
       ref={containerRef}
       aria-labelledby="stats-heading"
     >

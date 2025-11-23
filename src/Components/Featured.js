@@ -15,7 +15,7 @@ function Featured() {
       subtitle: "Home of Military Mental Health",
       image: Vid,
       description: `Patient-centered health-care website that reflects their commitment to Norfolk, Virginia's military community.`,
-      link: "https://lemichclinic.netlify.app/",
+      link: "https://lemich.netlify.app/",
       type: "video",
     },
     {
