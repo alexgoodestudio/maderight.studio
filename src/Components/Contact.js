@@ -7,8 +7,8 @@ function Contact() {
 
   return (
     <div className="row contact">
-      <div className="col-lg-12 col-12 bg-slate-50 contact text-dark d-flex flex-column justify-content-center items-center text-center p-4">
-        <h3 className="text-5xl eighties font-bold mb-3">
+      <div className="col-lg-12 col-12 bg-slate-50  contact text-dark d-flex flex-column justify-content-center items-center text-center p-4">
+        <h3 className="text-5xl text-teal-900 eighties font-bold mb-3">
           Interested in working together?
         </h3>
         <p className="text-lg contact-body gs text-start mb-5">
@@ -18,7 +18,7 @@ function Contact() {
         </p>
         <button
           onClick={handleContactClick}
-          className="btn-contact text-lg font-mono bg-sky-400 text-sky-50 px-5 py-3 rounded"
+          className="btn-contact text-lg font-mono bg-teal-900 text-sky-50 px-5 py-3 rounded"
         >
           Email
         </button>

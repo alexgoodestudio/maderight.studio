@@ -1,12 +1,35 @@
 import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 
 function Footer() {
   const year = new Date().getFullYear();
+  const footerRef = useRef(null);
+  const titleRef = useRef(null);
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(titleRef.current, {
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+        duration: 1.2,
+        y: -40,
+        opacity: 20,
+        ease: "bounce.out",
+      });
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <footer  className="bg-teal-950 text-slate-100 pt-32 pb-8 ">
+    <footer ref={footerRef} className="bg-teal-950 text-slate-100 pt-32 pb-8 ">
       <div className="container-fluid px-4 px-lg-5">
         
         {/* Primary Content Grid */}
@@ -14,10 +37,13 @@ function Footer() {
           
           {/* Studio Statement */}
           <div className="col-lg-5 col-12 mb-5 mb-lg-0 footer-section">
-            <h2 className="text-6xl eighties font-bold mb-4 text-slate-100">
+            <h2
+              ref={titleRef}
+              className="text-6xl eighties font-bold mb-4 text-slate-100"
+            >
               Made Right
             </h2>
-            <p className="text-xl text-slate-300  pe-lg-5">
+            <p className="text-xl tracking-wide text-slate-300  pe-lg-5">
               An independent web design and technology studio.
             </p>
             <p className="text-sm text-slate-400  pe-lg-5">
@@ -51,7 +77,7 @@ function Footer() {
                       Our Process
                     </Link>
                   </li>
-                                    <li className="mb-3">
+                  <li className="mb-3">
                     <Link 
                       to="/about" 
                       className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
@@ -59,7 +85,7 @@ function Footer() {
                       About
                     </Link>
                   </li>
-                                    <li className="mb-3">
+                  <li className="mb-3">
                     <Link 
                       to="/team" 
                       className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
@@ -67,7 +93,6 @@ function Footer() {
                       Team
                     </Link>
                   </li>
-
                 </ul>
               </div>
 
@@ -97,7 +122,7 @@ function Footer() {
                       Rosewood Cleaning
                     </a>
                   </li>
-                                    <li className="mb-3">
+                  <li className="mb-3">
                     <a 
                       href="http://alexgoode.netlify.app/" 
                       className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
@@ -116,9 +141,7 @@ function Footer() {
                   Connect
                 </h6>
                 <ul className="list-unstyled">
-                  <li className="mb-3">
-            
-                  </li>
+                  <li className="mb-3"></li>
                   <li className="mb-3">
                     <a 
                       href="https://instagram.com/maderight.studio" 
