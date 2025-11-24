@@ -46,7 +46,7 @@ function Footer() {
             <p className="text-xl tracking-wide text-slate-300  pe-lg-5">
               An independent web design and technology studio.
             </p>
-            <p className="text-sm text-slate-400  pe-lg-5">
+            <p className="text-sm font-mono text-slate-400  pe-lg-5">
               Columbia, South Carolina
             </p>
           </div>
@@ -56,15 +56,15 @@ function Footer() {
             <div className="row">
               
               {/* Studio Links */}
-              <div className="col-md-4 col-6 mb-4 mb-md-0 footer-section">
-                <h6 className="text-xs font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
+              <div className="col-md-4 text-start col-4 mb-4 mb-md-0 footer-section">
+                <h6 className="text-sm underline font-mono font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
                   Studio
                 </h6>
                 <ul className="list-unstyled">
                    <li className="mb-3">
                     <Link 
                       to="/" 
-                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
                     >
                       Home
                     </Link>
@@ -72,7 +72,7 @@ function Footer() {
                   <li className="mb-3">
                     <Link 
                       to="/our-process" 
-                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
                     >
                       Our Process
                     </Link>
@@ -80,7 +80,7 @@ function Footer() {
                   <li className="mb-3">
                     <Link 
                       to="/about" 
-                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
                     >
                       About
                     </Link>
@@ -88,7 +88,7 @@ function Footer() {
                   <li className="mb-3">
                     <Link 
                       to="/team" 
-                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
                     >
                       Team
                     </Link>
@@ -97,15 +97,15 @@ function Footer() {
               </div>
 
               {/* Work Links */}
-              <div className="col-md-4 col-6 mb-4 mb-md-0 footer-section">
-                <h6 className="text-xs font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
+              <div className="col-md-4 text-start col-4 mb-4 mb-md-0 footer-section">
+                <h6 className="text-sm underline font-mono font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
                   Recent Work
                 </h6>
                 <ul className="list-unstyled">
                   <li className="mb-3">
                     <a 
                       href="https://lemichclinic.netlify.app" 
-                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
                       target="_blank" 
                       rel="noopener noreferrer"
                     >
@@ -115,7 +115,7 @@ function Footer() {
                   <li className="mb-3">
                     <a 
                       href="https://rosewoodcleaning.netlify.app" 
-                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
                       target="_blank" 
                       rel="noopener noreferrer"
                     >
@@ -125,7 +125,7 @@ function Footer() {
                   <li className="mb-3">
                     <a 
                       href="http://alexgoode.netlify.app/" 
-                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
                       target="_blank" 
                       rel="noopener noreferrer"
                     >
@@ -136,8 +136,8 @@ function Footer() {
               </div>
 
               {/* Connect Links */}
-              <div className="col-md-4 col-12 footer-section">
-                <h6 className="text-xs font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
+              <div className="col-md-4 text-start col-4 footer-section">
+                <h6 className="text-sm underline font-mono font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
                   Connect
                 </h6>
                 <ul className="list-unstyled">
@@ -145,7 +145,7 @@ function Footer() {
                   <li className="mb-3">
                     <a 
                       href="https://instagram.com/maderight.studio" 
-                      className="text-base text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
                       target="_blank" 
                       rel="noopener noreferrer"
                     >

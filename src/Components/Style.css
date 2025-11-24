@@ -379,39 +379,24 @@ body {
   padding: 2% 33%;
 }
 
-.btn-call {
-  color: #E9D5FF;
-  background-color: #78350F;
-  border: 2px solid transparent;
-  border-radius: 20px;
-  outline: 2px solid transparent;
-  transition: all 0.3s ease;
+.bg-nav-banner{
+  background-color: #D6E4FF;
+  color: #2A2440;
 }
 
-.btn-call:hover {
-  background-color: #E9D5FF;
-  color: #78350F;
-  border-color: #78350F;
-  outline-color: #78350F;
-}
-
-.btn-email {
-  color: #78350F;
-  background-color: #E9D5FF;
-  border: 2px solid #78350F;
-  border-radius: 20px;
-  outline: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.btn-email:hover {
-  color: #E9D5FF;
-  background-color: #78350F;
+.text-made{
+  color: #BB879D;
 }
 
 .btn-contact {
-
+  background-color: #b7c1f6;
+  color: #2A2440;
   border-radius: 10px;
+}
+
+.btn-contact:hover{
+  background-color: #A1ADEB;
+  color: #2A2440;
 }
 
 /* -----------------------------------------------------------------------------

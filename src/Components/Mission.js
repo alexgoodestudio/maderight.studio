@@ -120,7 +120,7 @@ function Mission() {
           let specialClass = "";
 
           if (letters === "Made" || letters === "Right") {
-            colorClass = "text-sky-400";
+            colorClass = "text-primary";
             specialClass = "made-right";
           }
 
