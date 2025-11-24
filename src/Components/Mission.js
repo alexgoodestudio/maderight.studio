@@ -66,7 +66,7 @@ function Mission() {
         anticipatePin: 1,
         onUpdate: (self) => {
           // Trigger confetti after Made Right has faded out (~95% progress)
-          if (self.progress > 0.95 && !confettiFired.current) {
+          if (self.progress > 0.99 && !confettiFired.current) {
             triggerConfetti();
           }
         }
@@ -120,7 +120,7 @@ function Mission() {
           let specialClass = "";
 
           if (letters === "Made" || letters === "Right") {
-            colorClass = "text-primary";
+            colorClass = "text-sky-500 ";
             specialClass = "made-right";
           }
 

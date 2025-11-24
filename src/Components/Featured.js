@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// Using plain anchors for external links to open in a new tab
 // import Card1 from "./Images/card1.png";
 // import Card2 from "./Images/card2.png";
 // import Card3 from "./Images/card3.png";
@@ -14,7 +14,7 @@ function Featured() {
       title: "The Lemich Clinic",
       subtitle: "Home of Military Mental Health",
       image: Vid,
-      description: `Patient-centered health-care website that reflects their commitment to Norfolk, Virginia's military community.`,
+      description: `Patient-centered mental health care website that reflects their commitment to Norfolk, Virginia's military community.`,
       link: "https://lemich.netlify.app/",
       type: "video",
     },
@@ -88,7 +88,14 @@ function Featured() {
 
               <div className="card-body p-5  flex-grow-1">
                 <h3 className="text-4xl eighties spaced-underline-2 text-gray-800 mb-3">
-                  {service.title}
+                  <a
+                    href={service.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: 'inherit', textDecoration: 'none' }}
+                  >
+                    {service.title}
+                  </a>
                 </h3>
                 <p className="text-lg gs leading-relaxed text-gray-600">
                   {service.description}
@@ -96,13 +103,15 @@ function Featured() {
               </div>
               <div className="card-footer p-3">
                <div className="flex">
-              <Link
-                to={service.link}
-                className="bg-teal-900 font-mono  text-white  no-underline hover:bg-green-950 hover:italic px-4 rounded w-full p-2 text-center"
-              >
-                {`View ${service.title}`}
-              </Link>
-            </div>
+                <a
+                  href={service.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-teal-900 font-mono  text-white  no-underline hover:bg-green-950 hover:italic px-4 rounded w-full p-2 text-center"
+                >
+                  {`View ${service.title}`}
+                </a>
+              </div>
               </div>
             </div>
           </div>
