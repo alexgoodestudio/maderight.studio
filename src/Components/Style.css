@@ -84,6 +84,7 @@ body {
 .text-lg { font-size: 1.125rem; letter-spacing: 0.005em; line-height: 1.5; }
 
 /* Body Text (readable tracking) */
+.text-sub {font-size: 1.25rem; letter-spacing: 0; line-height: 1.45;}
 .text-base { font-size: 1rem; letter-spacing: -0.01em; line-height: 1.6; }
 .text-md { font-size: 0.9375rem; letter-spacing: 0.005em; line-height: 1.6; }
 .text-sm { font-size: 0.875rem; letter-spacing: 0.01em; line-height: 1.5; }
@@ -96,7 +97,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.15em; 
 }
-
 .text-button { font-size: 0.875rem; font-weight: 600; letter-spacing: 0.01em; }
 .text-caption { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; }
 
@@ -631,6 +631,7 @@ body {
   .text-2xl { font-size: 1.25rem; }
   .text-xl { font-size: 1.125rem; }
   .text-lg { font-size: 1rem; }
+  .text-sub {font-size: 1rem;}
 }
 
 /* Mobile: < 480px */
@@ -653,6 +654,7 @@ body {
   .text-3xl { font-size: 1.25rem; }
   .text-2xl { font-size: 1.125rem; }
   .text-xl { font-size: 1rem; }
+  .text-sub { font-size: 0.8125rem; }
   .text-lg { font-size: 0.9375rem; }
   .text-base { font-size: 0.875rem; }
   .text-md { font-size: 0.8125rem; }

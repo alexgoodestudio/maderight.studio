@@ -53,7 +53,6 @@ function Mission() {
 
   useGSAP(() => {
     const words = container.current.querySelectorAll(".word");
-    const madeRightWords = container.current.querySelectorAll(".made-right");
 
     // SINGLE UNIFIED SCROLLTRIGGER - pin and animation together
     const tl = gsap.timeline({
@@ -79,25 +78,8 @@ function Mission() {
     // Hold at full opacity
     tl.to({}, { duration: 1 });
 
-    // Fade out all words EXCEPT "Made Right"
-    const otherWords = Array.from(words).filter(word =>
-      !word.classList.contains('made-right')
-    );
-    tl.to(otherWords, {
-      opacity: 0,
-      duration: 1.5,
-      ease: 'power1.out'
-    });
-
-    // Keep "Made Right" at full opacity while others fade
-    tl.to(madeRightWords, {
-      opacity: 1,
-      duration: 0.5,
-      ease: 'power1.out'
-    }, '<'); // Start at same time as other words fading
-
-    // Finally fade out "Made Right"
-    tl.to(madeRightWords, {
+    // Fade out all words including "Made Right"
+    tl.to(words, {
       opacity: 0,
       duration: 1.5,
       ease: 'power1.out'
