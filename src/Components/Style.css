@@ -84,7 +84,7 @@ body {
 .text-lg { font-size: 1.125rem; letter-spacing: 0.005em; line-height: 1.5; }
 
 /* Body Text (readable tracking) */
-.text-sub {font-size: 1.25rem; letter-spacing: 0; line-height: 1.45;}
+.text-sub {font-size: 1.44rem; letter-spacing: 0; line-height: 1.45;}
 .text-base { font-size: 1rem; letter-spacing: -0.01em; line-height: 1.6; }
 .text-md { font-size: 0.9375rem; letter-spacing: 0.005em; line-height: 1.6; }
 .text-sm { font-size: 0.875rem; letter-spacing: 0.01em; line-height: 1.5; }
@@ -160,7 +160,8 @@ body {
 }
 .spaced-underline-2{
   text-decoration: none;
-  border-bottom: 3px solid currentColor;
+  /* subtle underline color (slate-400-ish) kept separate from text color */
+  border-bottom: 2px solid rgba(148,163,184,0.45);
   padding-bottom: 2px;
   display: inline-block;
 }
@@ -654,7 +655,7 @@ body {
   .text-3xl { font-size: 1.25rem; }
   .text-2xl { font-size: 1.125rem; }
   .text-xl { font-size: 1rem; }
-  .text-sub { font-size: 0.8125rem; }
+  .text-sub { font-size: 1.085rem; }
   .text-lg { font-size: 0.9375rem; }
   .text-base { font-size: 0.875rem; }
   .text-md { font-size: 0.8125rem; }

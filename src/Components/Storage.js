@@ -7,7 +7,7 @@ import Nav from "./Nav";
 // import Random from "./Random";
 import Contact from "./Contact";
 import Stats from "./Stats";
-import Mission from './Mission';
+// import Mission from './Mission';
 // import Playground from "./Playground"
 import NavBanner from './NavBanner';
 
@@ -100,7 +100,7 @@ function Storage(){
                     <Nav/>
                     <Opener/>
                    
-                    <Mission/>
+                    {/* <Mission/> */}
                     {/* <ScrollMission/> */}
                     <Featured/>
                     <Services/>

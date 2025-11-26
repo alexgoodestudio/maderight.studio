@@ -13,18 +13,17 @@ function Stats() {
   const metrics = [
     {
       value: '98',
-      suffix: '%',
-      label: 'Lighthouse Score',
-      sublabel: 'Performance, accessibility, SEO',
+      suffix: '/100',
+      label: 'Site Experience',
+      sublabel: 'Fast, accessible, and search-friendly',
       color: '#115e59',
       textColor: '#0f172a'
     },
     {
-      value: '2',
-      prefix: '<',
-      suffix: 's',
-      label: 'Time to Interactive',
-      sublabel: 'Measured on 4G mobile',
+      value: '35',
+      suffix: '%',
+      label: 'Avg. Conversion Lift',
+      sublabel: 'More leads from your website',
       color: '#115e59',
       textColor: '#0f172a'
     },
@@ -40,7 +39,7 @@ function Stats() {
       value: '300',
       suffix: '%',
       label: 'SEO Improvement',
-      sublabel: 'vs. Wix, Squarespace, WordPress',
+      sublabel: 'vs. Wix, Squarespace or WordPress Sites',
       color: '#115e59',
       textColor: '#0f172a'
     },

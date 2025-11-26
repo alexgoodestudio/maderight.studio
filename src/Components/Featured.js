@@ -46,7 +46,7 @@ function Featured() {
               className="text-5xl text-lg-6xl gs font-bold mb-3"
               style={{ letterSpacing: '-0.015em', lineHeight: '1.1' }}
             >
-              Featured Work.
+              Featured.
             </h2>
             <p
               className="text-lg gs text-slate-700 mb-0"
@@ -87,7 +87,7 @@ function Featured() {
 )}
 
               <div className="card-body p-5  flex-grow-1">
-                <h3 className="text-4xl eighties spaced-underline-2 text-gray-800 mb-3">
+                <h3 className="text-3xl eighties spaced-underline-2 text-gray-800 mb-3">
                   <a
                     href={service.link}
                     target="_blank"
