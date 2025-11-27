@@ -2,9 +2,9 @@
 // import Card1 from "./Images/card1.png";
 // import Card2 from "./Images/card2.png";
 // import Card3 from "./Images/card3.png";
-import Vid from "./Images/vid.mov";
-import Vid2 from "./Images/vid2.mov";
-import Vid3 from "./Images/vid3.mov";
+import Vid from "./Images/1.mp4";
+import Vid2 from "./Images/2.mp4";
+import Vid3 from "./Images/3.mp4";
 
 import "./Style.css";
 
@@ -87,7 +87,7 @@ function Featured() {
 )}
 
               <div className="card-body p-5  flex-grow-1">
-                <h3 className="text-3xl eighties spaced-underline-2 text-gray-800 mb-3">
+                <h3 className="text-2xl  eighties font-semibold spaced-underline-2 text-gray-800 mb-3">
                   <a
                     href={service.link}
                     target="_blank"
@@ -109,7 +109,7 @@ function Featured() {
                   rel="noopener noreferrer"
                   className="bg-teal-900 font-mono  text-white  no-underline hover:bg-green-950 hover:italic px-4 rounded w-full p-2 text-center"
                 >
-                  {`View ${service.title}`}
+                  {`Live: ${service.title}`}
                 </a>
               </div>
               </div>
