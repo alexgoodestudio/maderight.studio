@@ -167,7 +167,7 @@ function Services() {
     },
     {
       title: "Web Design Systems",
-      description: "Thoughtful Design Systems",
+      description: "Consistent Editorial Design Implementation",
       expertise: "Cohesive color palettes, typography scales, and reusable components",
       bgColor: "#A1ADEB",
       textColor: "#2A2440"
