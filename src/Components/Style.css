@@ -90,90 +90,14 @@ body {
 .text-sm { font-size: 0.875rem; letter-spacing: 0.01em; line-height: 1.5; }
 .text-xs { font-size: 0.75rem; letter-spacing: 0.02em; line-height: 1.4; }
 
-/* Utility Typography */
-.text-label { 
-  font-size: 0.875rem; 
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.15em; 
-}
-.text-button { font-size: 0.875rem; font-weight: 600; letter-spacing: 0.01em; }
-.text-caption { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; }
-
-/* Typography Styles */
-.heading-primary {
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-  color: #0f172a;
-}
-
-
-
-.heading-secondary {
-  font-weight: 500;
-  letter-spacing: -0.015em;
-  line-height: 1.3;
-}
-
-.body-primary {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-  color: #6c757d;
-}
-
-.body-secondary {
-  line-height: 1.6;
-  font-weight: 400;
-}
-
-.light {
-  font-weight: 300;
-  line-height: 1.68;
-  letter-spacing: 0.01em;
-  max-width: 65ch;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  hyphens: auto;
-  word-break: break-word;
-}
 
 .service-blue{
   color: #A1ADEB;
-}
-
-.metadata {
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.spaced-letters {
-  letter-spacing: 0.015em;
-}
-
-.spaced-underline {
-  text-decoration: none;
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 2px;
-  display: inline-block;
 }
 .spaced-underline-2{
   text-decoration: none;
   border-bottom: 2px solid rgba(148,163,184,0.45);
   padding-bottom: 2px;
-  display: inline-block;
-}
-.spaced-underline-3{
-  text-decoration: none;
-  border-bottom: 2px solid rgba(148,163,184,0.45);
-  padding-bottom: 2px;
-  border-top: 2px solid rgba(148,163,184,0.45);
-  padding-top: 2px;
   display: inline-block;
 }
 
@@ -190,14 +114,6 @@ body {
 /* -----------------------------------------------------------------------------
    UTILITY CLASSES
    ----------------------------------------------------------------------------- */
-.powder-blue {
-  color: #7faafcff;
-}
-
-.vh-92 {
-  height: 92vh;
-}
-
 .br {
   border-radius: 1rem;
 }
@@ -209,58 +125,11 @@ body {
 /* -----------------------------------------------------------------------------
    MISSION SECTION
    ----------------------------------------------------------------------------- */
-.line-mission {
-  height: 85vh;
-}
-
-.mission-body {
-  padding: 20vh 0;
-  text-align: start;
-  letter-spacing: 0.005em;
-  line-height: 1.55;
-  word-spacing: 0.05em;
-}
-
-.mission-body .word {
-  display: inline-block;
-  white-space: nowrap;
-  letter-spacing: 0.005em;
-}
-
-.mission-text {
-  font-size: 1.25rem;
-  line-height: 1.35;
-}
+/* Mission styles moved to MISSION MODULE section below (line ~430) */
 
 /* -----------------------------------------------------------------------------
    TEAM SECTION
    ----------------------------------------------------------------------------- */
-.team-image-container {
-  width: 100%;
-  height: 500px;
-  position: relative;
-  background-color: #f5f5f4;
-  overflow: hidden;
-}
-
-.team-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  filter: grayscale(10%) brightness(1.02);
-  transition: filter 0.3s ease, transform 0.5s ease;
-}
-
-.team-image-top {
-  object-position: top center;
-}
-
-.team-card:hover .team-image {
-  filter: grayscale(0%) brightness(1.05);
-  transform: scale(1.02);
-}
-
 .team-member-image-container {
   position: relative;
   width: 100%;
@@ -324,60 +193,9 @@ body {
 /* -----------------------------------------------------------------------------
    SERVICES MODULE
    ----------------------------------------------------------------------------- */
-.services {
-  height: 75vh; 
-}
-
 .content-module {
   padding: clamp(4rem, 8vw, 8rem) 0;
   container-type: inline-size;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.service-module {
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-}
-
-.service-module:hover {
-  background-color: #f8fafc;
-}
-
-.service-content {
-  will-change: transform;
-}
-
-.service-number {
-  will-change: color;
-}
-
-.typewriter-module {
-  border-radius: 0;
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-}
-
-.process-module {
-  min-height: 400px;
-}
-
-.grid-asymmetrical {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-}
-
-/* Ensure consistent border colors */
-.border-slate-900 { 
-  border-color: #0f172a !important; 
 }
 
 /* -----------------------------------------------------------------------------
@@ -394,10 +212,6 @@ body {
 .bg-nav-banner{
   background-color: #D6E4FF;
   color: #2A2440;
-}
-
-.text-made{
-  color: #BB879D;
 }
 
 .btn-contact {
@@ -480,93 +294,18 @@ body {
 }
 
 /* -----------------------------------------------------------------------------
-   STORY
-   ----------------------------------------------------------------------------- */
-.story {
-  text-align: center;
-  max-width: 68ch;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* -----------------------------------------------------------------------------
-   UTILITIES
-   ----------------------------------------------------------------------------- */
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.btn-link {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.hover-underline:hover {
-  text-decoration: underline;
-}
-
-.font-mono {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
-/* -----------------------------------------------------------------------------
    RESPONSIVE BREAKPOINTS
    Mobile-first approach: Base styles are mobile, scale up for larger screens
    ----------------------------------------------------------------------------- */
 
 /* Tablet: 768px - 1023px */
 @media (min-width: 768px) {
-  .mission-text {
-    font-size: 2.25rem;
-    line-height: 1.3;
-  }
-  
-  .mission-p {
-    font-size: 3.4rem;
-  }
-
   .mission-body {
     padding: 20vh 5%;
   }
 }
 
-/* Desktop: 992px+ */
-@media (min-width: 992px) {
-  .services-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
 
-/* Large Desktop: 1024px+ */
-@media (min-width: 1024px) {
-  .mission-text {
-    font-size: 1.9rem;
-    line-height: 1.25;
-  }
-}
-
-/* Tablet Down: < 992px */
-@media (max-width: 991px) {
-  .team-image-container {
-    height: 400px;
-  }
-  
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .service-module {
-    min-height: 100px;
-  }
-  
-  .process-module {
-    margin-top: 2rem;
-    min-height: 300px;
-  }
-}
 
 /* Large Screens: 1200px+ (Scale down from base) */
 @media (max-width: 1200px) {
@@ -586,44 +325,27 @@ body {
 
 /* Tablet: < 768px */
 @media (max-width: 768px) {
-  .team-image-container {
-    height: 350px;
-  }
-  
   .content-module {
     padding: clamp(2rem, 6vw, 4rem) 0;
   }
-  
-  .service-module {
-    min-height: 80px;
-    padding: 1rem !important;
-  }
-  
-  .services-grid {
-    border-left: 1px solid #1e293b;
-  }
-  
+
   .contact-body {
     padding: 2% 10%;
   }
-  
+
   .featured-body {
     padding: 80px 30px 120px;
   }
-  
+
   .mission-body {
     padding: 25vh 5%;
     text-align: start;
   }
-  
-  .mission-p {
-    font-size: 2.25rem;
-  }
-  
+
   .banner-text {
     font-size: 3.75rem;
   }
-  
+
   .hide {
     display: none;
   }
@@ -648,10 +370,6 @@ body {
 
 /* Mobile: < 480px */
 @media (max-width: 480px) {
-  .mission-p {
-    font-size: 1.25rem;
-  }
-  
   /* Typography scale for small screens */
   .text-opener { font-size: 4.5rem; }
   .text-12xl { font-size: 5rem; }
@@ -678,38 +396,9 @@ body {
    ACCESSIBILITY
    ----------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  .service-module {
-    transition: none;
-  }
-  
-  .service-content,
-  .service-number,
-  .team-image,
   .emphasis {
     will-change: auto;
     transition: none;
-  }
-}
-
-/* -----------------------------------------------------------------------------
-   PERFORMANCE OPTIMIZATIONS
-   ----------------------------------------------------------------------------- */
-.bg-white.border.border-slate-200 {
-  transition: border-color 0.3s ease;
-}
-
-.bg-white.border.border-slate-200:hover {
-  border-color: #64748b;
-}
-
-.progress-fill {
-  will-change: transform;
-}
-
-/* Container Query Support */
-@container (max-width: 600px) {
-  .services-grid {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -751,13 +440,6 @@ body {
   /* color removed - using service-blue class instead */
 }
 
-/* Persistent highlight for key phrase -- semi-transparent warm yellow */
-.mission-body .highlight {
-  background-color: rgba(255, 247, 175, 0.6); /* #FFF7AF at ~60% */
-  padding: 0 0.32rem;
-  border-radius: 0.28rem;
-  display: inline-block;
-}
 
 /* Confetti container: JS creates this as a position-fixed element inside the mission section.
    We target the element by its utility class (present in the markup) when inside .mission-p. */
@@ -800,7 +482,7 @@ body {
   .mission-p .mission-body {
     max-width: 92ch;
     padding: 14vh 8%;
-    font-size: 1.1875rem;
+    font-size: 1.75rem;
   }
 }
 

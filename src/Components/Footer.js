@@ -36,19 +36,22 @@ function Footer() {
         <div className="row mb-5 pb-5 border-bottom border-slate-700">
           
           {/* Studio Statement */}
-          <div className="col-lg-5 col-12 mb-5 mb-lg-0 footer-section">
-            <h2
-              ref={titleRef}
-              className="text-6xl eighties font-bold mb-4 text-slate-100"
-            >
-              Made Right
-            </h2>
-            <p className="text-xl tracking-wide text-slate-300  pe-lg-5">
-              An independent web design and technology studio.
-            </p>
-            <p className="text-sm font-mono text-slate-400  pe-lg-5">
-              Columbia, South Carolina
-            </p>
+          <div className="col-lg-5 col-12 mb-5 mb-lg-0 footer-section d-flex justify-content-center align-items-center">
+            <div className="text-center">
+              <h2
+                ref={titleRef}
+                className="text-6xl eighties font-bold mb-4 text-slate-100"
+              >
+                Made Right
+              </h2>
+              <p className="text-xl tracking-wide text-slate-300">
+                Design-first technology studio.
+
+              </p>
+              <p className="text-sm font-mono text-slate-400">
+                Columbia, South Carolina
+              </p>
+            </div>
           </div>
 
           {/* Navigation Columns */}
