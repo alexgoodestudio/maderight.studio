@@ -118,7 +118,7 @@ function Nav() {
             )}
           </div>
 
-          <a 
+          {/* <a 
             href="/blog" 
             className={`text-xs transition-colors no-underline px-3 py-1.5 rounded-full ${
               isActive('/blog') 
@@ -129,7 +129,7 @@ function Nav() {
             aria-current={isActive('/blog') ? 'page' : undefined}
           >
             Blog
-          </a>
+          </a> */}
         </div>
 
         {/* Right Side Links */}

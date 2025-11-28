@@ -15,33 +15,25 @@ function Stats() {
       value: '98',
       suffix: '/100',
       label: 'Site Experience',
-      sublabel: 'Fast, accessible, and search-friendly',
-      color: '#115e59',
-      textColor: '#0f172a'
+      sublabel: 'Fast, accessible, and search-friendly'
     },
     {
       value: '35',
       suffix: '%',
       label: 'Avg. Conversion Lift',
-      sublabel: 'More leads from your website',
-      color: '#115e59',
-      textColor: '#0f172a'
+      sublabel: 'More leads from your website'
     },
     {
       value: '5',
       suffix: '+',
       label: 'Year Lifespan',
-      sublabel: 'Built to scale, not rebuild',
-      color: '#115e59',
-      textColor: '#0f172a'
+      sublabel: 'Built to scale, not rebuild'
     },
     {
       value: '300',
       suffix: '%',
       label: 'SEO Improvement',
-      sublabel: 'vs. Wix, Squarespace or WordPress Sites',
-      color: '#115e59',
-      textColor: '#0f172a'
+      sublabel: 'vs. Wix, Squarespace or WordPress Sites'
     },
   ];
 
@@ -110,7 +102,7 @@ function Stats() {
       ref={containerRef}
       aria-labelledby="stats-heading"
     >
-      <div className="container-fluid py-5 py-lg-6">
+      <div className="container-fluid py-5 mb-5">
         <div className="row">
           <div className="col-12 px-4 px-lg-5">
 
@@ -149,11 +141,10 @@ function Stats() {
                   >
                     <div
                       ref={el => valueRefs.current[index] = el}
-                      className="text-6xl text-lg-7xl gs font-bold mb-2"
+                      className="text-6xl text-lg-7xl gs font-bold mb-2 service-blue"
                       style={{
                         letterSpacing: '-0.025em',
-                        lineHeight: '1',
-                        color: metric.color
+                        lineHeight: '1'
                       }}
                     >
                       {metric.prefix || ''}{metric.value}{metric.suffix || ''}
