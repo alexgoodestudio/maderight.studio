@@ -748,8 +748,7 @@ body {
 
 .mission-body .made-right {
   font-weight: 700;
-  color: #0f172a;
-  /* fallback plain color; more advanced per-letter painting happens in JS if enabled */
+  /* color removed - using service-blue class instead */
 }
 
 /* Persistent highlight for key phrase -- semi-transparent warm yellow */
