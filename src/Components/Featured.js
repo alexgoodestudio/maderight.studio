@@ -3,7 +3,7 @@
 // import Card2 from "./Images/card2.png";
 // import Card3 from "./Images/card3.png";
 import Vid from "./Images/1.mp4";
-import Vid2 from "./Images/2.mp4";
+import Vid2 from "./Images/2.mov";
 import Vid3 from "./Images/3.mp4";
 
 import "./Style.css";
@@ -43,7 +43,7 @@ function Featured() {
         <div className="row">
           <div className="col-12 col-lg-8">
             <h2
-              className="text-5xl text-lg-6xl gs font-bold mb-3"
+              className="text-5xl text-lg-6xl  font-bold mb-3"
               style={{ letterSpacing: '-0.015em', lineHeight: '1.1' }}
             >
               Featured.

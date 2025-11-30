@@ -112,7 +112,7 @@ function Stats() {
                 <div className="col-12 col-lg-8">
                   <h2
                     id="stats-heading"
-                    className="text-5xl text-lg-6xl gs font-bold mb-3"
+                    className="text-5xl text-lg-6xl  font-bold mb-3"
                     style={{ letterSpacing: '-0.015em', lineHeight: '1.1' }}
                   >
                     Performance that matters.

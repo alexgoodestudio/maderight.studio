@@ -198,7 +198,7 @@ function Services() {
                   <h2
                     id="services-heading"
                     ref={headingRef}
-                    className="text-5xl text-lg-6xl gs font-bold mb-3"
+                    className="text-5xl text-lg-6xl  font-bold mb-3"
                     style={{ letterSpacing: '-0.015em', lineHeight: '1.1' }}
                   >
                     What We Do.
