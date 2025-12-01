@@ -93,26 +93,15 @@ function CircleWaveIllusion() {
 
   return (
     <div className="w-full h-screen flex items-center justify-center bg-white overflow-hidden">
-      <div ref={containerRef} className="grid" style={{
+      <div ref={containerRef} className="grid circle-grid" style={{
         gridTemplateColumns: `repeat(${cols}, 1fr)`,
-        gridTemplateRows: `repeat(${rows}, 1fr)`,
-        gap: '15px',
-        padding: '20px',
-        width: '500px',
-        height: '400px'
+        gridTemplateRows: `repeat(${rows}, 1fr)`
       }}>
-        
+
         {circles.map((circle, i) => (
           <div
             key={i}
             className="circle bg-teal-900"
-            style={{
-              width: '60px',
-              height: '60px',
-              borderRadius: '50%',
-              justifySelf: 'center',
-              alignSelf: 'center',
-            }}
           />
         ))}
       </div>

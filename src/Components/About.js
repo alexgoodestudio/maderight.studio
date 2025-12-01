@@ -266,12 +266,9 @@ function About() {
                   <p className="body-text">
                     Made Right Studio was started in April 2025 in Columbia, South Carolina by Alex Goode. 
                     After completing Promineo Tech's Front End Software Development Program and Thinkful's 
-                    Full-Stack Software Engineering Immersion Program in 2023, combined with years of graphic 
+                    Full-Stack Software Engineering Immersion Program in 2023, combined with 4 years of graphic 
                     design experience, the goal was clear: build a design-first web development studio that 
-                    helps small businesses stand out with fast, high-performing websites. We pride ourselves 
-                    on combining design and development expertise with strategic SEO—using Next.js optimization, 
-                    Semrush analysis, metadata implementation, and other proven techniques to deliver sites that 
-                    load faster, rank higher, and convert better.
+                    helps small businesses stand out with fast, high-performing and ranking websites. 
                   </p>
                 </div>
               </div>

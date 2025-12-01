@@ -198,19 +198,13 @@ function Services() {
                   <h2
                     id="services-heading"
                     ref={headingRef}
-                    className="text-5xl text-lg-6xl  font-bold mb-3"
-                    style={{ letterSpacing: '-0.015em', lineHeight: '1.1' }}
+                    className="text-5xl text-lg-6xl font-bold mb-3 section-heading"
                   >
                     What We Do.
                   </h2>
                   <p
                     ref={metadataRef}
-                    className="text-lg gs text-slate-700 mb-0"
-                    style={{
-                      letterSpacing: '-0.01em',
-                      lineHeight: '1.6',
-                      maxWidth: '60ch'
-                    }}
+                    className="text-lg gs text-slate-700 mb-0 section-description"
                   >
                     Our capabilities — Updated 2025
                   </p>
@@ -234,67 +228,36 @@ function Services() {
                         key={index}
                         ref={el => moduleRefs.current[index] = el}
                         className="service-card border-bottom border-end border-slate-900"
-                        style={{ 
-                          backgroundColor: service.bgColor,
-                          transition: 'background-color 0.3s ease',
-                          cursor: 'pointer'
-                        }}
+                        style={{ backgroundColor: service.bgColor }}
                         role="listitem"
                       >
                         {/* Desktop Layout */}
                         <div className="d-none d-lg-flex align-items-start py-4 px-4">
                           <span
-                            className="font-mono text-xs text-start"
-                            style={{
-                              width: '5%',
-                              flexShrink: 0,
-                              letterSpacing: '0.02em',
-                              paddingTop: '2px',
-                              color: service.textColor,
-                              opacity: 0.7
-                            }}
+                            className="font-mono text-xs text-start service-number"
+                            style={{ color: service.textColor }}
                             aria-label={`Service ${index + 1} of ${services.length}`}
                           >
                             {String(index + 1).padStart(2, '0')}
                           </span>
 
                           <h3
-                            className="text-xl font-medium mb-0 text-start"
-                            style={{
-                              width: '25%',
-                              flexShrink: 0,
-                              letterSpacing: '-0.005em',
-                              lineHeight: '1.3',
-                              color: service.textColor
-                            }}
+                            className="text-xl font-medium mb-0 text-start service-title"
+                            style={{ color: service.textColor }}
                           >
                             {service.title}
                           </h3>
 
                           <p
-                            className="text-sm mb-0 text-start"
-                            style={{
-                              width: '30%',
-                              flexShrink: 0,
-                              letterSpacing: '-0.01em',
-                              lineHeight: '1.5',
-                              color: service.textColor,
-                              opacity: 0.85
-                            }}
+                            className="text-sm mb-0 text-start service-description"
+                            style={{ color: service.textColor }}
                           >
                             {service.description}
                           </p>
 
                           <p
-                            className="text-xs font-medium mb-0 text-start"
-                            style={{
-                              width: '35%',
-                              flexShrink: 0,
-                              letterSpacing: '0.005em',
-                              lineHeight: '1.5',
-                              color: service.textColor,
-                              opacity: 0.8
-                            }}
+                            className="text-xs font-medium mb-0 text-start service-expertise"
+                            style={{ color: service.textColor }}
                           >
                             {service.expertise}
                           </p>
@@ -311,22 +274,15 @@ function Services() {
                             <div className="d-flex align-items-center justify-content-between">
                               <div className="d-flex align-items-center gap-3">
                                 <span
-                                  className="font-mono text-xs"
-                                  style={{
-                                    letterSpacing: '0.02em',
-                                    color: service.textColor,
-                                    opacity: 0.7
-                                  }}
+                                  className="font-mono text-xs service-number-mobile"
+                                  style={{ color: service.textColor }}
                                   aria-label={`Service ${index + 1} of ${services.length}`}
                                 >
                                   {String(index + 1).padStart(2, '0')}
                                 </span>
                                 <h3
-                                  className="text-xl font-medium mb-0"
-                                  style={{
-                                    letterSpacing: '-0.005em',
-                                    color: service.textColor
-                                  }}
+                                  className="text-xl font-medium mb-0 service-title-mobile"
+                                  style={{ color: service.textColor }}
                                 >
                                   {service.title}
                                 </h3>
@@ -337,10 +293,9 @@ function Services() {
                                 height="20"
                                 viewBox="0 0 20 20"
                                 fill="none"
+                                className="service-icon"
                                 style={{
                                   transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
-                                  transition: 'transform 0.3s ease',
-                                  flexShrink: 0,
                                   color: service.textColor
                                 }}
                                 aria-hidden="true"
@@ -359,30 +314,17 @@ function Services() {
                           {isExpanded && (
                             <div
                               id={`service-detail-${index}`}
-                              className="px-4 pb-4 pt-0 ps-5"
-                              style={{
-                                animation: 'fadeIn 0.3s ease'
-                              }}
+                              className="px-4 pb-4 pt-0 ps-5 service-detail-expanded"
                             >
                               <p
-                                className="text-sm mb-2"
-                                style={{
-                                  letterSpacing: '-0.01em',
-                                  lineHeight: '1.5',
-                                  color: service.textColor,
-                                  opacity: 0.85
-                                }}
+                                className="text-sm mb-2 service-description-mobile"
+                                style={{ color: service.textColor }}
                               >
                                 {service.description}
                               </p>
                               <p
-                                className="text-xs font-medium mb-0"
-                                style={{
-                                  letterSpacing: '0.005em',
-                                  lineHeight: '1.5',
-                                  color: service.textColor,
-                                  opacity: 0.8
-                                }}
+                                className="text-xs font-medium mb-0 service-expertise-mobile"
+                                style={{ color: service.textColor }}
                               >
                                 {service.expertise}
                               </p>

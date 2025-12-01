@@ -6,8 +6,7 @@ function NavBanner() {
       aria-label="Site information banner"
     >
       <p
-        className="text-xs font-mono pb-3 pt-3 mb-0"
-        style={{ letterSpacing: '0.06em' }}
+        className="text-xs font-mono pb-3 pt-3 mb-0 nav-banner-text"
       >
         Web Development <span className="mx-1"> • </span>  SEO <span className="mx-1"> • </span>  Design
       </p>

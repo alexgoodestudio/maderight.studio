@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 function Banner() {
   const textRef = useRef();
   const containerRef = useRef();
+  const animationRef = useRef();
 
   useGSAP(() => {
     const el = textRef.current;
@@ -19,7 +20,7 @@ function Banner() {
     const startPosition = containerWidth / 3;
     gsap.set(el, { x: startPosition });
 
-    gsap.to(el, {
+    animationRef.current = gsap.to(el, {
       x: -textWidth - containerWidth,
       duration: 20,
       ease: "linear",
@@ -33,8 +34,25 @@ function Banner() {
     });
   });
 
+  const handleMouseEnter = () => {
+    if (animationRef.current) {
+      animationRef.current.pause();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (animationRef.current) {
+      animationRef.current.resume();
+    }
+  };
+
   return (
-    <div ref={containerRef} className="banner-container  bg-teal-900">
+    <div
+      ref={containerRef}
+      className="banner-container bg-teal-900"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <span ref={textRef} className="banner-text text-white">
          How can we help you make an impact? Lets talk about it.
       </span>

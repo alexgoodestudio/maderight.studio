@@ -491,7 +491,7 @@ function OurProcess() {
             </p>
         <button
           onClick={handleContactClick}
-          className="btn-contact text-lg font-mono bg-teal-800 px-5 py-3  text-white rounded"
+          className="btn-contact text-lg font-mono bg-teal-800 px-5 py-3  text-dark rounded"
         >
           Email
         </button>

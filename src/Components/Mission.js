@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
@@ -6,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 function Mission() {
   const container = useRef();
   const confettiContainer = useRef();
+  const buttonRef = useRef();
   const confettiFired = useRef(false);
 
   gsap.registerPlugin(ScrollTrigger);
@@ -72,18 +74,24 @@ function Mission() {
       },
     });
 
-    // Fade in words
+    // Fade in words and button
     tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1, duration: 1 }, 0);
+    tl.fromTo(buttonRef.current, { opacity: 0 }, { opacity: 1, duration: 1 }, 0.5);
 
     // Hold at full opacity
     tl.to({}, { duration: 1 });
 
-    // Fade out all words including "Made Right"
+    // Fade out all words and button
     tl.to(words, {
       opacity: 0,
       duration: 1.5,
       ease: 'power1.out'
     });
+    tl.to(buttonRef.current, {
+      opacity: 0,
+      duration: 1.5,
+      ease: 'power1.out'
+    }, '<');
 
   }, []);
 
@@ -91,31 +99,40 @@ function Mission() {
 
   return (
     <section className="bg-white gs mission-p py-5 text-start px-lg-0 px-1 position-relative">
-      <div ref={confettiContainer} className="position-fixed" style={{ left: '50%', top: '50%', pointerEvents: 'none', zIndex: 9999 }} />
-      <p ref={container} className="mission-body">
-        {text.split(" ").map((word, i) => {
-          const match = word.match(/^(\w+)(\W*)$/);
-          const letters = match ? match[1] : word;
-          const punctuation = match ? match[2] : "";
+      <div ref={confettiContainer} className="position-fixed confetti-container" />
+      <div ref={container} className="mission-body">
+        <p>
+          {text.split(" ").map((word, i) => {
+            const match = word.match(/^(\w+)(\W*)$/);
+            const letters = match ? match[1] : word;
+            const punctuation = match ? match[2] : "";
 
-          let colorClass = "";
-          let specialClass = "";
+            let colorClass = "";
+            let specialClass = "";
 
-          if (letters === "Made" || letters === "Right") {
-            colorClass = "service-blue ";
-            specialClass = "made-right";
-          }
+            if (letters === "Made" || letters === "Right") {
+              colorClass = "service-blue ";
+              specialClass = "made-right";
+            }
 
-          return (
-            <span key={i} className="inline-block mr-2">
-              <span className={`word ${colorClass} ${specialClass}`}>
-                {letters}
+            return (
+              <span key={i} className="inline-block mr-2">
+                <span className={`word ${colorClass} ${specialClass}`}>
+                  {letters}
+                </span>
+                {punctuation && <span className="word">{punctuation}</span>}
               </span>
-              {punctuation && <span className="word">{punctuation}</span>}
-            </span>
-          );
-        })}
-      </p>
+            );
+          })}
+        </p>
+        <Link
+          ref={buttonRef}
+          to="/our-process"
+          className="btn-contact text-decoration-none d-inline-block mt-4 px-4 py-3 text-md font-mono"
+        >
+         Our Process
+        </Link>
+      </div>
     </section>
   );
 }

@@ -145,8 +145,7 @@ function Opener() {
         style={{ opacity: fontLoaded ? 1 : 0 }}
       >
         <h1
-          className="text-opener eighties text-white d-flex justify-content-center"
-          style={{ paddingLeft: "1.25rem", paddingRight: "1.25rem" }}
+          className="text-opener eighties text-white d-flex justify-content-center opener-heading"
         >
           <span className="d-inline-block">
             <span ref={madeRef} className="d-inline-block me-lg-5 me-3">
@@ -168,15 +167,15 @@ function Opener() {
           </span>
         </h1>
         
-        <h2 ref={taglineRef} className="text-sub mt-lg-2 mt-2 text-slate-100 pt-4 font-light mb-5" style={{ letterSpacing: '0.005em' }}>
+        <h2 ref={taglineRef} className="text-sub mt-lg-2 mt-2 text-slate-100 pt-4 font-light mb-5 opener-tagline">
           <section className="d-inline-block text-center pb-2 px-2 md:px-6">
             <div>
-            
+
               <span className="word emphasis">Design-first</span>{' '}
               <span className="word emphasis italic">technology</span>{' '}
               <span className="word">studio.</span>
             </div>
-            <div ref={borderRef} className="mt-2 w-100" style={{ borderBottom: '1px solid ' }}></div>
+            <div ref={borderRef} className="mt-2 w-100 tagline-border"></div>
           </section>
 
           <br />

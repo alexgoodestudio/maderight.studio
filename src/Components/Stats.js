@@ -112,18 +112,12 @@ function Stats() {
                 <div className="col-12 col-lg-8">
                   <h2
                     id="stats-heading"
-                    className="text-5xl text-lg-6xl  font-bold mb-3"
-                    style={{ letterSpacing: '-0.015em', lineHeight: '1.1' }}
+                    className="text-5xl text-lg-6xl font-bold mb-3 section-heading"
                   >
                     Performance that matters.
                   </h2>
                   <p
-                    className="text-lg gs text-slate-700 mb-0"
-                    style={{
-                      letterSpacing: '-0.01em',
-                      lineHeight: '1.6',
-                      maxWidth: '60ch'
-                    }}
+                    className="text-lg gs text-slate-700 mb-0 section-description"
                   >
                     Built into every project are the best technical practices that help your website perform optimally for users and search engines.
                   </p>
@@ -141,32 +135,17 @@ function Stats() {
                   >
                     <div
                       ref={el => valueRefs.current[index] = el}
-                      className="text-6xl text-lg-7xl gs font-bold mb-2 service-blue"
-                      style={{
-                        letterSpacing: '-0.025em',
-                        lineHeight: '1'
-                      }}
+                      className="text-6xl text-lg-7xl gs font-bold mb-2 service-blue stat-value"
                     >
                       {metric.prefix || ''}{metric.value}{metric.suffix || ''}
                     </div>
                     <div
-                      className="text-lg gs font-medium mb-1"
-                      style={{
-                        letterSpacing: '-0.005em',
-                        lineHeight: '1.3',
-                        color: metric.textColor
-                      }}
+                      className="text-lg gs font-medium mb-1 stat-label"
                     >
                       {metric.label}
                     </div>
                     <div
-                      className="text-sm gs mb-1"
-                      style={{
-                        letterSpacing: '0em',
-                        lineHeight: '1.4',
-                        color: metric.textColor,
-                        opacity: 0.8
-                      }}
+                      className="text-sm gs mb-1 stat-sublabel"
                     >
                       {metric.sublabel}
                     </div>

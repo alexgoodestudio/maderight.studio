@@ -43,18 +43,12 @@ function Featured() {
         <div className="row">
           <div className="col-12 col-lg-8">
             <h2
-              className="text-5xl text-lg-6xl  font-bold mb-3"
-              style={{ letterSpacing: '-0.015em', lineHeight: '1.1' }}
+              className="text-5xl text-lg-6xl font-bold mb-3 section-heading"
             >
               Featured.
             </h2>
             <p
-              className="text-lg gs text-slate-700 mb-0"
-              style={{
-                letterSpacing: '-0.01em',
-                lineHeight: '1.6',
-                maxWidth: '60ch'
-              }}
+              className="text-lg gs text-slate-700 mb-0 section-description"
             >
               Recent projects we want to share with you.
             </p>
@@ -87,12 +81,12 @@ function Featured() {
 )}
 
               <div className="card-body p-5  flex-grow-1">
-                <h3 className="text-2xl  eighties font-semibold spaced-underline-2 text-gray-800 mb-3">
+                <h3 className="text-2xl eighties font-semibold spaced-underline-2 text-gray-800 mb-3">
                   <a
                     href={service.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: 'inherit', textDecoration: 'none' }}
+                    className="unstyled-link"
                   >
                     {service.title}
                   </a>

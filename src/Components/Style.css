@@ -94,6 +94,7 @@ body {
 .service-blue{
   color: #816281;
 }
+
 .spaced-underline-2{
   text-decoration: none;
   border-bottom: 2px solid rgba(148,163,184,0.45);
@@ -109,6 +110,183 @@ body {
 .emphasis {
   display: inline-block;
   transition: color 0.3s ease;
+}
+
+/* -----------------------------------------------------------------------------
+   SHARED SECTION STYLES
+   ----------------------------------------------------------------------------- */
+.section-heading {
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+.section-description {
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+  max-width: 60ch;
+}
+
+.section-label {
+  letter-spacing: 0.15em;
+}
+
+.unstyled-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* -----------------------------------------------------------------------------
+   STATS SECTION STYLES
+   ----------------------------------------------------------------------------- */
+.stat-value {
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.stat-label {
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+
+.stat-sublabel {
+  letter-spacing: 0em;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+/* -----------------------------------------------------------------------------
+   SERVICES SECTION STYLES
+   ----------------------------------------------------------------------------- */
+.service-card {
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.service-number {
+  width: 5%;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+  padding-top: 2px;
+  opacity: 0.7;
+}
+
+.service-number-mobile {
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+}
+
+.service-title {
+  width: 25%;
+  flex-shrink: 0;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+
+.service-title-mobile {
+  letter-spacing: -0.005em;
+}
+
+.service-description {
+  width: 30%;
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.service-description-mobile {
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.service-expertise {
+  width: 35%;
+  flex-shrink: 0;
+  letter-spacing: 0.005em;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.service-expertise-mobile {
+  letter-spacing: 0.005em;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.service-icon {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.service-detail-expanded {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   NAV SECTION STYLES
+   ----------------------------------------------------------------------------- */
+.nav-banner-text {
+  letter-spacing: 0.06em;
+}
+
+.nav-dropdown-button {
+  letter-spacing: 0.02em;
+}
+
+/* -----------------------------------------------------------------------------
+   OPENER SECTION STYLES
+   ----------------------------------------------------------------------------- */
+.opener-heading {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.opener-tagline {
+  letter-spacing: 0.005em;
+}
+
+.tagline-border {
+  border-bottom: 1px solid currentColor;
+}
+
+/* -----------------------------------------------------------------------------
+   CONFETTI STYLES
+   ----------------------------------------------------------------------------- */
+.confetti-container {
+  left: 50%;
+  top: 50%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* -----------------------------------------------------------------------------
+   PLAYGROUND STYLES
+   ----------------------------------------------------------------------------- */
+.circle-grid {
+  gap: 15px;
+  padding: 20px;
+  width: 500px;
+  height: 400px;
+}
+
+.circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  justify-self: center;
+  align-self: center;
 }
 
 /* -----------------------------------------------------------------------------
@@ -218,6 +396,7 @@ body {
   background-color: #b7c1f6;
   color: #2A2440;
   border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .btn-contact:hover{
@@ -343,7 +522,11 @@ body {
   }
 
   .banner-text {
-    font-size: 3.75rem;
+    font-size: 2.5rem;
+  }
+
+  .banner-container {
+    height: 120px;
   }
 
   .hide {
@@ -491,6 +674,11 @@ body {
   .mission-p .mission-body {
     padding: 22vh 5%;
     font-size: 0.98rem;
+  }
+
+  .mission-body .btn-contact {
+    padding: 0.625rem 1.5rem !important;
+    font-size: 0.8125rem;
   }
   .mission-body .word + .word { margin-left: 0.28rem; }
 }

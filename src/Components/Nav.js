@@ -145,8 +145,7 @@ function Nav() {
           {/* Socials Dropdown */}
           <div className="relative">
             <button
-              className="text-white bg-teal-900 py-2 px-5 rounded-md text-xs font-medium hover:text-slate-300 transition-colors flex items-center gap-1"
-              style={{ letterSpacing: '0.02em' }}
+              className="text-white bg-teal-900 py-2 px-5 rounded-md text-xs font-medium hover:text-slate-300 transition-colors flex items-center gap-1 nav-dropdown-button"
               onMouseEnter={() => setIsCompanyOpen(true)}
               onMouseLeave={() => setIsCompanyOpen(false)}
               aria-expanded={isCompanyOpen}
@@ -245,7 +244,7 @@ function Nav() {
                     Blog
                   </a>
 
-                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-2" style={{ letterSpacing: '0.15em' }}>
+                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-2 section-label">
                     Featured Work
                   </div>
                   <a 
@@ -276,7 +275,7 @@ function Nav() {
                     <div className="text-xs text-gray-300 mt-0.5">Service Business</div>
                   </a>
 
-                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-2" style={{ letterSpacing: '0.15em' }}>
+                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-2 section-label">
                     Socials
                   </div>
                   <a 
@@ -367,7 +366,7 @@ function Nav() {
                     Blog
                   </a>
 
-                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-1" style={{ letterSpacing: '0.15em' }}>
+                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-1 section-label">
                     Featured Work
                   </div>
                   <a 
@@ -398,7 +397,7 @@ function Nav() {
                     <div className="text-xs text-gray-300 mt-0.5">Service Business</div>
                   </a>
 
-                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-1" style={{ letterSpacing: '0.15em' }}>
+                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-1 section-label">
                     Socials
                   </div>
                   <a 
