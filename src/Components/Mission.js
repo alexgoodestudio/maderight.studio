@@ -37,19 +37,27 @@ function Mission() {
         background: ${colors[i % colors.length]};
         left: 50%;
         top: 50%;
-        opacity: 1;
+        opacity: 0;
         border-radius: 50%;
       `;
       confettiContainer.current.appendChild(confetti);
 
-      gsap.to(confetti, {
-        x: xDest,
-        y: yDest,
-        opacity: 0,
-        duration: 2,
-        ease: 'power2.out',
-        onComplete: () => confetti.remove()
-      });
+      gsap.timeline()
+        .to(confetti, {
+          x: xDest,
+          y: yDest,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+        })
+        .to(confetti, {
+          x: xDest * 2.5,
+          y: yDest * 2.5,
+          opacity: 0,
+          duration: 0.4,
+          ease: 'power1.inOut',
+          onComplete: () => confetti.remove()
+        });
     }
   };
 

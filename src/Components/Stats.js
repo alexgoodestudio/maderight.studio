@@ -112,7 +112,7 @@ function Stats() {
                 <div className="col-12 col-lg-8">
                   <h2
                     id="stats-heading"
-                    className="text-5xl text-lg-6xl gs font-black mb-3 section-heading"
+                    className="text-5xl text-lg-6xl lora font-black mb-3 section-heading"
                   >
                     Performance that matters.
                   </h2>
@@ -135,7 +135,7 @@ function Stats() {
                   >
                     <div
                       ref={el => valueRefs.current[index] = el}
-                      className="text-6xl text-lg-7xl gs font-bold mb-2 text-teal-800 stat-value"
+                      className="text-6xl lora font-bold mb-2 text-teal-800 stat-value"
                     >
                       {metric.prefix || ''}{metric.value}{metric.suffix || ''}
                     </div>

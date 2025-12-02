@@ -13,22 +13,23 @@ function Banner() {
 
   useGSAP(() => {
     const el = textRef.current;
-    const containerWidth = el.parentElement.offsetWidth;
-    const textWidth = el.offsetWidth;
+    const textWidth = el.offsetWidth / 3; // Divide by 3 since we repeat text 3 times
 
-    // position text to start 1/3 across the screen
-    const startPosition = containerWidth / 3;
-    gsap.set(el, { x: startPosition });
+    // Start from right edge (positive value)
+    gsap.set(el, { x: 0 });
 
     animationRef.current = gsap.to(el, {
-      x: -textWidth - containerWidth,
+      x: -textWidth,
       duration: 20,
       ease: "linear",
       repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize(x => parseFloat(x) % -textWidth)
+      },
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "top bottom", // animation starts when top of element hits bottom of viewport
-        end: "bottom top", // animation pauses when bottom of element hits top of viewport
+        start: "top bottom",
+        end: "bottom top",
         toggleActions: "play pause resume pause",
       },
     });
@@ -46,6 +47,8 @@ function Banner() {
     }
   };
 
+  const bannerText = "How can we help you make an impact? Lets talk about it. ";
+
   return (
     <div
       ref={containerRef}
@@ -54,7 +57,7 @@ function Banner() {
       onMouseLeave={handleMouseLeave}
     >
       <span ref={textRef} className="banner-text text-white">
-         How can we help you make an impact? Lets talk about it.
+        {bannerText.repeat(3)}
       </span>
     </div>
   );

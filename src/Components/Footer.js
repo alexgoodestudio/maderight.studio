@@ -12,6 +12,7 @@ function Footer() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Scroll reveal animation
       gsap.from(titleRef.current, {
         scrollTrigger: {
           trigger: titleRef.current,
@@ -19,9 +20,9 @@ function Footer() {
           toggleActions: "play none none none",
         },
         duration: 1.2,
-        y: -40,
-        opacity: 20,
-        ease: "bounce.out",
+        y: 30,
+        opacity: 0,
+        ease: "power2.out",
       });
     }, footerRef);
 
@@ -107,7 +108,7 @@ function Footer() {
                 <ul className="list-unstyled">
                   <li className="mb-3">
                     <a 
-                      href="https://lemichclinic.netlify.app" 
+                      href="https://lemich.netlify.app" 
                       className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
                       target="_blank" 
                       rel="noopener noreferrer"

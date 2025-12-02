@@ -17,6 +17,7 @@ function Featured() {
       description: `Patient-centered military mental health care website that reflects their commitment to Norfolk, Virginia's military community.`,
       link: "https://lemich.netlify.app/",
       type: "video",
+      badges: ["SEO Optimized", "3× Conversions"],
     },
     {
       title: "Rosewood Cleaning",
@@ -25,14 +26,16 @@ function Featured() {
       description: `Columbia, South Carolina cleaning service website that showcases Andrew, and Sarah's mission to provide affordable Eco-Friendly house cleaning services.`,
       link: "https://rosewoodcleaning.netlify.app/",
       type: "video",
+      badges: ["SEO Optimized", "Performance +"],
     },
     {
       title: "Alex Goode Portfolio",
       subtitle: "Full-Stack Developer ",
       image: Vid2,
-      description: `Personal web development portfolio for Made Right Studio owner, Alex Goode.`,
+      description: `Personal web development portfolio showcasing interaction design with GSAP for Made Right Studio owner, Alex Goode.`,
       link: "http://alexgoode.netlify.app/",
       type: "video",
+      badges: ["SEO Optimized", "Mobile-First"],
     },
   ];
 
@@ -43,7 +46,7 @@ function Featured() {
         <div className="row">
           <div className="col-12 col-lg-5 ">
             <h2
-              className="text-5xl gs font-black text-lg-6xl  mb-3 section-heading"
+              className="text-5xl font-black lora mb-3 section-heading"
             >
               Recent Work
             </h2>
@@ -81,7 +84,7 @@ function Featured() {
 )}
 
               <div className="card-body p-5  flex-grow-1">
-                <h3 className="text-2xl eighties font-semibold spaced-underline-2 text-gray-800 mb-3">
+                <h3 className="text-2xl lora font-semibold spaced-underline-2 text-gray-800 mb-3">
                   <a
                     href={service.link}
                     target="_blank"
@@ -94,6 +97,21 @@ function Featured() {
                 <p className="text-lg gs leading-relaxed text-gray-600">
                   {service.description}
                 </p>
+
+                {/* Badges */}
+                {service.badges && service.badges.length > 0 && (
+                  <div className="flex gap-2 mt-4">
+                    {service.badges.map((badge, badgeIdx) => (
+                      <span
+                        key={badgeIdx}
+                        className="text-xs uppercase gs text-slate-600 px-3 py-1 rounded-full border border-slate-300 whitespace-nowrap"
+                        style={{ letterSpacing: '0.15em' }}
+                      >
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
               <div className="card-footer p-3">
                <div className="flex">
