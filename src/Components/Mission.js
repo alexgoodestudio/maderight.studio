@@ -111,7 +111,7 @@ function Mission() {
             let specialClass = "";
 
             if (letters === "Made" || letters === "Right") {
-              colorClass = "service-blue ";
+              colorClass = "text-teal-800 ";
               specialClass = "made-right";
             }
 

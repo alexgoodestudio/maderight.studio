@@ -14,7 +14,7 @@ function Featured() {
       title: "The Lemich Clinic",
       subtitle: "Home of Military Mental Health",
       image: Vid,
-      description: `Patient-centered mental health care website that reflects their commitment to Norfolk, Virginia's military community.`,
+      description: `Patient-centered military mental health care website that reflects their commitment to Norfolk, Virginia's military community.`,
       link: "https://lemich.netlify.app/",
       type: "video",
     },
@@ -41,16 +41,16 @@ function Featured() {
       {/* Section Header */}
       <header className="text-start mb-5 mb-lg-6">
         <div className="row">
-          <div className="col-12 col-lg-8">
+          <div className="col-12 col-lg-5 ">
             <h2
-              className="text-5xl text-lg-6xl font-bold mb-3 section-heading"
+              className="text-5xl gs font-black text-lg-6xl  mb-3 section-heading"
             >
-              Featured.
+              Recent Work
             </h2>
             <p
-              className="text-lg gs text-slate-700 mb-0 section-description"
+              className="text-xl gs pt-4 text-slate-700 mb-0 section-description"
             >
-              Recent projects we want to share with you.
+              We work alongside our clients from concept to deployment. We will continue to support you and your website growth after launch with training and maintenance. Check out some of our latest projects!
             </p>
           </div>
         </div>

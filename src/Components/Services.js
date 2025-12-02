@@ -168,14 +168,14 @@ function Services() {
     {
       title: "Web Design Systems",
       description: "Consistent Design Implementation",
-      expertise: "Cohesive color palettes, typography scales,  and reusable components",
+      expertise: "Branding, typography scales,  and reusable components",
       bgColor: "#A1ADEB",
       textColor: "#2A2440"
     },
     {
       title: "Accessibility & UX",
       description: "Inclusive User Experiences",
-      expertise: "WCAG compliance, semantic HTML, and user-centered design principles",
+      expertise: "Human-first design principles",
       bgColor: "#C5C9D1",
       textColor: "#31304A"
     }
@@ -198,13 +198,13 @@ function Services() {
                   <h2
                     id="services-heading"
                     ref={headingRef}
-                    className="text-5xl text-lg-6xl font-bold mb-3 section-heading"
+                    className="text-5xl text-lg-6xl gs font-black  mb-3 section-heading"
                   >
                     What We Do.
                   </h2>
                   <p
                     ref={metadataRef}
-                    className="text-lg gs text-slate-700 mb-0 section-description"
+                    className="text-xl gs text-slate-700 mb-0 section-description"
                   >
                     Our capabilities — Updated 2025
                   </p>

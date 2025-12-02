@@ -112,12 +112,12 @@ function Stats() {
                 <div className="col-12 col-lg-8">
                   <h2
                     id="stats-heading"
-                    className="text-5xl text-lg-6xl font-bold mb-3 section-heading"
+                    className="text-5xl text-lg-6xl gs font-black mb-3 section-heading"
                   >
                     Performance that matters.
                   </h2>
                   <p
-                    className="text-lg gs text-slate-700 mb-0 section-description"
+                    className="text-xl gs text-slate-700 mb-0 section-description"
                   >
                     Built into every project are the best technical practices that help your website perform optimally for users and search engines.
                   </p>
@@ -135,12 +135,12 @@ function Stats() {
                   >
                     <div
                       ref={el => valueRefs.current[index] = el}
-                      className="text-6xl text-lg-7xl gs font-bold mb-2 service-blue stat-value"
+                      className="text-6xl text-lg-7xl gs font-bold mb-2 text-teal-800 stat-value"
                     >
                       {metric.prefix || ''}{metric.value}{metric.suffix || ''}
                     </div>
                     <div
-                      className="text-lg gs font-medium mb-1 stat-label"
+                      className="text-xl pt-2 gs font-medium mb-1 stat-label"
                     >
                       {metric.label}
                     </div>

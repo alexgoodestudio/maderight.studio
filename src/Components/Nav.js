@@ -31,7 +31,7 @@ function Nav() {
           {/* Navigation Links */}
           <a 
             href="/about" 
-            className={`text-xs transition-colors no-underline px-3 py-1.5 rounded-full ${
+            className={`text-sm transition-colors no-underline px-3 py-1.5 rounded-full ${
               isActive('/about') 
                 ? 'bg-white text-teal-950 font-medium' 
                 : 'text-white hover:text-gray-300'
@@ -43,7 +43,7 @@ function Nav() {
 
           <a 
             href="/team" 
-            className={`text-xs transition-colors no-underline px-3 py-1.5 rounded-full ${
+            className={`text-sm transition-colors no-underline px-3 py-1.5 rounded-full ${
               isActive('/team') 
                 ? 'bg-white text-teal-950 font-medium' 
                 : 'text-white hover:text-gray-300'
@@ -55,7 +55,7 @@ function Nav() {
 
           <a 
             href="/our-process" 
-            className={`text-xs transition-colors no-underline px-3 py-1.5 rounded-full ${
+            className={`text-sm transition-colors no-underline px-3 py-1.5 rounded-full ${
               isActive('/our-process') 
                 ? 'bg-white text-teal-950 font-medium' 
                 : 'text-white hover:text-gray-300'
@@ -68,7 +68,7 @@ function Nav() {
           {/* Featured Work Dropdown */}
           <div className="relative">
             <button
-              className="text-white text-xs hover:text-gray-300 transition-colors flex items-center gap-1"
+              className="text-white text-sm hover:text-gray-300 transition-colors flex items-center gap-1"
               onMouseEnter={() => setIsFeaturedOpen(true)}
               onMouseLeave={() => setIsFeaturedOpen(false)}
               aria-expanded={isFeaturedOpen}
@@ -96,7 +96,7 @@ function Nav() {
                     <div className="text-xs text-gray-500 mt-0.5">Alex Goode Portfolio</div>
                   </a>
                   <a 
-                    href="https://lemichclinic.netlify.app" 
+                    href="https://lemich.netlify.app" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="block px-3 py-2 hover:bg-gray-100 no-underline rounded-lg mx-1"
@@ -120,7 +120,7 @@ function Nav() {
 
           {/* <a 
             href="/blog" 
-            className={`text-xs transition-colors no-underline px-3 py-1.5 rounded-full ${
+            className={`text-sm transition-colors no-underline px-3 py-1.5 rounded-full ${
               isActive('/blog') 
                 ? 'bg-white text-teal-950 font-medium' 
                 : 'text-white hover:text-gray-300'
@@ -136,7 +136,7 @@ function Nav() {
         <div className="flex items-center gap-3">
           <button 
             onClick={handleContactClick}
-            className="bg-white text-green-950 px-5 py-2 font-bold rounded-full text-xs transition-colors cursor-pointer border-0 hover:bg-gray-100"
+            className="bg-white text-green-950 px-5 py-2 font-bold rounded-full text-sm transition-colors cursor-pointer border-0 hover:bg-gray-100"
             aria-label="Email us"
           >
             Email 
@@ -145,7 +145,7 @@ function Nav() {
           {/* Socials Dropdown */}
           <div className="relative">
             <button
-              className="text-white bg-teal-900 py-2 px-5 rounded-md text-xs font-medium hover:text-slate-300 transition-colors flex items-center gap-1 nav-dropdown-button"
+              className="text-white bg-teal-900 py-2 px-5 rounded-md text-sm font-medium hover:text-slate-300 transition-colors flex items-center gap-1 nav-dropdown-button"
               onMouseEnter={() => setIsCompanyOpen(true)}
               onMouseLeave={() => setIsCompanyOpen(false)}
               aria-expanded={isCompanyOpen}
@@ -167,7 +167,7 @@ function Nav() {
                     href="https://instagram.com/maderight.studio" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="block px-3 py-2 text-xs text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1"
+                    className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1"
                   >
                     Instagram
                   </a>
@@ -244,7 +244,7 @@ function Nav() {
                     Blog
                   </a>
 
-                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-2 section-label">
+                  <div className="px-3 py-2 text-sm font-semibold text-gray-400 uppercase tracking-wider mt-2 section-label">
                     Featured Work
                   </div>
                   <a 
@@ -254,7 +254,7 @@ function Nav() {
                     className="px-3 py-2 hover:bg-green-900 rounded-lg no-underline"
                   >
                     <div className="text-sm font-medium text-white">Portfolio | Owner</div>
-                    <div className="text-xs text-gray-300 mt-0.5">Alex Goode Portfolio</div>
+                    <div className="text-sm text-gray-300 mt-0.5">Alex Goode Portfolio</div>
                   </a>
                   <a 
                     href="https://lemichclinic.netlify.app" 
@@ -263,7 +263,7 @@ function Nav() {
                     className="px-3 py-2 hover:bg-green-900 rounded-lg no-underline"
                   >
                     <div className="text-sm font-medium text-white">The Lemich Clinic</div>
-                    <div className="text-xs text-gray-300 mt-0.5">Healthcare Website</div>
+                    <div className="text-sm text-gray-300 mt-0.5">Healthcare Website</div>
                   </a>
                   <a 
                     href="https://rosewoodcleaning.netlify.app" 
@@ -272,10 +272,10 @@ function Nav() {
                     className="px-3 py-2 hover:bg-green-900 rounded-lg no-underline"
                   >
                     <div className="text-sm font-medium text-white">Rosewood Cleaning</div>
-                    <div className="text-xs text-gray-300 mt-0.5">Service Business</div>
+                    <div className="text-sm text-gray-300 mt-0.5">Service Business</div>
                   </a>
 
-                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-2 section-label">
+                  <div className="px-3 py-2 text-sm font-semibold text-gray-400 uppercase tracking-wider mt-2 section-label">
                     Socials
                   </div>
                   <a 
@@ -313,7 +313,7 @@ function Nav() {
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="bg-white text-green-950 px-3 py-1.5 rounded-lg text-xs font-medium"
+              className="bg-white text-green-950 px-3 py-1.5 rounded-lg text-sm font-medium"
               aria-expanded={isMobileOpen}
               aria-label="Toggle navigation menu"
             >
@@ -366,7 +366,7 @@ function Nav() {
                     Blog
                   </a>
 
-                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-1 section-label">
+                  <div className="px-3 py-2 text-sm font-semibold text-gray-400 uppercase tracking-wider mt-1 section-label">
                     Featured Work
                   </div>
                   <a 
@@ -376,7 +376,7 @@ function Nav() {
                     className="px-3 py-2 hover:bg-green-900 rounded-lg no-underline"
                   >
                     <div className="text-sm font-medium text-white">Portfolio | Owner</div>
-                    <div className="text-xs text-gray-300 mt-0.5">Alex Goode</div>
+                    <div className="text-sm text-gray-300 mt-0.5">Alex Goode</div>
                   </a>
                   <a 
                     href="https://lemichclinic.netlify.app" 
@@ -385,7 +385,7 @@ function Nav() {
                     className="px-3 py-2 hover:bg-green-900 rounded-lg no-underline"
                   >
                     <div className="text-sm font-medium text-white">The Lemich Clinic</div>
-                    <div className="text-xs text-gray-300 mt-0.5">Healthcare</div>
+                    <div className="text-sm text-gray-300 mt-0.5">Healthcare</div>
                   </a>
                   <a 
                     href="https://rosewoodcleaning.netlify.app" 
@@ -394,10 +394,10 @@ function Nav() {
                     className="px-3 py-2 hover:bg-green-900 rounded-lg no-underline"
                   >
                     <div className="text-sm font-medium text-white">Rosewood Cleaning</div>
-                    <div className="text-xs text-gray-300 mt-0.5">Service Business</div>
+                    <div className="text-sm text-gray-300 mt-0.5">Service Business</div>
                   </a>
 
-                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-1 section-label">
+                  <div className="px-3 py-2 text-sm font-semibold text-gray-400 uppercase tracking-wider mt-1 section-label">
                     Socials
                   </div>
                   <a 

@@ -59,8 +59,8 @@ function Footer() {
             <div className="row">
               
               {/* Studio Links */}
-              <div className="col-md-4 text-start col-4 mb-4 mb-md-0 footer-section">
-                <h6 className="text-sm underline font-mono font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
+              <div className="col-md-4 text-start col-12 mb-4 mb-md-0 footer-section">
+                <h6 className="text-lg font-mono font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
                   Studio
                 </h6>
                 <ul className="list-unstyled">
@@ -100,8 +100,8 @@ function Footer() {
               </div>
 
               {/* Work Links */}
-              <div className="col-md-4 text-start col-4 mb-4 mb-md-0 footer-section">
-                <h6 className="text-sm underline font-mono font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
+              <div className="col-md-4 text-start col-12 mb-4 mb-md-0 footer-section">
+                <h6 className="text-lg font-mono font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
                   Recent Work
                 </h6>
                 <ul className="list-unstyled">
@@ -139,8 +139,8 @@ function Footer() {
               </div>
 
               {/* Connect Links */}
-              <div className="col-md-4 text-start col-4 footer-section">
-                <h6 className="text-sm underline font-mono font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
+              <div className="col-md-4 text-start col-12 footer-section">
+                <h6 className="text-lg font-mono font-semibold text-slate-400 border-white uppercase tracking-wider mb-4">
                   Connect
                 </h6>
                 <ul className="list-unstyled">
@@ -165,12 +165,12 @@ function Footer() {
         {/* Bottom Bar */}
         <div className="row align-items-center footer-section">
           <div className="col-md-5 col-12 mb-3 mb-md-0">
-            <p className="text-xs text-slate-200 mb-0">
+            <p className="text-sm text-slate-200 mb-0">
               © {year} Made Right Studios — Columbia, South Carolina
             </p>
           </div>
-          <div className="col-md-6 col-12 text-md-end">
-            <p className="text-xs text-slate-200 mb-0 tracking-wider">
+          <div className="col-md-6 col-12  text-md-end">
+            <p className="text-sm text-slate-200 mb-0 ">
               hello@maderight.studio
             </p>
           </div>
