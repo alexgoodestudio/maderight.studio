@@ -22,7 +22,7 @@ function Nav() {
           {/* Logo */}
           <a 
             href="/" 
-            className="flex items-center text-teal-50 font-semibold text-sm no-underline pr-3 border-r border-green-800"
+            className="flex items-center text-teal-50  font-semibold text-sm no-underline pr-3 border-r border-green-800"
             aria-label="Made Right Studio Home"
           >
             Made Right  

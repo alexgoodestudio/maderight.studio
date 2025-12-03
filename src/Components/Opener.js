@@ -168,12 +168,12 @@ function Opener() {
         </h1>
         
         <h2 ref={taglineRef} className="text-sub mt-lg-2 mt-2 text-slate-100 pt-4 font-light mb-5 opener-tagline">
-          <section className="d-inline-block text-center pb-2 px-2 md:px-6">
+          <section className="d-inline-block text-center  pb-2 px-2 md:px-6">
             <div>
 
-              <span className="word emphasis">Design-first</span>{' '}
+              <span className="word emphasis lora">Design-first</span>{' '}
               <span className="word emphasis italic">technology</span>{' '}
-              <span className="word">studio.</span>
+              <span className="word font-light">studio.</span>
             </div>
             <div ref={borderRef} className="mt-2 w-100 tagline-border"></div>
           </section>

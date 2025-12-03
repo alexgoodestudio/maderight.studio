@@ -100,7 +100,7 @@ function Featured() {
 
                 {/* Badges */}
                 {service.badges && service.badges.length > 0 && (
-                  <div className="flex gap-2 mt-4">
+                  <div className="flex flex-wrap gap-2 mt-4">
                     {service.badges.map((badge, badgeIdx) => (
                       <span
                         key={badgeIdx}
