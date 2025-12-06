@@ -46,9 +46,9 @@ function Opener() {
     if (!madeRef.current || !rightRef.current || !taglineRef.current) return;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
+
     if (prefersReducedMotion) {
-      gsap.set([madeRef.current, rightRef.current, taglineRef.current], { 
+      gsap.set([madeRef.current, rightRef.current, taglineRef.current], {
         opacity: 1
       });
       return;
@@ -58,7 +58,7 @@ function Opener() {
     requestAnimationFrame(() => {
       // Double-check refs are still valid
       if (!madeRef.current || !rightRef.current || !taglineRef.current) return;
-      
+
       const taglineWords = taglineRef.current.querySelectorAll('.word');
       const taglineEmphasis = taglineRef.current.querySelectorAll('.emphasis');
 
@@ -69,65 +69,107 @@ function Opener() {
       if (borderRef.current) {
         gsap.set(borderRef.current, { scaleX: 0, opacity: 0 });
       }
+
       const viewportWidth = window.innerWidth;
-      const verticalOffset = 100;
-      
+      const isMobile = viewportWidth < 992; // Tablets and phones
       const tl = gsap.timeline();
 
-      gsap.set(madeRef.current, {
-        x: -viewportWidth / 2,
-        y: -verticalOffset,
-        opacity: 1
-      });
-
-      gsap.set(rightRef.current, {
-        x: viewportWidth / 2,
-        y: verticalOffset,
-        opacity: 1
-      });
-
-      tl
-        .to(madeRef.current, {
-          x: 0,
-          duration: MOTION.story,
-          ease: 'power3.out'
-        })
-        .to(rightRef.current, {
-          x: 0,
-          duration: MOTION.story,
-          ease: 'power3.out'
-        }, '<')
-        .to(madeRef.current, {
-          y: 0,
-          duration: MOTION.story,
-          ease: 'power3.out'
-        })
-        .to(rightRef.current, {
-          y: 0,
-          duration: MOTION.story,
-          ease: 'power3.out'
-        }, '<')
-        .from(taglineWords, {
-          y: 40,
-          opacity: 0,
-          rotateX: 45,
-          transformOrigin: 'center top',
-          duration: MOTION.smooth,
-          stagger: 0.12,
-          ease: 'power2.out'
-        }, `-=${MOTION.smooth}`)
-        .to(taglineEmphasis, {
-          duration: MOTION.quick,
-          stagger: 0.15,
-          ease: 'power1.inOut'
-        }, `-=${MOTION.instant}`)
-        .to(borderRef.current, {
-          scaleX: 1,
+      if (isMobile) {
+        // Mobile: 3D swing-forward animation (like door opening)
+        gsap.set([madeRef.current, rightRef.current], {
           opacity: 1,
-          duration: MOTION.smooth,
-          ease: 'power2.out',
-          transformOrigin: 'left center'
-        }, `-=${MOTION.quick}`);
+          rotateX: 85,
+          transformOrigin: 'center bottom',
+          transformPerspective: 800
+        });
+
+        tl
+          .to([madeRef.current, rightRef.current], {
+            rotateX: 0,
+            duration: MOTION.story,
+            ease: 'power2.out',
+            stagger: 0.1
+          })
+          .from(taglineWords, {
+            y: 40,
+            opacity: 0,
+            rotateX: 45,
+            transformOrigin: 'center top',
+            duration: MOTION.smooth,
+            stagger: 0.12,
+            ease: 'power2.out'
+          }, `-=${MOTION.smooth}`)
+          .to(taglineEmphasis, {
+            duration: MOTION.quick,
+            stagger: 0.15,
+            ease: 'power1.inOut'
+          }, `-=${MOTION.instant}`)
+          .to(borderRef.current, {
+            scaleX: 1,
+            opacity: 1,
+            duration: MOTION.smooth,
+            ease: 'power2.out',
+            transformOrigin: 'left center'
+          }, `-=${MOTION.quick}`);
+      } else {
+        // Desktop: Original slide animation
+        const verticalOffset = 100;
+
+        gsap.set(madeRef.current, {
+          x: -viewportWidth / 2,
+          y: -verticalOffset,
+          opacity: 1
+        });
+
+        gsap.set(rightRef.current, {
+          x: viewportWidth / 2,
+          y: verticalOffset,
+          opacity: 1
+        });
+
+        tl
+          .to(madeRef.current, {
+            x: 0,
+            duration: MOTION.story,
+            ease: 'power3.out'
+          })
+          .to(rightRef.current, {
+            x: 0,
+            duration: MOTION.story,
+            ease: 'power3.out'
+          }, '<')
+          .to(madeRef.current, {
+            y: 0,
+            duration: MOTION.story,
+            ease: 'power3.out'
+          })
+          .to(rightRef.current, {
+            y: 0,
+            duration: MOTION.story,
+            ease: 'power3.out'
+          }, '<')
+          .from(taglineWords, {
+            y: 40,
+            opacity: 0,
+            rotateX: 45,
+            transformOrigin: 'center top',
+            duration: MOTION.smooth,
+            stagger: 0.12,
+            ease: 'power2.out'
+          }, `-=${MOTION.smooth}`)
+          .to(taglineEmphasis, {
+            duration: MOTION.quick,
+            stagger: 0.15,
+            ease: 'power1.inOut'
+          }, `-=${MOTION.instant}`)
+          .to(borderRef.current, {
+            scaleX: 1,
+            opacity: 1,
+            duration: MOTION.smooth,
+            ease: 'power2.out',
+            transformOrigin: 'left center'
+          }, `-=${MOTION.quick}`);
+      }
     });
 
   }, [fontLoaded]);
