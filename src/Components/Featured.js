@@ -3,8 +3,8 @@
 // import Card2 from "./Images/card2.png";
 // import Card3 from "./Images/card3.png";
 import Vid from "./Images/1.mp4";
-import Vid2 from "./Images/2.mov";
-import Vid3 from "./Images/3.mp4";
+import Vid2 from "./Images/a.mov";
+import Vid3 from "./Images/3.mov";
 
 import "./Style.css";
 
@@ -66,7 +66,8 @@ function Featured() {
               {/* Render video OR image */}
 {service.type === "video" ? (
   <video
-    className="card-img-top object-cover w-full h-48"
+    className="card-img-top w-full h-48"
+    style={{ objectFit: 'cover', objectPosition: 'top' }}
     autoPlay
     muted
     loop
