@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -9,25 +9,74 @@ function Footer() {
   const year = new Date().getFullYear();
   const footerRef = useRef(null);
   const titleRef = useRef(null);
+  const emailRef = useRef(null);
+  const [emailChars, setEmailChars] = useState([]);
+
+  // Split email into characters on mount
+  useEffect(() => {
+    const email = "hello@maderight.studio";
+    setEmailChars(email.split(''));
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Scroll reveal animation
-      gsap.from(titleRef.current, {
+      // 3D swing-forward animation for all screen sizes
+      gsap.set(titleRef.current, {
+        rotateX: 85,
+        transformOrigin: 'center bottom',
+        transformPerspective: 800,
+        opacity: 1
+      });
+
+      gsap.to(titleRef.current, {
         scrollTrigger: {
           trigger: titleRef.current,
           start: "top 80%",
           toggleActions: "play none none none",
         },
-        duration: 1.2,
-        y: 30,
-        opacity: 0,
+        rotateX: 0,
+        duration: 0.925,
         ease: "power2.out",
       });
     }, footerRef);
 
     return () => ctx.revert();
   }, []);
+
+  // Playful GSAP-style email animation
+  const handleEmailHover = () => {
+    const chars = emailRef.current.querySelectorAll('.email-char');
+
+    gsap.to(chars, {
+      y: -8,
+      rotation: () => gsap.utils.random(-15, 15),
+      scale: 1.2,
+      color: '#ffffff', // White on hover for high contrast pop
+      duration: 0.4,
+      ease: 'back.out(3)',
+      stagger: {
+        amount: 0.3,
+        from: 'random'
+      }
+    });
+  };
+
+  const handleEmailLeave = () => {
+    const chars = emailRef.current.querySelectorAll('.email-char');
+
+    gsap.to(chars, {
+      y: 0,
+      rotation: 0,
+      scale: 1,
+      color: '#FFF7AF', // Made Right yellow as default
+      duration: 0.5,
+      ease: 'elastic.out(1, 0.6)',
+      stagger: {
+        amount: 0.2,
+        from: 'random'
+      }
+    });
+  };
 
   return (
     <footer ref={footerRef} className="bg-teal-950 text-slate-100 pt-32 pb-8 ">
@@ -46,7 +95,7 @@ function Footer() {
                 Made Right
               </h2>
               <p className="text-xl tracking-wide text-slate-300">
-                Design-first <span className="italic">technology</span> studio.
+                <span className="lora">Design-first</span> <span className="italic">technology</span> studio.
 
               </p>
               <p className="text-sm font-mono text-slate-400">
@@ -170,10 +219,28 @@ function Footer() {
               © {year} Made Right Studios — Columbia, South Carolina
             </p>
           </div>
-          <div className="col-md-6 col-12  text-md-end">
-            <p className="text-sm text-slate-200 mb-0 ">
-              hello@maderight.studio
-            </p>
+          <div className="col-md-6 col-12 text-md-end">
+            <div
+              ref={emailRef}
+              className="text-sm mb-0 d-inline-block"
+              onMouseEnter={handleEmailHover}
+              onMouseLeave={handleEmailLeave}
+              style={{ cursor: 'pointer', userSelect: 'none', color: '#FFF7AF' }}
+            >
+              {emailChars.length > 0 ? (
+                emailChars.map((char, idx) => (
+                  <span
+                    key={idx}
+                    className="email-char"
+                    style={{ display: 'inline-block' }}
+                  >
+                    {char}
+                  </span>
+                ))
+              ) : (
+                'hello@maderight.studio'
+              )}
+            </div>
           </div>
         </div>
 

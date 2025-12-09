@@ -214,8 +214,8 @@ function Opener() {
             <div>
 
               <span className="word emphasis lora">Design-first</span>{' '}
-              <span className="word emphasis italic">technology</span>{' '}
-              <span className="word font-light">studio.</span>
+              <span className="word emphasis font-semibold italic">technology</span>{' '}
+              <span className="word lora">studio</span>
             </div>
             <div ref={borderRef} className="mt-2 w-100 tagline-border"></div>
           </section>

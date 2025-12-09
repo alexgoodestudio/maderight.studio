@@ -122,7 +122,7 @@ function Featured() {
                   rel="noopener noreferrer"
                   className="bg-teal-900 font-mono  text-white  no-underline hover:bg-green-950 hover:italic px-4 rounded w-full p-2 text-center"
                 >
-                  {`Live: ${service.title}`}
+                  {`${service.title}`}
                 </a>
               </div>
               </div>

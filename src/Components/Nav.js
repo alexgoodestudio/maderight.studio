@@ -29,37 +29,49 @@ function Nav() {
           </a>
 
           {/* Navigation Links */}
-          <a 
-            href="/about" 
-            className={`text-sm transition-colors no-underline px-3 py-1.5 rounded-full ${
-              isActive('/about') 
-                ? 'bg-white text-teal-950 font-medium' 
-                : 'text-white hover:text-gray-300'
+          <a
+            href="/about"
+            className={`text-sm no-underline px-3 py-1.5 rounded-full ${
+              isActive('/about')
+                ? 'bg-white text-teal-950 font-medium'
+                : 'text-white hover:bg-teal-800'
             }`}
+            style={{
+              transition: 'all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+              letterSpacing: '0.01em'
+            }}
             aria-current={isActive('/about') ? 'page' : undefined}
           >
             About
           </a>
 
-          <a 
-            href="/team" 
-            className={`text-sm transition-colors no-underline px-3 py-1.5 rounded-full ${
-              isActive('/team') 
-                ? 'bg-white text-teal-950 font-medium' 
-                : 'text-white hover:text-gray-300'
+          <a
+            href="/team"
+            className={`text-sm no-underline px-3 py-1.5 rounded-full ${
+              isActive('/team')
+                ? 'bg-white text-teal-950 font-medium'
+                : 'text-white hover:bg-teal-800'
             }`}
+            style={{
+              transition: 'all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+              letterSpacing: '0.01em'
+            }}
             aria-current={isActive('/team') ? 'page' : undefined}
           >
             Team
           </a>
 
-          <a 
-            href="/our-process" 
-            className={`text-sm transition-colors no-underline px-3 py-1.5 rounded-full ${
-              isActive('/our-process') 
-                ? 'bg-white text-teal-950 font-medium' 
-                : 'text-white hover:text-gray-300'
+          <a
+            href="/our-process"
+            className={`text-sm no-underline px-3 py-1.5 rounded-full ${
+              isActive('/our-process')
+                ? 'bg-white text-teal-950 font-medium'
+                : 'text-white hover:bg-teal-800'
             }`}
+            style={{
+              transition: 'all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+              letterSpacing: '0.01em'
+            }}
             aria-current={isActive('/our-process') ? 'page' : undefined}
           >
            Process
@@ -68,51 +80,185 @@ function Nav() {
           {/* Featured Work Dropdown */}
           <div className="relative">
             <button
-              className="text-white text-sm hover:text-gray-300 transition-colors flex items-center gap-1"
+              className="text-white text-sm hover:bg-teal-800 px-3 py-1.5 rounded-full flex items-center gap-1"
+              style={{
+                transition: 'all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                letterSpacing: '0.01em'
+              }}
               onMouseEnter={() => setIsFeaturedOpen(true)}
               onMouseLeave={() => setIsFeaturedOpen(false)}
               aria-expanded={isFeaturedOpen}
               aria-haspopup="true"
             >
               Featured Work
-              <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg
+                className="w-2.5 h-2.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                style={{
+                  transition: 'transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                  transform: isFeaturedOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+                }}
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             {isFeaturedOpen && (
               <div
-                className="absolute top-full left-0 pt-2 w-52 z-50"
+                className="absolute top-full left-0 w-72 z-50"
+                style={{
+                  paddingTop: '16px',
+                  transform: 'translate3d(0,0,0)'
+                }}
                 onMouseEnter={() => setIsFeaturedOpen(true)}
                 onMouseLeave={() => setIsFeaturedOpen(false)}
               >
-                <div className="bg-white rounded-xl shadow-lg py-1">
-                  <a 
-                    href="http://alexgoode.netlify.app/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="block px-3 py-2 hover:bg-gray-100 no-underline rounded-lg mx-1"
+                <div
+                  className="bg-white border border-slate-900"
+                  style={{
+                    borderRadius: '0',
+                    boxShadow: '4px 4px 0 rgba(15, 23, 42, 0.08)'
+                  }}
+                >
+                  {/* Whitney-inspired catalog header */}
+                  <div
+                    className="px-6 py-3 border-b border-slate-200 bg-green-400"
+                    // style={{ backgroundColor: 'rgba(248, 250, 252, 0.6)' }}
                   >
-                    <div className="text-xs font-medium text-gray-900">Owner</div>
-                    <div className="text-xs text-gray-500 mt-0.5">Alex Goode Portfolio</div>
-                  </a>
-                  <a 
-                    href="https://lemich.netlify.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="block px-3 py-2 hover:bg-gray-100 no-underline rounded-lg mx-1"
-                  >
-                    <div className="text-xs font-medium text-gray-900">The Lemich Clinic</div>
-                    <div className="text-xs text-gray-500 mt-0.5">Healthcare Website</div>
-                  </a>
-                  <a 
-                    href="https://rosewoodcleaning.netlify.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="block px-3 py-2 hover:bg-gray-100 no-underline rounded-lg mx-1"
-                  >
-                    <div className="text-xs font-medium text-gray-900">Rosewood Cleaning</div>
-                    <div className="text-xs text-gray-500 mt-0.5">Service Business</div>
-                  </a>
+                    <div
+                      className="text-xs font-mono uppercase text-slate-600"
+                      style={{
+                        letterSpacing: '0.15em',
+                        lineHeight: '1.3'
+                      }}
+                    >
+                      Selected Projects
+                    </div>
+                  </div>
+
+                  {/* Muuto-inspired minimal list with Whitney spacing */}
+                  <div style={{ padding: '8px 0' }}>
+                    <a
+                      href="http://alexgoode.netlify.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-6 py-4 hover:bg-stone-50 no-underline group"
+                      style={{
+                        transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                        borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                      }}
+                    >
+                      <div
+                        className="text-xs font-mono uppercase text-slate-500 mb-2"
+                        style={{
+                          letterSpacing: '0.1em',
+                          lineHeight: '1.3'
+                        }}
+                      >
+                        Portfolio / 2024
+                      </div>
+                      <div
+                        className="text-base text-slate-900 group-hover:text-slate-900"
+                        style={{
+                          letterSpacing: '-0.01em',
+                          lineHeight: '1.4',
+                          fontWeight: '500'
+                        }}
+                      >
+                        Alex Goode
+                      </div>
+                      <div
+                        className="text-sm text-slate-600 mt-1"
+                        style={{
+                          letterSpacing: '0',
+                          lineHeight: '1.4'
+                        }}
+                      >
+                        Studio Owner
+                      </div>
+                    </a>
+
+                    <a
+                      href="https://lemich.netlify.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-6 py-4 hover:bg-stone-50 no-underline group"
+                      style={{
+                        transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                        borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                      }}
+                    >
+                      <div
+                        className="text-xs font-mono uppercase text-slate-500 mb-2"
+                        style={{
+                          letterSpacing: '0.1em',
+                          lineHeight: '1.3'
+                        }}
+                      >
+                        Healthcare / 2024
+                      </div>
+                      <div
+                        className="text-base text-slate-900 group-hover:text-slate-900"
+                        style={{
+                          letterSpacing: '-0.01em',
+                          lineHeight: '1.4',
+                          fontWeight: '500'
+                        }}
+                      >
+                        The Lemich Clinic
+                      </div>
+                      <div
+                        className="text-sm text-slate-600 mt-1"
+                        style={{
+                          letterSpacing: '0',
+                          lineHeight: '1.4'
+                        }}
+                      >
+                        Norfolk, Virginia
+                      </div>
+                    </a>
+
+                    <a
+                      href="https://rosewoodcleaning.netlify.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-6 py-4 hover:bg-stone-50 no-underline group"
+                      style={{
+                        transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)'
+                      }}
+                    >
+                      <div
+                        className="text-xs font-mono uppercase text-slate-500 mb-2"
+                        style={{
+                          letterSpacing: '0.1em',
+                          lineHeight: '1.3'
+                        }}
+                      >
+                        Service / 2024
+                      </div>
+                      <div
+                        className="text-base text-slate-900 group-hover:text-slate-900"
+                        style={{
+                          letterSpacing: '-0.01em',
+                          lineHeight: '1.4',
+                          fontWeight: '500'
+                        }}
+                      >
+                        Rosewood Cleaning
+                      </div>
+                      <div
+                        className="text-sm text-slate-600 mt-1"
+                        style={{
+                          letterSpacing: '0',
+                          lineHeight: '1.4'
+                        }}
+                      >
+                        Columbia, South Carolina
+                      </div>
+                    </a>
+                  </div>
                 </div>
               </div>
             )}
@@ -134,25 +280,43 @@ function Nav() {
 
         {/* Right Side Links */}
         <div className="flex items-center gap-3">
-          <button 
+          <button
             onClick={handleContactClick}
-            className="bg-white text-green-950 px-5 py-2 font-bold rounded-full text-sm transition-colors cursor-pointer border-0 hover:bg-gray-100"
+            className="bg-white text-green-950 px-5 py-2 font-semibold rounded-full text-sm cursor-pointer border-0 hover:bg-stone-100"
+            style={{
+              transition: 'all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+              letterSpacing: '0.01em'
+            }}
             aria-label="Email us"
           >
-            Email 
+            Email
           </button>
 
           {/* Socials Dropdown */}
           <div className="relative">
             <button
-              className="text-white bg-teal-900 py-2 px-5 rounded-md text-sm font-medium hover:text-slate-300 transition-colors flex items-center gap-1 nav-dropdown-button"
+              className="text-white bg-teal-900 py-2 px-5 rounded-md text-sm font-medium hover:bg-teal-800 flex items-center gap-1 nav-dropdown-button"
+              style={{
+                transition: 'all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                letterSpacing: '0.01em'
+              }}
               onMouseEnter={() => setIsCompanyOpen(true)}
               onMouseLeave={() => setIsCompanyOpen(false)}
               aria-expanded={isCompanyOpen}
               aria-haspopup="true"
             >
               Socials
-              <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg
+                className="w-2.5 h-2.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                style={{
+                  transition: 'transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                  transform: isCompanyOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+                }}
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
@@ -184,7 +348,7 @@ function Nav() {
           <div className="flex justify-between items-center px-4 py-3">
             <a 
               href="/" 
-              className="flex items-center text-white font-semibold text-base no-underline"
+              className="flex items-center text-white  font-semibold text-base no-underline"
               aria-label="Made Right Studio Home"
             >
               Made Right 
@@ -200,100 +364,154 @@ function Nav() {
           </div>
 
           {isMobileOpen && (
-            <div className="bg-slate-900 rounded-b-lg">
-              <div className="px-4 pb-4">
-                <div className="flex flex-col gap-1 pt-2">
-                  <a 
-                    href="/about" 
-                    className={`px-3 py-2 text-sm rounded-lg no-underline ${
-                      isActive('/about')
-                        ? 'bg-white text-teal-950 font-medium'
-                        : 'text-white hover:bg-green-900'
-                    }`}
-                  >
-                    About
-                  </a>
-                  <a 
-                    href="/team" 
-                    className={`px-3 py-2 text-sm rounded-lg no-underline ${
-                      isActive('/team')
-                        ? 'bg-white text-teal-950 font-medium'
-                        : 'text-white hover:bg-green-900'
-                    }`}
-                  >
-                    Team
-                  </a>
-                  <a 
-                    href="/our-process" 
-                    className={`px-3 py-2 text-sm rounded-lg no-underline ${
-                      isActive('/our-process')
-                        ? 'bg-white text-teal-950 font-medium'
-                        : 'text-white hover:bg-green-900'
-                    }`}
-                  >
-                    Our Process
-                  </a>
-                  <a 
-                    href="/blog" 
-                    className={`px-3 py-2 text-sm rounded-lg no-underline ${
-                      isActive('/blog')
-                        ? 'bg-white text-teal-950 font-medium'
-                        : 'text-white hover:bg-green-900'
-                    }`}
-                  >
-                    Blog
-                  </a>
-
-                  <div className="px-3 py-2 text-sm font-semibold text-gray-400 uppercase tracking-wider mt-2 section-label">
-                    Featured Work
-                  </div>
-                  <a 
-                    href="http://alexgoode.netlify.app/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="px-3 py-2 hover:bg-green-900 rounded-lg no-underline"
-                  >
-                    <div className="text-sm font-medium text-white">Portfolio | Owner</div>
-                    <div className="text-sm text-gray-300 mt-0.5">Alex Goode Portfolio</div>
-                  </a>
-                  <a 
-                    href="https://lemichclinic.netlify.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="px-3 py-2 hover:bg-green-900 rounded-lg no-underline"
-                  >
-                    <div className="text-sm font-medium text-white">The Lemich Clinic</div>
-                    <div className="text-sm text-gray-300 mt-0.5">Healthcare Website</div>
-                  </a>
-                  <a 
-                    href="https://rosewoodcleaning.netlify.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="px-3 py-2 hover:bg-green-900 rounded-lg no-underline"
-                  >
-                    <div className="text-sm font-medium text-white">Rosewood Cleaning</div>
-                    <div className="text-sm text-gray-300 mt-0.5">Service Business</div>
-                  </a>
-
-                  <div className="px-3 py-2 text-sm font-semibold text-gray-400 uppercase tracking-wider mt-2 section-label">
-                    Socials
-                  </div>
-                  <a 
-                    href="https://instagram.com/maderight.studio" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="px-3 py-2 text-sm text-white hover:bg-green-900 rounded-lg no-underline"
-                  >
-                    Instagram
-                  </a>
-
-                  <a 
-                    href="mailto:alexgoode2@gmail.com" 
-                    className="mt-3 bg-white text-green-950 px-4 py-2 rounded-full text-center text-sm font-medium no-underline hover:bg-gray-100"
-                  >
-                    Contact Us
-                  </a>
+            <div className="bg-white border border-slate-900 mt-3 mx-3 mb-3" style={{ borderRadius: '0', boxShadow: '4px 4px 0 rgba(15, 23, 42, 0.08)' }}>
+              {/* Catalog header */}
+              <div className="px-5 py-3 border-b border-slate-200" style={{ backgroundColor: 'rgba(248, 250, 252, 0.6)' }}>
+                <div className="text-xs font-mono uppercase text-slate-600" style={{ letterSpacing: '0.15em', lineHeight: '1.3' }}>
+                  Navigation
                 </div>
+              </div>
+
+              <div className="pb-2">
+                {/* Studio Links */}
+                <a
+                  href="/about"
+                  className="block px-5 py-3 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    About
+                  </div>
+                </a>
+                <a
+                  href="/team"
+                  className="block px-5 py-3 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Team
+                  </div>
+                </a>
+                <a
+                  href="/our-process"
+                  className="block px-5 py-3 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Our Process
+                  </div>
+                </a>
+
+                {/* Featured Work Section */}
+                <div className="px-5 py-3 border-b border-slate-200 mt-2" style={{ backgroundColor: 'rgba(248, 250, 252, 0.6)' }}>
+                  <div className="text-xs font-mono uppercase text-slate-600" style={{ letterSpacing: '0.15em', lineHeight: '1.3' }}>
+                    Selected Projects
+                  </div>
+                </div>
+
+                <a
+                  href="http://alexgoode.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-5 py-3 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-xs font-mono uppercase text-slate-500 mb-1" style={{ letterSpacing: '0.1em' }}>
+                    Portfolio / 2024
+                  </div>
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Alex Goode
+                  </div>
+                  <div className="text-xs text-slate-600 mt-0.5" style={{ letterSpacing: '0' }}>
+                    Studio Owner
+                  </div>
+                </a>
+                <a
+                  href="https://lemich.netlify.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-5 py-3 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-xs font-mono uppercase text-slate-500 mb-1" style={{ letterSpacing: '0.1em' }}>
+                    Healthcare / 2024
+                  </div>
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    The Lemich Clinic
+                  </div>
+                  <div className="text-xs text-slate-600 mt-0.5" style={{ letterSpacing: '0' }}>
+                    Norfolk, Virginia
+                  </div>
+                </a>
+                <a
+                  href="https://rosewoodcleaning.netlify.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-5 py-3 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-xs font-mono uppercase text-slate-500 mb-1" style={{ letterSpacing: '0.1em' }}>
+                    Service / 2024
+                  </div>
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Rosewood Cleaning
+                  </div>
+                  <div className="text-xs text-slate-600 mt-0.5" style={{ letterSpacing: '0' }}>
+                    Columbia, South Carolina
+                  </div>
+                </a>
+
+                {/* Socials Section */}
+                <div className="px-5 py-3 border-b border-slate-200 mt-2" style={{ backgroundColor: 'rgba(248, 250, 252, 0.6)' }}>
+                  <div className="text-xs font-mono uppercase text-slate-600" style={{ letterSpacing: '0.15em', lineHeight: '1.3' }}>
+                    Connect
+                  </div>
+                </div>
+
+                <a
+                  href="https://instagram.com/maderight.studio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-5 py-3 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Instagram
+                  </div>
+                </a>
+
+                <a
+                  href="mailto:alexgoode2@gmail.com"
+                  className="block mx-5 my-3 bg-teal-950 text-white px-4 py-2 text-center text-sm font-medium no-underline hover:bg-teal-900"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    letterSpacing: '0.01em',
+                    borderRadius: '0'
+                  }}
+                >
+                  Contact Us
+                </a>
               </div>
             </div>
           )}
@@ -302,7 +520,7 @@ function Nav() {
 
       {/* Mobile Navigation (< 768px) */}
       <nav className="md:hidden sticky top-0 z-50 px-3 pt-2 pb-3 bg-teal-950">
-        <div className="bg-teal-900 rounded-lg">
+        <div className="bg-teal-800 rounded-lg">
           <div className="flex justify-between items-center px-3 py-2.5">
             <a 
               href="/" 
@@ -322,100 +540,154 @@ function Nav() {
           </div>
 
           {isMobileOpen && (
-            <div className="bg-slate-900 rounded-b-lg">
-              <div className="px-3 pb-3">
-                <div className="flex flex-col gap-1 pt-2">
-                  <a 
-                    href="/about" 
-                    className={`px-3 py-2 text-sm rounded-lg no-underline ${
-                      isActive('/about')
-                        ? 'bg-white text-teal-950 font-medium'
-                        : 'text-white hover:bg-green-900'
-                    }`}
-                  >
-                    About
-                  </a>
-                  <a 
-                    href="/team" 
-                    className={`px-3 py-2 text-sm rounded-lg no-underline ${
-                      isActive('/team')
-                        ? 'bg-white text-teal-950 font-medium'
-                        : 'text-white hover:bg-green-900'
-                    }`}
-                  >
-                    Team
-                  </a>
-                  <a 
-                    href="/our-process" 
-                    className={`px-3 py-2 text-sm rounded-lg no-underline ${
-                      isActive('/our-process')
-                        ? 'bg-white text-teal-950 font-medium'
-                        : 'text-white hover:bg-green-900'
-                    }`}
-                  >
-                    Our Process
-                  </a>
-                  <a 
-                    href="/blog" 
-                    className={`px-3 py-2 text-sm rounded-lg no-underline ${
-                      isActive('/blog')
-                        ? 'bg-white text-teal-950 font-medium'
-                        : 'text-white hover:bg-green-900'
-                    }`}
-                  >
-                    Blog
-                  </a>
-
-                  <div className="px-3 py-2 text-sm font-semibold text-gray-400 uppercase tracking-wider mt-1 section-label">
-                    Featured Work
-                  </div>
-                  <a 
-                    href="http://alexgoode.netlify.app/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="px-3 py-2 hover:bg-green-900 rounded-lg no-underline"
-                  >
-                    <div className="text-sm font-medium text-white">Portfolio | Owner</div>
-                    <div className="text-sm text-gray-300 mt-0.5">Alex Goode</div>
-                  </a>
-                  <a 
-                    href="https://lemichclinic.netlify.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="px-3 py-2 hover:bg-green-900 rounded-lg no-underline"
-                  >
-                    <div className="text-sm font-medium text-white">The Lemich Clinic</div>
-                    <div className="text-sm text-gray-300 mt-0.5">Healthcare</div>
-                  </a>
-                  <a 
-                    href="https://rosewoodcleaning.netlify.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="px-3 py-2 hover:bg-green-900 rounded-lg no-underline"
-                  >
-                    <div className="text-sm font-medium text-white">Rosewood Cleaning</div>
-                    <div className="text-sm text-gray-300 mt-0.5">Service Business</div>
-                  </a>
-
-                  <div className="px-3 py-2 text-sm font-semibold text-gray-400 uppercase tracking-wider mt-1 section-label">
-                    Socials
-                  </div>
-                  <a 
-                    href="https://instagram.com/maderight.studio" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="px-3 py-2 text-sm text-white hover:bg-green-900 rounded-lg no-underline"
-                  >
-                    Instagram
-                  </a>
-
-                  <a 
-                    href="mailto:alexgoode2@gmail.com" 
-                    className="mt-2 bg-white text-green-950 px-4 py-2 rounded-full text-center text-sm font-medium no-underline hover:bg-gray-100"
-                  >
-                    Contact Us
-                  </a>
+            <div className="bg-white border border-slate-900 mt-2 mx-2 mb-2" style={{ borderRadius: '0', boxShadow: '4px 4px 0 rgba(15, 23, 42, 0.08)' }}>
+              {/* Catalog header */}
+              <div className="px-4 py-2.5 border-b border-slate-200" style={{ backgroundColor: 'rgba(248, 250, 252, 0.6)' }}>
+                <div className="text-xs font-mono uppercase text-slate-600" style={{ letterSpacing: '0.15em', lineHeight: '1.3' }}>
+                  Navigation
                 </div>
+              </div>
+
+              <div className="pb-2">
+                {/* Studio Links */}
+                <a
+                  href="/about"
+                  className="block px-4 py-2.5 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    About
+                  </div>
+                </a>
+                <a
+                  href="/team"
+                  className="block px-4 py-2.5 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Team
+                  </div>
+                </a>
+                <a
+                  href="/our-process"
+                  className="block px-4 py-2.5 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Our Process
+                  </div>
+                </a>
+
+                {/* Featured Work Section */}
+                <div className="px-4 py-2.5 border-b border-slate-200 mt-2" style={{ backgroundColor: 'rgba(248, 250, 252, 0.6)' }}>
+                  <div className="text-xs font-mono uppercase text-slate-600" style={{ letterSpacing: '0.15em', lineHeight: '1.3' }}>
+                    Selected Projects
+                  </div>
+                </div>
+
+                <a
+                  href="http://alexgoode.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-2.5 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-xs font-mono uppercase text-slate-500 mb-1" style={{ letterSpacing: '0.1em' }}>
+                    Portfolio / 2024
+                  </div>
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Alex Goode
+                  </div>
+                  <div className="text-xs text-slate-600 mt-0.5" style={{ letterSpacing: '0' }}>
+                    Studio Owner
+                  </div>
+                </a>
+                <a
+                  href="https://lemich.netlify.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-2.5 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-xs font-mono uppercase text-slate-500 mb-1" style={{ letterSpacing: '0.1em' }}>
+                    Healthcare / 2024
+                  </div>
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    The Lemich Clinic
+                  </div>
+                  <div className="text-xs text-slate-600 mt-0.5" style={{ letterSpacing: '0' }}>
+                    Norfolk, Virginia
+                  </div>
+                </a>
+                <a
+                  href="https://rosewoodcleaning.netlify.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-2.5 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-xs font-mono uppercase text-slate-500 mb-1" style={{ letterSpacing: '0.1em' }}>
+                    Service / 2024
+                  </div>
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Rosewood Cleaning
+                  </div>
+                  <div className="text-xs text-slate-600 mt-0.5" style={{ letterSpacing: '0' }}>
+                    Columbia, South Carolina
+                  </div>
+                </a>
+
+                {/* Socials Section */}
+                <div className="px-4 py-2.5 border-b border-slate-200 mt-2" style={{ backgroundColor: 'rgba(248, 250, 252, 0.6)' }}>
+                  <div className="text-xs font-mono uppercase text-slate-600" style={{ letterSpacing: '0.15em', lineHeight: '1.3' }}>
+                    Connect
+                  </div>
+                </div>
+
+                <a
+                  href="https://instagram.com/maderight.studio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-2.5 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Instagram
+                  </div>
+                </a>
+
+                <a
+                  href="mailto:alexgoode2@gmail.com"
+                  className="block mx-4 my-2.5 bg-teal-950 text-white px-4 py-2 text-center text-sm font-medium no-underline hover:bg-teal-900"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    letterSpacing: '0.01em',
+                    borderRadius: '0'
+                  }}
+                >
+                  Contact Us
+                </a>
               </div>
             </div>
           )}
