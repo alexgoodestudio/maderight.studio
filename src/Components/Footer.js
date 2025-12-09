@@ -220,9 +220,10 @@ function Footer() {
             </p>
           </div>
           <div className="col-md-6 col-12 text-md-end">
-            <div
+            <a
+              href="mailto:hello@maderight.studio"
               ref={emailRef}
-              className="text-sm mb-0 d-inline-block"
+              className="text-sm mb-0 d-inline-block no-underline"
               onMouseEnter={handleEmailHover}
               onMouseLeave={handleEmailLeave}
               style={{ cursor: 'pointer', userSelect: 'none', color: '#FFF7AF' }}
@@ -240,7 +241,7 @@ function Footer() {
               ) : (
                 'hello@maderight.studio'
               )}
-            </div>
+            </a>
           </div>
         </div>
 
