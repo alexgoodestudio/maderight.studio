@@ -13,10 +13,11 @@ function Banner() {
 
   useGSAP(() => {
     const el = textRef.current;
-    const textWidth = el.offsetWidth / 3; // Divide by 3 since we repeat text 3 times
+    const repeatCount = 10; // Repeat 10 times to ensure always full coverage on mobile
+    const textWidth = el.offsetWidth / repeatCount;
 
-    // Start from right edge (positive value)
-    gsap.set(el, { x: 0 });
+    // Start with 5% from left edge so "How" is visible
+    gsap.set(el, { x: -textWidth * 0.05 });
 
     animationRef.current = gsap.to(el, {
       x: -textWidth,
@@ -57,7 +58,7 @@ function Banner() {
       onMouseLeave={handleMouseLeave}
     >
       <span ref={textRef} className="banner-text text-white">
-        {bannerText.repeat(3)}
+        {bannerText.repeat(10)}
       </span>
     </div>
   );

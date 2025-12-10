@@ -61,7 +61,9 @@ body {
   position: relative;
   -webkit-overflow-scrolling: touch;
 }
-
+.text-yellow{
+  color: #FFF7AF;
+}
 /* -----------------------------------------------------------------------------
    TYPOGRAPHY SYSTEM
    Modular scale with responsive adjustments

@@ -2,13 +2,35 @@
 // import Card1 from "./Images/card1.png";
 // import Card2 from "./Images/card2.png";
 // import Card3 from "./Images/card3.png";
+import { useRef, useState, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import Vid from "./Images/1.mp4";
 import Vid2 from "./Images/a.mov";
 import Vid3 from "./Images/3.mov";
 
 import "./Style.css";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function Featured() {
+  const cardsRef = useRef([]);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 768;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   const serviceData = [
     {
       title: "The Lemich Clinic",
@@ -39,30 +61,65 @@ function Featured() {
     },
   ];
 
+  // Slide up and fade in animation for cards on mobile - matching Plank.co style
+  useGSAP(() => {
+    const isMobile = window.innerWidth <= 768;
+
+    if (!isMobile) return;
+
+    cardsRef.current.forEach((card, index) => {
+      if (!card) return;
+
+      // Set initial state - minimal slide distance
+      gsap.set(card, { y: 50, opacity: 0 });
+
+      // Quick fade-up animation like Plank.co (400ms duration)
+      ScrollTrigger.create({
+        trigger: card,
+        start: "top 90%",
+        once: true,
+        onEnter: () => {
+          gsap.to(card, {
+            y: 0,
+            opacity: 1,
+            duration: 0.4, // 400ms like Plank.co
+            ease: "power1.out", // Simple ease-out
+            delay: index * 0.1, // Stagger: 0ms, 100ms, 200ms
+          });
+        },
+      });
+    });
+  }, []);
+
   return (
     <div className="bg-white featured-body">
-      {/* Section Header */}
-      <header className="text-start mb-5 mb-lg-6">
-        <div className="row">
-          <div className="col-12 col-lg-5 ">
-            <h2
-              className="text-5xl font-black lora mb-3 section-heading"
-            >
-              Recent Work
-            </h2>
-            <p
-              className="text-xl gs pt-4 text-slate-700 mb-0 section-description"
-            >
-              We work alongside our clients from concept to deployment. We will continue to support you and your website growth after launch with training and maintenance. Check out some of our latest projects!
-            </p>
+      <div className="container-fluid px-1 px-lg-5">
+        {/* Section Header */}
+        <header className="text-start mb-5 mb-lg-6">
+          <div className="row">
+            <div className="col-12 col-lg-5 ">
+              <h2
+                className="text-4xl font-black lora mb-3 section-heading"
+              >
+                Recent Work
+              </h2>
+              <p
+                className="text-xl gs pt-4 text-slate-700 mb-0 section-description"
+              >
+                We work alongside our clients from concept to deployment. We will continue to support you and your website growth after launch with training and maintenance. Check out some of our latest projects!
+              </p>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      <div className="row g-4">
+        <div className="row g-4">
         {serviceData.map((service, idx) => (
           <div key={idx} className="col-lg-4 col-md-6">
-            <div className="rounded-2xl shadow-md overflow-hidden flex flex-col h-full text-start transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg card-animate">
+            <div
+              ref={el => cardsRef.current[idx] = el}
+              className="rounded-2xl shadow-md overflow-hidden flex flex-col h-full text-start transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg card-animate"
+              style={isMobile ? { opacity: 0, transform: 'translateY(50px)' } : {}}
+            >
               {/* Render video OR image */}
 {service.type === "video" ? (
   <video
@@ -129,6 +186,7 @@ function Featured() {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

@@ -355,11 +355,19 @@ function Nav() {
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="bg-white text-green-950 px-4 py-2 rounded-lg text-sm font-medium"
+              className="bg-white text-green-950 px-4 py-2 rounded-lg"
               aria-expanded={isMobileOpen}
               aria-label="Toggle navigation menu"
             >
-              {isMobileOpen ? 'Close' : 'Menu'}
+              {isMobileOpen ? (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <path d="M3 12h18M3 6h18M3 18h18" />
+                </svg>
+              )}
             </button>
           </div>
 
@@ -374,6 +382,18 @@ function Nav() {
 
               <div className="pb-2">
                 {/* Studio Links */}
+                <a
+                  href="/"
+                  className="block px-5 py-3 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Home
+                  </div>
+                </a>
                 <a
                   href="/about"
                   className="block px-5 py-3 hover:bg-stone-50 no-underline"
@@ -519,23 +539,31 @@ function Nav() {
       </nav>
 
       {/* Mobile Navigation (< 768px) */}
-      <nav className="md:hidden sticky top-0 z-50 px-3 pt-2 pb-3 bg-teal-950">
-        <div className="bg-teal-800 rounded-lg">
+      <nav className="md:hidden fixed top-0 left-0 right-0 z-50 px-3 pt-2 pb-3">
+        <div className=" rounded-lg">
           <div className="flex justify-between items-center px-3 py-2.5">
             <a 
               href="/" 
-              className="flex items-center text-white font-semibold text-sm no-underline"
+              className="flex items-center text-white bg-teal-900 px-3 py-2 rounded font-semibold text-sm no-underline"
               aria-label="Made Right Studio Home"
             >
               Made Right 
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="bg-white text-green-950 px-3 py-1.5 rounded-lg text-sm font-medium"
+              className="bg-white text-green-950 px-3 py-2 rounded-lg"
               aria-expanded={isMobileOpen}
               aria-label="Toggle navigation menu"
             >
-              {isMobileOpen ? 'Close' : 'Menu'}
+              {isMobileOpen ? (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <path d="M3 12h18M3 6h18M3 18h18" />
+                </svg>
+              )}
             </button>
           </div>
 
@@ -550,6 +578,18 @@ function Nav() {
 
               <div className="pb-2">
                 {/* Studio Links */}
+                <a
+                  href="/"
+                  className="block px-4 py-2.5 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Home
+                  </div>
+                </a>
                 <a
                   href="/about"
                   className="block px-4 py-2.5 hover:bg-stone-50 no-underline"

@@ -69,10 +69,12 @@ function Mission() {
       scrollTrigger: {
         trigger: container.current,
         start: "center center",
-        end: "+=5000",
-        scrub: 1.5,
+        end: "+=4000",
+        scrub: 0.8,
         pin: true,
         anticipatePin: 1,
+        fastScrollEnd: true,
+        invalidateOnRefresh: true,
         onUpdate: (self) => {
           // Trigger confetti after Made Right has faded out (~95% progress)
           if (self.progress > 0.99 && !confettiFired.current) {
@@ -106,7 +108,7 @@ function Mission() {
   const text = "Made Right is a design-focused web development studio based in Columbia, South Carolina. Our goal is to bring creativity and technology together to develop high-performing websites that showcases your brand and gets found. We focus on design principles, technical performance and purposeful strategy.";
 
   return (
-    <section className="bg-white gs mission-p py-5 text-start px-lg-0 px-1 position-relative">
+    <section className="bg-white gs mission-p py-5 text-start px-lg-0 px-4 position-relative">
       <div ref={confettiContainer} className="position-fixed confetti-container" />
       <div ref={container} className="mission-body">
         <p>

@@ -21,7 +21,7 @@ function NavBanner() {
     if (!isMobile || !textRef.current) return;
 
     const el = textRef.current;
-    const textWidth = el.offsetWidth / 3; // Divide by 3 since we repeat text 3 times
+    const textWidth = el.offsetWidth / 10; // Divide by 10 since we repeat text 10 times
 
     // Start from off-screen left
     gsap.set(el, { x: -textWidth });
@@ -58,7 +58,7 @@ function NavBanner() {
             paddingBottom: '12px'
           }}
         >
-          {bannerText.repeat(3)}
+          {bannerText.repeat(10)}
         </span>
       ) : (
         <p className="text-xs font-mono pb-3 pt-3 mb-0 nav-banner-text text-center">

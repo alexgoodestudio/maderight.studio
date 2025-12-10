@@ -98,35 +98,33 @@ function Stats() {
 
   return (
     <section
-      className="bg-white text-slate-900 pb-5"
+      className="bg-white text-slate-900"
       ref={containerRef}
       aria-labelledby="stats-heading"
+      style={{ padding: '80px 30px 120px' }}
     >
-      <div className="container-fluid py-5 mb-5">
-        <div className="row">
-          <div className="col-12 px-4 px-lg-5">
+      <div className="container-fluid px-1 px-lg-5">
+        {/* Section Header */}
+        <header className="text-start mb-5 mb-lg-6">
+          <div className="row">
+            <div className="col-12 col-lg-8">
+              <h2
+                id="stats-heading"
+                className="text-4xl text-lg-6xl lora font-black mb-3 section-heading"
+              >
+                Performance that matters.
+              </h2>
+              <p
+                className="text-xl gs text-slate-700 mb-0 section-description"
+              >
+                Built into every project are the best technical practices that help your website perform optimally for users and search engines.
+              </p>
+            </div>
+          </div>
+        </header>
 
-            {/* Section Header */}
-            <header className="text-start mb-5 mb-lg-6">
-              <div className="row">
-                <div className="col-12 col-lg-8">
-                  <h2
-                    id="stats-heading"
-                    className="text-5xl text-lg-6xl lora font-black mb-3 section-heading"
-                  >
-                    Performance that matters.
-                  </h2>
-                  <p
-                    className="text-xl gs text-slate-700 mb-0 section-description"
-                  >
-                    Built into every project are the best technical practices that help your website perform optimally for users and search engines.
-                  </p>
-                </div>
-              </div>
-            </header>
-
-            {/* Stats Grid */}
-            <div className="row g-4">
+        {/* Stats Grid */}
+        <div className="row g-4">
               {metrics.map((metric, index) => (
                 <div key={index} className="col-6 col-lg-3">
                   <div
@@ -135,7 +133,7 @@ function Stats() {
                   >
                     <div
                       ref={el => valueRefs.current[index] = el}
-                      className="text-6xl lora font-bold mb-2 text-teal-800 stat-value"
+                      className="text-5xl lora font-bold mb-2 text-teal-900 stat-value"
                     >
                       {metric.prefix || ''}{metric.value}{metric.suffix || ''}
                     </div>
@@ -152,9 +150,6 @@ function Stats() {
                   </div>
                 </div>
               ))}
-            </div>
-
-          </div>
         </div>
       </div>
     </section>

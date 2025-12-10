@@ -110,7 +110,7 @@ function Opener() {
             duration: MOTION.smooth,
             ease: 'power2.out',
             transformOrigin: 'left center'
-          }, `-=${MOTION.quick}`);
+          }, `-=0.8`);
       } else {
         // Desktop: Original slide animation
         const verticalOffset = 100;
@@ -168,7 +168,7 @@ function Opener() {
             duration: MOTION.smooth,
             ease: 'power2.out',
             transformOrigin: 'left center'
-          }, `-=${MOTION.quick}`);
+          }, `-=0.8`);
       }
     });
 

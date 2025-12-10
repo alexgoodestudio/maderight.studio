@@ -198,7 +198,7 @@ function Services() {
                   <h2
                     id="services-heading"
                     ref={headingRef}
-                    className="text-5xl text-lg-6xl lora font-black  mb-3 section-heading"
+                    className="text-4xl text-lg-6xl lora font-black  mb-3 section-heading"
                   >
                     What We Do.
                   </h2>

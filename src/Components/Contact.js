@@ -7,7 +7,10 @@ function Contact() {
 
   return (
     <div className="row  contact">
-      <div className="col-lg-12 col-12  bg-slate-50  contact text-dark d-flex flex-column justify-content-center items-center text-center p-4">
+      <div
+        className="col-lg-12 col-12  bg-slate-50  contact text-dark d-flex flex-column justify-content-center items-center text-center py-5"
+        style={{ paddingLeft: '30px', paddingRight: '30px' }}
+      >
         <h3 className="text-4xl  text-slate-900 lora font-bold mb-3">
           Interested in working together?
         </h3>
