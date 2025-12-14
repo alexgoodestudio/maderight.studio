@@ -1259,6 +1259,609 @@ export const LogoVariation10 = ({ size = 50 }) => (
   </svg>
 );
 
+// Properly researched hand-drawn typography - MADE RIGHT full wordmark
+
+// Variation 11: Psychedelic Wavy - Online Ceramics / Grateful Dead poster aesthetic
+// Wobbly baselines, irregular letter heights, '60s psychedelia, tie-dye energy
+export const LogoVariation11 = ({ size = 50 }) => (
+  <svg
+    width={size * 5.2}
+    height={size * 1.4}
+    viewBox="0 0 520 140"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* "MADE" - wobbly psychedelic letters with wavy baseline and irregular heights */}
+    <path
+      d="M15,95 Q12,98 15,42 Q17,38 22,48 L32,78 Q34,85 37,78 L47,48 Q52,38 54,42 Q57,98 54,95"
+      stroke="#FFF7AF"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M80,100 Q77,103 85,40 Q87,36 92,40 Q100,103 97,100 M81,72 Q87,68 96,72"
+      stroke="#FF9375"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M120,97 Q117,100 120,44 L140,45 Q163,50 163,70 Q163,92 140,96 L120,95"
+      stroke="#E9D5FF"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M185,96 Q182,99 185,45 L215,48 M185,70 L210,72 M185,95 L215,98"
+      stroke="#A1ADEB"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+
+    {/* "RIGHT" - continuing psychedelic wobble */}
+    <path
+      d="M240,96 Q237,99 240,45 L265,46 Q280,48 280,62 Q280,72 270,75 L285,96 M240,72 L265,73"
+      stroke="#FFF7AF"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M305,98 Q302,101 305,46"
+      stroke="#FF9375"
+      strokeWidth="8"
+      strokeLinecap="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M345,58 Q345,42 330,40 Q315,42 315,70 Q315,98 330,98 Q345,96 345,70 L330,70"
+      stroke="#E9D5FF"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M370,99 Q367,102 370,44 M400,99 Q397,102 400,44 M370,70 L400,72"
+      stroke="#A1ADEB"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M425,47 L460,50 M442,49 Q439,100 442,98"
+      stroke="#FFF7AF"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+
+    {/* Psychedelic wavy underline */}
+    <path
+      d="M10,115 Q45,108 80,115 Q115,122 150,113 Q185,105 220,117 Q255,125 290,115 Q325,107 360,118 Q395,126 430,115 Q455,110 480,120"
+      stroke="#FF9375"
+      strokeWidth="4"
+      strokeLinecap="round"
+      fill="none"
+      opacity="0.75"
+    />
+  </svg>
+);
+
+// Variation 12: Spaced Modern Sans - Self Aware Studio aesthetic
+// Wide letterspacing, clean geometric sans, breathing room, contemporary minimal
+export const LogoVariation12 = ({ size = 50 }) => (
+  <svg
+    width={size * 6}
+    height={size}
+    viewBox="0 0 600 100"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* "MADE" - Wide spaced, clean geometric sans-serif */}
+    <path
+      d="M15,75 L15,25 L35,60 L55,25 L55,75"
+      stroke="#FFF7AF"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M95,75 L107,25 L120,25 L132,75 M100,52 L127,52"
+      stroke="#FF9375"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M165,75 L165,25 L185,25 Q205,25 205,50 Q205,75 185,75 L165,75"
+      stroke="#E9D5FF"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M235,75 L235,25 L265,25 M235,50 L260,50 M235,75 L265,75"
+      stroke="#A1ADEB"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+
+    {/* "RIGHT" - continuing wide spacing */}
+    <path
+      d="M300,75 L300,25 L320,25 Q335,25 335,40 Q335,50 325,52 L340,75 M300,50 L320,50"
+      stroke="#FFF7AF"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M370,75 L370,25"
+      stroke="#FF9375"
+      strokeWidth="6"
+      strokeLinecap="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M420,42 Q420,25 405,25 Q390,25 390,50 Q390,75 405,75 Q420,73 420,50 L405,50"
+      stroke="#E9D5FF"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M455,75 L455,25 M485,75 L485,25 M455,50 L485,50"
+      stroke="#A1ADEB"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M515,25 L545,25 M530,25 L530,75"
+      stroke="#FFF7AF"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+  </svg>
+);
+
+// Variation 13: Friendly Rounded - Plank.co Montreal studio aesthetic
+// Organic rounded sans, friendly approachable, geometric with soft edges
+export const LogoVariation13 = ({ size = 50 }) => (
+  <svg
+    width={size * 5}
+    height={size * 1.1}
+    viewBox="0 0 500 110"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* "MADE" - Soft rounded geometric letters */}
+    <path
+      d="M15,80 Q12,82 12,30 Q12,28 15,28 L20,30 L30,62 L40,30 L45,28 Q48,28 48,30 Q48,82 45,80"
+      stroke="#FFF7AF"
+      strokeWidth="7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M78,80 Q75,82 82,30 Q84,28 88,30 Q95,82 92,80 M79,58 Q85,56 91,58"
+      stroke="#FF9375"
+      strokeWidth="7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M115,80 Q112,82 112,30 Q112,28 115,28 L132,28 Q150,30 150,54 Q150,78 132,80 L115,80"
+      stroke="#E9D5FF"
+      strokeWidth="7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M175,80 Q172,82 172,30 Q172,28 175,28 L198,28 M172,54 L193,54 M172,80 L198,80"
+      stroke="#A1ADEB"
+      strokeWidth="7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+
+    {/* "RIGHT" - continuing rounded friendly style */}
+    <path
+      d="M220,80 Q217,82 217,30 Q217,28 220,28 L238,28 Q252,30 252,44 Q252,54 243,56 L255,80 M217,54 L238,54"
+      stroke="#FFF7AF"
+      strokeWidth="7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M280,80 Q277,82 277,30 Q277,28 280,28"
+      stroke="#FF9375"
+      strokeWidth="7"
+      strokeLinecap="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M325,44 Q325,28 310,28 Q295,28 295,54 Q295,80 310,80 Q325,78 325,54 L310,54"
+      stroke="#E9D5FF"
+      strokeWidth="7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M350,80 Q347,82 347,30 Q347,28 350,28 M377,80 Q374,82 374,30 Q374,28 377,28 M347,54 L377,54"
+      stroke="#A1ADEB"
+      strokeWidth="7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M400,30 Q400,28 403,28 L425,28 M413,28 Q410,82 413,80"
+      stroke="#FFF7AF"
+      strokeWidth="7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+  </svg>
+);
+
+// Variation 14: Chunky Marker - Bold casual hand-drawn
+// Fat marker strokes, playful imperfect, energetic casual
+export const LogoVariation14 = ({ size = 50 }) => (
+  <svg
+    width={size * 5.8}
+    height={size * 1.2}
+    viewBox="0 0 580 120"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* "MADE" - Chunky marker style */}
+    <path
+      d="M15,90 L17,35 L28,70 L39,35 L41,90"
+      stroke="#FFF7AF"
+      strokeWidth="11"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M70,92 L82,33 L91,92 M74,63 L87,63"
+      stroke="#FF9375"
+      strokeWidth="11"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M115,90 L115,35 L135,35 Q152,37 152,62 Q152,87 135,90 L115,90"
+      stroke="#E9D5FF"
+      strokeWidth="11"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M175,90 L175,35 L200,35 M175,62 L195,62 M175,90 L200,90"
+      stroke="#A1ADEB"
+      strokeWidth="11"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+
+    {/* "RIGHT" - continuing chunky marker */}
+    <path
+      d="M225,90 L225,35 L250,35 Q268,37 268,52 Q268,64 258,66 L272,90 M225,64 L250,64"
+      stroke="#FFF7AF"
+      strokeWidth="11"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M295,92 L295,33"
+      stroke="#FF9375"
+      strokeWidth="11"
+      strokeLinecap="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M335,52 Q335,35 320,35 Q305,35 305,62 Q305,90 320,90 Q335,88 335,62 L320,62"
+      stroke="#E9D5FF"
+      strokeWidth="11"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M360,90 L360,35 M390,90 L390,35 M360,62 L390,62"
+      stroke="#A1ADEB"
+      strokeWidth="11"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M410,35 L445,35 M427,35 L427,90"
+      stroke="#FFF7AF"
+      strokeWidth="11"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+
+    {/* Playful dots */}
+    <circle cx="28" cy="103" r="5" fill="#FF9375" opacity="0.85" />
+    <circle cx="135" cy="103" r="5" fill="#E9D5FF" opacity="0.85" />
+    <circle cx="320" cy="103" r="5" fill="#A1ADEB" opacity="0.85" />
+  </svg>
+);
+
+// Variation 15: Condensed Tall - Modern editorial
+// Narrow condensed forms, sophisticated, magazine-style
+export const LogoVariation15 = ({ size = 50 }) => (
+  <svg
+    width={size * 6.2}
+    height={size * 1.3}
+    viewBox="0 0 620 130"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* "MADE" - Tall condensed */}
+    <path
+      d="M15,105 L15,25 L28,75 L41,25 L41,105"
+      stroke="#FFF7AF"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M70,105 L78,25 L86,25 L94,105 M72,65 L92,65"
+      stroke="#FF9375"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M120,105 L120,25 L135,25 Q150,25 150,65 Q150,105 135,105 L120,105"
+      stroke="#E9D5FF"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M175,105 L175,25 L195,25 M175,65 L192,65 M175,105 L195,105"
+      stroke="#A1ADEB"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+
+    {/* "RIGHT" - continuing tall condensed */}
+    <path
+      d="M220,105 L220,25 L240,25 Q255,25 255,48 Q255,62 245,65 L260,105 M220,62 L240,62"
+      stroke="#FFF7AF"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M285,105 L285,25"
+      stroke="#FF9375"
+      strokeWidth="8"
+      strokeLinecap="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M330,48 Q330,25 315,25 Q300,25 300,65 Q300,105 315,105 Q330,103 330,65 L315,65"
+      stroke="#E9D5FF"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M355,105 L355,25 M380,105 L380,25 M355,65 L380,65"
+      stroke="#A1ADEB"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M400,25 L425,25 M412,25 L412,105"
+      stroke="#FFF7AF"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+  </svg>
+);
+
+// Variation 16: Brush Script - Flowing connected
+// Casual brush lettering, connected strokes, energetic flow
+export const LogoVariation16 = ({ size = 50 }) => (
+  <svg
+    width={size * 6}
+    height={size * 1.2}
+    viewBox="0 0 600 120"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* "MADE" - Flowing brush script */}
+    <path
+      d="M15,85 Q13,88 18,42 Q20,38 24,45 L32,72 Q34,78 36,72 L44,45 Q48,38 50,42 Q55,88 52,85"
+      stroke="#FFF7AF"
+      strokeWidth="9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M78,90 Q75,93 82,40 Q84,38 88,45 Q93,93 90,90 M80,65 Q85,62 90,65"
+      stroke="#FF9375"
+      strokeWidth="9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M115,88 Q112,90 115,42 Q117,40 122,40 L138,42 Q153,45 153,64 Q153,83 138,87 L115,88"
+      stroke="#E9D5FF"
+      strokeWidth="9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M178,87 Q175,90 178,43 Q180,40 185,42 L205,45 M178,64 L200,66 M178,86 L205,88"
+      stroke="#A1ADEB"
+      strokeWidth="9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+
+    {/* "RIGHT" - continuing brush script flow */}
+    <path
+      d="M230,87 Q227,90 230,43 Q232,40 237,42 L255,44 Q268,46 268,58 Q268,68 258,70 L272,87 M230,66 L252,68"
+      stroke="#FFF7AF"
+      strokeWidth="9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M295,90 Q292,93 295,42"
+      stroke="#FF9375"
+      strokeWidth="9"
+      strokeLinecap="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M335,58 Q335,42 320,42 Q305,42 305,66 Q305,88 320,88 Q335,86 335,66 L320,66"
+      stroke="#E9D5FF"
+      strokeWidth="9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M360,88 Q357,90 360,43 Q362,40 365,42 M390,88 Q387,90 390,43 Q392,40 395,42 M360,65 L390,66"
+      stroke="#A1ADEB"
+      strokeWidth="9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+    <path
+      d="M415,45 Q417,42 422,43 L445,45 M430,44 Q427,90 430,88"
+      stroke="#FFF7AF"
+      strokeWidth="9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+
+    {/* Connecting flourish */}
+    <path
+      d="M52,83 Q62,80 78,88 M205,85 Q215,82 230,87"
+      stroke="#FF9375"
+      strokeWidth="3"
+      strokeLinecap="round"
+      fill="none"
+      opacity="0.6"
+    />
+  </svg>
+);
+
 // Hand-drawn Button Background - for use behind text in buttons
 export const ButtonShape = ({ color = BRAND_COLORS.teal, width = 200, height = 60, className = '' }) => {
   const w = Math.floor(width - 8);
@@ -1370,7 +1973,13 @@ export const FloatingShape = ({
     logoVariation7: LogoVariation7,
     logoVariation8: LogoVariation8,
     logoVariation9: LogoVariation9,
-    logoVariation10: LogoVariation10
+    logoVariation10: LogoVariation10,
+    logoVariation11: LogoVariation11,
+    logoVariation12: LogoVariation12,
+    logoVariation13: LogoVariation13,
+    logoVariation14: LogoVariation14,
+    logoVariation15: LogoVariation15,
+    logoVariation16: LogoVariation16
   }[shape] || Circle;
 
   return (
@@ -1610,77 +2219,6 @@ function Shapes() {
               </div>
             </div>
 
-            <div className="col-6 col-md-4 col-lg-3 shape-demo">
-              <div className="bg-white p-3 rounded-3 shadow-sm text-center h-100 d-flex flex-column">
-                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-2">
-                  <SmileyFace size={110} />
-                </div>
-                <p className="gs fw-semibold mb-0" style={{ color: BRAND_COLORS.slateDark }}>Smiley Face</p>
-              </div>
-            </div>
-
-            <div className="col-6 col-md-4 col-lg-3 shape-demo">
-              <div className="bg-white p-3 rounded-3 shadow-sm text-center h-100 d-flex flex-column">
-                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-2">
-                  <SmileyFaceTwo size={110} />
-                </div>
-                <p className="gs fw-semibold mb-0" style={{ color: BRAND_COLORS.slateDark }}>Smiley Face 2</p>
-              </div>
-            </div>
-
-            <div className="col-6 col-md-4 col-lg-3 shape-demo">
-              <div className="bg-white p-3 rounded-3 shadow-sm text-center h-100 d-flex flex-column">
-                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-2">
-                  <SmileyFaceThree size={110} />
-                </div>
-                <p className="gs fw-semibold mb-0" style={{ color: BRAND_COLORS.slateDark }}>Smiley Face 3</p>
-              </div>
-            </div>
-
-            <div className="col-6 col-md-4 col-lg-3 shape-demo">
-              <div className="bg-white p-3 rounded-3 shadow-sm text-center h-100 d-flex flex-column">
-                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-2">
-                  <SmileyFaceFour size={110} />
-                </div>
-                <p className="gs fw-semibold mb-0" style={{ color: BRAND_COLORS.slateDark }}>Smiley Face 4</p>
-              </div>
-            </div>
-
-            <div className="col-6 col-md-4 col-lg-3 shape-demo">
-              <div className="bg-white p-3 rounded-3 shadow-sm text-center h-100 d-flex flex-column">
-                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-2">
-                  <SmileyFaceFive size={110} />
-                </div>
-                <p className="gs fw-semibold mb-0" style={{ color: BRAND_COLORS.slateDark }}>Winking Face</p>
-              </div>
-            </div>
-
-            <div className="col-6 col-md-4 col-lg-3 shape-demo">
-              <div className="bg-white p-3 rounded-3 shadow-sm text-center h-100 d-flex flex-column">
-                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-2">
-                  <SmileyFaceSix size={110} />
-                </div>
-                <p className="gs fw-semibold mb-0" style={{ color: BRAND_COLORS.slateDark }}>Surprised Face</p>
-              </div>
-            </div>
-
-            <div className="col-6 col-md-4 col-lg-3 shape-demo">
-              <div className="bg-white p-3 rounded-3 shadow-sm text-center h-100 d-flex flex-column">
-                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-2">
-                  <SmileyFaceSeven size={110} />
-                </div>
-                <p className="gs fw-semibold mb-0" style={{ color: BRAND_COLORS.slateDark }}>Silly Face</p>
-              </div>
-            </div>
-
-            <div className="col-6 col-md-4 col-lg-3 shape-demo">
-              <div className="bg-white p-3 rounded-3 shadow-sm text-center h-100 d-flex flex-column">
-                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-2">
-                  <SmileyFaceEight size={110} />
-                </div>
-                <p className="gs fw-semibold mb-0" style={{ color: BRAND_COLORS.slateDark }}>Goofy Face</p>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -1717,24 +2255,6 @@ function Shapes() {
             <div className="col-12 col-md-6 col-lg-4 shape-demo">
               <div className="p-4 rounded-3 text-center h-100 d-flex flex-column" style={{ background: BRAND_COLORS.tealDark }}>
                 <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-3" style={{ minHeight: '140px' }}>
-                  <LogoVariation2 size={80} />
-                </div>
-                <h4 className="fw-bold mb-2" style={{ color: BRAND_COLORS.yellow, fontSize: '18px' }}>Variation 2: "MR" Monogram</h4>
-                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
-                  <strong>Pros:</strong> Professional, memorable initials, uses brand shapes, sophisticated.
-                </p>
-                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
-                  <strong>Cons:</strong> Less immediately friendly.
-                </p>
-                <p className="gs" style={{ color: BRAND_COLORS.coral, fontSize: '12px', fontWeight: '600' }}>
-                  Best for: Established studios
-                </p>
-              </div>
-            </div>
-
-            <div className="col-12 col-md-6 col-lg-4 shape-demo">
-              <div className="p-4 rounded-3 text-center h-100 d-flex flex-column" style={{ background: BRAND_COLORS.tealDark }}>
-                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-3" style={{ minHeight: '140px' }}>
                   <LogoVariation3 size={80} />
                 </div>
                 <h4 className="fw-bold mb-2" style={{ color: BRAND_COLORS.yellow, fontSize: '18px' }}>Variation 3: Minimal Geometric</h4>
@@ -1746,42 +2266,6 @@ function Shapes() {
                 </p>
                 <p className="gs" style={{ color: BRAND_COLORS.coral, fontSize: '12px', fontWeight: '600' }}>
                   Best for: Warmth + credibility balance
-                </p>
-              </div>
-            </div>
-
-            <div className="col-12 col-md-6 col-lg-4 shape-demo">
-              <div className="p-4 rounded-3 text-center h-100 d-flex flex-column" style={{ background: BRAND_COLORS.tealDark }}>
-                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-3" style={{ minHeight: '140px' }}>
-                  <LogoVariation4 size={60} />
-                </div>
-                <h4 className="fw-bold mb-2" style={{ color: BRAND_COLORS.yellow, fontSize: '18px' }}>Variation 4: Wordmark + Icon</h4>
-                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
-                  <strong>Pros:</strong> Most professional, clear branding, strong brand recall, readable.
-                </p>
-                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
-                  <strong>Cons:</strong> Wider footprint.
-                </p>
-                <p className="gs" style={{ color: BRAND_COLORS.coral, fontSize: '12px', fontWeight: '600' }}>
-                  Best for: Professional credibility
-                </p>
-              </div>
-            </div>
-
-            <div className="col-12 col-md-6 col-lg-4 shape-demo">
-              <div className="p-4 rounded-3 text-center h-100 d-flex flex-column" style={{ background: BRAND_COLORS.tealDark }}>
-                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-3" style={{ minHeight: '140px' }}>
-                  <LogoVariation5 size={80} />
-                </div>
-                <h4 className="fw-bold mb-2" style={{ color: BRAND_COLORS.yellow, fontSize: '18px' }}>Variation 5: Stacked Badge</h4>
-                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
-                  <strong>Pros:</strong> Unique, memorable, suggests craftsmanship/quality, strong structure, scales well.
-                </p>
-                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
-                  <strong>Cons:</strong> Abstract, less "face-like".
-                </p>
-                <p className="gs" style={{ color: BRAND_COLORS.coral, fontSize: '12px', fontWeight: '600' }}>
-                  Best for: Craft & precision emphasis
                 </p>
               </div>
             </div>
@@ -1886,6 +2370,146 @@ function Shapes() {
                 </p>
                 <p className="gs" style={{ color: BRAND_COLORS.coral, fontSize: '12px', fontWeight: '600' }}>
                   Best for: Vintage-modern fusion
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Hand-Drawn Typography Variations - "MADE RIGHT" Full Wordmarks */}
+        <section className="py-5 px-4 bg-white">
+          <div className="text-center mb-5">
+            <h2 className="display-6 fw-bold mb-3 lora" style={{ color: BRAND_COLORS.tealDark }}>
+              "MADE RIGHT" Typography Variations
+            </h2>
+            <p className="text-muted gs">
+              Full wordmark explorations with diverse hand-drawn styles
+            </p>
+          </div>
+
+          <div className="row g-4">
+            <div className="col-12 col-md-6 col-lg-4 shape-demo">
+              <div className="p-4 rounded-3 text-center h-100 d-flex flex-column" style={{ background: BRAND_COLORS.tealDark }}>
+                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-3" style={{ minHeight: '140px' }}>
+                  <LogoVariation11 size={28} />
+                </div>
+                <h4 className="fw-bold mb-2" style={{ color: BRAND_COLORS.yellow, fontSize: '18px' }}>Variation 11: Psychedelic Wavy</h4>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.lavender, fontSize: '12px', fontStyle: 'italic' }}>
+                  Online Ceramics / Grateful Dead poster aesthetic
+                </p>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
+                  <strong>Pros:</strong> Authentic '60s psychedelia, wobbly baselines, retro counterculture energy, unique personality.
+                </p>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
+                  <strong>Cons:</strong> Very niche, may not suit corporate clients.
+                </p>
+                <p className="gs" style={{ color: BRAND_COLORS.coral, fontSize: '12px', fontWeight: '600' }}>
+                  Best for: Alternative creative brands
+                </p>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-6 col-lg-4 shape-demo">
+              <div className="p-4 rounded-3 text-center h-100 d-flex flex-column" style={{ background: BRAND_COLORS.tealDark }}>
+                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-3" style={{ minHeight: '140px' }}>
+                  <LogoVariation12 size={22} />
+                </div>
+                <h4 className="fw-bold mb-2" style={{ color: BRAND_COLORS.yellow, fontSize: '18px' }}>Variation 12: Spaced Modern Sans</h4>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.lavender, fontSize: '12px', fontStyle: 'italic' }}>
+                  Self Aware Studio aesthetic
+                </p>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
+                  <strong>Pros:</strong> Wide letterspacing, breathing room, contemporary clean, sophisticated minimal.
+                </p>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
+                  <strong>Cons:</strong> Requires horizontal space, less personality.
+                </p>
+                <p className="gs" style={{ color: BRAND_COLORS.coral, fontSize: '12px', fontWeight: '600' }}>
+                  Best for: Modern professional studios
+                </p>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-6 col-lg-4 shape-demo">
+              <div className="p-4 rounded-3 text-center h-100 d-flex flex-column" style={{ background: BRAND_COLORS.tealDark }}>
+                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-3" style={{ minHeight: '140px' }}>
+                  <LogoVariation13 size={28} />
+                </div>
+                <h4 className="fw-bold mb-2" style={{ color: BRAND_COLORS.yellow, fontSize: '18px' }}>Variation 13: Friendly Rounded</h4>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.lavender, fontSize: '12px', fontStyle: 'italic' }}>
+                  Plank.co Montreal studio aesthetic
+                </p>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
+                  <strong>Pros:</strong> Organic rounded sans, approachable friendly, geometric with soft edges.
+                </p>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
+                  <strong>Cons:</strong> May feel too soft or casual.
+                </p>
+                <p className="gs" style={{ color: BRAND_COLORS.coral, fontSize: '12px', fontWeight: '600' }}>
+                  Best for: Accessible design studios
+                </p>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-6 col-lg-4 shape-demo">
+              <div className="p-4 rounded-3 text-center h-100 d-flex flex-column" style={{ background: BRAND_COLORS.tealDark }}>
+                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-3" style={{ minHeight: '140px' }}>
+                  <LogoVariation14 size={38} />
+                </div>
+                <h4 className="fw-bold mb-2" style={{ color: BRAND_COLORS.yellow, fontSize: '18px' }}>Variation 14: Chunky Marker</h4>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.lavender, fontSize: '12px', fontStyle: 'italic' }}>
+                  Bold casual hand-drawn
+                </p>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
+                  <strong>Pros:</strong> Fat marker strokes, playful imperfect, energetic casual, fun dots.
+                </p>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
+                  <strong>Cons:</strong> Very casual, chunky strokes need space.
+                </p>
+                <p className="gs" style={{ color: BRAND_COLORS.coral, fontSize: '12px', fontWeight: '600' }}>
+                  Best for: Playful creative brands
+                </p>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-6 col-lg-4 shape-demo">
+              <div className="p-4 rounded-3 text-center h-100 d-flex flex-column" style={{ background: BRAND_COLORS.tealDark }}>
+                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-3" style={{ minHeight: '140px' }}>
+                  <LogoVariation15 size={35} />
+                </div>
+                <h4 className="fw-bold mb-2" style={{ color: BRAND_COLORS.yellow, fontSize: '18px' }}>Variation 15: Condensed Tall</h4>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.lavender, fontSize: '12px', fontStyle: 'italic' }}>
+                  Modern editorial magazine-style
+                </p>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
+                  <strong>Pros:</strong> Narrow condensed forms, sophisticated, editorial elegance, vertical impact.
+                </p>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
+                  <strong>Cons:</strong> Less readable at small sizes.
+                </p>
+                <p className="gs" style={{ color: BRAND_COLORS.coral, fontSize: '12px', fontWeight: '600' }}>
+                  Best for: Editorial-focused studios
+                </p>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-6 col-lg-4 shape-demo">
+              <div className="p-4 rounded-3 text-center h-100 d-flex flex-column" style={{ background: BRAND_COLORS.tealDark }}>
+                <div className="flex-grow-1 d-flex align-items-center justify-content-center mb-3" style={{ minHeight: '140px' }}>
+                  <LogoVariation16 size={35} />
+                </div>
+                <h4 className="fw-bold mb-2" style={{ color: BRAND_COLORS.yellow, fontSize: '18px' }}>Variation 16: Brush Script</h4>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.lavender, fontSize: '12px', fontStyle: 'italic' }}>
+                  Flowing connected lettering
+                </p>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
+                  <strong>Pros:</strong> Casual brush lettering, connected strokes, energetic flow, organic personality.
+                </p>
+                <p className="gs mb-2" style={{ color: BRAND_COLORS.slateLight, fontSize: '13px', lineHeight: '1.5' }}>
+                  <strong>Cons:</strong> Very casual, less professional.
+                </p>
+                <p className="gs" style={{ color: BRAND_COLORS.coral, fontSize: '12px', fontWeight: '600' }}>
+                  Best for: Artisanal handmade brands
                 </p>
               </div>
             </div>

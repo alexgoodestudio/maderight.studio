@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { LogoVariation6 } from './Shapes';
+import {
+  LogoVariation11,
+  LogoVariation12,
+  LogoVariation13,
+  LogoVariation14,
+  LogoVariation15,
+  LogoVariation16
+} from './Shapes';
 
 // Logo Variation 1: Refined Winking Face - More professional proportions
 const LogoVariation1 = ({ size = 50 }) => (
@@ -283,12 +290,90 @@ export const LogoShowcase = () => (
         <strong>Best for:</strong> Studios emphasizing craft, precision, and quality work
       </p>
     </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation11 size={45} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 11: Psychedelic Wobbly</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Inspired by:</strong> Online Ceramics<br/>
+        <strong>Pros:</strong> Unique personality, organic wavy forms, retro psychedelic vibe, approachable.<br/>
+        <strong>Cons:</strong> May feel too casual or niche for corporate clients.<br/>
+        <strong>Best for:</strong> Creative studios embracing counterculture, artisanal brands
+      </p>
+    </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation12 size={50} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 12: Condensed Bold</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Inspired by:</strong> Self Aware Studio<br/>
+        <strong>Pros:</strong> Strong, confident, modern, compact footprint, professional weight.<br/>
+        <strong>Cons:</strong> Less playful, might feel too serious.<br/>
+        <strong>Best for:</strong> Studios wanting bold confidence with minimal space
+      </p>
+    </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation13 size={42} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 13: Sketchy Organic</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Inspired by:</strong> Plank.co<br/>
+        <strong>Pros:</strong> Hand-crafted feel, layered sketch lines add depth, human touch, artistic.<br/>
+        <strong>Cons:</strong> May appear unfinished to some, needs larger size.<br/>
+        <strong>Best for:</strong> Design studios emphasizing craft and process
+      </p>
+    </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation14 size={45} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 14: Bouncy Bubble</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Inspired by:</strong> Retro bubble letters<br/>
+        <strong>Pros:</strong> Fun, rounded, friendly, nostalgic '70s vibe, playful dots add charm.<br/>
+        <strong>Cons:</strong> Very casual, may not convey professionalism.<br/>
+        <strong>Best for:</strong> Youth-focused brands, fun creative agencies
+      </p>
+    </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation15 size={40} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 15: Scrawled Graffiti</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Inspired by:</strong> Street art typography<br/>
+        <strong>Pros:</strong> Energetic, bold, rebellious, expressive scribble accent, edgy personality.<br/>
+        <strong>Cons:</strong> Very urban/casual, may alienate conservative clients.<br/>
+        <strong>Best for:</strong> Edgy creative studios, streetwear-adjacent brands
+      </p>
+    </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation16 size={52} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 16: Minimal Quirky</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Inspired by:</strong> Modern minimalism with character<br/>
+        <strong>Pros:</strong> Clean, confident, simple dot accent adds personality without clutter.<br/>
+        <strong>Cons:</strong> May feel too simple, less distinctive than others.<br/>
+        <strong>Best for:</strong> Studios wanting understated professionalism with a hint of fun
+      </p>
+    </div>
   </div>
 );
 
-// Default export - currently using Variation 6 (Chunky Hand-drawn MR)
-// To switch logos, change LogoVariation6 to LogoVariation1, 2, 3, etc.
-const WinkingFaceLogo = LogoVariation6;
+// Default export - currently using Variation 12 (Spaced Modern Sans)
+// To switch logos, change LogoVariation12 to LogoVariation1, 2, 3, etc.
+const WinkingFaceLogo = LogoVariation12;
 
 function Nav() {
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
@@ -313,7 +398,7 @@ function Nav() {
           className="flex items-center no-underline"
           aria-label="Made Right Studio Home"
         >
-          <WinkingFaceLogo size={45} />
+          <WinkingFaceLogo size={27} />
         </a>
 
         {/* Main Navigation Pill */}
@@ -650,7 +735,7 @@ function Nav() {
               className="flex items-center no-underline"
               aria-label="Made Right Studio Home"
             >
-              <WinkingFaceLogo size={40} />
+              <WinkingFaceLogo size={25} />
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -846,7 +931,7 @@ function Nav() {
               className="flex items-center bg-teal-900 px-2 py-2 rounded no-underline"
               aria-label="Made Right Studio Home"
             >
-              <WinkingFaceLogo size={35} />
+              <WinkingFaceLogo size={23} />
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
