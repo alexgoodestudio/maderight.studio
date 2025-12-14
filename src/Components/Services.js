@@ -152,7 +152,7 @@ function Services() {
       textColor: "#F2D4E5"
     },
     {
-      title: "Search Engine Optimization ",
+      title: "Search & Answer Engine Optimization ",
       description: "SEO for Google Search Engine & AEO for AI-driven search engines",
       expertise: "Next.js optimization, Core Web Vitals, semantic markup, and search visibility",
       bgColor: "#BB879D",
@@ -167,8 +167,8 @@ function Services() {
     },
     {
       title: "Web Design Systems",
-      description: "Consistent Design Implementation",
-      expertise: "Branding, typography scales,  and reusable components",
+      description: "Design Implementation",
+      expertise: "Branding, text sizing systems, mobile-first design and component libraries",
       bgColor: "#A1ADEB",
       textColor: "#2A2440"
     },

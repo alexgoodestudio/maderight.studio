@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import Opener from "./Opener";
 // import Featured from "./Featured";
 import FeaturedNew from "./FeaturedNew";
-
+import  Info  from './Info';
 import Services from "./Services"
 import Nav from "./Nav";
 // import Random from "./Random";
@@ -101,9 +101,9 @@ function Storage(){
                 <section>
                     <Nav/>
                     <Opener/>
-                   
                     {/* <Featured/> */}
                     <FeaturedNew/>
+                   <Info/>
                     <Mission/>
                     {/* <Shapes/> */}
                     <Services/>
