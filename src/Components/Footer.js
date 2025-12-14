@@ -21,24 +21,24 @@ function Footer() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // 3D swing-forward animation for all screen sizes
-      gsap.set(titleRef.current, {
-        rotateX: 85,
-        transformOrigin: 'center bottom',
-        transformPerspective: 800,
-        opacity: 1
-      });
-
-      gsap.to(titleRef.current, {
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
+      // Simple fade-up animation - same visual impact, simpler code
+      gsap.fromTo(titleRef.current,
+        {
+          opacity: 0,
+          y: 40
         },
-        rotateX: 0,
-        duration: 0.925,
-        ease: "power2.out",
-      });
+        {
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+          opacity: 1,
+          y: 0,
+          duration: 0.925,
+          ease: "power2.out",
+        }
+      );
     }, footerRef);
 
     return () => ctx.revert();

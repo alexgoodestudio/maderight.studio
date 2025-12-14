@@ -140,9 +140,11 @@ function Mission() {
         <Link
           ref={buttonRef}
           to="/our-process"
-          className="btn-contact text-decoration-none d-inline-block mt-4 px-4 py-3 text-md font-mono position-relative border-0 text-sky-50"
+          className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-4 text-md font-mono position-relative border-0 text-sky-50"
           style={{
-            background: 'transparent'
+            background: 'transparent',
+            height: '60px',
+            minWidth: '180px'
           }}
         >
           <ButtonShape

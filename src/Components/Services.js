@@ -145,15 +145,15 @@ function Services() {
       textColor: "#2B2B2B"
     },
     {
-      title: "Content Management",
+      title: "Content Management Systems",
       description: "Sanity.io & Headless CMS",
-      expertise: "Structured content, real-time collaboration, and flexible content modeling",
+      expertise: "Structured content, team collaboration and editing workflows",
       bgColor: "#816281",
       textColor: "#F2D4E5"
     },
     {
-      title: "Search Engine Optimization",
-      description: "Technical SEO & Performance",
+      title: "Search Engine Optimization ",
+      description: "SEO for Google Search Engine & AEO for AI-driven search engines",
       expertise: "Next.js optimization, Core Web Vitals, semantic markup, and search visibility",
       bgColor: "#BB879D",
       textColor: "#1E1435"

@@ -1,4 +1,294 @@
 import { useState } from "react";
+import { LogoVariation6 } from './Shapes';
+
+// Logo Variation 1: Refined Winking Face - More professional proportions
+const LogoVariation1 = ({ size = 50 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 200 200"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* Subtle background circle for visual weight */}
+    <circle cx="100" cy="100" r="90" fill="#0F766E" opacity="0.3" />
+
+    {/* Left Eye - BlobTwo (yellow for contrast) - bigger */}
+    <g transform="translate(35, 48) scale(0.28)">
+      <path
+        d="M100,10 C140,15 175,40 185,75 C195,110 180,145 150,170 C120,195 80,195 50,175 C20,155 5,120 10,85 C15,50 60,5 100,10Z"
+        fill="#FFF7AF"
+        opacity="1"
+      />
+    </g>
+
+    {/* Right Eye - Wink (thicker arc) */}
+    <path
+      d="M125,70 Q145,75 165,70"
+      stroke="#FFF7AF"
+      strokeWidth="5"
+      strokeLinecap="round"
+      fill="none"
+      opacity="1"
+    />
+
+    {/* Nose - coral instead of white for visibility */}
+    <g transform="translate(100, 105) scale(-1, -1)">
+      <path
+        d="M-6,-5 L10,-5 Q14,-3 13,7 L11,22"
+        stroke="#FF9375"
+        strokeWidth="4.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="1"
+      />
+    </g>
+
+    {/* Mouth - lavender smile */}
+    <path
+      d="M58,148 Q88,172 100,175 Q112,172 142,148"
+      stroke="#E9D5FF"
+      strokeWidth="6"
+      strokeLinecap="round"
+      fill="none"
+      opacity="1"
+    />
+  </svg>
+);
+
+// Logo Variation 2: Abstract "MR" Monogram with playful shapes
+const LogoVariation2 = ({ size = 50 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 200 200"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* M - made from two blob shapes */}
+    <g transform="translate(25, 65) scale(0.18)">
+      <path
+        d="M100,10 C140,15 175,40 185,75 C195,110 180,145 150,170 C120,195 80,195 50,175 C20,155 5,120 10,85 C15,50 60,5 100,10Z"
+        fill="#FFF7AF"
+        opacity="0.95"
+      />
+    </g>
+    <g transform="translate(60, 65) scale(0.18)">
+      <path
+        d="M70,15 Q110,10 140,30 T175,80 Q185,120 160,155 T110,185 Q70,190 40,165 T15,110 Q10,70 35,40 T70,15Z"
+        fill="#FF9375"
+        opacity="0.95"
+      />
+    </g>
+
+    {/* R - hand-drawn style */}
+    <path
+      d="M110,75 L110,135 M110,75 Q125,72 135,82 T135,100 Q135,110 125,115 L140,135"
+      stroke="#E9D5FF"
+      strokeWidth="7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      opacity="0.95"
+    />
+
+    {/* Playful dot accent */}
+    <circle cx="170" cy="75" r="6" fill="#A1ADEB" opacity="0.9" />
+  </svg>
+);
+
+// Logo Variation 3: Minimal Geometric Face - More sophisticated
+const LogoVariation3 = ({ size = 50 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 200 200"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* Rounded square container for structure */}
+    <rect x="35" y="35" width="130" height="130" rx="32" fill="#0F766E" opacity="0.25" />
+
+    {/* Eyes - simple circles, asymmetric for personality */}
+    <circle cx="75" cy="85" r="12" fill="#FFF7AF" opacity="0.95" />
+    <ellipse cx="125" cy="88" rx="18" ry="10" fill="#FF9375" opacity="0.95" />
+
+    {/* Nose - minimal line */}
+    <path
+      d="M100,100 L95,118"
+      stroke="#E9D5FF"
+      strokeWidth="4"
+      strokeLinecap="round"
+      opacity="0.9"
+    />
+
+    {/* Smile - confident arc */}
+    <path
+      d="M70,130 Q100,150 130,130"
+      stroke="#A1ADEB"
+      strokeWidth="5"
+      strokeLinecap="round"
+      fill="none"
+      opacity="0.95"
+    />
+  </svg>
+);
+
+// Logo Variation 4: Wordmark + Icon Combo - Professional
+const LogoVariation4 = ({ size = 50 }) => (
+  <svg
+    width={size * 2.4}
+    height={size}
+    viewBox="0 0 240 100"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* Small winking face icon */}
+    <g transform="translate(0, 0) scale(0.45)">
+      <circle cx="50" cy="50" r="45" fill="#0F766E" opacity="0.2" />
+      <g transform="translate(15, 22) scale(0.22)">
+        <path
+          d="M100,10 C140,15 175,40 185,75 C195,110 180,145 150,170 C120,195 80,195 50,175 C20,155 5,120 10,85 C15,50 60,5 100,10Z"
+          fill="#FFF7AF"
+        />
+      </g>
+      <path d="M60,35 Q70,37 80,35" stroke="#FF9375" strokeWidth="3" strokeLinecap="round" fill="none" />
+      <g transform="translate(50, 52) scale(-1, -1)">
+        <path d="M-3,-2 L5,-2 Q7,-1 6,3 L5,9" stroke="#E9D5FF" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+      </g>
+      <path d="M28,72 Q42,82 50,84 Q58,82 72,72" stroke="#A1ADEB" strokeWidth="4" strokeLinecap="round" fill="none" />
+    </g>
+
+    {/* "MR" text - clean sans-serif style */}
+    <text x="58" y="70" fill="#FFFFFF" fontSize="56" fontWeight="700" fontFamily="system-ui, -apple-system, sans-serif" letterSpacing="-2">MR</text>
+  </svg>
+);
+
+// Logo Variation 5: Stacked Shapes Badge - Bold and memorable
+const LogoVariation5 = ({ size = 50 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 200 200"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* Badge background - hexagon shape */}
+    <path
+      d="M100,15 L160,52 L160,128 L100,165 L40,128 L40,52 Z"
+      fill="#0F766E"
+      opacity="0.3"
+    />
+
+    {/* Three stacked shapes representing quality/precision */}
+    <circle cx="100" cy="65" r="18" fill="#FFF7AF" opacity="0.95" />
+
+    <g transform="translate(72, 88) scale(0.16)">
+      <path
+        d="M70,15 Q110,10 140,30 T175,80 Q185,120 160,155 T110,185 Q70,190 40,165 T15,110 Q10,70 35,40 T70,15Z"
+        fill="#FF9375"
+        opacity="0.95"
+      />
+    </g>
+
+    {/* Smile at bottom */}
+    <path
+      d="M70,135 Q100,155 130,135"
+      stroke="#E9D5FF"
+      strokeWidth="6"
+      strokeLinecap="round"
+      fill="none"
+      opacity="0.95"
+    />
+
+    {/* Wink accent */}
+    <path
+      d="M115,110 Q125,112 135,110"
+      stroke="#A1ADEB"
+      strokeWidth="4"
+      strokeLinecap="round"
+      fill="none"
+      opacity="0.9"
+    />
+  </svg>
+);
+
+// Demo component to preview all variations (for testing - remove in production)
+export const LogoShowcase = () => (
+  <div style={{
+    padding: '40px',
+    background: '#134E4A',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: '30px',
+    fontFamily: 'system-ui, sans-serif'
+  }}>
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation1 size={55} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 1: Refined Winking Face</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Pros:</strong> Friendly, approachable, maintains playful aesthetic with better proportions. Yellow eyes pop against dark background.<br/>
+        <strong>Cons:</strong> Still very casual for a web dev studio.<br/>
+        <strong>Best for:</strong> Creative agencies targeting fun brands
+      </p>
+    </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation2 size={55} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 2: "MR" Monogram</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Pros:</strong> Professional, memorable initials, uses brand shapes, sophisticated.<br/>
+        <strong>Cons:</strong> Less immediately friendly, may look like unrelated brand.<br/>
+        <strong>Best for:</strong> Established studios wanting polish + personality
+      </p>
+    </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation3 size={55} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 3: Minimal Geometric</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Pros:</strong> Clean, modern, sophisticated, asymmetric for interest, strong visual weight.<br/>
+        <strong>Cons:</strong> Less distinctive, could feel generic.<br/>
+        <strong>Best for:</strong> Professional studios balancing warmth + credibility
+      </p>
+    </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation4 size={45} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 4: Wordmark + Icon</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Pros:</strong> Most professional, clear branding, compact icon reinforces identity, readable.<br/>
+        <strong>Cons:</strong> Wider footprint, may compete with center "Made Right" text.<br/>
+        <strong>Best for:</strong> Studios wanting strong brand recall + professionalism
+      </p>
+    </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation5 size={55} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 5: Stacked Badge</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Pros:</strong> Unique, memorable, suggests craftsmanship/quality, strong structure, works at small sizes.<br/>
+        <strong>Cons:</strong> Abstract, less immediately "face-like".<br/>
+        <strong>Best for:</strong> Studios emphasizing craft, precision, and quality work
+      </p>
+    </div>
+  </div>
+);
+
+// Default export - currently using Variation 6 (Chunky Hand-drawn MR)
+// To switch logos, change LogoVariation6 to LogoVariation1, 2, 3, etc.
+const WinkingFaceLogo = LogoVariation6;
 
 function Nav() {
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
@@ -17,15 +307,24 @@ function Nav() {
     <>
       {/* Desktop Navigation */}
       <nav className="hidden lg:flex justify-between items-center sticky bg-teal-950 top-0 z-50 px-4 py-3">
+        {/* Winking Face Logo - Left Side */}
+        <a
+          href="/"
+          className="flex items-center no-underline"
+          aria-label="Made Right Studio Home"
+        >
+          <WinkingFaceLogo size={45} />
+        </a>
+
         {/* Main Navigation Pill */}
         <div className="bg-teal-900 rounded-full px-4 py-2 flex items-center gap-4 shadow-lg mx-auto">
-          {/* Logo */}
-          <a 
-            href="/" 
+          {/* Logo Text */}
+          <a
+            href="/"
             className="flex items-center text-teal-50  font-semibold text-sm no-underline pr-3 border-r border-green-800"
             aria-label="Made Right Studio Home"
           >
-            Made Right  
+            Made Right
           </a>
 
           {/* Navigation Links */}
@@ -346,12 +645,12 @@ function Nav() {
       <nav className="hidden md:flex lg:hidden sticky top-0 z-50 bg-teal-950 px-3 py-3">
         <div className="bg-teal-900 rounded-lg w-full">
           <div className="flex justify-between items-center px-4 py-3">
-            <a 
-              href="/" 
-              className="flex items-center text-white  font-semibold text-base no-underline"
+            <a
+              href="/"
+              className="flex items-center no-underline"
               aria-label="Made Right Studio Home"
             >
-              Made Right 
+              <WinkingFaceLogo size={40} />
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -542,12 +841,12 @@ function Nav() {
       <nav className="md:hidden fixed top-0 left-0 right-0 z-50 px-3 pt-2 pb-3">
         <div className=" rounded-lg">
           <div className="flex justify-between items-center px-3 py-2.5">
-            <a 
-              href="/" 
-              className="flex items-center text-white bg-teal-900 px-3 py-2 rounded font-semibold text-sm no-underline"
+            <a
+              href="/"
+              className="flex items-center bg-teal-900 px-2 py-2 rounded no-underline"
               aria-label="Made Right Studio Home"
             >
-              Made Right 
+              <WinkingFaceLogo size={35} />
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
