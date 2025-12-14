@@ -1,7 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import Opener from "./Opener";
-// import ScrollMission from "./ScrollMission";
-import Featured from "./Featured";
+// import Featured from "./Featured";
+import FeaturedNew from "./FeaturedNew";
+
 import Services from "./Services"
 import Nav from "./Nav";
 // import Random from "./Random";
@@ -9,6 +10,7 @@ import Contact from "./Contact";
 import Stats from "./Stats";
 import Mission from './Mission';
 // import Playground from "./Playground"
+import Shapes from './Shapes';
 import NavBanner from './NavBanner';
 
 function Storage(){
@@ -100,9 +102,10 @@ function Storage(){
                     <Nav/>
                     <Opener/>
                    
-                    {/* <ScrollMission/> */}
-                    <Featured/>
+                    {/* <Featured/> */}
+                    <FeaturedNew/>
                     <Mission/>
+                    {/* <Shapes/> */}
                     <Services/>
                     <Stats/>
                     <Contact/>

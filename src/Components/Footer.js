@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowUpRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -115,35 +116,39 @@ function Footer() {
                 </h6>
                 <ul className="list-unstyled">
                    <li className="mb-3">
-                    <Link 
-                      to="/" 
-                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                    <Link
+                      to="/"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-flex align-items-center gap-2 transition-colors"
                     >
                       Home
+                      <ArrowUpRight size={14} strokeWidth={1.5} />
                     </Link>
                   </li>
                   <li className="mb-3">
-                    <Link 
-                      to="/our-process" 
-                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                    <Link
+                      to="/our-process"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-flex align-items-center gap-2 transition-colors"
                     >
                       Our Process
+                      <ArrowUpRight size={14} strokeWidth={1.5} />
                     </Link>
                   </li>
                   <li className="mb-3">
-                    <Link 
-                      to="/about" 
-                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                    <Link
+                      to="/about"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-flex align-items-center gap-2 transition-colors"
                     >
                       About
+                      <ArrowUpRight size={14} strokeWidth={1.5} />
                     </Link>
                   </li>
                   <li className="mb-3">
-                    <Link 
-                      to="/team" 
-                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
+                    <Link
+                      to="/team"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-flex align-items-center gap-2 transition-colors"
                     >
                       Team
+                      <ArrowUpRight size={14} strokeWidth={1.5} />
                     </Link>
                   </li>
                 </ul>
@@ -156,33 +161,36 @@ function Footer() {
                 </h6>
                 <ul className="list-unstyled">
                   <li className="mb-3">
-                    <a 
-                      href="https://lemich.netlify.app" 
-                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
-                      target="_blank" 
+                    <a
+                      href="https://lemich.netlify.app"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-flex align-items-center gap-2 transition-colors"
+                      target="_blank"
                       rel="noopener noreferrer"
                     >
                       The Lemich Clinic
+                      <ArrowUpRight size={14} strokeWidth={1.5} />
                     </a>
                   </li>
                   <li className="mb-3">
-                    <a 
-                      href="https://rosewoodcleaning.netlify.app" 
-                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
-                      target="_blank" 
+                    <a
+                      href="https://rosewoodcleaning.netlify.app"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-flex align-items-center gap-2 transition-colors"
+                      target="_blank"
                       rel="noopener noreferrer"
                     >
                       Rosewood Cleaning
+                      <ArrowUpRight size={14} strokeWidth={1.5} />
                     </a>
                   </li>
                   <li className="mb-3">
-                    <a 
-                      href="http://alexgoode.netlify.app/" 
-                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
-                      target="_blank" 
+                    <a
+                      href="http://alexgoode.netlify.app/"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-flex align-items-center gap-2 transition-colors"
+                      target="_blank"
                       rel="noopener noreferrer"
                     >
                       Alex Goode Portfolio
+                      <ArrowUpRight size={14} strokeWidth={1.5} />
                     </a>
                   </li>
                 </ul>
@@ -196,13 +204,14 @@ function Footer() {
                 <ul className="list-unstyled">
                   <li className="mb-3"></li>
                   <li className="mb-3">
-                    <a 
-                      href="https://instagram.com/maderight.studio" 
-                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-block transition-colors"
-                      target="_blank" 
+                    <a
+                      href="https://instagram.com/maderight.studio"
+                      className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-flex align-items-center gap-2 transition-colors"
+                      target="_blank"
                       rel="noopener noreferrer"
                     >
                       Instagram
+                      <ArrowUpRight size={14} strokeWidth={1.5} />
                     </a>
                   </li>
                 </ul>

@@ -1,4 +1,6 @@
 import React from 'react';
+import { ButtonShape, BRAND_COLORS } from './Shapes';
+import { ArrowUpRight } from 'lucide-react';
 
 function Contact() {
   const handleContactClick = () => {
@@ -21,12 +23,26 @@ function Contact() {
           accordingly to create within your means.
         </p>
         </div>
-       
+
         <button
           onClick={handleContactClick}
-          className="btn-contact text-lg font-mono bg-teal-900 text-sky-50 px-5 py-3 rounded"
+          className="btn-contact text-lg font-mono text-sky-50 px-5 py-3 position-relative border-0"
+          style={{
+            background: 'transparent',
+            cursor: 'pointer'
+          }}
         >
-          Email
+          <ButtonShape
+            color={BRAND_COLORS.buttonPurple}
+            width={150}
+            height={60}
+            className="position-absolute top-0 start-0"
+            style={{ pointerEvents: 'none' }}
+          />
+          <span className="position-relative d-flex align-items-center gap-2" style={{ zIndex: 1 }}>
+            Email
+            <ArrowUpRight size={16} strokeWidth={2} />
+          </span>
         </button>
       </div>
     </div>

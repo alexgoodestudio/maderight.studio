@@ -6,6 +6,7 @@ import Blog from "./Components/Blog";
 import BlogPost from "./Components/BlogPost";
 import About from "./Components/About";
 import Team from "./Components/Team";
+import Shapes from "./Components/Shapes";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,6 +29,7 @@ function WebRoutes() {
         <Route path="team" element={<Team/>}/>
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/shapes" element={<Shapes />} />
       </Routes>
     </>
   );

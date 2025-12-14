@@ -7,6 +7,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from 'lucide-react';
+import { BRAND_COLORS } from "./Shapes";
 import Vid from "./Images/1.mp4";
 import Vid2 from "./Images/a.mov";
 import Vid3 from "./Images/3.mov";
@@ -41,15 +42,17 @@ function Featured() {
       link: "https://lemich.netlify.app/",
       type: "video",
       badges: ["SEO Optimized", "3× Conversions"],
+      bgColor: BRAND_COLORS.purple,
     },
     {
       title: "Rosewood Cleaning",
       subtitle: "Rosewood Cleaning Services",
       image: Vid3,
-      description: `Columbia, South Carolina cleaning service website that showcases Andrew, and Sarah's mission to provide affordable Eco-Friendly house cleaning services.`,
+      description: `Columbia, South Carolina cleaning service website that showcases their mission to provide Eco-Friendly house cleaning services.`,
       link: "https://rosewoodcleaning.netlify.app/",
       type: "video",
       badges: ["SEO Optimized", "Performance +"],
+      bgColor: BRAND_COLORS.coral,
     },
     {
       title: "Alex Goode Portfolio",
@@ -59,6 +62,7 @@ function Featured() {
       link: "http://alexgoode.netlify.app/",
       type: "video",
       badges: ["SEO Optimized", "Mobile-First"],
+      bgColor: BRAND_COLORS.yellow,
     },
   ];
 
@@ -107,7 +111,7 @@ function Featured() {
               <p
                 className="text-xl gs pt-4 text-slate-700 mb-0 section-description"
               >
-                We work alongside our clients from concept to deployment. We will continue to support you and your website growth after launch with training and maintenance. Check out some of our latest projects!
+                We work alongside our clients from concept to deployment. We will continue to support you and your website growth after launch with training and maintenance. 
               </p>
             </div>
           </div>
@@ -116,74 +120,84 @@ function Featured() {
         <div className="row g-4">
         {serviceData.map((service, idx) => (
           <div key={idx} className="col-lg-4 col-md-6">
+            {/* Outer colored card container */}
             <div
               ref={el => cardsRef.current[idx] = el}
-              className="rounded-2xl shadow-md overflow-hidden flex flex-col h-full text-start transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg card-animate"
-              style={isMobile ? { opacity: 0, transform: 'translateY(50px)' } : {}}
+              className="rounded-3 p-3 h-100"
+              style={{
+                backgroundColor: service.bgColor,
+                ...(isMobile ? { opacity: 0, transform: 'translateY(50px)' } : {})
+              }}
             >
-              {/* Render video OR image */}
-{service.type === "video" ? (
-  <video
-    className="card-img-top w-full h-48"
-    style={{ objectFit: 'cover', objectPosition: 'top' }}
-    autoPlay
-    muted
-    loop
-    playsInline
-  >
-    <source src={service.image.replace('.mov', '.webm')} type="video/webm" />
-    <source src={service.image} type="video/mp4" />
-  </video>
-) : (
-  <img
-    src={service.image}
-    className="card-img-top object-cover w-full h-48"
-    alt={service.subtitle}
-  />
-)}
-
-              <div className="card-body p-5  flex-grow-1">
-                <h3 className="text-2xl lora font-semibold spaced-underline-2 text-gray-800 mb-3">
-                  <a
-                    href={service.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="unstyled-link"
+              {/* Inner white card at 95% width */}
+              <div
+                className="rounded-2xl shadow-md overflow-hidden d-flex flex-column text-start transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg h-100 mx-auto"
+                style={{ width: '95%', backgroundColor: '#f1f5f9' }}
+              >
+                {/* Render video OR image */}
+                {service.type === "video" ? (
+                  <video
+                    className="card-img-top w-full h-48"
+                    style={{ objectFit: 'cover', objectPosition: 'top' }}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
                   >
-                    {service.title}
-                  </a>
-                </h3>
-                <p className="text-lg gs leading-relaxed text-gray-600">
-                  {service.description}
-                </p>
-
-                {/* Badges */}
-                {service.badges && service.badges.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {service.badges.map((badge, badgeIdx) => (
-                      <span
-                        key={badgeIdx}
-                        className="text-xs uppercase gs text-slate-600 px-3 py-1 rounded-full border border-slate-300 whitespace-nowrap"
-                        style={{ letterSpacing: '0.15em' }}
-                      >
-                        {badge}
-                      </span>
-                    ))}
-                  </div>
+                    <source src={service.image.replace('.mov', '.webm')} type="video/webm" />
+                    <source src={service.image} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img
+                    src={service.image}
+                    className="card-img-top object-cover w-full h-48"
+                    alt={service.subtitle}
+                  />
                 )}
-              </div>
-              <div className="card-footer p-3">
-               <div className="flex">
-                <a
-                  href={service.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-teal-900 font-mono text-white no-underline hover:bg-green-950 hover:italic px-4 rounded w-full p-2 d-flex align-items-center justify-content-center gap-2"
-                >
-                  {`${service.title}`}
-                  <ArrowUpRight size={16} strokeWidth={2} />
-                </a>
-              </div>
+
+                <div className="card-body p-5 flex-grow-1">
+                  <h3 className="text-2xl lora font-semibold spaced-underline-2 text-gray-800 mb-3">
+                    <a
+                      href={service.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="unstyled-link"
+                    >
+                      {service.title}
+                    </a>
+                  </h3>
+                  <p className="text-lg gs leading-relaxed text-gray-600">
+                    {service.description}
+                  </p>
+
+                  {/* Badges */}
+                  {service.badges && service.badges.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {service.badges.map((badge, badgeIdx) => (
+                        <span
+                          key={badgeIdx}
+                          className="text-xs uppercase gs text-slate-600 px-3 py-1 rounded-full border border-slate-300 whitespace-nowrap"
+                          style={{ letterSpacing: '0.15em' }}
+                        >
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <div className="card-footer p-3">
+                  <div className="flex">
+                    <a
+                      href={service.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-teal-900 font-mono text-white no-underline hover:bg-green-950 hover:italic px-4 rounded w-full p-2 d-flex align-items-center justify-content-center gap-2"
+                    >
+                      {`${service.title}`}
+                      <ArrowUpRight size={16} strokeWidth={2} />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

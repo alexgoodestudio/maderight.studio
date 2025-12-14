@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
+import { ButtonShape, BRAND_COLORS } from "./Shapes";
+import { ArrowUpRight } from 'lucide-react';
 
 function Mission() {
   const container = useRef();
@@ -138,9 +140,22 @@ function Mission() {
         <Link
           ref={buttonRef}
           to="/our-process"
-          className="btn-contact text-decoration-none d-inline-block mt-4 px-4 py-3 text-md font-mono"
+          className="btn-contact text-decoration-none d-inline-block mt-4 px-4 py-3 text-md font-mono position-relative border-0 text-sky-50"
+          style={{
+            background: 'transparent'
+          }}
         >
-         Our Process
+          <ButtonShape
+            color={BRAND_COLORS.buttonPurple}
+            width={180}
+            height={60}
+            className="position-absolute top-0 start-0"
+            style={{ pointerEvents: 'none' }}
+          />
+          <span className="position-relative d-flex align-items-center gap-2" style={{ zIndex: 1 }}>
+            Our Process
+            <ArrowUpRight size={16} strokeWidth={2} />
+          </span>
         </Link>
       </div>
     </section>
