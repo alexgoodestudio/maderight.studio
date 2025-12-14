@@ -10,7 +10,7 @@ import Contact from "./Contact";
 import Stats from "./Stats";
 import Mission from './Mission';
 // import Playground from "./Playground"
-import Shapes from './Shapes';
+// import Shapes from './Shapes';
 import NavBanner from './NavBanner';
 
 function Storage(){
