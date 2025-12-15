@@ -103,7 +103,7 @@ function Storage(){
                     <Opener/>
                     {/* <Featured/> */}
                     <FeaturedNew/>
-                   <Info/>
+                    <Info/>
                     <Mission/>
                     {/* <Shapes/> */}
                     <Services/>

@@ -74,6 +74,7 @@ function Mission() {
         end: "+=4000",
         scrub: 0.8,
         pin: true,
+        pinSpacing: true,
         anticipatePin: 1,
         fastScrollEnd: true,
         invalidateOnRefresh: true,
@@ -86,24 +87,9 @@ function Mission() {
       },
     });
 
-    // Fade in words and button
+    // Fade in words and button - animation stays at final state
     tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1, duration: 1 }, 0);
     tl.fromTo(buttonRef.current, { opacity: 0 }, { opacity: 1, duration: 1 }, 0.5);
-
-    // Hold at full opacity
-    tl.to({}, { duration: 1 });
-
-    // Fade out all words and button
-    tl.to(words, {
-      opacity: 0,
-      duration: 1.5,
-      ease: 'power1.out'
-    });
-    tl.to(buttonRef.current, {
-      opacity: 0,
-      duration: 1.5,
-      ease: 'power1.out'
-    }, '<');
 
   }, []);
 

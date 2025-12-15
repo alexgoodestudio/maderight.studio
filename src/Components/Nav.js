@@ -5,7 +5,11 @@ import {
   LogoVariation13,
   LogoVariation14,
   LogoVariation15,
-  LogoVariation16
+  LogoVariation16,
+  LogoVariation17,
+  LogoVariation18,
+  LogoVariation19,
+  LogoVariation20
 } from './Shapes';
 
 // Logo Variation 1: Refined Winking Face - More professional proportions
@@ -368,12 +372,60 @@ export const LogoShowcase = () => (
         <strong>Best for:</strong> Studios wanting understated professionalism with a hint of fun
       </p>
     </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation17 size={45} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 17: Lowercase Friendly</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Inspired by:</strong> Approachable lowercase<br/>
+        <strong>Pros:</strong> Soft, friendly, contemporary feel, wide spacing, warm personality.<br/>
+        <strong>Cons:</strong> May feel too casual for corporate clients.<br/>
+        <strong>Best for:</strong> Creative studios wanting approachable, modern branding
+      </p>
+    </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation18 size={42} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 18: Lowercase Script</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Inspired by:</strong> Flowing script lettering<br/>
+        <strong>Pros:</strong> Flowing, casual, connected letterforms, relaxed and friendly, human touch.<br/>
+        <strong>Cons:</strong> May appear too informal for professional services.<br/>
+        <strong>Best for:</strong> Boutique studios, artisan brands, creative agencies
+      </p>
+    </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation19 size={38} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 19: Lowercase Geometric</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Inspired by:</strong> Modernist geometric typography<br/>
+        <strong>Pros:</strong> Clean, modern, precise forms, contemporary, professional yet approachable.<br/>
+        <strong>Cons:</strong> May lack distinctive character.<br/>
+        <strong>Best for:</strong> Tech-forward studios, modern design agencies
+      </p>
+    </div>
+
+    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+      <div style={{ background: '#134E4A', padding: '20px', borderRadius: '8px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+        <LogoVariation20 size={40} />
+      </div>
+      <h3 style={{ color: '#FFF7AF', fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Variation 20: Lowercase Condensed</h3>
+      <p style={{ color: '#E0E7E5', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+        <strong>Inspired by:</strong> Editorial magazine typography<br/>
+        <strong>Pros:</strong> Tight, sophisticated, editorial feel, narrow letterforms, magazine-style elegance.<br/>
+        <strong>Cons:</strong> May be too compact for small sizes.<br/>
+        <strong>Best for:</strong> Design-focused studios, editorial publications, luxury brands
+      </p>
+    </div>
   </div>
 );
-
-// Default export - currently using Variation 12 (Spaced Modern Sans)
-// To switch logos, change LogoVariation12 to LogoVariation1, 2, 3, etc.
-const WinkingFaceLogo = LogoVariation12;
 
 function Nav() {
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
@@ -392,13 +444,14 @@ function Nav() {
     <>
       {/* Desktop Navigation */}
       <nav className="hidden lg:flex justify-between items-center sticky bg-teal-950 top-0 z-50 px-4 py-3">
-        {/* Winking Face Logo - Left Side */}
+        {/* Logo Text - Left Side */}
         <a
           href="/"
-          className="flex items-center no-underline"
+          className="flex items-center eighties no-underline text-3xl"
+          style={{ color: '#FFFFFF' }}
           aria-label="Made Right Studio Home"
         >
-          <WinkingFaceLogo size={27} />
+          Made Right
         </a>
 
         {/* Main Navigation Pill */}
@@ -406,10 +459,11 @@ function Nav() {
           {/* Logo Text */}
           <a
             href="/"
-            className="flex items-center text-teal-50  font-semibold text-sm no-underline pr-3 border-r border-green-800"
+            className="flex items-center font-semibold text-sm no-underline pr-3 border-r border-green-800"
+            style={{ color: '#FFFFFF' }}
             aria-label="Made Right Studio Home"
           >
-            Made Right
+            Home
           </a>
 
           {/* Navigation Links */}
@@ -732,10 +786,11 @@ function Nav() {
           <div className="flex justify-between items-center px-4 py-3">
             <a
               href="/"
-              className="flex items-center no-underline"
+              className="flex items-center eighties no-underline"
+              style={{ color: '#FFFFFF' }}
               aria-label="Made Right Studio Home"
             >
-              <WinkingFaceLogo size={25} />
+              Made Right
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -928,10 +983,11 @@ function Nav() {
           <div className="flex justify-between items-center px-3 py-2.5">
             <a
               href="/"
-              className="flex items-center bg-teal-900 px-2 py-2 rounded no-underline"
+              className="flex items-center bg-teal-900 px-2 py-2 rounded eighties no-underline"
+              style={{ color: '#FFFFFF' }}
               aria-label="Made Right Studio Home"
             >
-              <WinkingFaceLogo size={23} />
+              Made Right
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}

@@ -1263,301 +1263,314 @@ export const LogoVariation10 = ({ size = 50 }) => (
 
 // Variation 11: Psychedelic Wavy - Online Ceramics / Grateful Dead poster aesthetic
 // Wobbly baselines, irregular letter heights, '60s psychedelia, tie-dye energy
-export const LogoVariation11 = ({ size = 50 }) => (
-  <svg
-    width={size * 5.2}
-    height={size * 1.4}
-    viewBox="0 0 520 140"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    {/* "MADE" - wobbly psychedelic letters with wavy baseline and irregular heights */}
-    <path
-      d="M15,95 Q12,98 15,42 Q17,38 22,48 L32,78 Q34,85 37,78 L47,48 Q52,38 54,42 Q57,98 54,95"
-      stroke="#FFF7AF"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M80,100 Q77,103 85,40 Q87,36 92,40 Q100,103 97,100 M81,72 Q87,68 96,72"
-      stroke="#FF9375"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M120,97 Q117,100 120,44 L140,45 Q163,50 163,70 Q163,92 140,96 L120,95"
-      stroke="#E9D5FF"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M185,96 Q182,99 185,45 L215,48 M185,70 L210,72 M185,95 L215,98"
-      stroke="#A1ADEB"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
+export const LogoVariation11 = ({ size = 50, color = null }) => {
+  const colors = color ? [color, color, color, color] : ["#FFF7AF", "#FF9375", "#E9D5FF", "#A1ADEB"];
+  const underlineColor = color ? color : "#FF9375";
 
-    {/* "RIGHT" - continuing psychedelic wobble */}
-    <path
-      d="M240,96 Q237,99 240,45 L265,46 Q280,48 280,62 Q280,72 270,75 L285,96 M240,72 L265,73"
-      stroke="#FFF7AF"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+  return (
+    <svg
+      width={size * 5.2}
+      height={size * 1.4}
+      viewBox="0 0 520 140"
       fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M305,98 Q302,101 305,46"
-      stroke="#FF9375"
-      strokeWidth="8"
-      strokeLinecap="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M345,58 Q345,42 330,40 Q315,42 315,70 Q315,98 330,98 Q345,96 345,70 L330,70"
-      stroke="#E9D5FF"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M370,99 Q367,102 370,44 M400,99 Q397,102 400,44 M370,70 L400,72"
-      stroke="#A1ADEB"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M425,47 L460,50 M442,49 Q439,100 442,98"
-      stroke="#FFF7AF"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* "MADE" - wobbly psychedelic letters with wavy baseline and irregular heights */}
+      <path
+        d="M15,95 Q12,98 15,42 Q17,38 22,48 L32,78 Q34,85 37,78 L47,48 Q52,38 54,42 Q57,98 54,95"
+        stroke={colors[0]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M80,100 Q77,103 85,40 Q87,36 92,40 Q100,103 97,100 M81,72 Q87,68 96,72"
+        stroke={colors[1]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M120,97 Q117,100 120,44 L140,45 Q163,50 163,70 Q163,92 140,96 L120,95"
+        stroke={colors[2]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M185,96 Q182,99 185,45 L215,48 M185,70 L210,72 M185,95 L215,98"
+        stroke={colors[3]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
 
-    {/* Psychedelic wavy underline */}
-    <path
-      d="M10,115 Q45,108 80,115 Q115,122 150,113 Q185,105 220,117 Q255,125 290,115 Q325,107 360,118 Q395,126 430,115 Q455,110 480,120"
-      stroke="#FF9375"
-      strokeWidth="4"
-      strokeLinecap="round"
-      fill="none"
-      opacity="0.75"
-    />
-  </svg>
-);
+      {/* "RIGHT" - continuing psychedelic wobble */}
+      <path
+        d="M240,96 Q237,99 240,45 L265,46 Q280,48 280,62 Q280,72 270,75 L285,96 M240,72 L265,73"
+        stroke={colors[0]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M305,98 Q302,101 305,46"
+        stroke={colors[1]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M345,58 Q345,42 330,40 Q315,42 315,70 Q315,98 330,98 Q345,96 345,70 L330,70"
+        stroke={colors[2]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M370,99 Q367,102 370,44 M400,99 Q397,102 400,44 M370,70 L400,72"
+        stroke={colors[3]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M425,47 L460,50 M442,49 Q439,100 442,98"
+        stroke={colors[0]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+
+      {/* Psychedelic wavy underline */}
+      <path
+        d="M10,115 Q45,108 80,115 Q115,122 150,113 Q185,105 220,117 Q255,125 290,115 Q325,107 360,118 Q395,126 430,115 Q455,110 480,120"
+        stroke={underlineColor}
+        strokeWidth="4"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.75"
+      />
+    </svg>
+  );
+};
 
 // Variation 12: Spaced Modern Sans - Self Aware Studio aesthetic
 // Wide letterspacing, clean geometric sans, breathing room, contemporary minimal
-export const LogoVariation12 = ({ size = 50 }) => (
-  <svg
-    width={size * 6}
-    height={size}
-    viewBox="0 0 600 100"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    {/* "MADE" - Wide spaced, clean geometric sans-serif */}
-    <path
-      d="M15,75 L15,25 L35,60 L55,25 L55,75"
-      stroke="#FFF7AF"
-      strokeWidth="6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M95,75 L107,25 L120,25 L132,75 M100,52 L127,52"
-      stroke="#FF9375"
-      strokeWidth="6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M165,75 L165,25 L185,25 Q205,25 205,50 Q205,75 185,75 L165,75"
-      stroke="#E9D5FF"
-      strokeWidth="6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M235,75 L235,25 L265,25 M235,50 L260,50 M235,75 L265,75"
-      stroke="#A1ADEB"
-      strokeWidth="6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
+export const LogoVariation12 = ({ size = 50, color = null }) => {
+  const colors = color ? [color, color, color, color] : ["#FFF7AF", "#FF9375", "#E9D5FF", "#A1ADEB"];
 
-    {/* "RIGHT" - continuing wide spacing */}
-    <path
-      d="M300,75 L300,25 L320,25 Q335,25 335,40 Q335,50 325,52 L340,75 M300,50 L320,50"
-      stroke="#FFF7AF"
-      strokeWidth="6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+  return (
+    <svg
+      width={size * 6}
+      height={size}
+      viewBox="0 0 600 100"
       fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M370,75 L370,25"
-      stroke="#FF9375"
-      strokeWidth="6"
-      strokeLinecap="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M420,42 Q420,25 405,25 Q390,25 390,50 Q390,75 405,75 Q420,73 420,50 L405,50"
-      stroke="#E9D5FF"
-      strokeWidth="6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M455,75 L455,25 M485,75 L485,25 M455,50 L485,50"
-      stroke="#A1ADEB"
-      strokeWidth="6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M515,25 L545,25 M530,25 L530,75"
-      stroke="#FFF7AF"
-      strokeWidth="6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-  </svg>
-);
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* "MADE" - Wide spaced, clean geometric sans-serif */}
+      <path
+        d="M15,75 L15,25 L35,60 L55,25 L55,75"
+        stroke={colors[0]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M95,75 L107,25 L120,25 L132,75 M100,52 L127,52"
+        stroke={colors[1]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M165,75 L165,25 L185,25 Q205,25 205,50 Q205,75 185,75 L165,75"
+        stroke={colors[2]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M235,75 L235,25 L265,25 M235,50 L260,50 M235,75 L265,75"
+        stroke={colors[3]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+
+      {/* "RIGHT" - continuing wide spacing */}
+      <path
+        d="M300,75 L300,25 L320,25 Q335,25 335,40 Q335,50 325,52 L340,75 M300,50 L320,50"
+        stroke={colors[0]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M370,75 L370,25"
+        stroke={colors[1]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M420,42 Q420,25 405,25 Q390,25 390,50 Q390,75 405,75 Q420,73 420,50 L405,50"
+        stroke={colors[2]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M455,75 L455,25 M485,75 L485,25 M455,50 L485,50"
+        stroke={colors[3]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M515,25 L545,25 M530,25 L530,75"
+        stroke={colors[0]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+    </svg>
+  );
+};
 
 // Variation 13: Friendly Rounded - Plank.co Montreal studio aesthetic
 // Organic rounded sans, friendly approachable, geometric with soft edges
-export const LogoVariation13 = ({ size = 50 }) => (
-  <svg
-    width={size * 5}
-    height={size * 1.1}
-    viewBox="0 0 500 110"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    {/* "MADE" - Soft rounded geometric letters */}
-    <path
-      d="M15,80 Q12,82 12,30 Q12,28 15,28 L20,30 L30,62 L40,30 L45,28 Q48,28 48,30 Q48,82 45,80"
-      stroke="#FFF7AF"
-      strokeWidth="7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M78,80 Q75,82 82,30 Q84,28 88,30 Q95,82 92,80 M79,58 Q85,56 91,58"
-      stroke="#FF9375"
-      strokeWidth="7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M115,80 Q112,82 112,30 Q112,28 115,28 L132,28 Q150,30 150,54 Q150,78 132,80 L115,80"
-      stroke="#E9D5FF"
-      strokeWidth="7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M175,80 Q172,82 172,30 Q172,28 175,28 L198,28 M172,54 L193,54 M172,80 L198,80"
-      stroke="#A1ADEB"
-      strokeWidth="7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
+export const LogoVariation13 = ({ size = 50, color = null }) => {
+  const colors = color ? [color, color, color, color] : ["#FFF7AF", "#FF9375", "#E9D5FF", "#A1ADEB"];
 
-    {/* "RIGHT" - continuing rounded friendly style */}
-    <path
-      d="M220,80 Q217,82 217,30 Q217,28 220,28 L238,28 Q252,30 252,44 Q252,54 243,56 L255,80 M217,54 L238,54"
-      stroke="#FFF7AF"
-      strokeWidth="7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+  return (
+    <svg
+      width={size * 6.5}
+      height={size * 1.1}
+      viewBox="0 0 650 110"
       fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M280,80 Q277,82 277,30 Q277,28 280,28"
-      stroke="#FF9375"
-      strokeWidth="7"
-      strokeLinecap="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M325,44 Q325,28 310,28 Q295,28 295,54 Q295,80 310,80 Q325,78 325,54 L310,54"
-      stroke="#E9D5FF"
-      strokeWidth="7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M350,80 Q347,82 347,30 Q347,28 350,28 M377,80 Q374,82 374,30 Q374,28 377,28 M347,54 L377,54"
-      stroke="#A1ADEB"
-      strokeWidth="7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M400,30 Q400,28 403,28 L425,28 M413,28 Q410,82 413,80"
-      stroke="#FFF7AF"
-      strokeWidth="7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-  </svg>
-);
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* "MADE" - Soft rounded geometric letters with wide spacing */}
+      <path
+        d="M15,80 Q12,82 12,30 Q12,28 15,28 L20,30 L30,62 L40,30 L45,28 Q48,28 48,30 Q48,82 45,80"
+        stroke={colors[0]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M95,80 Q92,82 99,30 Q101,28 105,30 Q112,82 109,80 M96,58 Q102,56 108,58"
+        stroke={colors[1]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M155,80 Q152,82 152,30 Q152,28 155,28 L172,28 Q190,30 190,54 Q190,78 172,80 L155,80"
+        stroke={colors[2]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M230,80 Q227,82 227,30 Q227,28 230,28 L253,28 M227,54 L248,54 M227,80 L253,80"
+        stroke={colors[3]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+
+      {/* "RIGHT" - continuing rounded friendly style with added spacing */}
+      <path
+        d="M305,80 Q302,82 302,30 Q302,28 305,28 L323,28 Q337,30 337,44 Q337,54 328,56 L340,80 M302,54 L323,54"
+        stroke={colors[0]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M375,80 Q372,82 372,30 Q372,28 375,28"
+        stroke={colors[1]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M430,44 Q430,28 415,28 Q400,28 400,54 Q400,80 415,80 Q430,78 430,54 L415,54"
+        stroke={colors[2]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M470,80 Q467,82 467,30 Q467,28 470,28 M497,80 Q494,82 494,30 Q494,28 497,28 M467,54 L497,54"
+        stroke={colors[3]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M535,30 Q535,28 538,28 L560,28 M548,28 Q545,82 548,80"
+        stroke={colors[0]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+    </svg>
+  );
+};
 
 // Variation 14: Chunky Marker - Bold casual hand-drawn
 // Fat marker strokes, playful imperfect, energetic casual
@@ -1662,99 +1675,103 @@ export const LogoVariation14 = ({ size = 50 }) => (
 
 // Variation 15: Condensed Tall - Modern editorial
 // Narrow condensed forms, sophisticated, magazine-style
-export const LogoVariation15 = ({ size = 50 }) => (
-  <svg
-    width={size * 6.2}
-    height={size * 1.3}
-    viewBox="0 0 620 130"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    {/* "MADE" - Tall condensed */}
-    <path
-      d="M15,105 L15,25 L28,75 L41,25 L41,105"
-      stroke="#FFF7AF"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M70,105 L78,25 L86,25 L94,105 M72,65 L92,65"
-      stroke="#FF9375"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M120,105 L120,25 L135,25 Q150,25 150,65 Q150,105 135,105 L120,105"
-      stroke="#E9D5FF"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M175,105 L175,25 L195,25 M175,65 L192,65 M175,105 L195,105"
-      stroke="#A1ADEB"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
+export const LogoVariation15 = ({ size = 50, color = null }) => {
+  const colors = color ? [color, color, color, color] : ["#FFF7AF", "#FF9375", "#E9D5FF", "#A1ADEB"];
 
-    {/* "RIGHT" - continuing tall condensed */}
-    <path
-      d="M220,105 L220,25 L240,25 Q255,25 255,48 Q255,62 245,65 L260,105 M220,62 L240,62"
-      stroke="#FFF7AF"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+  return (
+    <svg
+      width={size * 6.8}
+      height={size * 1.3}
+      viewBox="0 0 680 130"
       fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M285,105 L285,25"
-      stroke="#FF9375"
-      strokeWidth="8"
-      strokeLinecap="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M330,48 Q330,25 315,25 Q300,25 300,65 Q300,105 315,105 Q330,103 330,65 L315,65"
-      stroke="#E9D5FF"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M355,105 L355,25 M380,105 L380,25 M355,65 L380,65"
-      stroke="#A1ADEB"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-    <path
-      d="M400,25 L425,25 M412,25 L412,105"
-      stroke="#FFF7AF"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.95"
-    />
-  </svg>
-);
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* "MADE" - Tall condensed */}
+      <path
+        d="M15,105 L15,25 L28,75 L41,25 L41,105"
+        stroke={colors[0]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M70,105 L78,25 L86,25 L94,105 M72,65 L92,65"
+        stroke={colors[1]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M120,105 L120,25 L135,25 Q150,25 150,65 Q150,105 135,105 L120,105"
+        stroke={colors[2]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M175,105 L175,25 L195,25 M175,65 L192,65 M175,105 L195,105"
+        stroke={colors[3]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+
+      {/* "RIGHT" - continuing tall condensed with added spacing */}
+      <path
+        d="M250,105 L250,25 L270,25 Q285,25 285,48 Q285,62 275,65 L290,105 M250,62 L270,62"
+        stroke={colors[0]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M315,105 L315,25"
+        stroke={colors[1]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M360,48 Q360,25 345,25 Q330,25 330,65 Q330,105 345,105 Q360,103 360,65 L345,65"
+        stroke={colors[2]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M385,105 L385,25 M410,105 L410,25 M385,65 L410,65"
+        stroke={colors[3]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M430,25 L455,25 M442,25 L442,105"
+        stroke={colors[0]}
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+    </svg>
+  );
+};
 
 // Variation 16: Brush Script - Flowing connected
 // Casual brush lettering, connected strokes, energetic flow
@@ -1861,6 +1878,406 @@ export const LogoVariation16 = ({ size = 50 }) => (
     />
   </svg>
 );
+
+// Variation 17: Lowercase Friendly - Approachable and warm
+// Soft lowercase letters, wide spacing, contemporary feel
+export const LogoVariation17 = ({ size = 50, color = null }) => {
+  const colors = color ? [color, color, color, color] : ["#FFF7AF", "#FF9375", "#E9D5FF", "#A1ADEB"];
+
+  return (
+    <svg
+      width={size * 6.5}
+      height={size * 0.9}
+      viewBox="0 0 650 90"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* "made" - lowercase with soft rounded forms */}
+      <path
+        d="M15,70 Q15,72 15,50 L20,55 L30,70 L35,55 L40,50 Q40,72 40,70"
+        stroke={colors[0]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M85,70 Q85,72 85,50 Q85,48 90,48 Q95,48 95,58 Q95,72 95,70"
+        stroke={colors[1]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M145,70 Q145,72 145,38 L155,38 Q170,40 170,58 Q170,70 155,72 L145,72"
+        stroke={colors[2]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M225,50 Q225,48 230,48 Q245,48 245,58 Q245,72 230,72 Q225,72 225,70 Q225,48 225,50"
+        stroke={colors[3]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+
+      {/* "right" - continuing lowercase style with word spacing */}
+      <path
+        d="M305,70 Q305,72 305,50 L315,50 Q325,50 325,58 Q325,62 320,64 L330,70"
+        stroke={colors[0]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M370,70 Q370,72 370,38"
+        stroke={colors[1]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M425,50 Q425,48 430,48 Q445,48 445,58 Q445,72 430,72 Q425,70 425,60"
+        stroke={colors[2]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M485,70 Q485,72 485,38 M505,70 Q505,72 505,50 M485,58 L505,58"
+        stroke={colors[3]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M545,50 L555,70 M555,50 L545,70"
+        stroke={colors[0]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+    </svg>
+  );
+};
+
+// Variation 18: Lowercase Script - Flowing and casual
+// Connected script letters, relaxed and friendly
+export const LogoVariation18 = ({ size = 50, color = null }) => {
+  const colors = color ? [color, color, color, color] : ["#FFF7AF", "#FF9375", "#E9D5FF", "#A1ADEB"];
+
+  return (
+    <svg
+      width={size * 6.2}
+      height={size}
+      viewBox="0 0 620 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* "made" - lowercase script */}
+      <path
+        d="M15,65 Q15,68 15,45 Q15,42 20,45 L25,55 L35,65 L40,55 L45,45 Q45,42 45,65"
+        stroke={colors[0]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M90,65 Q90,68 90,45 Q90,42 95,42 Q105,42 105,52 Q105,68 105,65"
+        stroke={colors[1]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M150,65 Q150,68 150,32 L160,32 Q178,35 178,52 Q178,65 160,68 L150,68"
+        stroke={colors[2]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M225,45 Q225,42 230,42 Q248,42 248,52 Q248,68 230,68 Q225,68 225,65 Q225,42 225,45"
+        stroke={colors[3]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+
+      {/* "right" - continuing lowercase script */}
+      <path
+        d="M300,65 Q300,68 300,45 Q300,42 305,45 L315,45 Q325,45 325,52 Q325,58 320,60 L330,65"
+        stroke={colors[0]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M370,65 Q370,68 370,32"
+        stroke={colors[1]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M425,45 Q425,42 430,42 Q448,42 448,52 Q448,68 430,68 Q425,65 425,55"
+        stroke={colors[2]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M490,65 Q490,68 490,32 M515,65 Q515,68 515,45 M490,52 L515,52"
+        stroke={colors[3]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M555,45 L565,65 M565,45 L555,65"
+        stroke={colors[0]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+    </svg>
+  );
+};
+
+// Variation 19: Lowercase Geometric - Clean and modern
+// Precise geometric forms, contemporary lowercase
+export const LogoVariation19 = ({ size = 50, color = null }) => {
+  const colors = color ? [color, color, color, color] : ["#FFF7AF", "#FF9375", "#E9D5FF", "#A1ADEB"];
+
+  return (
+    <svg
+      width={size * 6.8}
+      height={size * 0.85}
+      viewBox="0 0 680 85"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* "made" - geometric lowercase */}
+      <path
+        d="M15,65 L15,35 L25,55 L35,65 L45,55 L55,35 L55,65"
+        stroke={colors[0]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M105,65 L105,35 Q105,32 110,32 Q115,32 115,45 L115,65"
+        stroke={colors[1]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M165,65 L165,20 L180,20 Q200,22 200,45 Q200,65 180,68 L165,68"
+        stroke={colors[2]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M250,35 Q250,32 255,32 Q275,32 275,45 Q275,68 255,68 Q250,68 250,65 L250,35"
+        stroke={colors[3]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+
+      {/* "right" - continuing geometric lowercase */}
+      <path
+        d="M335,65 L335,35 L350,35 Q365,35 365,45 Q365,52 358,55 L370,65"
+        stroke={colors[0]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M420,65 L420,20"
+        stroke={colors[1]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M480,35 Q480,32 485,32 Q505,32 505,45 Q505,68 485,68 Q480,65 480,50"
+        stroke={colors[2]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M545,65 L545,20 M575,65 L575,35 M545,48 L575,48"
+        stroke={colors[3]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M615,35 L625,65 M625,35 L615,65"
+        stroke={colors[0]}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+    </svg>
+  );
+};
+
+// Variation 20: Lowercase Condensed - Tight and editorial
+// Narrow letterforms, magazine-style
+export const LogoVariation20 = ({ size = 50, color = null }) => {
+  const colors = color ? [color, color, color, color] : ["#FFF7AF", "#FF9375", "#E9D5FF", "#A1ADEB"];
+
+  return (
+    <svg
+      width={size * 5.5}
+      height={size}
+      viewBox="0 0 550 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* "made" - condensed lowercase */}
+      <path
+        d="M12,75 L12,35 L18,55 L24,75 L30,55 L36,35 L36,75"
+        stroke={colors[0]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M75,75 L75,35 Q75,32 80,32 Q85,32 85,48 L85,75"
+        stroke={colors[1]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M120,75 L120,25 L130,25 Q145,27 145,50 Q145,75 130,78 L120,78"
+        stroke={colors[2]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M180,35 Q180,32 185,32 Q200,32 200,50 Q200,78 185,78 Q180,78 180,75 L180,35"
+        stroke={colors[3]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+
+      {/* "right" - continuing condensed lowercase */}
+      <path
+        d="M245,75 L245,35 L255,35 Q268,35 268,48 Q268,58 260,62 L272,75"
+        stroke={colors[0]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M305,75 L305,25"
+        stroke={colors[1]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M350,35 Q350,32 355,32 Q370,32 370,50 Q370,78 355,78 Q350,75 350,58"
+        stroke={colors[2]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M405,75 L405,25 M425,75 L425,35 M405,53 L425,53"
+        stroke={colors[3]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+      <path
+        d="M460,35 L470,75 M470,35 L460,75"
+        stroke={colors[0]}
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.95"
+      />
+    </svg>
+  );
+};
 
 // Hand-drawn Button Background - for use behind text in buttons
 export const ButtonShape = ({ color = BRAND_COLORS.teal, width = 200, height = 60, className = '' }) => {

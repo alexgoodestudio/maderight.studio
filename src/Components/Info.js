@@ -9,59 +9,40 @@ function Info() {
   const bgRef = useRef(null)
 
   useEffect(() => {
-    const mm = gsap.matchMedia()
-
-    // Desktop: hover-driven reveal
-    mm.add('(min-width: 768px)', () => {
-      gsap.set(bgRef.current, {
-        scaleY: 0,
-        transformOrigin: 'bottom',
-      })
-
-      const onEnter = () =>
-        gsap.to(bgRef.current, {
-          scaleY: 1,
-          duration: 0.7,
-          ease: 'power4.out',
-        })
-
-      const onLeave = () =>
-        gsap.to(bgRef.current, {
-          scaleY: 0,
-          duration: 0.7,
-          ease: 'power4.in',
-        })
-
-      const el = linkRef.current
-      el.addEventListener('mouseenter', onEnter)
-      el.addEventListener('mouseleave', onLeave)
-
-      return () => {
-        el.removeEventListener('mouseenter', onEnter)
-        el.removeEventListener('mouseleave', onLeave)
-      }
+    // Desktop and Mobile: smooth scroll-triggered reveal with natural feel
+    gsap.set(bgRef.current, {
+      scaleY: 0,
+      transformOrigin: 'bottom',
     })
 
-    // Mobile: scroll-triggered reveal at mid viewport
-    mm.add('(max-width: 767px)', () => {
-      gsap.set(bgRef.current, {
-        scaleY: 0,
-        transformOrigin: 'bottom',
-      })
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: linkRef.current,
+        start: 'top 70%',
+        end: 'bottom 30%',
+        scrub: 1,
+      },
+    })
 
-      gsap.to(bgRef.current, {
+    timeline
+      .to(bgRef.current, {
         scaleY: 1,
-        ease: 'power4.out',
-        scrollTrigger: {
-          trigger: linkRef.current,
-          start: 'top 60%',
-          end: 'top 40%',
-          scrub: true,
-        },
+        duration: 0.4,
+        ease: 'power1.inOut',
       })
-    })
+      .to(bgRef.current, {
+        scaleY: 1,
+        duration: 0.2,
+      })
+      .to(bgRef.current, {
+        scaleY: 0,
+        duration: 0.4,
+        ease: 'power1.inOut',
+      })
 
-    return () => mm.revert()
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    }
   }, [])
 
   return (
