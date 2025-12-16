@@ -8,9 +8,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from 'lucide-react';
 import { BRAND_COLORS } from "./Shapes";
-import Vid from "./Images/1.mp4";
+import Vid from "./Images/lem.mov";
 import Vid2 from "./Images/a.mov";
-import Vid3 from "./Images/3.mov";
+import Vid3 from "./Images/rosewood.mov";
 
 import "./Style.css";
 
@@ -191,7 +191,7 @@ function Featured() {
                       href={service.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-teal-900 font-mono text-white no-underline hover:bg-green-950 hover:italic px-4 rounded w-full p-2 d-flex align-items-center justify-content-center gap-2"
+                      className="font-mono text-slate-800 no-underline hover:italic px-4 rounded w-full p-2 d-flex align-items-center justify-content-center gap-2 border border-slate-400"
                     >
                       {`${service.title}`}
                       <ArrowUpRight size={16} strokeWidth={2} />
