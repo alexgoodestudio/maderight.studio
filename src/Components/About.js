@@ -71,7 +71,7 @@ function About() {
   const timeline = [
     { year: '2023', event: "Alex Goode completed Promineo Tech's front-end development program and Thinkful's full-stack engineering immersion program" },
     { year: 'April 2025', event: 'Made Right Studio founded in Columbia, SC' },
-    { year: 'Today', event: 'Now accepting new clients' }
+    { year: 'Today', event: 'Accepting new clients' }
   ];
 
   return (
@@ -263,12 +263,12 @@ function About() {
                 <div className="origins-card" ref={contentRef}>
                   <h3 className='text-teal-900 eighties'>Origins</h3>
                   
-                  <p className="body-text">
+                  <p className="text-lg text-start">
                     Made Right Studio was started in April 2025 in Columbia, South Carolina by Alex Goode. 
                     After completing Promineo Tech's Front End Software Development Program and Thinkful's 
                     Full-Stack Software Engineering Immersion Program in 2023, combined with 4 years of graphic 
                     design experience, the goal was clear: build a design-first web development studio that 
-                    helps small businesses stand out with fast, high-performing and ranking websites. 
+                    helps local businesses stand out with fast, high-performing websites. 
                   </p>
                 </div>
               </div>

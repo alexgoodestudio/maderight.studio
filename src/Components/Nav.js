@@ -720,7 +720,7 @@ function Nav() {
         <div className="flex items-center gap-3">
           <button
             onClick={handleContactClick}
-            className="bg-white text-green-950 px-5 py-2 font-semibold rounded-full text-sm cursor-pointer border-0 hover:bg-stone-100"
+            className="bg-white lora track text-green-900 px-5 py-2 font-semibold rounded-full text-sm cursor-pointer border-0 hover:bg-stone-100"
             style={{
               transition: 'all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
               letterSpacing: '0.01em'

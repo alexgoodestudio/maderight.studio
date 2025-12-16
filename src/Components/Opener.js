@@ -67,7 +67,7 @@ function Opener() {
 
       // Set border initial state
       if (borderRef.current) {
-        gsap.set(borderRef.current, { scaleX: 0, opacity: 0 });
+        gsap.set(borderRef.current, { opacity: 0 });
       }
 
       const viewportWidth = window.innerWidth;
@@ -105,12 +105,10 @@ function Opener() {
             ease: 'power1.inOut'
           }, `-=${MOTION.instant}`)
           .to(borderRef.current, {
-            scaleX: 1,
             opacity: 1,
-            duration: MOTION.smooth,
-            ease: 'power2.out',
-            transformOrigin: 'left center'
-          }, `-=0.8`);
+            duration: MOTION.story,
+            ease: 'power1.out'
+          }, `-=0.4`);
       } else {
         // Desktop: Original slide animation
         const verticalOffset = 100;
@@ -163,12 +161,10 @@ function Opener() {
             ease: 'power1.inOut'
           }, `-=${MOTION.instant}`)
           .to(borderRef.current, {
-            scaleX: 1,
             opacity: 1,
-            duration: MOTION.smooth,
-            ease: 'power2.out',
-            transformOrigin: 'left center'
-          }, `-=0.8`);
+            duration: MOTION.story,
+            ease: 'power1.out'
+          }, `-=0.4`);
       }
     });
 

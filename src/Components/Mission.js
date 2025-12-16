@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import { ButtonShape, BRAND_COLORS } from "./Shapes";
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from "lucide-react";
 
 function Mission() {
   const container = useRef();
@@ -19,12 +19,12 @@ function Mission() {
     if (confettiFired.current) return; // Only fire once
     confettiFired.current = true;
 
-    const colors = ['#FFF7AF', '#2C4B45', '#A1ADEB'];
+    const colors = ["#FFF7AF", "#2C4B45", "#A1ADEB"];
     const confettiCount = 36;
 
     for (let i = 0; i < confettiCount; i++) {
-      const confetti = document.createElement('div');
-      confetti.className = 'confetti-piece';
+      const confetti = document.createElement("div");
+      confetti.className = "confetti-piece";
 
       // Evenly distribute angles to prevent overlap
       const angle = (i / confettiCount) * Math.PI * 2;
@@ -44,21 +44,22 @@ function Mission() {
       `;
       confettiContainer.current.appendChild(confetti);
 
-      gsap.timeline()
+      gsap
+        .timeline()
         .to(confetti, {
           x: xDest,
           y: yDest,
           opacity: 1,
           duration: 0.8,
-          ease: 'power2.out',
+          ease: "power2.out",
         })
         .to(confetti, {
           x: xDest * 2.5,
           y: yDest * 2.5,
           opacity: 0,
           duration: 0.4,
-          ease: 'power1.inOut',
-          onComplete: () => confetti.remove()
+          ease: "power1.inOut",
+          onComplete: () => confetti.remove(),
         });
     }
   };
@@ -83,21 +84,34 @@ function Mission() {
           if (self.progress > 0.99 && !confettiFired.current) {
             triggerConfetti();
           }
-        }
+        },
       },
     });
 
     // Fade in words and button - animation stays at final state
-    tl.fromTo(words, { opacity: 0.2 }, { opacity: 1, stagger: 0.1, duration: 1 }, 0);
-    tl.fromTo(buttonRef.current, { opacity: 0 }, { opacity: 1, duration: 1 }, 0.5);
-
+    tl.fromTo(
+      words,
+      { opacity: 0.2 },
+      { opacity: 1, stagger: 0.1, duration: 1 },
+      0
+    );
+    tl.fromTo(
+      buttonRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 1 },
+      0.5
+    );
   }, []);
 
-  const text = "Made Right is a design-focused web development studio based in Columbia, South Carolina. Our goal is to bring together creativity, modern technology and digital innovation to develop and design high-performing websites that gets found by your potential clients. We focus on building design systems with purposeful strategy and implementing technical performance that keeps your website standing out and accessible to all.";
+  const text =
+    "Made Right is a design-focused web development studio based in Columbia, South Carolina. Our goal is to bring together creativity, and technology to create high-performing and lasting websites that reach potential clients. We focus on building design systems, purposeful strategy and implementing performance based solutions that keeps your website standing out and accessible to all.";
 
   return (
     <section className="bg-white gs mission-p py-5 text-start px-lg-0 px-4 position-relative">
-      <div ref={confettiContainer} className="position-fixed confetti-container" />
+      <div
+        ref={confettiContainer}
+        className="position-fixed confetti-container"
+      />
       <div ref={container} className="mission-body">
         <p>
           {text.split(" ").map((word, i) => {
@@ -128,9 +142,9 @@ function Mission() {
           to="/our-process"
           className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-4 text-md font-mono position-relative border-0 text-sky-50"
           style={{
-            background: 'transparent',
-            height: '60px',
-            minWidth: '180px'
+            background: "transparent",
+            height: "60px",
+            minWidth: "180px",
           }}
         >
           <ButtonShape
@@ -138,9 +152,12 @@ function Mission() {
             width={180}
             height={60}
             className="position-absolute top-0 start-0"
-            style={{ pointerEvents: 'none' }}
+            style={{ pointerEvents: "none" }}
           />
-          <span className="position-relative d-flex align-items-center gap-2" style={{ zIndex: 1 }}>
+          <span
+            className="position-relative d-flex align-items-center gap-2"
+            style={{ zIndex: 1 }}
+          >
             Our Process
             <ArrowUpRight size={16} strokeWidth={2} />
           </span>

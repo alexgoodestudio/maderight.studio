@@ -12,10 +12,10 @@ function Stats() {
 
   const metrics = [
     {
-      value: '98',
-      suffix: '/100',
-      label: 'Site Experience',
-      sublabel: 'Fast, accessible, and search-friendly'
+      value: '2',
+      suffix: 's',
+      label: 'Avg. Load Time',
+      sublabel: 'Faster than 95% of websites'
     },
     {
       value: '35',
@@ -101,8 +101,20 @@ function Stats() {
       className="bg-white text-slate-900"
       ref={containerRef}
       aria-labelledby="stats-heading"
-      style={{ padding: '80px 30px 120px' }}
+      style={{
+        paddingTop: '80px',
+        paddingLeft: '30px',
+        paddingRight: '30px',
+        paddingBottom: '120px'
+      }}
     >
+      <style>{`
+        @media (min-width: 992px) {
+          section[aria-labelledby="stats-heading"] {
+            padding-bottom: 200px !important;
+          }
+        }
+      `}</style>
       <div className="container-fluid px-1 px-lg-5">
         {/* Section Header */}
         <header className="text-start mb-5 mb-lg-6">

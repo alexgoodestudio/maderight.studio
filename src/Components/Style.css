@@ -571,6 +571,12 @@ body {
   .text-md { font-size: 0.8125rem; }
   .text-sm { font-size: 0.75rem; }
   .text-xs { font-size: 0.6875rem; }
+
+  /* Mobile nav logo - use lora font for better readability */
+  nav .eighties {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+  }
 }
 
 /* -----------------------------------------------------------------------------
