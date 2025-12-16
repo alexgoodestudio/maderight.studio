@@ -13,8 +13,6 @@ function Info() {
     gsap.set(bgRef.current, {
       scaleY: 0,
       transformOrigin: 'bottom',
-      filter: 'blur(0px)',
-      opacity: 1,
     })
 
     const timeline = gsap.timeline({
@@ -29,29 +27,16 @@ function Info() {
     timeline
       .to(bgRef.current, {
         scaleY: 1,
-        filter: 'blur(0px)',
-        opacity: 1,
         duration: 0.4,
         ease: 'power1.inOut',
       })
       .to(bgRef.current, {
         scaleY: 1,
-        filter: 'blur(0px)',
-        opacity: 1,
-        duration: 0.1,
-      })
-      .to(bgRef.current, {
-        scaleY: 1,
-        filter: 'blur(15px)',
-        opacity: 0.6,
-        duration: 0.15,
-        ease: 'power1.in',
+        duration: 0.2,
       })
       .to(bgRef.current, {
         scaleY: 0,
-        filter: 'blur(15px)',
-        opacity: 0.2,
-        duration: 0.35,
+        duration: 0.4,
         ease: 'power1.inOut',
       })
 
