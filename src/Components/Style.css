@@ -342,6 +342,10 @@ body {
   display: flex;
   gap: 1rem;
 }
+.scaled-down {
+  transform: scale(0.375);
+  transform-origin: center;
+}
 
 .flip-card {
   position: relative;
