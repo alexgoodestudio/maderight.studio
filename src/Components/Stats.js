@@ -12,7 +12,7 @@ function Stats() {
 
   const metrics = [
     {
-      value: '2',
+      value: '1.6',
       suffix: 's',
       label: 'Avg. Load Time',
       sublabel: 'Faster than 95% of websites'
@@ -57,7 +57,8 @@ function Stats() {
 
       const metric = metrics[index];
       const targetValue = parseFloat(metric.value);
-      const counterObj = { val: 0 };
+      const startValue = index === 0 ? 1.0 : 0; // First metric starts at 1.0
+      const counterObj = { val: startValue };
 
       // Fade in animation
       gsap.from(stat, {
@@ -85,7 +86,9 @@ function Stats() {
         ease: 'power2.out',
         delay: index * 0.1,
         onUpdate: () => {
-          const currentValue = Math.floor(counterObj.val);
+          const currentValue = index === 0
+            ? counterObj.val.toFixed(1)
+            : Math.floor(counterObj.val);
           valueEl.textContent = `${metric.prefix || ''}${currentValue}${metric.suffix || ''}`;
         },
         onComplete: () => {

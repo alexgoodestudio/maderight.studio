@@ -5,7 +5,6 @@ import FeaturedNew from "./FeaturedNew";
 import  Info  from './Info';
 import Services from "./Services"
 import Nav from "./Nav";
-// import Random from "./Random";
 import Contact from "./Contact";
 import Stats from "./Stats";
 import Mission from './Mission';
@@ -15,7 +14,7 @@ import NavBanner from './NavBanner';
 
 function Storage(){
     const siteUrl = "https://maderight.studio"; 
-    const pageTitle = "Made Right Studio — Web Design and Development Systems for Long-term Growth";
+    const pageTitle = "Made Right Studio — Design-first technology studio";
     const pageDescription = "Independent creative web design and technology studio in Columbia, SC. ";
     const ogImage = `${siteUrl}/og-image.png`;
 
@@ -97,7 +96,7 @@ function Storage(){
                 </script>
             </Helmet>
             
-            <div className="bg-teal-950">        
+            <div className="bg-white">        
                 <section>
                     <Nav/>
                     <Opener/>
@@ -111,7 +110,7 @@ function Storage(){
                     <Contact/>
                     <NavBanner/>
                     {/* <Playground/> */}
-                    {/* <Random/> */}
+                    
                 </section>
             </div>
         </>
