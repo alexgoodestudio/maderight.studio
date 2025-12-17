@@ -92,7 +92,7 @@ function CircleWaveIllusion() {
   }
 
   return (
-    <div className="px-5 mx-4 scaled-down flex items-center justify-center bg-white overflow-hidden">
+    <div className=" scaled-down flex items-center justify-center bg-white ">
       <div ref={containerRef} className="grid circle-grid" style={{
         gridTemplateColumns: `repeat(${cols}, 1fr)`,
         gridTemplateRows: `repeat(${rows}, 1fr)`
