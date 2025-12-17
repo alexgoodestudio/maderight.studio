@@ -104,7 +104,7 @@ function Mission() {
   }, []);
 
   const text =
-    "Made Right is a design-focused web development studio based in Columbia, South Carolina. Our goal is to bring together creativity, technology and design to create performant, lasting websites.";
+    "Made Right is a design-focused web development studio based in Columbia, South Carolina. Our goal is to bring together creativity, technology, and design to create performant, lasting websites that convert. With thoughtful user flows, strategic SEO implementation and our approach to development, we strive to deliver services that that you'll love well past launch.";
 
   return (
     <section className="bg-white gs mission-p py-5 text-start px-lg-0 px-4 position-relative">

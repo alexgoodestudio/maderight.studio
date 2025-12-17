@@ -9,41 +9,69 @@ function Info() {
   const bgRef = useRef(null)
 
   useEffect(() => {
-    // Desktop and Mobile: smooth scroll-triggered reveal with natural feel
+    const isMobile = window.innerWidth < 992;
+
+    // Set initial state for background
     gsap.set(bgRef.current, {
       scaleY: 0,
       transformOrigin: 'bottom',
     })
 
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: linkRef.current,
-        start: 'top 70%',
-        end: 'bottom 30%',
-        scrub: 1,
-      },
-    })
+    if (isMobile) {
+      // Mobile: scroll-triggered reveal
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: linkRef.current,
+          start: 'top 70%',
+          end: 'bottom 30%',
+          scrub: 1,
+        },
+      })
 
-    timeline
-      .to(bgRef.current, {
-        scaleY: 1,
-        duration: 0.4,
-        ease: 'power1.inOut',
-      })
-      .to(bgRef.current, {
-        scaleY: 1,
-        duration: 0.2,
-      })
-      .to(bgRef.current, {
-        scaleY: 0,
-        duration: 0.4,
-        ease: 'power1.inOut',
-      })
+      timeline
+        .to(bgRef.current, {
+          scaleY: 1,
+          duration: 0.4,
+          ease: 'power1.inOut',
+        })
+        .to(bgRef.current, {
+          scaleY: 1,
+          duration: 0.2,
+        })
+        .to(bgRef.current, {
+          scaleY: 0,
+          duration: 0.4,
+          ease: 'power1.inOut',
+        })
+    }
+    // Desktop: hover only (handled by mouse events below)
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
   }, [])
+
+  const handleMouseEnter = () => {
+    const isMobile = window.innerWidth < 992;
+    if (!isMobile) {
+      gsap.to(bgRef.current, {
+        scaleY: 1,
+        duration: 0.4,
+        ease: 'power1.out',
+      })
+    }
+  }
+
+  const handleMouseLeave = () => {
+    const isMobile = window.innerWidth < 992;
+    if (!isMobile) {
+      gsap.to(bgRef.current, {
+        scaleY: 0,
+        duration: 0.4,
+        ease: 'power1.in',
+      })
+    }
+  }
 
   return (
     <div className="row">
@@ -53,6 +81,8 @@ function Info() {
           href="https://id.iit.edu/id-experience/"
           className="position-relative d-block overflow-hidden text-decoration-none text-dark py-5 px-4 bg-white"
           style={{ outline: 'none' }}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           {/* Background reveal layer */}
           <div

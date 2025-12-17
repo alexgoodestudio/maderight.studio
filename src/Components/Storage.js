@@ -1,6 +1,5 @@
 import { Helmet } from 'react-helmet-async';
 import Opener from "./Opener";
-// import Featured from "./Featured";
 import FeaturedNew from "./FeaturedNew";
 import  Info  from './Info';
 import Services from "./Services"
@@ -8,7 +7,7 @@ import Nav from "./Nav";
 import Contact from "./Contact";
 import Stats from "./Stats";
 import Mission from './Mission';
-// import Playground from "./Playground"
+import Playground from "./Playground"
 // import Shapes from './Shapes';
 import NavBanner from './NavBanner';
 
@@ -96,21 +95,22 @@ function Storage(){
                 </script>
             </Helmet>
             
-            <div className="bg-white">        
+            <div className="bg-white">
                 <section>
                     <Nav/>
                     <Opener/>
-                    {/* <Featured/> */}
+                   
+                   
                     <FeaturedNew/>
                     <Info/>
                     <Mission/>
                     {/* <Shapes/> */}
                     <Services/>
+                    <Playground/>
                     <Stats/>
                     <Contact/>
                     <NavBanner/>
-                    {/* <Playground/> */}
-                    
+
                 </section>
             </div>
         </>

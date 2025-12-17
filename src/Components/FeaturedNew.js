@@ -137,7 +137,7 @@ function Featured() {
                 {/* Render video OR image */}
                 {service.type === "video" ? (
                   <video
-                    className="card-img-top w-full h-48"
+                    className="card-img-top w-full h-72"
                     style={{ objectFit: 'cover', objectPosition: 'top' }}
                     autoPlay
                     muted
@@ -150,7 +150,7 @@ function Featured() {
                 ) : (
                   <img
                     src={service.image}
-                    className="card-img-top object-cover w-full h-48"
+                    className="card-img-top object-cover w-full h-72"
                     alt={service.subtitle}
                   />
                 )}

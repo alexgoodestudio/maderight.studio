@@ -205,7 +205,7 @@ function Opener() {
           </span>
         </h1>
         
-        <h2 ref={taglineRef} className="text-sub mt-lg-2 mt-2 text-slate-100 pt-4 font-light mb-5 opener-tagline">
+        <h2 ref={taglineRef} className="text-3xl mt-lg-2 mt-2 text-slate-100 pt-4 font-light mb-5 opener-tagline">
           <section className="d-inline-block text-center  pb-2 px-2 md:px-6">
             <div>
 
