@@ -55,7 +55,7 @@ function Featured() {
       bgColor: BRAND_COLORS.coral,
     },
     {
-      title: "Alex Goode Portfolio",
+      title: "My Portfolio",
       subtitle: "Full-Stack Developer ",
       image: Vid2,
       description: `Personal web development portfolio showcasing interaction design with GSAP for Made Right Studio owner, Alex Goode.`,
@@ -155,7 +155,7 @@ function Featured() {
                   />
                 )}
 
-                <div className="card-body p-5 flex-grow-1">
+                <div className="card-body p-lg-5 py-5 px-4 flex-grow-1">
                   <h3 className="text-2xl lora font-semibold spaced-underline-2 text-gray-800 mb-3">
                     <a
                       href={service.link}
