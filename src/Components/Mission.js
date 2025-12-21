@@ -10,6 +10,7 @@ function Mission() {
   const container = useRef();
   const confettiContainer = useRef();
   const buttonRef = useRef();
+  const underlineRef = useRef();
   const confettiFired = useRef(false);
 
   gsap.registerPlugin(ScrollTrigger);
@@ -95,6 +96,17 @@ function Mission() {
       { opacity: 1, stagger: 0.1, duration: 1 },
       0
     );
+
+    // Animate underline from left to right synced with word fade-in
+    if (underlineRef.current) {
+      tl.fromTo(
+        underlineRef.current,
+        { scaleX: 0, opacity: 0 },
+        { scaleX: 1, opacity: 1, duration: 1.2, ease: "power2.out" },
+        0.3 // Start slightly after words begin fading in
+      );
+    }
+
     tl.fromTo(
       buttonRef.current,
       { opacity: 0 },
@@ -140,17 +152,17 @@ function Mission() {
         <Link
           ref={buttonRef}
           to="/our-process"
-          className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-4 text-md font-mono position-relative border-0 text-sky-50"
+          className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-3 text-md font-mono position-relative border-0 text-sky-50"
           style={{
             background: "transparent",
-            height: "60px",
-            minWidth: "180px",
+            height: window.innerWidth <= 768 ? "50px" : "60px",
+            minWidth: window.innerWidth <= 768 ? "150px" : "180px",
           }}
         >
           <ButtonShape
             color={BRAND_COLORS.buttonPurple}
-            width={180}
-            height={60}
+            width={window.innerWidth <= 768 ? 150 : 180}
+            height={window.innerWidth <= 768 ? 50 : 60}
             className="position-absolute top-0 start-0"
             style={{ pointerEvents: "none" }}
           />
@@ -159,7 +171,7 @@ function Mission() {
             style={{ zIndex: 1 }}
           >
             Our Process
-            <ArrowUpRight size={16} strokeWidth={2} />
+            <ArrowUpRight size={window.innerWidth <= 768 ? 14 : 16} strokeWidth={2} />
           </span>
         </Link>
       </div>

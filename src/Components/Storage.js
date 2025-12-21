@@ -7,7 +7,8 @@ import Nav from "./Nav";
 import Contact from "./Contact";
 import Stats from "./Stats";
 import Mission from './Mission';
-import Playground from "./Playground"
+// import Playground from "./Playground"
+// import PlaygroundNew from "./PlaygroundNew"
 // import Shapes from './Shapes';
 import NavBanner from './NavBanner';
 
@@ -102,10 +103,11 @@ function Storage(){
                     <FeaturedNew/>
                     <Info/>
                     <Mission/>
-                    {/* <Shapes/> */}
                     <Services/>
-                    <Playground/>
+                    {/* <Shapes/> */}
                     <Stats/>
+                    {/* <Playground/> */}
+                    {/* <PlaygroundNew/> */}
                     <Contact/>
                     <NavBanner/>
 

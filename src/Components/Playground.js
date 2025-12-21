@@ -1,9 +1,14 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { BRAND_COLORS } from './Shapes';
 
 function CircleWaveIllusion() {
   const containerRef = useRef(null);
+  const [activeCircle, setActiveCircle] = useState(0);
+  const rows = 5;
+  const cols = 6;
 
+  // Main animation timeline
   useEffect(() => {
     const circles = containerRef.current.querySelectorAll('.circle');
 
@@ -80,9 +85,24 @@ function CircleWaveIllusion() {
     };
   }, []);
 
+  // Separate effect for random orange circle - independent of main animation
+  useEffect(() => {
+    const totalCircles = rows * cols;
+
+    const changeCircle = () => {
+      setActiveCircle(Math.floor(Math.random() * totalCircles));
+    };
+
+    // Initial
+    changeCircle();
+
+    // Change every 3 seconds
+    const interval = setInterval(changeCircle, 3000);
+
+    return () => clearInterval(interval);
+  }, [rows, cols]);
+
   // Create grid of circles
-  const rows = 5;
-  const cols = 6;
   const circles = [];
 
   for (let row = 0; row < rows; row++) {
@@ -101,7 +121,11 @@ function CircleWaveIllusion() {
         {circles.map((circle, i) => (
           <div
             key={i}
-            className="circle bg-teal-900"
+            className="circle"
+            style={{
+              backgroundColor: i === activeCircle ? BRAND_COLORS.coral : '#134e4a',
+              transition: 'background-color 0.8s ease-in-out'
+            }}
           />
         ))}
       </div>

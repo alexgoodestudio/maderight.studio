@@ -72,102 +72,33 @@ function Opener() {
         gsap.set(borderRef.current, { opacity: 0 });
       }
 
-      const viewportWidth = window.innerWidth;
-      const isMobile = viewportWidth < 992; // Tablets and phones
       const tl = gsap.timeline();
 
-      if (isMobile) {
-        // Mobile: 3D swing-forward animation (like door opening)
-        gsap.set([madeRef.current, rightRef.current], {
+      // No animation for "Made Right" text - just show it
+      gsap.set([madeRef.current, rightRef.current], {
+        opacity: 1
+      });
+
+      tl
+        .from(taglineWords, {
+          y: 40,
+          opacity: 0,
+          rotateX: 45,
+          transformOrigin: 'center top',
+          duration: MOTION.smooth,
+          stagger: 0.12,
+          ease: 'power2.out'
+        })
+        .to(taglineEmphasis, {
+          duration: MOTION.quick,
+          stagger: 0.15,
+          ease: 'power1.inOut'
+        }, `-=${MOTION.instant}`)
+        .to(borderRef.current, {
           opacity: 1,
-          rotateX: 85,
-          transformOrigin: 'center bottom',
-          transformPerspective: 800
-        });
-
-        tl
-          .to([madeRef.current, rightRef.current], {
-            rotateX: 0,
-            duration: MOTION.story,
-            ease: 'power2.out',
-            stagger: 0.1
-          })
-          .from(taglineWords, {
-            y: 40,
-            opacity: 0,
-            rotateX: 45,
-            transformOrigin: 'center top',
-            duration: MOTION.smooth,
-            stagger: 0.12,
-            ease: 'power2.out'
-          }, `-=${MOTION.smooth}`)
-          .to(taglineEmphasis, {
-            duration: MOTION.quick,
-            stagger: 0.15,
-            ease: 'power1.inOut'
-          }, `-=${MOTION.instant}`)
-          .to(borderRef.current, {
-            opacity: 1,
-            duration: MOTION.story,
-            ease: 'power1.out'
-          }, `-=0.4`);
-      } else {
-        // Desktop: Original slide animation
-        const verticalOffset = 100;
-
-        gsap.set(madeRef.current, {
-          x: -viewportWidth / 2,
-          y: -verticalOffset,
-          opacity: 1
-        });
-
-        gsap.set(rightRef.current, {
-          x: viewportWidth / 2,
-          y: verticalOffset,
-          opacity: 1
-        });
-
-        tl
-          .to(madeRef.current, {
-            x: 0,
-            duration: MOTION.story,
-            ease: 'power3.out'
-          })
-          .to(rightRef.current, {
-            x: 0,
-            duration: MOTION.story,
-            ease: 'power3.out'
-          }, '<')
-          .to(madeRef.current, {
-            y: 0,
-            duration: MOTION.story,
-            ease: 'power3.out'
-          })
-          .to(rightRef.current, {
-            y: 0,
-            duration: MOTION.story,
-            ease: 'power3.out'
-          }, '<')
-          .from(taglineWords, {
-            y: 40,
-            opacity: 0,
-            rotateX: 45,
-            transformOrigin: 'center top',
-            duration: MOTION.smooth,
-            stagger: 0.12,
-            ease: 'power2.out'
-          }, `-=${MOTION.smooth}`)
-          .to(taglineEmphasis, {
-            duration: MOTION.quick,
-            stagger: 0.15,
-            ease: 'power1.inOut'
-          }, `-=${MOTION.instant}`)
-          .to(borderRef.current, {
-            opacity: 1,
-            duration: MOTION.story,
-            ease: 'power1.out'
-          }, `-=0.4`);
-      }
+          duration: MOTION.story,
+          ease: 'power1.out'
+        }, `-=0.4`);
     });
 
   }, [fontLoaded]);
@@ -229,18 +160,18 @@ function Opener() {
 
         <button
           onClick={() => window.location.href = "mailto:hello@maderight.studio"}
-          className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-4 text-md font-mono position-relative border-0 text-sky-50"
+          className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-3 text-md font-mono position-relative border-0 text-sky-50"
           style={{
             background: "transparent",
-            height: "60px",
-            minWidth: "180px",
+            height: window.innerWidth <= 768 ? "50px" : "60px",
+            minWidth: window.innerWidth <= 768 ? "150px" : "180px",
             cursor: "pointer"
           }}
         >
           <ButtonShape
             color={BRAND_COLORS.buttonPurple}
-            width={180}
-            height={60}
+            width={window.innerWidth <= 768 ? 150 : 180}
+            height={window.innerWidth <= 768 ? 50 : 60}
             className="position-absolute top-0 start-0"
             style={{ pointerEvents: "none" }}
           />
@@ -249,7 +180,7 @@ function Opener() {
             style={{ zIndex: 1 }}
           >
             Let's Talk
-            <ArrowUpRight size={16} strokeWidth={2} />
+            <ArrowUpRight size={window.innerWidth <= 768 ? 14 : 16} strokeWidth={2} />
           </span>
         </button>
 

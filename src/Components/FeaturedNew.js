@@ -98,7 +98,7 @@ function Featured() {
 
   return (
     <div className="bg-white featured-body">
-      <div className="container-fluid px-1 px-lg-5">
+      <div className="container-fluid px-1 px-lg-4">
         {/* Section Header */}
         <header className="text-start mb-5 mb-lg-6">
           <div className="row">

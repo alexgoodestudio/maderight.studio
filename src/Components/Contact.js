@@ -57,22 +57,24 @@ function Contact() {
 
         <button
           onClick={handleContactClick}
-          className="btn-contact text-md font-mono text-sky-50 px-5 py-3 position-relative border-0"
+          className="btn-contact text-md font-mono text-sky-50 position-relative border-0 d-inline-flex align-items-center justify-content-center"
           style={{
             background: 'transparent',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            height: window.innerWidth <= 768 ? "50px" : "60px",
+            minWidth: window.innerWidth <= 768 ? "130px" : "150px",
           }}
         >
           <ButtonShape
             color={BRAND_COLORS.buttonPurple}
-            width={150}
-            height={60}
+            width={window.innerWidth <= 768 ? 130 : 150}
+            height={window.innerWidth <= 768 ? 50 : 60}
             className="position-absolute top-0 start-0"
             style={{ pointerEvents: 'none' }}
           />
           <span className="position-relative d-flex align-items-center gap-2" style={{ zIndex: 1 }}>
             Email
-            <ArrowUpRight size={16} strokeWidth={2} />
+            <ArrowUpRight size={window.innerWidth <= 768 ? 14 : 16} strokeWidth={2} />
           </span>
         </button>
       </div>

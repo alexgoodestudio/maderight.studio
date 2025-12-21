@@ -16,7 +16,7 @@ export const BRAND_COLORS = {
   slate: '#64748b',       // Slate gray
   slateLight: '#cbd5e1',  // Light slate
   slateDark: '#334155',   // Dark slate
-  buttonPurple: '#A1ADEB' // Button purple (same as purple)
+  buttonPurple: '#B5BFEF' // Button purple (slightly lighter)
 };
 
 // Geometric Shapes

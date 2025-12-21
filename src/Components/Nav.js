@@ -28,7 +28,7 @@ function Nav() {
         </a>
 
         {/* Main Navigation Pill */}
-        <div className="bg-teal-900 rounded-full px-4 py-2 flex items-center gap-4 shadow-lg mx-auto">
+        <div className="bg-teal-900 nunito-bold rounded-full px-4 py-2 flex items-center gap-4 shadow-lg mx-auto">
           {/* Logo Text */}
           <a
             href="/"
@@ -293,7 +293,7 @@ function Nav() {
         <div className="flex items-center gap-3">
           <button
             onClick={handleContactClick}
-            className="bg-white lora  text-green-900 px-5 py-2 font-semibold rounded-full text-sm cursor-pointer border-0 hover:bg-stone-100"
+            className="bg-white  text-green-900 px-5 py-2 font-semibold rounded-full text-sm cursor-pointer border-0 hover:bg-stone-100"
             style={{
               transition: 'all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
               letterSpacing: '0.01em'
@@ -306,7 +306,7 @@ function Nav() {
           {/* Socials Dropdown */}
           <div className="relative">
             <button
-              className="text-white bg-teal-900 py-2 px-5 rounded-md text-sm font-medium hover:bg-teal-800 flex items-center gap-1 nav-dropdown-button"
+              className="text-white bg-teal-900 py-2 px-5 rounded-full text-sm font-medium hover:bg-teal-800 flex items-center gap-1 nav-dropdown-button"
               style={{
                 transition: 'all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
                 letterSpacing: '0.01em'

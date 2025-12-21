@@ -192,7 +192,7 @@ function Services() {
           <div className="col-12">
             
             {/* Section Header */}
-            <header className="text-start ms-2 ms-lg-5 mb-5 mb-lg-6">
+            <header className="text-start px-4 ms-2 ms-lg-5 mb-5 mb-lg-6">
               <div className="row">
                 <div className="col-12 col-lg-8">
                   <h2
