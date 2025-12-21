@@ -99,8 +99,6 @@ function Storage(){
                 <section>
                     <Nav/>
                     <Opener/>
-                   
-                   
                     <FeaturedNew/>
                     <Info/>
                     <Mission/>

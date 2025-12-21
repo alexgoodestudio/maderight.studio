@@ -78,7 +78,7 @@ function Info() {
       <div className="col-lg-12 col-12 px-0">
         <a
           ref={linkRef}
-          href="https://id.iit.edu/id-experience/"
+          href="/about"
           className="position-relative d-block overflow-hidden text-decoration-none text-dark py-5 px-4 bg-white"
           style={{ outline: 'none' }}
           onMouseEnter={handleMouseEnter}
@@ -87,16 +87,14 @@ function Info() {
           {/* Background reveal layer */}
           <div
             ref={bgRef}
-            className="position-absolute top-0 start-0 w-100 h-100"
+            className="position-absolute top-0 start-0 w-100 h-100 bg-slate-100"
             style={{
-              backgroundColor: '#adc7ff',
               zIndex: 0,
               willChange: 'transform',
             }}
             aria-hidden="true"
           />
 
-          <span className="visually-hidden">Explore ID Experience</span>
 
           {/* Content */}
           <div className="position-relative text-center" style={{ zIndex: 1 }}>

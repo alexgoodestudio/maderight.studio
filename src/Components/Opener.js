@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+import { ButtonShape, BRAND_COLORS } from './Shapes';
+import { ArrowUpRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
@@ -225,7 +227,31 @@ function Opener() {
           </div>
         </h2>
 
-        
+        <button
+          onClick={() => window.location.href = "mailto:hello@maderight.studio"}
+          className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-4 text-md font-mono position-relative border-0 text-sky-50"
+          style={{
+            background: "transparent",
+            height: "60px",
+            minWidth: "180px",
+            cursor: "pointer"
+          }}
+        >
+          <ButtonShape
+            color={BRAND_COLORS.buttonPurple}
+            width={180}
+            height={60}
+            className="position-absolute top-0 start-0"
+            style={{ pointerEvents: "none" }}
+          />
+          <span
+            className="position-relative d-flex align-items-center gap-2"
+            style={{ zIndex: 1 }}
+          >
+            Let's Talk
+            <ArrowUpRight size={16} strokeWidth={2} />
+          </span>
+        </button>
 
 
       </section>
