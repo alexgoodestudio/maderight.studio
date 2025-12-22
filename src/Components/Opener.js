@@ -169,7 +169,7 @@ function Opener() {
           }}
         >
           <ButtonShape
-            color={BRAND_COLORS.buttonPurple}
+            color={BRAND_COLORS.coral}
             width={window.innerWidth <= 768 ? 150 : 180}
             height={window.innerWidth <= 768 ? 50 : 60}
             className="position-absolute top-0 start-0"

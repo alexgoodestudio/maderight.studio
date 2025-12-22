@@ -78,7 +78,7 @@ function Featured() {
       // Set initial state - minimal slide distance
       gsap.set(card, { y: 50, opacity: 0 });
 
-      // Quick fade-up animation like Plank.co (400ms duration)
+
       ScrollTrigger.create({
         trigger: card,
         start: "top 90%",
@@ -155,7 +155,7 @@ function Featured() {
                   />
                 )}
 
-                <div className="card-body p-lg-5 py-5 px-4 flex-grow-1">
+                <div className="card-body px-lg-5 py-lg-4 py-4 px-4 flex-grow-1">
                   <h3 className="text-2xl lora font-semibold spaced-underline-2 text-gray-800 mb-3">
                     <a
                       href={service.link}

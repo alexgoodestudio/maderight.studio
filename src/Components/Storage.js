@@ -10,6 +10,7 @@ import Mission from './Mission';
 // import Playground from "./Playground"
 // import PlaygroundNew from "./PlaygroundNew"
 // import Shapes from './Shapes';
+import Office from './Office';
 import NavBanner from './NavBanner';
 
 function Storage(){
@@ -106,6 +107,7 @@ function Storage(){
                     <Services/>
                     {/* <Shapes/> */}
                     <Stats/>
+                    <Office/>
                     {/* <Playground/> */}
                     {/* <PlaygroundNew/> */}
                     <Contact/>
