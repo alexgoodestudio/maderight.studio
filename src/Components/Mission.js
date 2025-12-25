@@ -116,20 +116,20 @@ function Mission() {
   }, []);
 
   const text =
-    "Made Right is a design-focused web development studio based in Columbia, South Carolina. Our goal is to bring together creativity, technology, and design to create performant, lasting websites that convert. With thoughtful user flows, strategic SEO implementation and our approach to development, we strive to deliver services that that you'll love well past launch.";
+    "Made Right is a <semibold>design-focused</semibold> <italic>web development</italic> and <italic>technology</italic> studio based in Columbia, South Carolina. Our goal is to bring together creativity, technology, and design to create performant, lasting websites that convert. With thoughtful user flows, strategic SEO implementation and our approach to development, we strive to deliver services that that you'll love well past launch.";
 
   return (
-    <section className="bg-yellow gs mission-p py-5  text-start px-lg-5 px-4 position-relative" style={{ overflow: 'visible' }}>
+    <section className="bg-yellow gs mission-p py-5  text-start px-lg-5 px-4 position-relative">
       {/* Top wave */}
-      <div className="position-absolute start-0 w-100" style={{ top: '-1px', zIndex: 1 }}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style={{ width: '100%', height: '60px', display: 'block' }}>
+      <div className="position-absolute start-0 w-100 mission-wave-top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="mission-wave-svg">
           <path d="M0,120 C300,80 900,80 1200,120 L1200,0 L0,0 Z" fill="#ffffff" />
         </svg>
       </div>
 
       {/* Bottom wave */}
-      <div className="position-absolute start-0 w-100" style={{ bottom: '-1px', zIndex: 1 }}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style={{ width: '100%', height: '60px', display: 'block' }}>
+      <div className="position-absolute start-0 w-100 mission-wave-bottom">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="mission-wave-svg">
           <path d="M0,0 C300,40 900,40 1200,0 L1200,120 L0,120 Z" fill="#ffffff" />
         </svg>
       </div>
@@ -138,56 +138,120 @@ function Mission() {
         ref={confettiContainer}
         className="position-fixed confetti-container "
       />
-      <div ref={container} className="mission-body ">
-        <p>
-          {text.split(" ").map((word, i) => {
-            const match = word.match(/^(\w+)(\W*)$/);
-            const letters = match ? match[1] : word;
-            const punctuation = match ? match[2] : "";
+      <div ref={container} className="mission-body container pt-5 pb-7">
+        <div className="row">
+          <div className="col-12">
+            <p>
+              {(() => {
+                const words = text.split(" ");
+                const result = [];
+                let skipNext = false;
 
-            let colorClass = "";
-            let specialClass = "";
+                words.forEach((word, i) => {
+                  if (skipNext) {
+                    skipNext = false;
+                    return;
+                  }
 
-            if (letters === "Made" || letters === "Right") {
-              colorClass = "text-teal-900 lora";
-              specialClass = "made-right";
-            }
+                  // Check for tags
+                  const isBoldStart = word.includes("<bold>");
+                  const isBoldEnd = word.includes("</bold>");
+                  const isSemiBoldStart = word.includes("<semibold>");
+                  const isSemiBoldEnd = word.includes("</semibold>");
+                  const isItalicStart = word.includes("<italic>");
+                  const isItalicEnd = word.includes("</italic>");
+                  const isUnderlineStart = word.includes("<underline>");
+                  const isUnderlineEnd = word.includes("</underline>");
 
-            return (
-              <span key={i} className="inline-block mr-2">
-                <span className={`word ${colorClass} ${specialClass}`}>
-                  {letters}
-                </span>
-                {punctuation && <span className="word">{punctuation}</span>}
+                  // Remove tags from word
+                  let cleanWord = word.replace(/<\/?bold>/g, "").replace(/<\/?semibold>/g, "").replace(/<\/?italic>/g, "").replace(/<\/?underline>/g, "");
+
+                  const match = cleanWord.match(/^(\w+)(\W*)$/);
+                  const letters = match ? match[1] : cleanWord;
+                  const punctuation = match ? match[2] : "";
+
+                  let colorClass = "";
+                  let specialClass = "";
+                  let styleClass = "";
+
+                  // Special handling for "Made Right" phrase
+                  if (letters === "Made" && words[i + 1]?.includes("Right")) {
+                    const nextWord = words[i + 1];
+                    const cleanNextWord = nextWord.replace(/<\/?underline>/g, "");
+
+                    colorClass = "lora";
+                    specialClass = "made-right";
+
+                    if (isUnderlineStart) {
+                      styleClass = " made-right-underline";
+                    }
+
+                    result.push(
+                      <span key={i} className="inline-block mr-2">
+                        <span className={`word ${colorClass} ${specialClass} ${styleClass}`}>
+                          {letters} {cleanNextWord}
+                        </span>
+                        {punctuation && <span className="word">{punctuation}</span>}
+                      </span>
+                    );
+                    skipNext = true;
+                    return;
+                  }
+
+                  if (letters === "Made" || letters === "Right") {
+                    colorClass = "lora";
+                    specialClass = "made-right";
+                  }
+
+                  if (isBoldStart || isBoldEnd) {
+                    styleClass += " fw-bold";
+                  }
+
+                  if (isSemiBoldStart || isSemiBoldEnd) {
+                    styleClass += " fw-semibold";
+                  }
+
+                  if (isItalicStart || isItalicEnd) {
+                    styleClass += " fst-italic lora fw-light";
+                  }
+
+                  if (isUnderlineStart || isUnderlineEnd) {
+                    styleClass += " custom-underline";
+                  }
+
+                  result.push(
+                    <span key={i} className="inline-block mr-2">
+                      <span className={`word ${colorClass} ${specialClass} ${styleClass}`}>
+                        {letters}
+                      </span>
+                      {punctuation && <span className="word">{punctuation}</span>}
+                    </span>
+                  );
+                });
+
+                return result;
+              })()}
+            </p>
+            <Link
+              ref={buttonRef}
+              to="/our-process"
+              className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-3 text-md font-mono position-relative border-0 text-white"
+            >
+              <ButtonShape
+                color={BRAND_COLORS.tealDark}
+                width={window.innerWidth <= 768 ? 150 : 180}
+                height={window.innerWidth <= 768 ? 50 : 60}
+                className="position-absolute top-0 start-0 button-shape"
+              />
+              <span
+                className="position-relative d-flex align-items-center gap-2 button-text"
+              >
+                Our Process
+                <ArrowUpRight size={window.innerWidth <= 768 ? 14 : 16} strokeWidth={2} />
               </span>
-            );
-          })}
-        </p>
-        <Link
-          ref={buttonRef}
-          to="/our-process"
-          className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-3 text-md font-mono position-relative border-0 text-white"
-          style={{
-            background: "transparent",
-            height: window.innerWidth <= 768 ? "50px" : "60px",
-            minWidth: window.innerWidth <= 768 ? "150px" : "180px",
-          }}
-        >
-          <ButtonShape
-            color={BRAND_COLORS.tealDark}
-            width={window.innerWidth <= 768 ? 150 : 180}
-            height={window.innerWidth <= 768 ? 50 : 60}
-            className="position-absolute top-0 start-0"
-            style={{ pointerEvents: "none" }}
-          />
-          <span
-            className="position-relative d-flex align-items-center gap-2"
-            style={{ zIndex: 1 }}
-          >
-            Our Process
-            <ArrowUpRight size={window.innerWidth <= 768 ? 14 : 16} strokeWidth={2} />
-          </span>
-        </Link>
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

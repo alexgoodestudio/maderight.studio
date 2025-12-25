@@ -148,7 +148,7 @@ function Stats() {
                   >
                     <div
                       ref={el => valueRefs.current[index] = el}
-                      className="text-5xl nunito-semi-bold mb-2 text-teal-900 stat-value"
+                      className="text-7xl lora font-black mb-2 text-teal-900 stat-value"
                     >
                       {metric.prefix || ''}{metric.value}{metric.suffix || ''}
                     </div>

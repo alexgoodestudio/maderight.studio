@@ -106,9 +106,9 @@ function Storage(){
                     <Mission/>
                     <Services/>
                     {/* <Shapes/> */}
-                    <Stats/>
                     <Info/>
                     <Office/>
+                    <Stats/>
                     {/* <Playground/> */}
                     {/* <PlaygroundNew/> */}
                     <Contact/>
