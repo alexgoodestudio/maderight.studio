@@ -41,7 +41,7 @@ function NavBanner() {
   return (
     <header
       ref={containerRef}
-      className="bg-nav-banner text-slate-800 position-relative overflow-hidden"
+      className="bg-yellow text-slate-800 position-relative overflow-hidden"
       role="banner"
       aria-label="Site information banner"
       style={{ height: isMobile ? '40px' : 'auto' }}
@@ -60,7 +60,7 @@ function NavBanner() {
         </span>
       ) : (
         <p className="text-xs font-mono pb-3 pt-3 mb-0 nav-banner-text text-center">
-          Web Design <span className="mx-1"> • </span> Web Development <span className="mx-1"> • </span> SEO <span className="mx-1"> • </span> Content Management Systems <span className="mx-1"> • </span> Interaction Design
+          Web Design <span className="mx-1"> • </span> Web Development <span className="mx-1"> • </span> SEO + AEO <span className="mx-1"> • </span> Content Management Systems <span className="mx-1"> • </span> Interaction Design <span className="mx-1"> • </span> Full-Stack Solutions
         </p>
       )}
     </header>

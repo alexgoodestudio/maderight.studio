@@ -117,7 +117,7 @@ function Opener() {
   return (
 
 
-    <div className="vh-100 bg-teal-950 d-flex justify-content-center align-items-center position-relative" >
+    <div className="bg-teal-950 d-flex justify-content-center align-items-center position-relative" style={{ height: window.innerWidth <= 768 ? '97vh' : '93vh' }}>
 
       {/* Services text - bottom left */}
       <div
