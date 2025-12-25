@@ -102,11 +102,11 @@ function Storage(){
                     <Nav/>
                     <Opener/>
                     <FeaturedNew/>
-                    <Info/>
                     <Mission/>
                     <Services/>
                     {/* <Shapes/> */}
                     <Stats/>
+                    <Info/>
                     <Office/>
                     {/* <Playground/> */}
                     {/* <PlaygroundNew/> */}

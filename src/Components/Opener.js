@@ -22,6 +22,7 @@ function Opener() {
   const taglineRef = useRef(null);
   const sectionRef = useRef(null);
   const borderRef = useRef(null);
+  const servicesRef = useRef(null);
   const [fontLoaded, setFontLoaded] = useState(false);
 
 
@@ -67,9 +68,12 @@ function Opener() {
       // Ensure tagline elements exist
       if (taglineWords.length === 0) return;
 
-      // Set border initial state
+      // Set border and services initial state
       if (borderRef.current) {
         gsap.set(borderRef.current, { opacity: 0 });
+      }
+      if (servicesRef.current) {
+        gsap.set(servicesRef.current, { opacity: 0 });
       }
 
       const tl = gsap.timeline();
@@ -98,7 +102,12 @@ function Opener() {
           opacity: 1,
           duration: MOTION.story,
           ease: 'power1.out'
-        }, `-=0.4`);
+        }, `-=0.4`)
+        .to(servicesRef.current, {
+          opacity: 1,
+          duration: MOTION.smooth,
+          ease: 'power2.out'
+        }, `-=${MOTION.smooth}`);
     });
 
   }, [fontLoaded]);
@@ -108,10 +117,22 @@ function Opener() {
   return (
 
 
-    <div className="vh-100 bg-teal-950 d-flex justify-content-center align-items-center" >
-    
-      <section 
-        ref={sectionRef} 
+    <div className="vh-100 bg-teal-950 d-flex justify-content-center align-items-center position-relative" >
+
+      {/* Services text - bottom left */}
+      <div
+        ref={servicesRef}
+        className="position-absolute bottom-0 start-0 text-slate-300 font-mono text-xs px-4 pb-4"
+        style={{
+          letterSpacing: '0.02em',
+          opacity: 0
+        }}
+      >
+        Web Design, Development, & Full-Stack Solutions
+      </div>
+
+      <section
+        ref={sectionRef}
         className="text-center"
         style={{ opacity: fontLoaded ? 1 : 0 }}
       >

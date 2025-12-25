@@ -74,7 +74,7 @@ function Info() {
   }
 
   return (
-    <div className="row">
+    <div className="row ">
       <div className="col-lg-12 col-12 px-0">
         <a
           ref={linkRef}
@@ -87,7 +87,7 @@ function Info() {
           {/* Background reveal layer */}
           <div
             ref={bgRef}
-            className="position-absolute top-0 start-0 w-100 h-100 bg-slate-100"
+            className="position-absolute top-0 start-0 w-100 h-100 bg-yellow"
             style={{
               zIndex: 0,
               willChange: 'transform',

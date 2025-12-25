@@ -41,7 +41,7 @@ function Featured() {
       description: `Patient-centered military mental health care website that reflects their commitment to Norfolk, Virginia's military community.`,
       link: "https://lemich.netlify.app/",
       type: "video",
-      badges: ["SEO Optimized", "3× Conversions"],
+      badges: ["SEO Optimized", "Human-Centered Design"],
       bgColor: BRAND_COLORS.purple,
     },
     {
@@ -111,7 +111,7 @@ function Featured() {
               <p
                 className="text-xl gs pt-4 text-slate-700 mb-0 section-description"
               >
-                We work alongside our clients from concept to deployment. We will continue to support you and your website growth after launch with training and maintenance. 
+                We  collaborate with our clients from concept to deployment. We will continue to support you and your website growth after launch with training and maintenance. 
               </p>
             </div>
           </div>
