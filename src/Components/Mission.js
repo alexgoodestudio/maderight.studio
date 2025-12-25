@@ -119,12 +119,26 @@ function Mission() {
     "Made Right is a design-focused web development studio based in Columbia, South Carolina. Our goal is to bring together creativity, technology, and design to create performant, lasting websites that convert. With thoughtful user flows, strategic SEO implementation and our approach to development, we strive to deliver services that that you'll love well past launch.";
 
   return (
-    <section className="bg-white gs mission-p py-5 text-start px-lg-0 px-4 position-relative">
+    <section className="bg-yellow gs mission-p py-5  text-start px-lg-5 px-4 position-relative" style={{ overflow: 'visible' }}>
+      {/* Top wave */}
+      <div className="position-absolute start-0 w-100" style={{ top: '-1px', zIndex: 1 }}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style={{ width: '100%', height: '60px', display: 'block' }}>
+          <path d="M0,120 C300,80 900,80 1200,120 L1200,0 L0,0 Z" fill="#ffffff" />
+        </svg>
+      </div>
+
+      {/* Bottom wave */}
+      <div className="position-absolute start-0 w-100" style={{ bottom: '-1px', zIndex: 1 }}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style={{ width: '100%', height: '60px', display: 'block' }}>
+          <path d="M0,0 C300,40 900,40 1200,0 L1200,120 L0,120 Z" fill="#ffffff" />
+        </svg>
+      </div>
+
       <div
         ref={confettiContainer}
-        className="position-fixed confetti-container"
+        className="position-fixed confetti-container "
       />
-      <div ref={container} className="mission-body">
+      <div ref={container} className="mission-body ">
         <p>
           {text.split(" ").map((word, i) => {
             const match = word.match(/^(\w+)(\W*)$/);
@@ -152,7 +166,7 @@ function Mission() {
         <Link
           ref={buttonRef}
           to="/our-process"
-          className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-3 text-md font-mono position-relative border-0 text-sky-50"
+          className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-3 text-md font-mono position-relative border-0 text-white"
           style={{
             background: "transparent",
             height: window.innerWidth <= 768 ? "50px" : "60px",
@@ -160,7 +174,7 @@ function Mission() {
           }}
         >
           <ButtonShape
-            color={BRAND_COLORS.buttonPurple}
+            color={BRAND_COLORS.tealDark}
             width={window.innerWidth <= 768 ? 150 : 180}
             height={window.innerWidth <= 768 ? 50 : 60}
             className="position-absolute top-0 start-0"

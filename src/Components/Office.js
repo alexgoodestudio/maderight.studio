@@ -2,8 +2,9 @@ import OfficeImage from "./Images/one-min.jpg";
 
 function Office() {
   return (
-    <section className="bg-yellow py-lg-5 px-lg-5 py-4 px-4 row">
-      <div className="col-md-7">
+    <section className=" py-lg-5 px-lg-5 py-4 px-4 row">
+      
+      <div className="col-md-7 py-lg-4">
         <img
           src={OfficeImage}
           alt="Office"
@@ -14,16 +15,16 @@ function Office() {
           }}
         />
       </div>
-      <div className="col-md-5">
+      <div className="col-md-4">
         <p
-          className="text-gray-700 gs mt-4 text-2xl text-start px-lg-3 py-lg-3"
+          className="text-gray-700 gs mt-5 mt-lg-3 text-xl text-justify  px-lg-4 py-lg-1"
           style={{
-            letterSpacing: "-0.01em",
+            letterSpacing: "0em",
             lineHeight: "1.6",
           }}
         >
-          Made Right Studio is just me, Alex Goode, working from home in my free time,
-          developing and designing websites. I live in the Rosewood-Shandon
+          Made Right Studio is just me, Alex Goode,
+          developing and designing websites in my free time. I live in the Rosewood
           neighborhood of Columbia, South Carolina, and work full-time stocking
           shelves at Whole Foods Market. After hours, I'm building and designing
           websites combining what I learned from Promineo Tech's Front End

@@ -9,7 +9,7 @@ export const BRAND_COLORS = {
   teal: '#0f766e',        // Primary teal (teal-700)
   tealDark: '#134e4a',    // Dark teal (teal-900)
   tealDarker: '#115e59',  // Darker teal (teal-950)
-  coral: '#FF9375',       // Coral accent
+  coral: '#BB879D',       // Rosewood accent
   yellow: '#FFF7AF',      // Made Right yellow
   purple: '#A1ADEB',      // Purple accent
   lavender: '#E9D5FF',    // Light lavender
