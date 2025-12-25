@@ -99,6 +99,7 @@ function Storage(){
             
             <div className="bg-white">
                 <section>
+                    
                     <Nav/>
                     <Opener/>
                     <FeaturedNew/>

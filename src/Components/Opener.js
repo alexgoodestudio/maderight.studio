@@ -197,7 +197,7 @@ function Opener() {
             style={{ pointerEvents: "none" }}
           />
           <span
-            className="position-relative d-flex align-items-center gap-2"
+            className="position-relative d-flex align-items-center p-2 gap-2"
             style={{ zIndex: 1 }}
           >
             Let's Talk
