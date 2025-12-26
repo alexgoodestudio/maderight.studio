@@ -198,7 +198,7 @@ body {
   color: #FFF7AF;
 }
 .text-dark-yellow{
-  color: #B8A661;
+  color: #A69450;
 }
 
 .bg-blue{
@@ -767,7 +767,7 @@ body {
 /* Underline with offset */
 .mission-body .word.custom-underline {
   text-decoration: underline;
-  text-decoration-thickness: 1.5px;
+  text-decoration-thickness: 1px;
   text-underline-offset: 2px;
   display: inline;
 }
@@ -862,7 +862,7 @@ body {
 /* Mobile adjustments */
 @media (max-width: 767px) {
   .mission-p .mission-body {
-    font-size: 0.98rem;
+    font-size: 1.125rem;
   }
 
   .mission-body .btn-contact {

@@ -116,7 +116,7 @@ function Mission() {
   }, []);
 
   const text =
-    "Made Right is a <semibold>design-first</semibold> <italic>web development</italic> studio based in <underline>Columbia, South Carolina</underline>. Our goal is to bring together creativity, technology, and design to create performant, lasting websites that convert. With thoughtful user flows, strategic SEO implementation and our approach to development, we strive to deliver services that that <boldyellow>you'll love well past launch</boldyellow>.";
+    "Made Right ❤️ is a <semibold>design-first</semibold> <italic>web development</italic> studio based in <underline>Columbia, South Carolina</underline>. Our goal is to bring together creativity, technology, and design to create performant, lasting websites that convert. With thoughtful user flows, strategic SEO implementation and our approach to development, we strive to deliver services that <boldyellow>you'll love well past launch</boldyellow> .";
 
   return (
     <section className="bg-yellow gs mission-p py-5  text-start px-lg-5 px-4 position-relative">
