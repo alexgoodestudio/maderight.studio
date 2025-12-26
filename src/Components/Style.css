@@ -862,7 +862,7 @@ body {
 /* Mobile adjustments */
 @media (max-width: 767px) {
   .mission-p .mission-body {
-    font-size: 1.125rem;
+    font-size: 0.98rem;
   }
 
   .mission-body .btn-contact {
