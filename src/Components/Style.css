@@ -197,6 +197,13 @@ body {
 .text-yellow{
   color: #FFF7AF;
 }
+.text-dark-yellow{
+  color: #B8A661;
+}
+
+.bg-blue{
+  background-color: #b1bdf9;
+}
 /* -----------------------------------------------------------------------------
    TYPOGRAPHY SYSTEM
    Modular scale with responsive adjustments
@@ -756,15 +763,15 @@ body {
 /* Underline with offset */
 .mission-body .word.custom-underline {
   text-decoration: underline;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1.5px;
   text-underline-offset: 2px;
-  display: inline-block;
+  display: inline;
 }
 
 /* Continuous underline for "Made Right" phrase */
 .mission-body .word.made-right-underline {
   text-decoration: underline;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1.5px;
   text-underline-offset: 2px;
   display: inline;
 }

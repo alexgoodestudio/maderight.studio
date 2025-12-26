@@ -116,7 +116,7 @@ function Mission() {
   }, []);
 
   const text =
-    "Made Right is a <semibold>design-focused</semibold> <italic>web development</italic> and <italic>technology</italic> studio based in Columbia, South Carolina. Our goal is to bring together creativity, technology, and design to create performant, lasting websites that convert. With thoughtful user flows, strategic SEO implementation and our approach to development, we strive to deliver services that that you'll love well past launch.";
+    "Made Right is a <semibold>design-first</semibold> <italic>web development</italic> studio based in <underline>Columbia, South Carolina</underline>. Our goal is to bring together creativity, technology, and design to create performant, lasting websites that convert. With thoughtful user flows, strategic SEO implementation and our approach to development, we strive to deliver services that that <boldyellow>you'll love well past launch</boldyellow>.";
 
   return (
     <section className="bg-yellow gs mission-p py-5  text-start px-lg-5 px-4 position-relative">
@@ -162,9 +162,11 @@ function Mission() {
                   const isItalicEnd = word.includes("</italic>");
                   const isUnderlineStart = word.includes("<underline>");
                   const isUnderlineEnd = word.includes("</underline>");
+                  const isBoldYellowStart = word.includes("<boldyellow>");
+                  const isBoldYellowEnd = word.includes("</boldyellow>");
 
                   // Remove tags from word
-                  let cleanWord = word.replace(/<\/?bold>/g, "").replace(/<\/?semibold>/g, "").replace(/<\/?italic>/g, "").replace(/<\/?underline>/g, "");
+                  let cleanWord = word.replace(/<\/?bold>/g, "").replace(/<\/?semibold>/g, "").replace(/<\/?italic>/g, "").replace(/<\/?underline>/g, "").replace(/<\/?boldyellow>/g, "");
 
                   const match = cleanWord.match(/^(\w+)(\W*)$/);
                   const letters = match ? match[1] : cleanWord;
@@ -198,6 +200,79 @@ function Mission() {
                     return;
                   }
 
+                  // Special handling for "Columbia, South Carolina" phrase
+                  if (letters === "Columbia" && isUnderlineStart) {
+                    let phrase = cleanWord;
+                    let lookAhead = 1;
+
+                    // Collect all words until we find the closing underline tag
+                    while (i + lookAhead < words.length && !words[i + lookAhead].includes("</underline>")) {
+                      const nextWord = words[i + lookAhead].replace(/<\/?underline>/g, "");
+                      phrase += " " + nextWord;
+                      lookAhead++;
+                    }
+
+                    // Add the final word with closing tag
+                    if (i + lookAhead < words.length) {
+                      const finalWord = words[i + lookAhead].replace(/<\/?underline>/g, "");
+                      phrase += " " + finalWord;
+                    }
+
+                    result.push(
+                      <span key={i} className="inline-block mr-2">
+                        <span className="word custom-underline">
+                          {phrase}
+                        </span>
+                      </span>
+                    );
+
+                    // Skip all the words we just processed
+                    for (let j = 0; j < lookAhead; j++) {
+                      skipNext = true;
+                      words[i + j + 1] = "__SKIP__";
+                    }
+                    return;
+                  }
+
+                  // Special handling for boldyellow multi-word phrases
+                  if (isBoldYellowStart) {
+                    let phrase = cleanWord;
+                    let lookAhead = 1;
+
+                    // Collect all words until we find the closing boldyellow tag
+                    while (i + lookAhead < words.length && !words[i + lookAhead].includes("</boldyellow>")) {
+                      const nextWord = words[i + lookAhead].replace(/<\/?boldyellow>/g, "");
+                      phrase += " " + nextWord;
+                      lookAhead++;
+                    }
+
+                    // Add the final word with closing tag
+                    if (i + lookAhead < words.length) {
+                      const finalWord = words[i + lookAhead].replace(/<\/?boldyellow>/g, "");
+                      phrase += " " + finalWord;
+                    }
+
+                    result.push(
+                      <span key={i} className="inline-block mr-2">
+                        <span className="word fw-bold text-dark-yellow">
+                          {phrase}
+                        </span>
+                      </span>
+                    );
+
+                    // Skip all the words we just processed
+                    for (let j = 0; j < lookAhead; j++) {
+                      skipNext = true;
+                      words[i + j + 1] = "__SKIP__";
+                    }
+                    return;
+                  }
+
+                  // Skip words marked for skipping
+                  if (word === "__SKIP__") {
+                    return;
+                  }
+
                   if (letters === "Made" || letters === "Right") {
                     colorClass = "lora";
                     specialClass = "made-right";
@@ -213,6 +288,10 @@ function Mission() {
 
                   if (isItalicStart || isItalicEnd) {
                     styleClass += " fst-italic lora fw-light";
+                  }
+
+                  if (isBoldYellowStart || isBoldYellowEnd) {
+                    styleClass += " fw-bold text-dark-yellow";
                   }
 
                   if (isUnderlineStart || isUnderlineEnd) {

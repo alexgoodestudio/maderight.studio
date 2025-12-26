@@ -62,7 +62,7 @@ function Featured() {
       link: "http://alexgoode.netlify.app/",
       type: "video",
       badges: ["SEO Optimized", "Mobile-First"],
-      bgColor: BRAND_COLORS.yellow,
+      bgColor: BRAND_COLORS.tealDark,
     },
   ];
 

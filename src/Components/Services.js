@@ -141,8 +141,10 @@ function Services() {
       title: "Front-End Development",
       description: "React & Next.js Applications",
       expertise: "Component-driven architecture with server-side rendering and optimized performance",
-      bgColor: "#FFF7AF",
-      textColor: "#2B2B2B"
+           bgColor: "#E9D5FF",
+      textColor: "#2A2440"
+
+
     },
     {
       title: "Content Management Systems",
@@ -176,8 +178,8 @@ function Services() {
       title: "Accessibility & UX",
       description: "Inclusive User Experiences",
       expertise: "Human-first design principles",
-      bgColor: "#C5C9D1",
-      textColor: "#31304A"
+      bgColor: "#E8DAC8",
+      textColor: "#2C4B45"
     }
   ];
 
