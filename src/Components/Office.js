@@ -2,7 +2,7 @@ import OfficeImage from "./Images/one-min.jpg";
 
 function Office() {
   return (
-    <section className=" py-lg-5 px-lg-5 py-lg-4 pt-5 px-4 row" style={{ backgroundColor: '#E8DAC8' }}>
+    <section className="bg-white py-lg-5 px-lg-5 py-lg-4 pt-5 px-4 row">
 
       <div className="col-md-7 py-lg-4 pe-lg-5">
         <img

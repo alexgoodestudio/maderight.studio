@@ -204,6 +204,10 @@ body {
 .bg-blue{
   background-color: #b1bdf9;
 }
+
+.bg-taupe{
+  background-color: #F5EDE3;
+}
 /* -----------------------------------------------------------------------------
    TYPOGRAPHY SYSTEM
    Modular scale with responsive adjustments

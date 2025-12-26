@@ -178,8 +178,8 @@ function Services() {
       title: "Accessibility & UX",
       description: "Inclusive User Experiences",
       expertise: "Human-first design principles",
-      bgColor: "#E8DAC8",
-      textColor: "#2C4B45"
+      bgColor: "#C5C9D1",
+      textColor: "#2A2440"
     }
   ];
 

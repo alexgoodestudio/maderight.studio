@@ -5,7 +5,7 @@ import  Info  from './Info';
 import Services from "./Services"
 import Nav from "./Nav";
 import Contact from "./Contact";
-import Stats from "./Stats";
+// import Stats from "./Stats";
 import Mission from './Mission';
 // import Playground from "./Playground"
 // import PlaygroundNew from "./PlaygroundNew"
@@ -108,7 +108,7 @@ function Storage(){
                     {/* <Shapes/> */}
                     <Info/>
                     <Office/>
-                    <Stats/>
+                    {/* <Stats/> */}
                     {/* <Playground/> */}
                     {/* <PlaygroundNew/> */}
                     <Contact/>
