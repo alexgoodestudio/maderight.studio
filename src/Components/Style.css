@@ -243,6 +243,13 @@ body {
   display: inline-block;
 }
 
+.spaced-topline-2{
+  text-decoration: none;
+  border-top: 2px solid rgba(148,163,184,0.45);
+  padding-top: 2px;
+  display: inline-block;
+}
+
 .word {
   display: inline-block;
   white-space: nowrap;

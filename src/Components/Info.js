@@ -9,42 +9,46 @@ function Info() {
   const bgRef = useRef(null)
 
   useEffect(() => {
-    const isMobile = window.innerWidth < 992;
-
     // Set initial state for background
     gsap.set(bgRef.current, {
       scaleY: 0,
       transformOrigin: 'bottom',
     })
 
-    if (isMobile) {
-      // Mobile: scroll-triggered reveal
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: linkRef.current,
-          start: 'top 70%',
-          end: 'bottom 30%',
-          scrub: 1,
-        },
-      })
-
-      timeline
-        .to(bgRef.current, {
+    // Full screen scroll-triggered reveal for all screen sizes
+    ScrollTrigger.create({
+      trigger: linkRef.current,
+      start: 'top center',
+      end: 'bottom center',
+      onEnter: () => {
+        gsap.to(bgRef.current, {
           scaleY: 1,
-          duration: 0.4,
+          duration: 0.6,
           ease: 'power1.inOut',
         })
-        .to(bgRef.current, {
-          scaleY: 1,
-          duration: 0.2,
-        })
-        .to(bgRef.current, {
+      },
+      onLeave: () => {
+        gsap.to(bgRef.current, {
           scaleY: 0,
-          duration: 0.4,
+          duration: 0.6,
           ease: 'power1.inOut',
         })
-    }
-    // Desktop: hover only (handled by mouse events below)
+      },
+      onEnterBack: () => {
+        gsap.to(bgRef.current, {
+          scaleY: 1,
+          duration: 0.6,
+          ease: 'power1.inOut',
+        })
+      },
+      onLeaveBack: () => {
+        gsap.to(bgRef.current, {
+          scaleY: 0,
+          duration: 0.6,
+          ease: 'power1.inOut',
+        })
+      },
+    })
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
@@ -52,25 +56,11 @@ function Info() {
   }, [])
 
   const handleMouseEnter = () => {
-    const isMobile = window.innerWidth < 992;
-    if (!isMobile) {
-      gsap.to(bgRef.current, {
-        scaleY: 1,
-        duration: 0.4,
-        ease: 'power1.out',
-      })
-    }
+    // Disabled - using scroll effect for all screen sizes
   }
 
   const handleMouseLeave = () => {
-    const isMobile = window.innerWidth < 992;
-    if (!isMobile) {
-      gsap.to(bgRef.current, {
-        scaleY: 0,
-        duration: 0.4,
-        ease: 'power1.in',
-      })
-    }
+    // Disabled - using scroll effect for all screen sizes
   }
 
   return (

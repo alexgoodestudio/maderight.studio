@@ -130,8 +130,19 @@ function Mission() {
 
       tl.fromTo(
         lineElement,
-        { opacity: 0 },
-        { opacity: 1, duration: 1 },
+        {
+          opacity: 0,
+          scaleX: 0,
+          transformOrigin: 'left center',
+          rotation: -3,
+        },
+        {
+          opacity: 1,
+          scaleX: 1,
+          rotation: 0,
+          duration: 1.2,
+          ease: 'power2.out',
+        },
         delayTime
       );
     }
