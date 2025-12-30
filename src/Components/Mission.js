@@ -7,6 +7,8 @@ import { ButtonShape, BRAND_COLORS } from "./Shapes";
 import { ArrowUpRight } from "lucide-react";
 import line from "./Images/b.png"
 import smiley from "./Images/j.png"
+import { triggerConfetti } from "../utils/confetti";
+
 function Mission() {
   const container = useRef();
   const buttonRef = useRef();
@@ -278,6 +280,11 @@ function Mission() {
               ref={buttonRef}
               to="/our-process"
               className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-3 text-md font-mono position-relative border-0 text-white"
+              onClick={(e) => {
+                if (buttonRef.current) {
+                  triggerConfetti(buttonRef.current);
+                }
+              }}
             >
               <ButtonShape
                 color={BRAND_COLORS.tealDark}

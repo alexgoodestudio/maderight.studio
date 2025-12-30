@@ -10,7 +10,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { BRAND_COLORS } from "./Shapes";
 import Vid from "./Images/lem.mov";
 import Vid2 from "./Images/a.mov";
-import Vid3 from "./Images/rosewood.mov";
+import Vid3 from "./Images/1.mov";
 
 import "./Style.css";
 
@@ -129,10 +129,10 @@ function Featured() {
                 ...(isMobile ? { opacity: 0, transform: 'translateY(50px)' } : {})
               }}
             >
-              {/* Inner white card at 95% width */}
+              {/* Inner white card at 95% width (97% on mobile) */}
               <div
                 className="rounded-2xl shadow-md overflow-hidden d-flex flex-column text-start transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg h-100 mx-auto"
-                style={{ width: '95%', backgroundColor: '#f1f5f9' }}
+                style={{ width: isMobile ? '97%' : '95%', backgroundColor: '#f1f5f9' }}
               >
                 {/* Render video OR image */}
                 {service.type === "video" ? (

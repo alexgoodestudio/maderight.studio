@@ -5,16 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import { ButtonShape, BRAND_COLORS } from './Shapes';
 import { ArrowUpRight } from 'lucide-react';
+import { triggerConfetti } from '../utils/confetti';
 
 gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
-
-const MOTION = {
-  instant: 0.15,
-  quick: 0.3,
-  smooth: 0.5,
-  slow: 0.8,
-  story: .925
-};
 
 function Opener() {
   const madeRef = useRef(null);
@@ -24,6 +17,16 @@ function Opener() {
   const borderRef = useRef(null);
   const servicesRef = useRef(null);
   const [fontLoaded, setFontLoaded] = useState(false);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const wordSwapRef = useRef(null);
+
+  // Words to cycle through with their widths
+  const swappingWords = [
+    { text: "drive conversions", width: "240px" },
+    { text: "build trust", width: "140px" },
+    { text: "grow your business", width: "280px" },
+    { text: "stand out", width: "140px" }
+  ];
 
 
   // Wait for font to load
@@ -62,74 +65,103 @@ function Opener() {
       // Double-check refs are still valid
       if (!madeRef.current || !rightRef.current || !taglineRef.current) return;
 
-      // Only select words with 'animate' class for animation
-      const taglineWords = taglineRef.current.querySelectorAll('.word.animate');
-      const taglineEmphasis = taglineRef.current.querySelectorAll('.emphasis.animate');
-
-      // Ensure tagline elements exist
-      if (taglineWords.length === 0) return;
-
-      // Set border and services initial state
+      // Border and services text show immediately without animation
       if (borderRef.current) {
-        gsap.set(borderRef.current, { opacity: 0 });
+        gsap.set(borderRef.current, { opacity: 1 });
       }
       if (servicesRef.current) {
-        gsap.set(servicesRef.current, { opacity: 0 });
+        gsap.set(servicesRef.current, { opacity: 1 });
       }
-
-      const tl = gsap.timeline();
 
       // No animation for "Made Right" text - just show it
       gsap.set([madeRef.current, rightRef.current], {
         opacity: 1
       });
 
-      tl
-        .from(taglineWords, {
-          y: 40,
-          opacity: 0,
-          rotateX: 45,
-          transformOrigin: 'center top',
-          duration: MOTION.smooth,
-          stagger: 0.12,
-          ease: 'power2.out'
-        })
-        .to(taglineEmphasis, {
-          duration: MOTION.quick,
-          stagger: 0.15,
-          ease: 'power1.inOut'
-        }, `-=${MOTION.instant}`)
-        .to(borderRef.current, {
-          opacity: 1,
-          duration: MOTION.story,
-          ease: 'power1.out'
-        }, `-=0.4`)
-        .to(servicesRef.current, {
-          opacity: 1,
-          duration: MOTION.smooth,
-          ease: 'power2.out'
-        }, `-=${MOTION.smooth}`);
+      // No animation for tagline - just show it
+      gsap.set(taglineRef.current, {
+        opacity: 1
+      });
     });
 
   }, [fontLoaded]);
+
+  // Word swapping animation
+  useGSAP(() => {
+    if (!fontLoaded || !wordSwapRef.current) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      gsap.set(wordSwapRef.current, { opacity: 1, y: 0 });
+      return;
+    }
+
+    // Initial animation - fade in first word from below
+    gsap.fromTo(wordSwapRef.current,
+      {
+        y: '100%',
+        opacity: 0
+      },
+      {
+        y: '0%',
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out',
+        delay: 1.2 // Start after the "Design-first" animation
+      }
+    );
+
+    // Set up looping animation
+    const interval = setInterval(() => {
+      if (!wordSwapRef.current) return;
+
+      // Animate current word out (up)
+      gsap.to(wordSwapRef.current, {
+        y: '-100%',
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.in',
+        onComplete: () => {
+          // Change the word
+          setCurrentWordIndex((prev) => (prev + 1) % swappingWords.length);
+
+          // Reset position to below before animating in
+          gsap.set(wordSwapRef.current, { y: '100%' });
+
+          // Animate new word in (from below)
+          gsap.to(wordSwapRef.current,
+            {
+              y: '0%',
+              opacity: 1,
+              duration: 0.5,
+              ease: 'power2.out'
+            }
+          );
+        }
+      });
+    }, 3000); // Change word every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [fontLoaded, swappingWords.length]);
 
 
 
   return (
 
 
-    <div className="bg-teal-950 d-flex justify-content-center align-items-center position-relative" style={{ height: window.innerWidth <= 768 ? '97vh' : '93vh' }}>
+    <div className="bg-teal-950 d-flex justify-content-center align-items-center position-relative" style={{ height: window.innerWidth <= 768 ? '100vh' : '93vh' }}>
 
       {/* Services text - bottom left */}
       <div
         ref={servicesRef}
         className="position-absolute bottom-0 start-0 text-slate-300 font-mono text-xs px-4 pb-4"
         style={{
-          letterSpacing: '0.02em',
-          opacity: 0
+          letterSpacing: '0.02em'
         }}
       >
-        Web Design, Development, & Full-Stack Solutions
+        {window.innerWidth <= 768
+          ? "Columbia, South Carolina"
+          : "Web Design, Development, & Full-Stack Solutions"}
       </div>
 
       <section
@@ -165,15 +197,39 @@ function Opener() {
             <div>
 
               <span className="word emphasis animate lora">Design-first</span>{' '}
-              <span className="word emphasis animate font-semibold italic">technology</span>{' '}
-              <span className="word animate lora">studio</span>
+              <span className="font-semibold italic">technology</span>{' '}
+              <span className="lora">to</span>{' '}
+              <span
+                className="d-inline-block position-relative"
+                style={{
+                  overflow: 'visible',
+                  height: '1.2em',
+                  width: '280px',
+                  verticalAlign: 'baseline',
+                  display: 'inline-block',
+                  top: window.innerWidth <= 768 ? '0.1em' : '0.15em',
+                  ...(window.innerWidth <= 768 ? { textAlign: 'center', left: '50%', transform: 'translateX(-50%)' } : {})
+                }}
+              >
+                <span
+                  ref={wordSwapRef}
+                  className="lora font-semibold d-inline-block position-absolute"
+                  style={{
+                    opacity: 0,
+                    whiteSpace: 'nowrap',
+                    ...(window.innerWidth <= 768 ? { width: '100%', textAlign: 'center', left: 0, right: 0 } : { left: 0 }),
+                    top: 0
+                  }}
+                >
+                  {swappingWords[currentWordIndex].text}
+                </span>
+              </span>
             </div>
-            <div ref={borderRef} className="mt-2 w-100 tagline-border"></div>
           </section>
 
           <br />
 
-          <div className="d-flex justify-content-center ">
+          <div className="d-none d-lg-flex justify-content-center ">
             <span className="text-xs tracking-wider px-2  text-slate-100 font-mono">
               Located in Columbia, South Carolina
             </span>
@@ -181,7 +237,10 @@ function Opener() {
         </h2>
 
         <button
-          onClick={() => window.location.href = "mailto:hello@maderight.studio"}
+          onClick={(e) => {
+            triggerConfetti(e.currentTarget);
+            window.location.href = "mailto:hello@maderight.studio";
+          }}
           className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-3 text-md font-mono position-relative border-0 text-sky-50"
           style={{
             background: "transparent",
