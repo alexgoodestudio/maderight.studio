@@ -847,26 +847,27 @@ body {
   transform-origin: 50% 50%;
 }
 
-/* Slightly larger pieces and increased burst distance on large screens */
-@media (min-width: 1024px) {
-  .mission-p .mission-body {
-    font-size: 1.125rem;
-  }
-
-  /* scale the entire confetti container so pieces created with fixed pixels appear larger */
-  .mission-p > .position-fixed {
-    --confetti-scale: 1.25;
-  }
+/* Mission section - 120vh centering for all screen sizes */
+.mission-p {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 120vh !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
-/* Make mission text more compact on very large screens */
-@media (min-width: 1400px) {
-  .mission-p .mission-body {
-    font-size: 1.75rem;
-  }
+.mission-body {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  width: 100%;
 }
 
-/* Mobile adjustments */
+.mission-body p {
+  margin-bottom: 0 !important;
+}
+
+/* Mobile - Keep original styling */
 @media (max-width: 767px) {
   .mission-p .mission-body {
     font-size: 0.98rem;
@@ -877,8 +878,39 @@ body {
     font-size: 0.8125rem;
     height: 50px;
     min-width: 150px;
+    margin-top: 1rem !important;
   }
+
   .mission-body .word + .word { margin-left: 0.28rem; }
+}
+
+/* Tablet and Desktop - Bold typography scale */
+@media (min-width: 768px) {
+  .mission-p {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .mission-p .mission-body {
+    font-size: clamp(1.25rem, 3.5vw, 2.75rem); /* Smaller: 20px - 44px */
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    max-width: 95% !important; /* Wider */
+    margin: 0 auto;
+  }
+}
+
+/* Wider container on larger screens */
+@media (min-width: 992px) {
+  .mission-p .mission-body {
+    max-width: 92% !important; /* Even wider on desktop */
+  }
+}
+
+@media (min-width: 1400px) {
+  .mission-p .mission-body {
+    max-width: 1600px !important; /* Utilize more space on XL screens */
+  }
 }
 
 /* Accessibility: disable/limit motion and hide confetti for reduced-motion users */

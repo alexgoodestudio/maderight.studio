@@ -9,153 +9,56 @@ import line from "./Images/b.png"
 import smiley from "./Images/j.png"
 function Mission() {
   const container = useRef();
-  const confettiContainer = useRef();
   const buttonRef = useRef();
-  const underlineRef = useRef();
-  const confettiFired = useRef(false);
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Create and animate confetti burst
-  const triggerConfetti = () => {
-    if (confettiFired.current) return; // Only fire once
-    confettiFired.current = true;
-
-    const colors = ["#FFF7AF", "#2C4B45", "#A1ADEB"];
-    const confettiCount = 36;
-
-    for (let i = 0; i < confettiCount; i++) {
-      const confetti = document.createElement("div");
-      confetti.className = "confetti-piece";
-
-      // Evenly distribute angles to prevent overlap
-      const angle = (i / confettiCount) * Math.PI * 2;
-      const velocity = 200 + (i % 3) * 80; // 3 rings at different distances
-      const xDest = Math.cos(angle) * velocity;
-      const yDest = Math.sin(angle) * velocity;
-
-      confetti.style.cssText = `
-        position: absolute;
-        width: 14px;
-        height: 14px;
-        background: ${colors[i % colors.length]};
-        left: 50%;
-        top: 50%;
-        opacity: 0;
-        border-radius: 50%;
-      `;
-      confettiContainer.current.appendChild(confetti);
-
-      gsap
-        .timeline()
-        .to(confetti, {
-          x: xDest,
-          y: yDest,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.out",
-        })
-        .to(confetti, {
-          x: xDest * 2.5,
-          y: yDest * 2.5,
-          opacity: 0,
-          duration: 0.4,
-          ease: "power1.inOut",
-          onComplete: () => confetti.remove(),
-        });
-    }
-  };
-
   useGSAP(() => {
-    const words = container.current.querySelectorAll(".word");
+    const isMobile = window.innerWidth <= 767;
 
-    // SINGLE UNIFIED SCROLLTRIGGER - pin and animation together
+    // Simple fade-in animation without pinning (all screen sizes)
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container.current,
-        start: "center center",
-        end: "+=4000",
-        scrub: 0.8,
-        pin: true,
-        pinSpacing: true,
-        anticipatePin: 1,
-        fastScrollEnd: true,
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          // Trigger confetti after Made Right has faded out (~95% progress)
-          if (self.progress > 0.99 && !confettiFired.current) {
-            triggerConfetti();
-          }
-        },
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play none none reverse",
       },
     });
 
-    // Fade in words and button - animation stays at final state
-    tl.fromTo(
-      words,
-      { opacity: 0.2 },
-      { opacity: 1, stagger: 0.1, duration: 1 },
-      0
-    );
-
-    // Animate underline from left to right synced with word fade-in
-    if (underlineRef.current) {
-      tl.fromTo(
-        underlineRef.current,
-        { scaleX: 0, opacity: 0 },
-        { scaleX: 1, opacity: 1, duration: 1.2, ease: "power2.out" },
-        0.3 // Start slightly after words begin fading in
-      );
-    }
-
-    // Animate Made smiley at the beginning
+    // Animate Made smiley
     const madeSmiley = container.current?.querySelector('.made-smiley');
     if (madeSmiley) {
       tl.fromTo(
         madeSmiley,
         { opacity: 0 },
-        { opacity: 1, duration: 1 },
-        0 // Start with the first words
+        { opacity: 1, duration: isMobile ? 0.5 : 0.7 },
+        0
       );
     }
 
-    // Animate line image - delay to match when the yellow phrase appears
+    // Animate line image
     const lineElement = container.current?.querySelector('.yellow-phrase-line');
-
     if (lineElement) {
-      // The yellow phrase appears late in the text, delay to match its word index
-      const allWords = text.split(' ');
-      const yellowPhraseIndex = allWords.findIndex(w => w.includes('boldyellow'));
-      const delayTime = yellowPhraseIndex * 0.1; // Match the 0.1 stagger timing
-
       tl.fromTo(
         lineElement,
-        {
-          opacity: 0,
-          scale: 0.85,
-          rotation: 2,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          rotation: 0,
-          duration: 1,
-          ease: 'elastic.out(1, 0.6)',
-        },
-        delayTime
+        { opacity: 0, scale: 0.85, rotation: 2 },
+        { opacity: 1, scale: 1, rotation: 0, duration: 0.8, ease: 'elastic.out(1, 0.6)' },
+        0.3
       );
     }
 
+    // Animate button
     tl.fromTo(
       buttonRef.current,
       { opacity: 0 },
-      { opacity: 1, duration: 1 },
-      0.5
+      { opacity: 1, duration: isMobile ? 0.5 : 0.7 },
+      0.3
     );
   }, []);
 
   const text =
-    "Made Right is a <semibold>design-first</semibold> <italic>web development</italic> studio based in <underline>Columbia, South Carolina</underline>. Our goal is to bring together creativity, technology, and design to create performant, lasting websites that convert. With thoughtful user flows, strategic SEO implementation and our approach to development, we strive to deliver services that <boldyellow>you'll love well past launch</boldyellow> .";
+    "Made Right is a <semibold>design-first</semibold> web development studio in Columbia, South Carolina. Our goal is to bring together creativity, technology, and design to create performant, lasting websites that convert. With thoughtful user flows, strategic SEO implementation and our approach to development, we strive to deliver services that <boldyellow>you'll love well past launch</boldyellow> .";
 
   return (
     <section className="bg-yellow gs mission-p py-5  text-start px-lg-5 px-4 position-relative">
@@ -173,10 +76,6 @@ function Mission() {
         </svg>
       </div>
 
-      <div
-        ref={confettiContainer}
-        className="position-fixed confetti-container "
-      />
       <div ref={container} className="mission-body container pt-5 pb-7">
         <div className="row">
           <div className="col-12">

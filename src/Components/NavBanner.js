@@ -41,10 +41,13 @@ function NavBanner() {
   return (
     <header
       ref={containerRef}
-      className="bg-blue text-slate-800 position-relative overflow-hidden"
+      className="text-slate-800 position-relative overflow-hidden"
       role="banner"
       aria-label="Site information banner"
-      style={{ height: isMobile ? '40px' : 'auto' }}
+      style={{
+        height: isMobile ? '40px' : 'auto',
+        backgroundColor: '#FFF7AF'
+      }}
     >
       {isMobile ? (
         <span

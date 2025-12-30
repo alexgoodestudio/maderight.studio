@@ -62,8 +62,9 @@ function Opener() {
       // Double-check refs are still valid
       if (!madeRef.current || !rightRef.current || !taglineRef.current) return;
 
-      const taglineWords = taglineRef.current.querySelectorAll('.word');
-      const taglineEmphasis = taglineRef.current.querySelectorAll('.emphasis');
+      // Only select words with 'animate' class for animation
+      const taglineWords = taglineRef.current.querySelectorAll('.word.animate');
+      const taglineEmphasis = taglineRef.current.querySelectorAll('.emphasis.animate');
 
       // Ensure tagline elements exist
       if (taglineWords.length === 0) return;
@@ -163,9 +164,9 @@ function Opener() {
           <section className="d-inline-block text-center  pb-2 px-2 md:px-6">
             <div>
 
-              <span className="word emphasis lora">Design-first</span>{' '}
-              <span className="word emphasis font-semibold italic">technology</span>{' '}
-              <span className="word lora">studio</span>
+              <span className="word emphasis animate lora">Design-first</span>{' '}
+              <span className="word emphasis animate font-semibold italic">technology</span>{' '}
+              <span className="word animate lora">studio</span>
             </div>
             <div ref={borderRef} className="mt-2 w-100 tagline-border"></div>
           </section>
@@ -173,7 +174,7 @@ function Opener() {
           <br />
 
           <div className="d-flex justify-content-center ">
-            <span className="text-xs tracking-wider word emphasis px-2  text-slate-100 font-mono">
+            <span className="text-xs tracking-wider px-2  text-slate-100 font-mono">
               Located in Columbia, South Carolina
             </span>
           </div>
