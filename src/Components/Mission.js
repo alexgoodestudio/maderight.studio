@@ -132,16 +132,15 @@ function Mission() {
         lineElement,
         {
           opacity: 0,
-          scaleX: 0,
-          transformOrigin: 'left center',
-          rotation: -3,
+          scale: 0.85,
+          rotation: 2,
         },
         {
           opacity: 1,
-          scaleX: 1,
+          scale: 1,
           rotation: 0,
-          duration: 1.2,
-          ease: 'power2.out',
+          duration: 1,
+          ease: 'elastic.out(1, 0.6)',
         },
         delayTime
       );

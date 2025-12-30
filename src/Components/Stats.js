@@ -151,10 +151,10 @@ function Stats() {
         }
         @media (max-width: 991px) {
           .stats-grid-mobile > .col-6:nth-child(odd) {
-            padding-right: 4px;
+            padding-right: 2px;
           }
           .stats-grid-mobile > .col-6:nth-child(even) {
-            padding-left: 4px;
+            padding-left: 2px;
           }
         }
       `}</style>
@@ -179,7 +179,7 @@ function Stats() {
                 id="stats-heading"
                 className="lora mb-4"
                 style={{
-                  fontSize: 'clamp(2.625rem, 9vw, 6rem)',
+                  fontSize: 'clamp(2rem, 9vw, 6rem)',
                   lineHeight: '1.05',
                   letterSpacing: '-0.03em',
                   fontWeight: '700',
@@ -211,10 +211,10 @@ function Stats() {
                 <div key={index} className="col-6 col-lg-3">
                   <div
                     ref={el => statsRefs.current[index] = el}
-                    className="text-start p-3 p-lg-5 position-relative"
+                    className="text-start p-4 p-lg-5 position-relative"
                     style={{
                       height: '100%',
-                      minHeight: window.innerWidth < 992 ? '180px' : '240px',
+                      minHeight: window.innerWidth < 992 ? '160px' : '240px',
                       cursor: 'default',
                       transition: 'box-shadow 0.3s ease',
                       overflow: 'hidden',
@@ -252,12 +252,17 @@ function Stats() {
 
                     {/* Crayon/pencil texture overlay */}
                     <div
-                      className="position-absolute top-0 start-0 w-100 h-100"
+                      className="position-absolute"
                       style={{
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '98%',
+                        height: '98%',
                         backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grainy'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' result='noise'/%3E%3CfeColorMatrix in='noise' type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 0 0 0 1 0 1 0 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23grainy)' opacity='1'/%3E%3C/svg%3E")`,
                         backgroundSize: '120px 120px',
                         mixBlendMode: 'multiply',
-                        opacity: 0.12,
+                        opacity: 0.06,
                         zIndex: 1,
                         pointerEvents: 'none'
                       }}
@@ -267,11 +272,12 @@ function Stats() {
                       ref={el => valueRefs.current[index] = el}
                       className="lora mb-3 position-relative"
                       style={{
-                        fontSize: 'clamp(2.8rem, 6vw, 5rem)',
+                        fontSize: window.innerWidth < 992 ? 'clamp(2.2rem, 6vw, 5rem)' : 'clamp(2.8rem, 6vw, 5rem)',
                         lineHeight: '1',
                         letterSpacing: '-0.03em',
                         fontWeight: '700',
                         color: '#1e293b',
+                        paddingTop: window.innerWidth < 992 ? '8px' : '0',
                         zIndex: 2
                       }}
                     >
@@ -280,7 +286,7 @@ function Stats() {
                     <div
                       className="gs mb-2 position-relative"
                       style={{
-                        fontSize: '16px',
+                        fontSize: window.innerWidth < 992 ? '14px' : '16px',
                         fontWeight: '600',
                         letterSpacing: '-0.015em',
                         color: index === 0
@@ -298,7 +304,7 @@ function Stats() {
                     <div
                       className="gs position-relative"
                       style={{
-                        fontSize: '13px',
+                        fontSize: window.innerWidth < 992 ? '12px' : '13px',
                         lineHeight: '1.5',
                         letterSpacing: '-0.01em',
                         color: index === 0
