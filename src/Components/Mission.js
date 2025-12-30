@@ -308,7 +308,7 @@ function Mission() {
                             left: 0,
                             height: 'auto',
                             pointerEvents: 'none',
-                            filter: 'brightness(0) saturate(100%) invert(58%) sepia(45%) saturate(1200%) hue-rotate(85deg) brightness(90%) contrast(88%)'
+                            filter: 'brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(200deg) brightness(98%) contrast(92%)'
                           }}
                         />
                       </span>
