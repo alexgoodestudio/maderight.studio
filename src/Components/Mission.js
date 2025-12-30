@@ -5,7 +5,8 @@ import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import { ButtonShape, BRAND_COLORS } from "./Shapes";
 import { ArrowUpRight } from "lucide-react";
-
+import line from "./Images/b.png"
+import smiley from "./Images/j.png"
 function Mission() {
   const container = useRef();
   const confettiContainer = useRef();
@@ -107,6 +108,34 @@ function Mission() {
       );
     }
 
+    // Animate Made smiley at the beginning
+    const madeSmiley = container.current?.querySelector('.made-smiley');
+    if (madeSmiley) {
+      tl.fromTo(
+        madeSmiley,
+        { opacity: 0 },
+        { opacity: 1, duration: 1 },
+        0 // Start with the first words
+      );
+    }
+
+    // Animate line image - delay to match when the yellow phrase appears
+    const lineElement = container.current?.querySelector('.yellow-phrase-line');
+
+    if (lineElement) {
+      // The yellow phrase appears late in the text, delay to match its word index
+      const allWords = text.split(' ');
+      const yellowPhraseIndex = allWords.findIndex(w => w.includes('boldyellow'));
+      const delayTime = yellowPhraseIndex * 0.1; // Match the 0.1 stagger timing
+
+      tl.fromTo(
+        lineElement,
+        { opacity: 0 },
+        { opacity: 1, duration: 1 },
+        delayTime
+      );
+    }
+
     tl.fromTo(
       buttonRef.current,
       { opacity: 0 },
@@ -189,7 +218,20 @@ function Mission() {
                     }
 
                     result.push(
-                      <span key={i} className="inline-block mr-2">
+                      <span key={i} className="inline-block mr-2 position-relative">
+                        <img
+                          src={smiley}
+                          alt=""
+                          className="position-absolute made-smiley"
+                          style={{
+                            top: '-35px',
+                            left: '-5px',
+                            width: '35px',
+                            height: 'auto',
+                            pointerEvents: 'none',
+                            filter: 'brightness(0)'
+                          }}
+                        />
                         <span className={`word ${colorClass} ${specialClass} ${styleClass}`}>
                           {letters} {cleanNextWord}
                         </span>
@@ -253,10 +295,22 @@ function Mission() {
                     }
 
                     result.push(
-                      <span key={i} className="inline-block mr-2">
+                      <span key={i} className="inline-block mr-2 position-relative">
                         <span className="word fw-bold text-dark-yellow">
                           {phrase}
                         </span>
+                        <img
+                          src={line}
+                          alt=""
+                          className="position-absolute w-100 yellow-phrase-line"
+                          style={{
+                            top: '20%',
+                            left: 0,
+                            height: 'auto',
+                            pointerEvents: 'none',
+                            filter: 'brightness(0) saturate(100%) invert(58%) sepia(45%) saturate(1200%) hue-rotate(85deg) brightness(90%) contrast(88%)'
+                          }}
+                        />
                       </span>
                     );
 
