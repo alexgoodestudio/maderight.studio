@@ -25,15 +25,20 @@ function NavBanner() {
 
     // Seamless infinite scroll - animate from right to left
     // Start at -textWidth and animate to 0, creating seamless loop
-    gsap.fromTo(el,
+    const animation = gsap.fromTo(el,
       { x: -textWidth },
       {
         x: 0,
         duration: 20,
         ease: "none",
-        repeat: -1
+        repeat: -1,
+        force3D: true
       }
     );
+
+    return () => {
+      animation.kill();
+    };
   }, [isMobile]);
 
   const bannerText = "Web Design • Web Development • SEO • Content Management Systems • Interaction Design • ";
@@ -46,8 +51,7 @@ function NavBanner() {
       aria-label="Site information banner"
       style={{
         height: isMobile ? '40px' : 'auto',
-        backgroundColor: '#BB879D',
-        color: '#1E1435'
+        backgroundColor: '#FFF7AF'
       }}
     >
       {isMobile ? (
@@ -58,13 +62,14 @@ function NavBanner() {
             whiteSpace: 'nowrap',
             paddingTop: '12px',
             paddingBottom: '12px',
-            color: '#1E1435'
+            color: '#000000',
+            willChange: 'transform'
           }}
         >
           {bannerText.repeat(3)}
         </span>
       ) : (
-        <p className="text-xs font-mono pb-3 pt-3 mb-0 nav-banner-text text-center" style={{ color: '#1E1435' }}>
+        <p className="text-xs font-mono pb-3 pt-3 mb-0 nav-banner-text text-center" style={{ color: '#000000' }}>
           Web Design <span className="mx-1"> • </span> Web Development <span className="mx-1"> • </span> SEO + AEO <span className="mx-1"> • </span> Content Management Systems <span className="mx-1"> • </span> Interaction Design <span className="mx-1"> • </span> Full-Stack Solutions
         </p>
       )}
