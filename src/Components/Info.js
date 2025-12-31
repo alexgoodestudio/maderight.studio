@@ -15,17 +15,26 @@ function Info() {
       transformOrigin: 'bottom',
     })
 
-    // Full screen scroll-triggered reveal for all screen sizes
-    gsap.to(bgRef.current, {
-      scaleY: 1,
-      duration: 0.6,
-      ease: 'power1.inOut',
+    // Create timeline for full up and down animation
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: linkRef.current,
         start: 'top center',
         end: 'bottom center',
-        toggleActions: 'play reverse play reverse',
+        scrub: 2,
       }
+    })
+
+    // Animate up (0 to 1) in first half, down (1 to 0) in second half
+    tl.to(bgRef.current, {
+      scaleY: 1,
+      duration: 1,
+      ease: 'power1.inOut',
+    })
+    .to(bgRef.current, {
+      scaleY: 0,
+      duration: 1,
+      ease: 'power1.inOut',
     })
 
     return () => {

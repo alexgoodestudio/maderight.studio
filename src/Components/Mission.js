@@ -27,17 +27,6 @@ function Mission() {
       },
     });
 
-    // Animate line image
-    const lineElement = container.current?.querySelector('.yellow-phrase-line');
-    if (lineElement) {
-      tl.fromTo(
-        lineElement,
-        { opacity: 0, scale: 0.85, rotation: 2 },
-        { opacity: 1, scale: 1, rotation: 0, duration: 0.8, ease: 'elastic.out(1, 0.6)' },
-        0.3
-      );
-    }
-
     // Animate button
     tl.fromTo(
       buttonRef.current,
@@ -69,7 +58,7 @@ function Mission() {
       <div ref={container} className="mission-body container pt-5 pb-7">
         <div className="row">
           <div className="col-12">
-            <p>
+            <p style={{ color: '#1e293b' }}>
               {(() => {
                 const words = text.split(" ");
                 const result = [];
@@ -194,7 +183,7 @@ function Mission() {
                             left: 0,
                             height: 'auto',
                             pointerEvents: 'none',
-                            filter: 'brightness(0)'
+                            filter: 'brightness(0.3)'
                           }}
                         />
                       </span>
@@ -254,7 +243,10 @@ function Mission() {
             <Link
               ref={buttonRef}
               to="/our-process"
-              className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-3 text-md font-mono position-relative border-0 text-white"
+              className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center px-3 text-md font-mono position-relative border-0 text-white"
+              style={{
+                marginTop: window.innerWidth <= 768 ? '1rem' : '3.5rem'
+              }}
               onClick={(e) => {
                 if (buttonRef.current) {
                   triggerConfetti(buttonRef.current);

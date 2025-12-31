@@ -34,7 +34,7 @@ function Stats() {
       value: '90',
       suffix: '+',
       label: 'Performance Scores',
-      sublabel: 'Lighthouse & Core Web Vitals'
+      sublabel: 'Google\'s quality standards'
     },
   ];
 
@@ -239,13 +239,15 @@ function Stats() {
                         width: '98%',
                         height: '98%',
                         objectFit: 'contain',
-                        filter: index === 0
-                          ? 'brightness(0) saturate(100%) invert(93%) sepia(61%) saturate(514%) hue-rotate(322deg) brightness(104%) contrast(101%)'
+                        backgroundColor: index === 0
+                          ? '#E9D5FF'  // Service 1 color
                           : index === 1
-                          ? 'brightness(0) saturate(100%) invert(73%) sepia(19%) saturate(1044%) hue-rotate(192deg) brightness(93%) contrast(87%)'
+                          ? '#816281'  // Service 2 color
                           : index === 2
-                          ? 'brightness(0) saturate(100%) invert(92%) sepia(14%) saturate(1151%) hue-rotate(235deg) brightness(102%) contrast(98%)'
-                          : 'brightness(0) saturate(100%) invert(85%) sepia(8%) saturate(450%) hue-rotate(350deg) brightness(98%) contrast(92%)',
+                          ? '#BB879D'  // Service 3 color
+                          : '#C5C9D1', // Service 6 color
+                        mixBlendMode: 'multiply',
+                        opacity: 0.7,
                         zIndex: 0
                       }}
                     />
@@ -276,7 +278,7 @@ function Stats() {
                         lineHeight: '1',
                         letterSpacing: '-0.03em',
                         fontWeight: '700',
-                        color: '#1e293b',
+                        color: '#334155',
                         paddingTop: window.innerWidth < 992 ? '8px' : '0',
                         zIndex: 2
                       }}
@@ -290,12 +292,12 @@ function Stats() {
                         fontWeight: '600',
                         letterSpacing: '-0.015em',
                         color: index === 0
-                          ? '#B8A030'  // Darker yellow
+                          ? '#B8A030'  // Service 1 text color
                           : index === 1
-                          ? '#5B6DB8'  // Darker blue
+                          ? '#5B6DB8'  // Service 2 text color
                           : index === 2
-                          ? '#9B7CB8'  // Darker purple
-                          : '#A89780', // Darker warm gray
+                          ? '#9B7CB8'  // Service 3 text color
+                          : '#A89780', // Service 6 text color
                         zIndex: 2
                       }}
                     >
@@ -308,12 +310,12 @@ function Stats() {
                         lineHeight: '1.5',
                         letterSpacing: '-0.01em',
                         color: index === 0
-                          ? '#9A8528'  // Even darker yellow
+                          ? '#9A8528'  // Slightly darker for sublabel
                           : index === 1
-                          ? '#4A5C9A'  // Even darker blue
+                          ? '#4A5C9A'  // Slightly darker for sublabel
                           : index === 2
-                          ? '#7D649A'  // Even darker purple
-                          : '#8A7D68', // Even darker warm gray
+                          ? '#7D649A'  // Slightly darker for sublabel
+                          : '#8A7D68', // Slightly darker for sublabel
                         zIndex: 2
                       }}
                     >

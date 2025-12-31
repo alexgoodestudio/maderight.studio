@@ -41,12 +41,13 @@ function NavBanner() {
   return (
     <header
       ref={containerRef}
-      className="text-slate-800 position-relative overflow-hidden"
+      className="position-relative overflow-hidden"
       role="banner"
       aria-label="Site information banner"
       style={{
         height: isMobile ? '40px' : 'auto',
-        backgroundColor: '#FFF7AF'
+        backgroundColor: '#BB879D',
+        color: '#1E1435'
       }}
     >
       {isMobile ? (
@@ -56,13 +57,14 @@ function NavBanner() {
           style={{
             whiteSpace: 'nowrap',
             paddingTop: '12px',
-            paddingBottom: '12px'
+            paddingBottom: '12px',
+            color: '#1E1435'
           }}
         >
           {bannerText.repeat(3)}
         </span>
       ) : (
-        <p className="text-xs font-mono pb-3 pt-3 mb-0 nav-banner-text text-center">
+        <p className="text-xs font-mono pb-3 pt-3 mb-0 nav-banner-text text-center" style={{ color: '#1E1435' }}>
           Web Design <span className="mx-1"> • </span> Web Development <span className="mx-1"> • </span> SEO + AEO <span className="mx-1"> • </span> Content Management Systems <span className="mx-1"> • </span> Interaction Design <span className="mx-1"> • </span> Full-Stack Solutions
         </p>
       )}
