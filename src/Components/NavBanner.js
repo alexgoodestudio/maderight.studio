@@ -1,11 +1,15 @@
 import { useRef, useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
 
 function NavBanner() {
   const textRef = useRef();
   const containerRef = useRef();
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    // Initialize with actual window width on first render
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 768;
+    }
+    return false;
+  });
 
   useEffect(() => {
     const checkMobile = () => {
@@ -16,30 +20,6 @@ function NavBanner() {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  useGSAP(() => {
-    if (!isMobile || !textRef.current) return;
-
-    const el = textRef.current;
-    const textWidth = el.offsetWidth / 3; // Divide by 3 since we repeat text 3 times
-
-    // Seamless infinite scroll - animate from right to left
-    // Start at -textWidth and animate to 0, creating seamless loop
-    const animation = gsap.fromTo(el,
-      { x: -textWidth },
-      {
-        x: 0,
-        duration: 20,
-        ease: "none",
-        repeat: -1,
-        force3D: true
-      }
-    );
-
-    return () => {
-      animation.kill();
-    };
-  }, [isMobile]);
 
   const bannerText = "Web Design • Web Development • SEO • Content Management Systems • Interaction Design • ";
 
@@ -54,25 +34,33 @@ function NavBanner() {
         backgroundColor: '#FFF7AF'
       }}
     >
-      {isMobile ? (
-        <span
-          ref={textRef}
-          className="position-absolute text-xs font-mono nav-banner-text d-inline-block"
-          style={{
-            whiteSpace: 'nowrap',
-            paddingTop: '12px',
-            paddingBottom: '12px',
-            color: '#000000',
-            willChange: 'transform'
-          }}
-        >
-          {bannerText.repeat(3)}
-        </span>
-      ) : (
-        <p className="text-xs font-mono pb-3 pt-3 mb-0 nav-banner-text text-center" style={{ color: '#000000' }}>
-          Web Design <span className="mx-1"> • </span> Web Development <span className="mx-1"> • </span> SEO + AEO <span className="mx-1"> • </span> Content Management Systems <span className="mx-1"> • </span> Interaction Design <span className="mx-1"> • </span> Full-Stack Solutions
-        </p>
-      )}
+      {/* Mobile scrolling banner - always rendered */}
+      <span
+        ref={textRef}
+        className="position-absolute text-xs font-mono nav-banner-text d-inline-block nav-banner-scroll"
+        style={{
+          left: 0,
+          top: 0,
+          whiteSpace: 'nowrap',
+          paddingTop: '12px',
+          paddingBottom: '12px',
+          color: '#000000',
+          display: isMobile ? 'inline-block' : 'none'
+        }}
+      >
+        {bannerText.repeat(3)}
+      </span>
+
+      {/* Desktop static banner */}
+      <p
+        className="text-xs font-mono pb-3 pt-3 mb-0 nav-banner-text text-center"
+        style={{
+          color: '#000000',
+          display: isMobile ? 'none' : 'block'
+        }}
+      >
+        Web Design <span className="mx-1"> • </span> Web Development <span className="mx-1"> • </span> SEO + AEO <span className="mx-1"> • </span> Content Management Systems <span className="mx-1"> • </span> Interaction Design <span className="mx-1"> • </span> Full-Stack Solutions
+      </p>
     </header>
   );
 }

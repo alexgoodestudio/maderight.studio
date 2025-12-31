@@ -96,23 +96,15 @@ function Opener() {
       return;
     }
 
-    // Initial animation - fade in first word from below
-    gsap.fromTo(wordSwapRef.current,
-      {
-        y: '100%',
-        opacity: 0
-      },
-      {
-        y: '0%',
-        opacity: 1,
-        duration: 0.6,
-        ease: 'power2.out',
-        delay: 1.2 // Start after the "Design-first" animation
-      }
-    );
+    // CRITICAL: First phrase must start mounted with NO animation
+    // Set initial state immediately - visible and in position
+    gsap.set(wordSwapRef.current, {
+      y: '0%',
+      opacity: 1
+    });
 
-    // Set up looping animation
-    const interval = setInterval(() => {
+    // Function to perform the word swap animation
+    const performSwap = () => {
       if (!wordSwapRef.current) return;
 
       // Animate current word out (up)
@@ -122,6 +114,9 @@ function Opener() {
         duration: 0.5,
         ease: 'power2.in',
         onComplete: () => {
+          // Safety check: verify ref still exists before proceeding
+          if (!wordSwapRef.current) return;
+
           // Change the word
           setCurrentWordIndex((prev) => (prev + 1) % swappingWords.length);
 
@@ -139,9 +134,22 @@ function Opener() {
           );
         }
       });
-    }, 3000); // Change word every 3 seconds
+    };
 
-    return () => clearInterval(interval);
+    let intervalId;
+
+    // First swap happens after 2 seconds
+    const firstTimeout = setTimeout(() => {
+      performSwap();
+
+      // After first swap, set up interval for subsequent swaps at 3 seconds each
+      intervalId = setInterval(performSwap, 3000);
+    }, 2000);
+
+    return () => {
+      clearTimeout(firstTimeout);
+      if (intervalId) clearInterval(intervalId);
+    };
   }, [fontLoaded, swappingWords.length]);
 
 
@@ -215,7 +223,7 @@ function Opener() {
                   ref={wordSwapRef}
                   className="lora font-semibold d-inline-block position-absolute"
                   style={{
-                    opacity: 0,
+                    opacity: 1,
                     whiteSpace: 'nowrap',
                     ...(window.innerWidth <= 768 ? { width: '100%', textAlign: 'center', left: 0, right: 0 } : { left: 0 }),
                     top: 0
