@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from 'lucide-react';
 import { BRAND_COLORS } from "./Shapes";
-import Vid from "./Images/lem.mov";
+import Vid from "./Images/z.mov";
 import Vid2 from "./Images/a.mov";
 import Vid3 from "./Images/1.mov";
 

@@ -6,7 +6,6 @@ import { useGSAP } from "@gsap/react";
 import { ButtonShape, BRAND_COLORS } from "./Shapes";
 import { ArrowUpRight } from "lucide-react";
 import line from "./Images/b.png"
-import smiley from "./Images/j.png"
 import { triggerConfetti } from "../utils/confetti";
 
 function Mission() {
@@ -27,17 +26,6 @@ function Mission() {
         toggleActions: "play none none reverse",
       },
     });
-
-    // Animate Made smiley
-    const madeSmiley = container.current?.querySelector('.made-smiley');
-    if (madeSmiley) {
-      tl.fromTo(
-        madeSmiley,
-        { opacity: 0 },
-        { opacity: 1, duration: isMobile ? 0.5 : 0.7 },
-        0
-      );
-    }
 
     // Animate line image
     const lineElement = container.current?.querySelector('.yellow-phrase-line');
@@ -60,7 +48,7 @@ function Mission() {
   }, []);
 
   const text =
-    "Made Right is a <semibold>design-first</semibold> web development studio in Columbia, South Carolina. Our goal is to bring together creativity, technology, and design to create performant, lasting websites that convert. With thoughtful user flows, strategic SEO implementation and our approach to development, we strive to deliver services that <boldyellow>you'll love well past launch</boldyellow> .";
+    "Made Right is a design-first web development studio in Columbia, South Carolina. Our goal is to bring together creativity, technology, and design to create performant, lasting websites that convert. With thoughtful user flows, strategic SEO implementation and our approach to development, we strive to deliver services that <boldyellow>you'll love well past launch</boldyellow> .";
 
   return (
     <section className="bg-yellow gs mission-p py-5  text-start px-lg-5 px-4 position-relative">
@@ -130,19 +118,6 @@ function Mission() {
 
                     result.push(
                       <span key={i} className="inline-block mr-2 position-relative">
-                        <img
-                          src={smiley}
-                          alt=""
-                          className="position-absolute made-smiley"
-                          style={{
-                            top: '-35px',
-                            left: '-5px',
-                            width: '35px',
-                            height: 'auto',
-                            pointerEvents: 'none',
-                            filter: 'brightness(0)'
-                          }}
-                        />
                         <span className={`word ${colorClass} ${specialClass} ${styleClass}`}>
                           {letters} {cleanNextWord}
                         </span>
@@ -219,7 +194,7 @@ function Mission() {
                             left: 0,
                             height: 'auto',
                             pointerEvents: 'none',
-                            filter: 'brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(200deg) brightness(98%) contrast(92%)'
+                            filter: 'brightness(0)'
                           }}
                         />
                       </span>

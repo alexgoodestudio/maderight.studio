@@ -16,38 +16,16 @@ function Info() {
     })
 
     // Full screen scroll-triggered reveal for all screen sizes
-    ScrollTrigger.create({
-      trigger: linkRef.current,
-      start: 'top center',
-      end: 'bottom center',
-      onEnter: () => {
-        gsap.to(bgRef.current, {
-          scaleY: 1,
-          duration: 0.6,
-          ease: 'power1.inOut',
-        })
-      },
-      onLeave: () => {
-        gsap.to(bgRef.current, {
-          scaleY: 0,
-          duration: 0.6,
-          ease: 'power1.inOut',
-        })
-      },
-      onEnterBack: () => {
-        gsap.to(bgRef.current, {
-          scaleY: 1,
-          duration: 0.6,
-          ease: 'power1.inOut',
-        })
-      },
-      onLeaveBack: () => {
-        gsap.to(bgRef.current, {
-          scaleY: 0,
-          duration: 0.6,
-          ease: 'power1.inOut',
-        })
-      },
+    gsap.to(bgRef.current, {
+      scaleY: 1,
+      duration: 0.6,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: linkRef.current,
+        start: 'top center',
+        end: 'bottom center',
+        toggleActions: 'play reverse play reverse',
+      }
     })
 
     return () => {

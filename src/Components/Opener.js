@@ -230,7 +230,7 @@ function Opener() {
           <br />
 
           <div className="d-none d-lg-flex justify-content-center ">
-            <span className="text-xs tracking-wider px-2  text-slate-100 font-mono">
+            <span className="text-xs tracking-wider pt-lg-2 px-2  text-slate-100 font-mono">
               Located in Columbia, South Carolina
             </span>
           </div>
