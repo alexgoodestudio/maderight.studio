@@ -29,12 +29,7 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'nunito';
-  src: url('./Fonts/Nunito-Regular.woff2') format('woff2');
-  font-style: normal;
-  font-display: swap;
-}
+
 @font-face {
   font-family: 'nunito-bold';
   src: url('./Fonts/Nunito-Bold.woff2') format('woff2');
@@ -42,109 +37,10 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'nunito-medium';
-  src: url('./Fonts/Nunito-Medium.woff2') format('woff2');
-  font-style: normal;
-  font-display: swap;
-}
 
-@font-face {
-  font-family: 'nunito-semi-bold';
-  src: url('./Fonts/Nunito-SemiBold.woff2') format('woff2');
-  font-style: normal;
-  font-display: swap;
-}
-
-
-@font-face {
-  font-family: 'nunito-semi-bold-italic';
-  src: url('./Fonts/Nunito-SemiBoldItalic.woff2') format('woff2');
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'nunito-medium-italic';
-  src: url('./Fonts/Nunito-MediumItalic.woff2') format('woff2');
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'satoshi';
-  src: url('./Fonts/Satoshi-Regular.woff2') format('woff2');
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'satoshi-medium';
-  src: url('./Fonts/Satoshi-Medium.woff2') format('woff2');
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'satoshi-bold';
-  src: url('./Fonts/Satoshi-Bold.woff2') format('woff2');
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'satoshi-black';
-  src: url('./Fonts/Satoshi-Black.woff2') format('woff2');
-  font-style: normal;
-  font-display: swap;
-}
-
-.nunito-semi-bold-italic {
-  font-family: 'nunito-semi-bold-italic', sans-serif;
-  font-display: block;
-}
-
-.nunito-semi-bold {
-  font-family: 'nunito-semi-bold', sans-serif;
-  font-display: block;
-}
-
-.nunito-medium-italic {
-  font-family: 'nunito-medium-italic', sans-serif;
-  font-display: block;
-}
-
-.nunito {
-  font-family: 'nunito', sans-serif;
-  font-display: block;
-}
-.nunito-medium {
-  font-family: 'nunito-medium', sans-serif;
-  font-display: block;
-}
 
 .nunito-bold {
   font-family: 'nunito-bold', sans-serif;
-  font-display: block;
-}
-
-.satoshi {
-  font-family: 'satoshi', sans-serif;
-  font-display: block;
-}
-
-.satoshi-medium {
-  font-family: 'satoshi-medium', sans-serif;
-  font-display: block;
-}
-
-.satoshi-bold {
-  font-family: 'satoshi-bold', sans-serif;
-  font-display: block;
-}
-
-.satoshi-black {
-  font-family: 'satoshi-black', sans-serif;
   font-display: block;
 }
 
@@ -398,8 +294,23 @@ body {
   }
 }
 
+@keyframes scroll-banner-right {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .nav-banner-scroll {
   animation: scroll-banner 15s linear 1s infinite;
+  animation-fill-mode: backwards;
+  will-change: transform;
+}
+
+.nav-banner-scroll-right {
+  animation: scroll-banner-right 15s linear 1s infinite;
   animation-fill-mode: backwards;
   will-change: transform;
 }

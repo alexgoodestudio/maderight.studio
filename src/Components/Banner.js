@@ -16,8 +16,8 @@ function Banner() {
     const repeatCount = 10; // Repeat 10 times to ensure always full coverage on mobile
     const textWidth = el.offsetWidth / repeatCount;
 
-    // Start with 5% from left edge so "How" is visible
-    gsap.set(el, { x: -textWidth * 0.05 });
+    // Start with 25% from left edge so more text is visible on mount
+    gsap.set(el, { x: -textWidth * 0.25 });
 
     animationRef.current = gsap.to(el, {
       x: -textWidth,

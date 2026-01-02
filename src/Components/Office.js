@@ -1,4 +1,4 @@
-import OfficeImage from "./Images/one-min.jpg";
+import OfficeImage from "./Images/one-min-min.jpg";
 
 function Office() {
   return (
