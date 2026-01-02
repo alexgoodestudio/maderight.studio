@@ -14,9 +14,9 @@ import Office from './Office';
 import NavBanner from './NavBanner';
 
 function Storage(){
-    const siteUrl = "https://maderight.studio"; 
-    const pageTitle = "Made Right Studio — Design-first technology studio";
-    const pageDescription = "Independent creative web design and technology studio in Columbia, SC. ";
+    const siteUrl = "https://maderight.studio";
+    const pageTitle = "Made Right Studio — Web Design & Development Studio Columbia SC";
+    const pageDescription = "Made Right Studio is a creative web design and development studio in Columbia, South Carolina. We build custom websites, web applications, and digital experiences for progressive small businesses.";
     const ogImage = `${siteUrl}/og-image.png`;
 
     return(
@@ -47,7 +47,11 @@ function Storage(){
                 
                 {/* Additional SEO */}
                 <meta name="author" content="Made Right Studio" />
-                <meta name="keywords" content="Web Design and Development in Columbia South Carolina " />
+                <meta name="keywords" content="Made Right Studio web design, Made Right Studio web development, web design studio Columbia SC, web development Columbia South Carolina, custom website design, React development, design studio South Carolina" />
+
+                {/* Brand Disambiguation */}
+                <meta name="classification" content="Web Design and Development Studio" />
+                <meta name="category" content="Professional Services, Web Design, Technology" />
                 
                 {/* Structured Data - Organization */}
                 <script type="application/ld+json">
@@ -55,6 +59,7 @@ function Storage(){
                         "@context": "https://schema.org",
                         "@type": "Organization",
                         "name": "Made Right Studio",
+                        "alternateName": "Made Right Studio Web Design",
                         "description": "Independent web design and technology studio specializing in modular design systems for progressive small businesses",
                         "url": siteUrl,
                         "logo": `${siteUrl}/logo.svg`,
@@ -68,6 +73,11 @@ function Storage(){
                             "@type": "GeoCoordinates",
                             "latitude": "34.0007",
                             "longitude": "-81.0348"
+                        },
+                        "contactPoint": {
+                            "@type": "ContactPoint",
+                            "contactType": "customer service",
+                            "areaServed": "US"
                         }
                     })}
                 </script>
@@ -88,11 +98,22 @@ function Storage(){
                         },
                         "description": pageDescription,
                         "url": siteUrl,
-                        "serviceType": ["Web Design", "Web Development", "SEO", "Brand Identity"],
+                        "serviceType": ["Web Design", "Web Development", "Custom Websites"],
                         "areaServed": {
                             "@type": "State",
                             "name": "South Carolina"
                         }
+                    })}
+                </script>
+
+                {/* Structured Data - WebSite */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "WebSite",
+                        "name": "Made Right Studio",
+                        "url": siteUrl,
+                        "description": pageDescription
                     })}
                 </script>
             </Helmet>
