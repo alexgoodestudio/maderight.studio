@@ -204,21 +204,33 @@ function Opener() {
           <section className="d-inline-block text-center  pb-2 px-2 md:px-6">
             <div>
 
-              <span className="word emphasis animate lora">Design-first</span>{' '}
+              <span className="word emphasis animate lora pt-lg-4">Design-first</span>{' '}
               <span className="font-semibold italic">technology</span>{' '}
               <span className="lora">to</span>{' '}
               <span
                 className="d-inline-block position-relative"
                 style={{
-                  overflow: 'visible',
-                  height: '1.2em',
+                  overflow: 'hidden',
+                  height: '1.4em',
                   width: '280px',
                   verticalAlign: 'baseline',
                   display: 'inline-block',
-                  top: window.innerWidth <= 768 ? '0.1em' : '0.15em',
-                  ...(window.innerWidth <= 768 ? { textAlign: 'center', left: '50%', transform: 'translateX(-50%)' } : {})
+                  top: window.innerWidth <= 768 ? '0.1em' : '0.4em',
+                  ...(window.innerWidth <= 768 ? { textAlign: 'center', left: '50%', transform: 'translateX(-50%)' } : { left: '0.04em' })
                 }}
               >
+                {/* Teal wall overlay - creates cut-off effect */}
+                <span
+                  className="position-absolute bg-teal-950"
+                  style={{
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '0.15em',
+                    zIndex: 10,
+                    pointerEvents: 'none'
+                  }}
+                />
                 <span
                   ref={wordSwapRef}
                   className="lora font-semibold d-inline-block position-absolute"

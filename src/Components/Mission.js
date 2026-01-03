@@ -40,7 +40,7 @@ function Mission() {
     "Made Right is a design-first web development studio in Columbia, South Carolina. Our goal is to bring together creativity, technology, and design to create performant, lasting websites that convert. With thoughtful user flows, strategic SEO implementation and our approach to development, we strive to deliver services that <boldyellow>you'll love well past launch</boldyellow> .";
 
   return (
-    <section className="bg-yellow gs mission-p py-5  text-start px-lg-5 px-4 position-relative">
+    <section className="gs bg-slate-100 mission-p py-5  text-start px-lg-5 px-4 position-relative">
       {/* Top wave */}
       <div className="position-absolute start-0 w-100 mission-wave-top">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="mission-wave-svg">

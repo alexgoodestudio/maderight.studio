@@ -335,6 +335,41 @@ body {
   border-bottom: 1px solid currentColor;
 }
 
+/* Word swap container positioning */
+.word-swap-container {
+  overflow: hidden;
+  height: 1.4em;
+  width: 280px;
+  vertical-align: baseline;
+  display: inline-block;
+  position: relative;
+}
+
+/* Desktop positioning */
+@media (min-width: 769px) {
+  .word-swap-container {
+    top: -0.1em;
+  }
+
+  .word-swap-text {
+    top: 0.1em;
+  }
+}
+
+/* Mobile positioning */
+@media (max-width: 768px) {
+  .word-swap-container {
+    top: 0.1em;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .word-swap-text {
+    top: 0;
+  }
+}
+
 /* -----------------------------------------------------------------------------
    CONFETTI STYLES
    ----------------------------------------------------------------------------- */

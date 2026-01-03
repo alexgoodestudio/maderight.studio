@@ -150,11 +150,11 @@ function Stats() {
           }
         }
         @media (max-width: 991px) {
-          .stats-grid-mobile > .col-6:nth-child(odd) {
-            padding-right: 2px;
+          .stats-grid-mobile {
+            margin: 0 !important;
           }
-          .stats-grid-mobile > .col-6:nth-child(even) {
-            padding-left: 2px;
+          .stats-grid-mobile > .col-6 {
+            padding: 0 !important;
           }
         }
       `}</style>
@@ -211,14 +211,15 @@ function Stats() {
                 <div key={index} className="col-6 col-lg-3">
                   <div
                     ref={el => statsRefs.current[index] = el}
-                    className="text-start p-4 p-lg-5 position-relative"
+                    className="text-start position-relative"
                     style={{
                       height: '100%',
                       minHeight: window.innerWidth < 992 ? '160px' : '240px',
                       cursor: 'default',
                       transition: 'box-shadow 0.3s ease',
                       overflow: 'hidden',
-                      wordWrap: 'break-word'
+                      wordWrap: 'break-word',
+                      padding: window.innerWidth < 992 ? '16px' : '40px'
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.boxShadow = '0 4px 20px rgba(15, 23, 42, 0.08)';
@@ -233,12 +234,13 @@ function Stats() {
                       alt=""
                       className="position-absolute"
                       style={{
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        width: '98%',
-                        height: '98%',
-                        objectFit: 'contain',
+                        top: '3%',
+                        left: '3%',
+                        right: '3%',
+                        bottom: '3%',
+                        width: '94%',
+                        height: '94%',
+                        objectFit: 'fill',
                         backgroundColor: index === 0
                           ? '#E9D5FF'  // Service 1 color
                           : index === 1
@@ -256,11 +258,12 @@ function Stats() {
                     <div
                       className="position-absolute"
                       style={{
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        width: '98%',
-                        height: '98%',
+                        top: '3%',
+                        left: '3%',
+                        right: '3%',
+                        bottom: '3%',
+                        width: '94%',
+                        height: '94%',
                         backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grainy'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' result='noise'/%3E%3CfeColorMatrix in='noise' type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 0 0 0 1 0 1 0 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23grainy)' opacity='1'/%3E%3C/svg%3E")`,
                         backgroundSize: '120px 120px',
                         mixBlendMode: 'multiply',
