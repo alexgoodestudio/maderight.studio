@@ -37,10 +37,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'gambarino';
+  src: url('./Fonts/Gambarino-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+
 
 
 .nunito-bold {
   font-family: 'nunito-bold', sans-serif;
+  font-display: block;
+}
+
+.gambarino {
+  font-family: 'gambarino', sans-serif;
   font-display: block;
 }
 

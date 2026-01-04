@@ -18,6 +18,7 @@ function Opener() {
   const servicesRef = useRef(null);
   const [fontLoaded, setFontLoaded] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
   const wordSwapRef = useRef(null);
 
   // Words to cycle through with their widths
@@ -73,14 +74,25 @@ function Opener() {
         gsap.set(servicesRef.current, { opacity: 1 });
       }
 
-      // No animation for "Made Right" text - just show it
-      gsap.set([madeRef.current, rightRef.current], {
-        opacity: 1
+      // Letter-by-letter reveal for "Made Right"
+      const madeLetters = madeRef.current.querySelectorAll('.letter');
+      const rightLetters = rightRef.current.querySelectorAll('.letter');
+      const allLetters = [...madeLetters, ...rightLetters];
+
+      gsap.from(allLetters, {
+        y: 20,
+        opacity: 0,
+        stagger: 0.03, // 30ms between each letter
+        duration: 0.5,
+        ease: 'back.out(1.4)'
       });
 
-      // No animation for tagline - just show it
-      gsap.set(taglineRef.current, {
-        opacity: 1
+      // Tagline fades in after letters complete
+      gsap.from(taglineRef.current, {
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.3, // Start after letters begin
+        ease: 'power2.out'
       });
     });
 
@@ -205,7 +217,7 @@ function Opener() {
             <div>
 
               <span className="word emphasis animate lora pt-lg-4">Design-first</span>{' '}
-              <span className="font-semibold italic">technology</span>{' '}
+              <span className="font-semibold  italic"> web development</span>{' '}
               <span className="lora">to</span>{' '}
               <span
                 className="d-inline-block position-relative"
@@ -261,12 +273,16 @@ function Opener() {
             triggerConfetti(e.currentTarget);
             window.location.href = "mailto:hello@maderight.studio";
           }}
+          onMouseEnter={() => setIsButtonHovered(true)}
+          onMouseLeave={() => setIsButtonHovered(false)}
           className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-3 text-md font-mono position-relative border-0 text-sky-50"
           style={{
             background: "transparent",
             height: window.innerWidth <= 768 ? "50px" : "60px",
             minWidth: window.innerWidth <= 768 ? "150px" : "180px",
-            cursor: "pointer"
+            cursor: "pointer",
+            transform: isButtonHovered ? "translateY(-2px)" : "translateY(0)",
+            transition: "transform 0.2s ease"
           }}
         >
           <ButtonShape
