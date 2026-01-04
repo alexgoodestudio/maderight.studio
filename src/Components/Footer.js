@@ -44,7 +44,7 @@ function Footer() {
                 Made Right
               </h2>
               <p className="text-xl tracking-wide text-slate-300">
-                <span className="lora">Design-first</span> <span className="italic">technology</span> studio.
+                <span className="lora">Design-first</span> <span className="italic">web development</span> studio.
 
               </p>
               <p className="text-sm font-mono text-slate-400">

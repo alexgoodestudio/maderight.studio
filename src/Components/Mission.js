@@ -183,7 +183,8 @@ function Mission() {
                             left: 0,
                             height: 'auto',
                             pointerEvents: 'none',
-                            filter: 'brightness(0.3)'
+                            filter: 'brightness(0.6) saturate(1.4) hue-rotate(-10deg)',
+                            opacity: 0.85
                           }}
                         />
                       </span>

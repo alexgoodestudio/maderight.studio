@@ -18,6 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Featured() {
   const cardsRef = useRef([]);
+  const videoRefs = useRef([]);
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window !== 'undefined') {
       return window.innerWidth <= 768;
@@ -33,6 +34,40 @@ function Featured() {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Intersection Observer for mobile video playback
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5 // Video must be 50% visible
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          video.play().catch(err => console.log('Video play failed:', err));
+        } else {
+          video.pause();
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    videoRefs.current.forEach((video) => {
+      if (video) {
+        observer.observe(video);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isMobile]);
   const serviceData = [
     {
       title: "The Lemich Clinic",
@@ -137,9 +172,10 @@ function Featured() {
                 {/* Render video OR image */}
                 {service.type === "video" ? (
                   <video
+                    ref={el => videoRefs.current[idx] = el}
                     className="card-img-top w-full h-72"
                     style={{ objectFit: 'cover', objectPosition: 'top' }}
-                    autoPlay
+                    autoPlay={!isMobile}
                     muted
                     loop
                     playsInline
