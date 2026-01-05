@@ -1,7 +1,40 @@
-import { ButtonShape } from './Shapes';
+import { ButtonShape, BRAND_COLORS } from './Shapes';
 import { ArrowUpRight } from 'lucide-react';
+import { useRef, useEffect, useState } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Contact() {
+  const headingRef = useRef(null);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
+
+  useEffect(() => {
+    if (headingRef.current) {
+      const words = headingRef.current.querySelectorAll('.word');
+
+      // Set initial state
+      gsap.set(words, { opacity: 1, y: 0 });
+
+      gsap.from(words, {
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: 'top 80%',
+          once: true
+        },
+        y: 20,
+        opacity: 0,
+        stagger: 0.08,
+        duration: 0.5,
+        ease: 'back.out(1.4)'
+      });
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   const handleContactClick = () => {
     window.location.href = "mailto:hello@maderight.studio";
@@ -12,11 +45,14 @@ function Contact() {
       <div
         className="col-lg-12 col-12 px-md-3 px-5   bg-slate-50  contact text-dark d-flex flex-column justify-content-center items-center text-center py-5"
       >
-        <h3 className="text-4xl  text-slate-900 lora font-bold mb-3">
-          Interested in working together?
+        <h3 ref={headingRef} className="text-4xl  text-slate-900 lora font-bold mb-3 position-relative">
+          <span className="word d-inline-block me-2">Interested</span>
+          <span className="word d-inline-block me-2">in</span>
+          <span className="word d-inline-block me-2">working</span>
+          <span className="word d-inline-block me-2">together?</span>
         </h3>
-        <div className='col-md-5'>
- <p className="text-xl  gs  mb-5">
+        <div className='col-md-5' style={{ maxWidth: window.innerWidth <= 768 ? '100%' : '500px' }}>
+ <p className="text-lg text-justify gs  mb-5" style={{ paddingLeft: window.innerWidth <= 768 ? '0' : '3rem' }}>
           Made Right is interested in working with you. Send us a brief of what
           you would like done. It works best if you send a budget so we can plan
           accordingly to create within your means.
@@ -25,23 +61,26 @@ function Contact() {
 
         <button
           onClick={handleContactClick}
-          className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center px-3 text-md font-mono position-relative border-0"
+          onMouseEnter={() => setIsButtonHovered(true)}
+          onMouseLeave={() => setIsButtonHovered(false)}
+          className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center text-md font-mono position-relative border-0 text-white"
           style={{
             background: 'transparent',
             cursor: 'pointer',
-            height: window.innerWidth <= 768 ? "50px" : "60px",
-            minWidth: window.innerWidth <= 768 ? "130px" : "150px",
-            color: '#4A2D3E'
+            height: window.innerWidth <= 768 ? '50px' : '60px',
+            minWidth: window.innerWidth <= 768 ? '150px' : '180px',
+            padding: window.innerWidth <= 768 ? '0 1rem' : '0 3rem',
+            transform: isButtonHovered ? 'translateY(-2px)' : 'translateY(0)',
+            transition: 'transform 0.2s ease'
           }}
         >
           <ButtonShape
-            color="#816281"
-            width={window.innerWidth <= 768 ? 130 : 150}
+            color={BRAND_COLORS.tealDark}
+            width={window.innerWidth <= 768 ? 150 : 180}
             height={window.innerWidth <= 768 ? 50 : 60}
-            className="position-absolute top-0 start-0"
-            style={{ pointerEvents: 'none' }}
+            className="position-absolute top-0 start-0 button-shape"
           />
-          <span className="position-relative d-flex align-items-center p-2 gap-2 text-white" style={{ zIndex: 1 }}>
+          <span className="position-relative d-flex align-items-center gap-2 button-text" style={{ zIndex: 1 }}>
             Email
             <ArrowUpRight size={window.innerWidth <= 768 ? 14 : 16} strokeWidth={2} />
           </span>

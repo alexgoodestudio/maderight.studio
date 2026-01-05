@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -11,6 +11,7 @@ import { triggerConfetti } from "../utils/confetti";
 function Mission() {
   const container = useRef();
   const buttonRef = useRef();
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -244,9 +245,13 @@ function Mission() {
             <Link
               ref={buttonRef}
               to="/our-process"
+              onMouseEnter={() => setIsButtonHovered(true)}
+              onMouseLeave={() => setIsButtonHovered(false)}
               className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center px-3 text-md font-mono position-relative border-0 text-white"
               style={{
-                marginTop: window.innerWidth <= 768 ? '1rem' : '3.5rem'
+                marginTop: window.innerWidth <= 768 ? '1rem' : '3.5rem',
+                transform: isButtonHovered ? 'translateY(-2px)' : 'translateY(0)',
+                transition: 'transform 0.2s ease'
               }}
               onClick={(e) => {
                 if (buttonRef.current) {

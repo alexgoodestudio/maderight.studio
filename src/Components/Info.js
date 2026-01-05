@@ -64,10 +64,11 @@ function Info() {
           {/* Background reveal layer */}
           <div
             ref={bgRef}
-            className="position-absolute top-0 start-0 w-100 h-100 bg-slate-100"
+            className="position-absolute top-0 start-0 w-100 h-100"
             style={{
               zIndex: 0,
               willChange: 'transform',
+              backgroundColor: '#f1f5f9', // slate-100
             }}
             aria-hidden="true"
           />
@@ -95,7 +96,7 @@ function Info() {
               }}
               aria-hidden="true"
             >
-              made right
+              made right?
 
             </div>
           </div>

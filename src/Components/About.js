@@ -69,9 +69,11 @@ function About() {
   }, []);
 
   const timeline = [
-    { year: '2023', event: "Alex Goode completed Promineo Tech's front-end development program and Thinkful's full-stack engineering immersion program" },
+        { year: '2018', event: "Began studies in graphic design" },
+        { year: '2020', event: "Completed 40+ jobs on Upwork and gaining top-rated Upwork Freelancer profile" },
+    { year: '2023', event: "Completed Promineo Tech's front-end development program and Thinkful's full-stack engineering immersion program" },
     { year: 'April 2025', event: 'Made Right Studio founded in Columbia, SC' },
-    { year: 'Today', event: 'Accepting new clients' }
+    { year: 'Today', event: 'Accepting new projects' }
   ];
 
   return (

@@ -30,7 +30,7 @@ function NavBanner() {
           color: '#000000'
         }}
       >
-        {bannerText.repeat(3)}
+        {bannerText.repeat(2) + bannerText.slice(0, -2)}
       </span>
     </header>
   );
