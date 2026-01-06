@@ -2,7 +2,7 @@ import OfficeImage from "./Images/one-min-min.jpg";
 
 function Office() {
   return (
-    <section className="bg-white py-lg-5 px-lg-5 py-lg-4 pt-5 px-4 row">
+    <section className="bg-white py-lg-5 px-lg-5 ms-lg-3 py-lg-4 pt-5 px-4 row">
 
       <div className="col-md-7 py-lg-4 pe-lg-5">
         <img
@@ -23,7 +23,7 @@ function Office() {
             lineHeight: "1.6",
           }}
         >
-          Made Right Studio is just me, Alex Goode,
+          <span className="lora font-bold">Made Right Studio</span> is just me, Alex Goode,
           developing and designing websites in my free time. I live in the Rosewood
           neighborhood of Columbia, South Carolina, and work full-time stocking
           shelves at Whole Foods Market. After hours, I'm building and designing

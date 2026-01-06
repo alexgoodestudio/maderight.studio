@@ -10,8 +10,10 @@ import { triggerConfetti } from '../utils/confetti';
 gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
 function Opener() {
-  const madeRef = useRef(null);
-  const rightRef = useRef(null);
+  const designRef = useRef(null);
+  const firstRef = useRef(null);
+  const webRef = useRef(null);
+  const developmentRef = useRef(null);
   const taglineRef = useRef(null);
   const sectionRef = useRef(null);
   const borderRef = useRef(null);
@@ -50,12 +52,12 @@ function Opener() {
     if (!fontLoaded) return;
 
     // Ensure all refs are ready
-    if (!madeRef.current || !rightRef.current || !taglineRef.current) return;
+    if (!designRef.current || !firstRef.current || !webRef.current || !developmentRef.current || !taglineRef.current) return;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
-      gsap.set([madeRef.current, rightRef.current, taglineRef.current], {
+      gsap.set([designRef.current, firstRef.current, webRef.current, developmentRef.current, taglineRef.current], {
         opacity: 1
       });
       return;
@@ -64,7 +66,7 @@ function Opener() {
     // Wait for next frame to ensure elements are rendered
     requestAnimationFrame(() => {
       // Double-check refs are still valid
-      if (!madeRef.current || !rightRef.current || !taglineRef.current) return;
+      if (!designRef.current || !firstRef.current || !webRef.current || !developmentRef.current || !taglineRef.current) return;
 
       // Border and services text show immediately without animation
       if (borderRef.current) {
@@ -74,10 +76,12 @@ function Opener() {
         gsap.set(servicesRef.current, { opacity: 1 });
       }
 
-      // Letter-by-letter reveal for "Made Right"
-      const madeLetters = madeRef.current.querySelectorAll('.letter');
-      const rightLetters = rightRef.current.querySelectorAll('.letter');
-      const allLetters = [...madeLetters, ...rightLetters];
+      // Letter-by-letter reveal for "Design First Web Development"
+      const designLetters = designRef.current.querySelectorAll('.letter');
+      const firstLetters = firstRef.current.querySelectorAll('.letter');
+      const webLetters = webRef.current.querySelectorAll('.letter');
+      const developmentLetters = developmentRef.current.querySelectorAll('.letter');
+      const allLetters = [...designLetters, ...firstLetters, ...webLetters, ...developmentLetters];
 
       gsap.from(allLetters, {
         y: 20,
@@ -180,7 +184,7 @@ function Opener() {
         }}
       >
         {window.innerWidth <= 768
-          ? "Columbia, South Carolina"
+          ? "Web Design & Full-Stack Solutions"
           : "Web Design, Development, & Full-Stack Solutions"}
       </div>
 
@@ -189,46 +193,24 @@ function Opener() {
         className="text-center"
         style={{ opacity: fontLoaded ? 1 : 0 }}
       >
-        <h1
-          className="text-opener eighties text-white d-flex justify-content-center opener-heading"
-        >
-          <span className="d-inline-block">
-            <span ref={madeRef} className="d-inline-block me-lg-5 me-3">
-              <span className="letter d-inline-block">M</span>
-              <span className="letter d-inline-block">a</span>
-              <span className="letter d-inline-block">d</span>
-              <span className="letter d-inline-block">e</span>
-            </span>
-          </span>
 
-          <span className="d-inline-block">
-            <span ref={rightRef} className="d-inline-block">
-              <span className="letter d-inline-block">R</span>
-              <span className="letter d-inline-block">i</span>
-              <span className="letter d-inline-block">g</span>
-              <span className="letter d-inline-block">h</span>
-              <span className="letter d-inline-block">t</span>
-            </span>
-          </span>
-        </h1>
-        
-        <h2 ref={taglineRef} className="text-3xl mt-lg-2 mt-2 text-slate-100 pt-4 font-light mb-5 opener-tagline">
-          <section className="d-inline-block text-center  pb-2 px-2 md:px-6">
+
+        <h2 ref={taglineRef} className="text-4xl mt-lg-4 mt-3 text-slate-100 pt-4 font-light mb-5 opener-tagline">
+          <section className="d-inline-block text-center pb-2 px-2 md:px-6">
             <div>
-
-              <span className="word emphasis animate lora pt-lg-4">Design-first</span>{' '}
-              <span className="font-semibold  italic"> web development</span>{' '}
+              <span className="word emphasis animate lora pt-lg-4" style={{ color: '#c7d2fe' }}>Design-first</span>{' '}
+              <span className="  lora font-semibold">web development</span>{' '}
               <span className="lora">to</span>{' '}
               <span
                 className="d-inline-block position-relative"
                 style={{
                   overflow: 'hidden',
                   height: '1.4em',
-                  width: '280px',
+                  width: window.innerWidth <= 768 ? '280px' : '340px',
                   verticalAlign: 'baseline',
                   display: 'inline-block',
                   top: window.innerWidth <= 768 ? '0.1em' : '0.4em',
-                  ...(window.innerWidth <= 768 ? { textAlign: 'center', left: '50%', transform: 'translateX(-50%)' } : { left: '0.04em' })
+                  ...(window.innerWidth <= 768 ? { textAlign: 'center', left: '50%', transform: 'translateX(-50%)' } : {})
                 }}
               >
                 {/* Teal wall overlay - creates cut-off effect */}
@@ -261,8 +243,8 @@ function Opener() {
 
           <br />
 
-          <div className="d-none d-lg-flex justify-content-center ">
-            <span className="text-xs tracking-wider pt-lg-2 px-2  text-slate-100 font-mono">
+          <div className="d-flex justify-content-center">
+            <span className="text-xs tracking-wider pt-lg-2 px-2 text-slate-100 font-mono">
               Located in Columbia, South Carolina
             </span>
           </div>

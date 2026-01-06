@@ -41,15 +41,22 @@ function Featured() {
 
     const observerOptions = {
       root: null,
-      rootMargin: '0px',
-      threshold: 0.5 // Video must be 50% visible
+      rootMargin: '50px', // Start loading 50px before entering viewport
+      threshold: 0.01 // Play as soon as tiniest amount enters viewport
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         const video = entry.target;
         if (entry.isIntersecting) {
-          video.play().catch(err => console.log('Video play failed:', err));
+          // Ensure video is loaded before playing
+          if (video.readyState >= 3) {
+            video.play().catch(err => console.log('Video play failed:', err));
+          } else {
+            video.addEventListener('canplay', () => {
+              video.play().catch(err => console.log('Video play failed:', err));
+            }, { once: true });
+          }
         } else {
           video.pause();
         }
@@ -179,6 +186,7 @@ function Featured() {
                     muted
                     loop
                     playsInline
+                    preload="auto"
                   >
                     <source src={service.image.replace('.mov', '.webm')} type="video/webm" />
                     <source src={service.image} type="video/mp4" />

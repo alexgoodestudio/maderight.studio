@@ -289,7 +289,7 @@ function Stats() {
                       {metric.prefix || ''}{metric.value}{metric.suffix || ''}
                     </div>
                     <div
-                      className="gs mb-2 position-relative"
+                      className="lora mb-2 position-relative"
                       style={{
                         fontSize: window.innerWidth < 992 ? '14px' : '16px',
                         fontWeight: '600',
@@ -307,7 +307,7 @@ function Stats() {
                       {metric.label}
                     </div>
                     <div
-                      className="gs position-relative"
+                      className="lora position-relative"
                       style={{
                         fontSize: window.innerWidth < 992 ? '12px' : '13px',
                         lineHeight: '1.5',

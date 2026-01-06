@@ -24,7 +24,7 @@ function Nav() {
           style={{ color: '#FFFFFF' }}
           aria-label="Made Right Studio Home"
         >
-          Made Right 
+          made right 
         </a>
 
         {/* Main Navigation Pill */}
