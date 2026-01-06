@@ -8,9 +8,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from 'lucide-react';
 import { BRAND_COLORS } from "./Shapes";
-import Vid from "./Images/z.mov";
-import Vid2 from "./Images/a.mov";
-import Vid3 from "./Images/1.mov";
+import Vid from "./Images/z.mp4";
+import Vid2 from "./Images/a.mp4";
+import Vid3 from "./Images/1.mp4";
 
 import "./Style.css";
 
@@ -35,6 +35,18 @@ function Featured() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Preload videos on mount for mobile
+  useEffect(() => {
+    if (!isMobile) return;
+
+    // Force all videos to load immediately on mount
+    videoRefs.current.forEach((video) => {
+      if (video) {
+        video.load();
+      }
+    });
+  }, [isMobile]);
+
   // Intersection Observer for mobile video playback
   useEffect(() => {
     if (!isMobile) return;
@@ -42,7 +54,7 @@ function Featured() {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.25 // Require 25% visibility for stable playback
+      threshold: 0.01 // Play as soon as even 1% is visible
     };
 
     const observerCallback = (entries) => {
@@ -50,12 +62,7 @@ function Featured() {
         const video = entry.target;
 
         if (entry.isIntersecting) {
-          // Force load on iOS Safari if not already loading
-          if (video.readyState < 2) {
-            video.load();
-          }
-
-          // Attempt to play
+          // Attempt to play immediately
           const playPromise = video.play();
 
           if (playPromise !== undefined) {
@@ -199,9 +206,8 @@ function Featured() {
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload={isMobile ? "auto" : "metadata"}
                   >
-                    <source src={service.image.replace('.mov', '.webm')} type="video/webm" />
                     <source src={service.image} type="video/mp4" />
                   </video>
                 ) : (
