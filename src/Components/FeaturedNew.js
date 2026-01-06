@@ -41,24 +41,37 @@ function Featured() {
 
     const observerOptions = {
       root: null,
-      rootMargin: '50px', // Start loading 50px before entering viewport
-      threshold: 0.01 // Play as soon as tiniest amount enters viewport
+      rootMargin: '0px',
+      threshold: 0.25 // Require 25% visibility for stable playback
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         const video = entry.target;
+
         if (entry.isIntersecting) {
-          // Ensure video is loaded before playing
-          if (video.readyState >= 3) {
-            video.play().catch(err => console.log('Video play failed:', err));
-          } else {
-            video.addEventListener('canplay', () => {
-              video.play().catch(err => console.log('Video play failed:', err));
-            }, { once: true });
+          // Force load on iOS Safari if not already loading
+          if (video.readyState < 2) {
+            video.load();
+          }
+
+          // Attempt to play
+          const playPromise = video.play();
+
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                console.log('Video playing successfully');
+              })
+              .catch(err => {
+                console.log('Autoplay prevented - user interaction required:', err);
+              });
           }
         } else {
-          video.pause();
+          // Pause when out of viewport
+          if (!video.paused) {
+            video.pause();
+          }
         }
       });
     };
@@ -186,11 +199,9 @@ function Featured() {
                     muted
                     loop
                     playsInline
-                    webkit-playsinline="true"
                     preload="metadata"
-                    defaultMuted
                   >
-                    <source src={service.image} type="video/mp4" />
+                    <source src={`${service.image}#t=0.001`} type="video/quicktime" />
                   </video>
                 ) : (
                   <img
