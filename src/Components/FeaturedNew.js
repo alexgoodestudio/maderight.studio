@@ -201,7 +201,8 @@ function Featured() {
                     playsInline
                     preload="metadata"
                   >
-                    <source src={`${service.image}#t=0.001`} type="video/quicktime" />
+                    <source src={service.image.replace('.mov', '.webm')} type="video/webm" />
+                    <source src={service.image} type="video/mp4" />
                   </video>
                 ) : (
                   <img

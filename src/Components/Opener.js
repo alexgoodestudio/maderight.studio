@@ -251,7 +251,7 @@ function Opener() {
                   verticalAlign: 'baseline',
                   display: 'inline-block',
                   top: window.innerWidth <= 768 ? '0.1em' : '0.4em',
-                  ...(window.innerWidth <= 768 ? { textAlign: 'center', left: '50%', transform: 'translateX(-50%)' } : {})
+                  ...(window.innerWidth <= 768 ? { textAlign: 'center', left: 'calc(50% + 0.3em)', transform: 'translateX(-50%)' } : {})
                 }}
               >
                 {/* Teal wall overlay - creates cut-off effect */}
