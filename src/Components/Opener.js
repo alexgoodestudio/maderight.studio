@@ -6,6 +6,7 @@ import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import { ButtonShape, BRAND_COLORS } from './Shapes';
 import { ArrowUpRight } from 'lucide-react';
 import { triggerConfetti } from '../utils/confetti';
+import Line from "./Images/b.png"
 
 gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
@@ -21,11 +22,13 @@ function Opener() {
   const [fontLoaded, setFontLoaded] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const [hasInitialAnimated, setHasInitialAnimated] = useState(false);
   const wordSwapRef = useRef(null);
+  const initialPhraseWordsRef = useRef([]);
 
   // Words to cycle through with their widths
   const swappingWords = [
-    { text: "drive conversions", width: "240px" },
+    { text: "drive conversions", width: "240px", words: ["drive", "conversions"] },
     { text: "build trust", width: "140px" },
     { text: "grow your business", width: "280px" },
     { text: "stand out", width: "140px" }
@@ -76,17 +79,13 @@ function Opener() {
         gsap.set(servicesRef.current, { opacity: 1 });
       }
 
-      // Letter-by-letter reveal for "Design First Web Development"
-      const designLetters = designRef.current.querySelectorAll('.letter');
-      const firstLetters = firstRef.current.querySelectorAll('.letter');
-      const webLetters = webRef.current.querySelectorAll('.letter');
-      const developmentLetters = developmentRef.current.querySelectorAll('.letter');
-      const allLetters = [...designLetters, ...firstLetters, ...webLetters, ...developmentLetters];
+      // Word-by-word reveal for "Design-first web development to"
+      const allWords = [designRef.current, webRef.current, developmentRef.current, firstRef.current];
 
-      gsap.from(allLetters, {
+      gsap.from(allWords, {
         y: 20,
         opacity: 0,
-        stagger: 0.03, // 30ms between each letter
+        stagger: 0.08, // 80ms between each word
         duration: 0.5,
         ease: 'back.out(1.4)'
       });
@@ -102,22 +101,45 @@ function Opener() {
 
   }, [fontLoaded]);
 
-  // Word swapping animation
+  // Initial phrase word-by-word animation (only runs once)
   useGSAP(() => {
-    if (!fontLoaded || !wordSwapRef.current) return;
+    if (!fontLoaded || !wordSwapRef.current || hasInitialAnimated) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setHasInitialAnimated(true);
+      return;
+    }
+
+    const wordElements = initialPhraseWordsRef.current;
+
+    if (wordElements.length > 0) {
+      // Set initial state - words hidden and slightly below
+      gsap.set(wordElements, { y: 20, opacity: 0 });
+
+      // Animate words in one by one
+      gsap.to(wordElements, {
+        y: 0,
+        opacity: 1,
+        stagger: 0.08,
+        duration: 0.5,
+        ease: 'back.out(1.4)',
+        onComplete: () => {
+          setHasInitialAnimated(true);
+        }
+      });
+    }
+  }, [fontLoaded, hasInitialAnimated]);
+
+  // Word swapping animation (runs after initial animation completes)
+  useGSAP(() => {
+    if (!fontLoaded || !wordSwapRef.current || !hasInitialAnimated) return;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
       gsap.set(wordSwapRef.current, { opacity: 1, y: 0 });
       return;
     }
-
-    // CRITICAL: First phrase must start mounted with NO animation
-    // Set initial state immediately - visible and in position
-    gsap.set(wordSwapRef.current, {
-      y: '0%',
-      opacity: 1
-    });
 
     // Function to perform the word swap animation
     const performSwap = () => {
@@ -166,7 +188,7 @@ function Opener() {
       clearTimeout(firstTimeout);
       if (intervalId) clearInterval(intervalId);
     };
-  }, [fontLoaded, swappingWords.length]);
+  }, [fontLoaded, swappingWords.length, hasInitialAnimated]);
 
 
 
@@ -184,7 +206,7 @@ function Opener() {
         }}
       >
         {window.innerWidth <= 768
-          ? "Web Design & Full-Stack Solutions"
+          ? "Web Design, SEO & Full-Stack Solutions"
           : "Web Design, Development, & Full-Stack Solutions"}
       </div>
 
@@ -198,9 +220,28 @@ function Opener() {
         <h2 ref={taglineRef} className="text-4xl mt-lg-4 mt-3 text-slate-100 pt-4 font-light mb-5 opener-tagline">
           <section className="d-inline-block text-center pb-2 px-2 md:px-6">
             <div>
-              <span className="word emphasis animate lora pt-lg-4" style={{ color: '#c7d2fe' }}>Design-first</span>{' '}
-              <span className="  lora font-semibold">web development</span>{' '}
-              <span className="lora">to</span>{' '}
+              <span ref={designRef} className="word d-inline-block me-2 emphasis animate lora pt-lg-4 position-relative" style={{ color: '#e0d7ff', overflow: 'visible' }}>
+                Design-first
+                <img
+                  src={Line}
+                  alt=""
+                  className="position-absolute"
+                  style={{
+                    top: '65%',
+                    left: '-2%',
+                    width: '100%',
+                    height: 'auto',
+                    pointerEvents: 'none',
+                    filter: 'brightness(1.2) saturate(0.8)',
+                    opacity: 0.75,
+                    transform: 'scaleX(1.1)',
+                    transformOrigin: 'left center'
+                  }}
+                />
+              </span>
+              <span ref={webRef} className="word d-inline-block me-2 lora font-semibold">web</span>
+              <span ref={developmentRef} className="word d-inline-block me-2 lora font-semibold">development</span>
+              <span ref={firstRef} className="word d-inline-block me-2 lora">to</span>
               <span
                 className="d-inline-block position-relative"
                 style={{
@@ -235,7 +276,22 @@ function Opener() {
                     top: 0
                   }}
                 >
-                  {swappingWords[currentWordIndex].text}
+                  {currentWordIndex === 0 && !hasInitialAnimated && swappingWords[0].words ? (
+                    // Initial phrase: render individual words for word-by-word animation
+                    swappingWords[0].words.map((word, idx) => (
+                      <span
+                        key={idx}
+                        ref={el => initialPhraseWordsRef.current[idx] = el}
+                        className="d-inline-block"
+                        style={{ marginRight: idx < swappingWords[0].words.length - 1 ? '0.25em' : '0' }}
+                      >
+                        {word}
+                      </span>
+                    ))
+                  ) : (
+                    // All other phrases: render as single text with slide animation
+                    swappingWords[currentWordIndex].text
+                  )}
                 </span>
               </span>
             </div>
