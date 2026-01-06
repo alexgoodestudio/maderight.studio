@@ -186,9 +186,10 @@ function Featured() {
                     muted
                     loop
                     playsInline
-                    preload="auto"
+                    webkit-playsinline="true"
+                    preload="metadata"
+                    defaultMuted
                   >
-                    <source src={service.image.replace('.mov', '.webm')} type="video/webm" />
                     <source src={service.image} type="video/mp4" />
                   </video>
                 ) : (

@@ -217,8 +217,8 @@ function Opener() {
       >
 
 
-        <h2 ref={taglineRef} className="text-4xl mt-lg-4 mt-3 text-slate-100 pt-4 font-light mb-5 opener-tagline">
-          <section className="d-inline-block text-center pb-2 px-2 md:px-6">
+        <h2 ref={taglineRef} className="mt-lg-4 mt-3 text-slate-100 pt-4 font-light mb-5 opener-tagline" style={{ fontSize: window.innerWidth <= 768 ? '1.35rem' : '2.25rem' }}>
+          <section className="d-inline-block text-center pb-2 md:px-6" style={{ padding: window.innerWidth <= 768 ? '0 0.5rem' : '0 1.5rem' }}>
             <div>
               <span ref={designRef} className="word d-inline-block me-2 emphasis animate lora pt-lg-4 position-relative" style={{ color: '#e0d7ff', overflow: 'visible' }}>
                 Design-first
