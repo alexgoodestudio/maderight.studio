@@ -189,14 +189,19 @@ function Stats() {
                 Performance that matters.
               </h2>
               <p
-                className="gs mb-0"
-                style={{
-                  fontSize: '18px',
+                className={`gs mb-0 ${window.innerWidth <= 768 ? '' : 'text-xl'}`}
+                style={window.innerWidth <= 768 ? {
+                  color: '#1e293b',
+                  fontSize: '1rem',
                   lineHeight: '1.7',
-                  letterSpacing: '-0.012em',
-                  color: '#64748b',
-                  maxWidth: '560px',
-                  fontWeight: '400'
+                  letterSpacing: '-0.01em',
+                  wordSpacing: '0.35rem',
+                  maxWidth: '560px'
+                } : {
+                  color: '#374151',
+                  letterSpacing: "0em",
+                  lineHeight: "1.6",
+                  maxWidth: '560px'
                 }}
               >
                 Built into every project are the best technical practices that help your website perform optimally for users and search engines.
@@ -307,7 +312,7 @@ function Stats() {
                       {metric.label}
                     </div>
                     <div
-                      className="lora position-relative"
+                      className="gs position-relative"
                       style={{
                         fontSize: window.innerWidth < 992 ? '12px' : '13px',
                         lineHeight: '1.5',

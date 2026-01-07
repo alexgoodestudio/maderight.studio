@@ -1,5 +1,20 @@
 import { useState } from "react";
 
+// Social media icon components
+const InstagramIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+
+const FacebookIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+  </svg>
+);
+
 function Nav() {
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const [isFeaturedOpen, setIsFeaturedOpen] = useState(false);
@@ -24,7 +39,7 @@ function Nav() {
           style={{ color: '#FFFFFF' }}
           aria-label="Made Right Studio Home"
         >
-          made right 
+          🧤 made right 
         </a>
 
         {/* Main Navigation Pill */}
@@ -338,13 +353,23 @@ function Nav() {
                 onMouseLeave={() => setIsCompanyOpen(false)}
               >
                 <div className="bg-white rounded-xl shadow-lg py-1">
-                  <a 
-                    href="https://instagram.com/maderight.studio" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1"
+                  <a
+                    href="https://instagram.com/maderight.studio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1"
                   >
+                    <InstagramIcon size={16} />
                     Instagram
+                  </a>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61586220357306"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1"
+                  >
+                    <FacebookIcon size={16} />
+                    Facebook
                   </a>
                 </div>
               </div>
@@ -528,8 +553,25 @@ function Nav() {
                     borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
                   }}
                 >
-                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                  <div className="flex items-center gap-2 text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    <InstagramIcon size={16} />
                     Instagram
+                  </div>
+                </a>
+
+                <a
+                  href="https://www.facebook.com/profile.php?id=61586220357306"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-5 py-3 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="flex items-center gap-2 text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    <FacebookIcon size={16} />
+                    Facebook
                   </div>
                 </a>
 
@@ -725,8 +767,25 @@ function Nav() {
                     borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
                   }}
                 >
-                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                  <div className="flex items-center gap-2 text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    <InstagramIcon size={16} />
                     Instagram
+                  </div>
+                </a>
+
+                <a
+                  href="https://www.facebook.com/profile.php?id=61586220357306"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-2.5 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="flex items-center gap-2 text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    <FacebookIcon size={16} />
+                    Facebook
                   </div>
                 </a>
 

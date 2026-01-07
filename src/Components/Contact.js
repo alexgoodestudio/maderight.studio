@@ -52,8 +52,23 @@ function Contact() {
           <span className="word d-inline-block me-2">together?</span>
         </h3>
         <div className='col-md-5' style={{ maxWidth: window.innerWidth <= 768 ? '100%' : '500px' }}>
- <p className="text-lg text-justify gs  mb-5" style={{ paddingLeft: window.innerWidth <= 768 ? '0' : '3rem' }}>
-          Made Right is interested in working with you. Send us a brief of what
+ <p
+          className={`gs ${window.innerWidth <= 768 ? 'mb-5 text-justify' : 'text-justify text-xl mb-5'}`}
+          style={window.innerWidth <= 768 ? {
+            color: '#1e293b',
+            fontSize: '1rem',
+            lineHeight: '1.7',
+            letterSpacing: '-0.01em',
+            wordSpacing: '0.35rem',
+            paddingLeft: '0'
+          } : {
+            color: '#374151',
+            letterSpacing: "0em",
+            lineHeight: "1.6",
+            paddingLeft: '3rem'
+          }}
+        >
+          <span className='lora font-semibold'>Made Right</span> is interested in working with you. Send us a brief of what
           you would like done. It works best if you send a budget so we can plan
           accordingly to create within your means.
         </p>
