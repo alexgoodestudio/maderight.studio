@@ -16,8 +16,8 @@ function Banner() {
     const repeatCount = 10; // Repeat 10 times to ensure always full coverage on mobile
     const textWidth = el.offsetWidth / repeatCount;
 
-    // Start with 25% from left edge so more text is visible on mount
-    gsap.set(el, { x: -textWidth * 0.25 });
+    // Start with 50% from left edge so more text is visible on mount
+    gsap.set(el, { x: -textWidth * 0.5 });
 
     animationRef.current = gsap.to(el, {
       x: -textWidth,
@@ -36,26 +36,12 @@ function Banner() {
     });
   });
 
-  const handleMouseEnter = () => {
-    if (animationRef.current) {
-      animationRef.current.pause();
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (animationRef.current) {
-      animationRef.current.resume();
-    }
-  };
-
   const bannerText = "How can we help you make an impact? Lets talk about it. ";
 
   return (
     <div
       ref={containerRef}
       className="banner-container bg-teal-900"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       <span ref={textRef} className="banner-text text-white">
         {bannerText.repeat(10)}

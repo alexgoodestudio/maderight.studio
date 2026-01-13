@@ -31,7 +31,10 @@ function Nav() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden lg:flex justify-between items-center sticky bg-teal-950 top-0 z-50 px-4 py-3">
+      <nav className="hidden lg:flex justify-between items-center sticky bg-teal-950 top-0 z-50 px-4 py-3" style={{
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+      }}>
         {/* Logo Text - Left Side */}
         <a
           href="/"
@@ -39,7 +42,7 @@ function Nav() {
           style={{ color: '#FFFFFF' }}
           aria-label="Made Right Studio Home"
         >
-          🧤 made right 
+          🧤 made right
         </a>
 
         {/* Main Navigation Pill */}
@@ -47,7 +50,7 @@ function Nav() {
           {/* Logo Text */}
           <a
             href="/"
-            className="flex items-center font-semibold text-sm no-underline pr-3 border-r border-green-800"
+            className="flex items-center font-semibold text-sm no-underline pr-3 border-r border-white/20"
             style={{ color: '#FFFFFF' }}
             aria-label="Made Right Studio Home"
           >
@@ -223,7 +226,7 @@ function Nav() {
                           lineHeight: '1.3'
                         }}
                       >
-                        Healthcare / 2024
+                        Healthcare / 2025
                       </div>
                       <div
                         className="text-base text-slate-900 group-hover:text-slate-900"
@@ -262,7 +265,7 @@ function Nav() {
                           lineHeight: '1.3'
                         }}
                       >
-                        Service / 2024
+                        Service / 2025
                       </div>
                       <div
                         className="text-base text-slate-900 group-hover:text-slate-900"
@@ -308,7 +311,7 @@ function Nav() {
         <div className="flex items-center gap-3">
           <button
             onClick={handleContactClick}
-            className="bg-white  text-green-900 px-5 py-2 font-semibold rounded-full text-sm cursor-pointer border-0 hover:bg-stone-100"
+            className="bg-white text-green-900 px-5 py-2 font-semibold rounded-full text-sm cursor-pointer border-0 hover:bg-gray-100"
             style={{
               transition: 'all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
               letterSpacing: '0.01em'

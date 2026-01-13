@@ -16,25 +16,8 @@ function Mission() {
   gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
-    const isMobile = window.innerWidth <= 767;
-
-    // Simple fade-in animation without pinning (all screen sizes)
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container.current,
-        start: "top center",
-        end: "bottom center",
-        toggleActions: "play none none reverse",
-      },
-    });
-
-    // Animate button
-    tl.fromTo(
-      buttonRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: isMobile ? 0.5 : 0.7 },
-      0.3
-    );
+    // Button starts fully visible, no animation
+    gsap.set(buttonRef.current, { opacity: 1 });
   }, []);
 
   const text =

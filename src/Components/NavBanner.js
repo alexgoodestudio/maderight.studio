@@ -4,7 +4,7 @@ function NavBanner() {
   const textRef = useRef();
   const containerRef = useRef();
 
-  const bannerText = "Web Design • Web Development • SEO • Content Management Systems • Interaction Design • ";
+  const bannerText = "Web Design\u00A0\u00A0•\u00A0\u00A0Web Development\u00A0\u00A0•\u00A0\u00A0SEO\u00A0\u00A0•\u00A0\u00A0Content Management Systems\u00A0\u00A0•\u00A0\u00A0Interaction Design\u00A0\u00A0•\u00A0\u00A0";
 
   return (
     <header
@@ -30,7 +30,7 @@ function NavBanner() {
           color: '#000000'
         }}
       >
-        {bannerText.repeat(2) + bannerText.slice(0, -2)}
+        {bannerText.repeat(10)}
       </span>
     </header>
   );

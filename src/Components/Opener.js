@@ -29,9 +29,9 @@ function Opener() {
   // Words to cycle through with their widths
   const swappingWords = [
     { text: "drive conversions", width: "240px", words: ["drive", "conversions"] },
-    { text: "build trust", width: "140px" },
+    { text: "build customer trust", width: "280px" },
     { text: "grow your business", width: "280px" },
-    { text: "stand out", width: "140px" }
+    { text: "stand out", width: "300px" }
   ];
 
 
@@ -217,48 +217,66 @@ function Opener() {
       >
 
 
-        <h2 ref={taglineRef} className="mt-lg-4 mt-3 text-slate-100 pt-4 font-light mb-5 opener-tagline" style={{ fontSize: window.innerWidth <= 768 ? '1.35rem' : '2.25rem' }}>
+        <h2 ref={taglineRef} className="mt-lg-4 mt-3 text-slate-100 pt-4 font-light mb-5 opener-tagline" style={{ fontSize: window.innerWidth <= 768 ? '1.35rem' : '4rem' }}>
           <section className="d-inline-block text-center pb-2 md:px-6" style={{ padding: window.innerWidth <= 768 ? '0 0.5rem' : '0 1.5rem' }}>
             <div>
-              <span ref={designRef} className="word d-inline-block me-2 emphasis animate lora pt-lg-4 position-relative" style={{ color: '#e0d7ff', overflow: 'visible' }}>
+              <span ref={designRef} className="word d-inline-block emphasis animate lora pt-lg-4 position-relative" style={{ color: '#FFF7AF', overflow: 'visible', marginRight: window.innerWidth <= 768 ? '0.5rem' : '1rem' }}>
                 Design-first
-                <img
-                  src={Line}
-                  alt=""
-                  className="position-absolute"
-                  style={{
-                    top: '65%',
-                    left: '-2%',
-                    width: '100%',
-                    height: 'auto',
-                    pointerEvents: 'none',
-                    filter: 'brightness(1.2) saturate(0.8)',
-                    opacity: 0.75,
-                    transform: 'scaleX(1.1)',
-                    transformOrigin: 'left center'
-                  }}
-                />
+                {window.innerWidth > 768 && (
+                  // Image line for desktop only
+                  <img
+                    src={Line}
+                    alt=""
+                    className="position-absolute"
+                    style={{
+                      top: '65%',
+                      left: '-2%',
+                      width: '110%',
+                      height: 'auto',
+                      pointerEvents: 'none',
+                      filter: 'brightness(1.2) saturate(0.8)',
+                      opacity: 0.75,
+                      transform: 'none',
+                      transformOrigin: 'left center'
+                    }}
+                  />
+                )}
               </span>
-              <span ref={webRef} className="word d-inline-block me-2 lora font-semibold">web</span>
-              <span ref={developmentRef} className="word d-inline-block me-2 lora font-semibold">development</span>
-              <span ref={firstRef} className="word d-inline-block me-2 lora">to</span>
+              <span ref={webRef} className="word d-inline-block lora font-semibold" style={{ marginRight: window.innerWidth <= 768 ? '0.5rem' : '1rem' }}>web</span>
+              <span ref={developmentRef} className="word d-inline-block lora font-semibold" style={{ marginRight: window.innerWidth <= 768 ? '0.5rem' : '1rem' }}>development</span>
+              <span ref={firstRef} className="word d-inline-block lora" style={{ marginRight: window.innerWidth <= 768 ? '0.5rem' : '0' }}>to</span>
+              <br />
               <span
                 className="d-inline-block position-relative"
                 style={{
                   overflow: 'hidden',
                   height: '1.4em',
-                  width: window.innerWidth <= 768 ? '280px' : '340px',
+                  width: window.innerWidth <= 768 ? '280px' : '750px',
                   verticalAlign: 'baseline',
                   display: 'inline-block',
                   top: window.innerWidth <= 768 ? '0.1em' : '0.4em',
-                  ...(window.innerWidth <= 768 ? { textAlign: 'center', left: 'calc(50% + 0.3em)', transform: 'translateX(-50%)' } : {})
+                  textAlign: 'center',
+                  left: window.innerWidth <= 768 ? 'calc(50% + 0.3em)' : '50%',
+                  transform: 'translateX(-50%)'
                 }}
               >
-                {/* Teal wall overlay - creates cut-off effect */}
+                {/* White wall overlay - creates cut-off effect on top */}
                 <span
                   className="position-absolute bg-teal-950"
                   style={{
                     top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '0.15em',
+                    zIndex: 10,
+                    pointerEvents: 'none'
+                  }}
+                />
+                {/* White wall overlay - creates cut-off effect on bottom */}
+                <span
+                  className="position-absolute bg-teal-950"
+                  style={{
+                    bottom: 0,
                     left: 0,
                     right: 0,
                     height: '0.15em',
@@ -272,7 +290,10 @@ function Opener() {
                   style={{
                     opacity: 1,
                     whiteSpace: 'nowrap',
-                    ...(window.innerWidth <= 768 ? { width: '100%', textAlign: 'center', left: 0, right: 0 } : { left: 0 }),
+                    width: '100%',
+                    textAlign: 'center',
+                    left: 0,
+                    right: 0,
                     top: 0
                   }}
                 >
@@ -313,7 +334,7 @@ function Opener() {
           }}
           onMouseEnter={() => setIsButtonHovered(true)}
           onMouseLeave={() => setIsButtonHovered(false)}
-          className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-3 text-md font-mono position-relative border-0 text-sky-50"
+          className="btn-contact text-decoration-none d-inline-flex align-items-center justify-content-center mt-4 px-3 text-md font-mono position-relative border-0 text-white"
           style={{
             background: "transparent",
             height: window.innerWidth <= 768 ? "50px" : "60px",
@@ -331,7 +352,7 @@ function Opener() {
             style={{ pointerEvents: "none" }}
           />
           <span
-            className="position-relative d-flex align-items-center p-2 gap-2"
+            className="position-relative d-flex align-items-center p-2 gap-2 text-dark"
             style={{ zIndex: 1 }}
           >
             Let's Talk

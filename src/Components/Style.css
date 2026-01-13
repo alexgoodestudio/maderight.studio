@@ -322,7 +322,7 @@ body {
    NAV SECTION STYLES
    ----------------------------------------------------------------------------- */
 .nav-banner-text {
-  letter-spacing: 0.06em;
+  letter-spacing: 0.15em;
 }
 
 @keyframes scroll-banner {
@@ -339,7 +339,7 @@ body {
     transform: translateX(-33.333%);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
 }
 
@@ -350,7 +350,7 @@ body {
 }
 
 .nav-banner-scroll-right {
-  animation: scroll-banner-right 15s linear 1s infinite;
+  animation: scroll-banner-right 60s linear 1s infinite;
   animation-fill-mode: backwards;
   will-change: transform;
 }
