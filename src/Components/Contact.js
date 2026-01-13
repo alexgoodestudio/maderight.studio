@@ -53,7 +53,7 @@ function Contact() {
         </h3>
         <div className='col-md-5' style={{ maxWidth: window.innerWidth <= 768 ? '100%' : '500px' }}>
  <p
-          className={`gs ${window.innerWidth <= 768 ? 'mb-5 text-justify' : 'text-justify text-xl mb-5'}`}
+          className={`gs ${window.innerWidth <= 768 ? 'mb-5 text-justify' : 'text-justify text-lg mt-4 mb-5'}`}
           style={window.innerWidth <= 768 ? {
             color: '#1e293b',
             fontSize: '1rem',
