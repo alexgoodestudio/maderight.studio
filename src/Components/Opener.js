@@ -222,25 +222,22 @@ function Opener() {
             <div>
               <span ref={designRef} className="word d-inline-block emphasis animate lora pt-lg-4 position-relative" style={{ color: '#FFF7AF', overflow: 'visible', marginRight: window.innerWidth <= 768 ? '0.5rem' : '1rem' }}>
                 Design-first
-                {window.innerWidth > 768 && (
-                  // Image line for desktop only
-                  <img
-                    src={Line}
-                    alt=""
-                    className="position-absolute"
-                    style={{
-                      top: '65%',
-                      left: '-2%',
-                      width: '110%',
-                      height: 'auto',
-                      pointerEvents: 'none',
-                      filter: 'brightness(1.2) saturate(0.8)',
-                      opacity: 0.75,
-                      transform: 'none',
-                      transformOrigin: 'left center'
-                    }}
-                  />
-                )}
+                <img
+                  src={Line}
+                  alt=""
+                  className="position-absolute"
+                  style={{
+                    top: window.innerWidth <= 768 ? '50%' : '65%',
+                    left: window.innerWidth <= 768 ? '-1%' : '-2%',
+                    width: window.innerWidth <= 768 ? '105%' : '110%',
+                    height: 'auto',
+                    pointerEvents: 'none',
+                    filter: 'brightness(1.2) saturate(0.8)',
+                    opacity: window.innerWidth <= 768 ? 0.6 : 0.75,
+                    transform: 'none',
+                    transformOrigin: 'left center'
+                  }}
+                />
               </span>
               <span ref={webRef} className="word d-inline-block lora font-semibold" style={{ marginRight: window.innerWidth <= 768 ? '0.5rem' : '1rem' }}>web</span>
               <span ref={developmentRef} className="word d-inline-block lora font-semibold" style={{ marginRight: window.innerWidth <= 768 ? '0.5rem' : '1rem' }}>development</span>
@@ -257,7 +254,8 @@ function Opener() {
                   top: window.innerWidth <= 768 ? '0.1em' : '0.4em',
                   textAlign: 'center',
                   left: window.innerWidth <= 768 ? 'calc(50% + 0.3em)' : '50%',
-                  transform: 'translateX(-50%)'
+                  transform: 'translateX(-50%)',
+                  paddingTop: window.innerWidth <= 768 ? '0.5em' : '0'
                 }}
               >
                 {/* White wall overlay - creates cut-off effect on top */}
