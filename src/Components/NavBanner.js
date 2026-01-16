@@ -1,37 +1,126 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 function NavBanner() {
   const textRef = useRef();
   const containerRef = useRef();
 
-  const bannerText = "Web Design\u00A0\u00A0•\u00A0\u00A0Web Development\u00A0\u00A0•\u00A0\u00A0SEO\u00A0\u00A0•\u00A0\u00A0Content Management Systems\u00A0\u00A0•\u00A0\u00A0Interaction Design\u00A0\u00A0•\u00A0\u00A0";
+  const services = [
+    "Web Development",
+    "Web Design",
+    "SEO",
+    "Content Management",
+    "Interaction Design",
+    "Performance Optimization",
+    "Responsive Design",
+    "Full-Stack Solutions",
+  ];
+
+  useEffect(() => {
+    if (!textRef.current) return;
+
+    let animationFrameId;
+    let scrollPosition = 0;
+
+    const animate = () => {
+      scrollPosition -= 0.5; // Smooth, purposeful speed
+      textRef.current.style.transform = `translateX(${scrollPosition}px)`;
+
+      // Reset when scrolled enough
+      if (Math.abs(scrollPosition) >= textRef.current.scrollWidth / 2) {
+        scrollPosition = 0;
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
   return (
     <header
       ref={containerRef}
       className="position-relative overflow-hidden"
       role="banner"
-      aria-label="Site information banner"
+      aria-label="Services banner"
       style={{
-        height: '40px',
-        backgroundColor: '#FFF7AF'
+        marginTop: isMobile ? '2rem' : '3rem',
+        marginBottom: isMobile ? '1rem' : '2rem',
+        transform: 'rotate(-1deg)',
+        transformOrigin: 'center'
       }}
     >
-      {/* Scrolling banner - shown on all screen sizes */}
-      <span
-        ref={textRef}
-        className="position-absolute text-xs font-mono nav-banner-text d-inline-block nav-banner-scroll-right"
+      {/* Bold ribbon background with hand-drawn feel */}
+      <div
         style={{
-          left: 0,
-          top: 0,
-          whiteSpace: 'nowrap',
-          paddingTop: '12px',
-          paddingBottom: '12px',
-          color: '#000000'
+          position: 'relative',
+          backgroundColor: '#134e4a',
+          padding: isMobile ? '14px 0' : '18px 0',
+          borderTop: '1px solid rgba(255,255,255,0.08)',
+          borderBottom: '1px solid rgba(255,255,255,0.08)',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
         }}
       >
-        {bannerText.repeat(10)}
-      </span>
+        {/* Scrolling text container */}
+        <div
+          ref={textRef}
+          className="eighties"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: isMobile ? '3rem' : '4rem',
+            whiteSpace: 'nowrap',
+            willChange: 'transform'
+          }}
+        >
+          {/* Repeat services 4 times for seamless loop */}
+          {[...Array(4)].map((_, repeatIndex) => (
+            <div
+              key={repeatIndex}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: isMobile ? '3rem' : '4rem'
+              }}
+            >
+              {services.map((service, index) => (
+                <div
+                  key={`${repeatIndex}-${index}`}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: isMobile ? '3rem' : '4rem'
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: isMobile ? '14px' : '16px',
+                      fontWeight: '500',
+                      letterSpacing: '0.02em',
+                      color: '#ffffff',
+                      textTransform: 'none'
+                    }}
+                  >
+                    {service}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: isMobile ? '10px' : '12px',
+                      color: '#99f6e4',
+                      fontWeight: '400'
+                    }}
+                  >
+                    ∙
+                  </span>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
     </header>
   );
 }

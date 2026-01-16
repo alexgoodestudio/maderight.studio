@@ -31,15 +31,16 @@ function Office() {
           }}
         >
           <span className="lora font-bold">Made Right Studio</span> is just me, Alex Goode,
-          developing and designing websites in my free time. I live in the Rosewood
+          developing/ designing websites in my free time. I live in the Rosewood
           neighborhood of Columbia, South Carolina, and work full-time stocking
           shelves at Whole Foods Market. After hours, I'm building and designing
           websites combining what I learned from Promineo Tech's Front End
-          Development Program and Thinkful's Full-Stack Engineering Immersion
-          Program that I completed between 2021-2023. With four years prior of
+          Development Program, Thinkful's Full-Stack Engineering Immersion
+          Program and many years of being a graphic design enthusiast.
+          {/* With four years prior of
           graphic design experience, my goal is to create design-first websites
           that have the technical execution of top-performing websites, helping
-          local businesses connect with their customers.
+          local businesses connect with their customers. */}
         </p>
       </div>
     </section>

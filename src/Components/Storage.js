@@ -129,11 +129,11 @@ function Storage(){
                     {/* <Shapes/> */}
                     <Info/>
                     <Office/>
+                    <NavBanner/>
                     <Stats/>
                     {/* <Playground/> */}
                     {/* <PlaygroundNew/> */}
                     <Contact/>
-                    <NavBanner/>
 
                 </section>
             </div>

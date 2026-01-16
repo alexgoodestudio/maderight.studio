@@ -197,19 +197,6 @@ function Opener() {
 
     <div className="bg-teal-950 d-flex justify-content-center align-items-center position-relative" style={{ height: window.innerWidth <= 768 ? '100vh' : '93vh' }}>
 
-      {/* Services text - bottom left */}
-      <div
-        ref={servicesRef}
-        className="position-absolute bottom-0 start-0 text-slate-300 font-mono text-xs px-4 pb-4"
-        style={{
-          letterSpacing: '0.02em'
-        }}
-      >
-        {window.innerWidth <= 768
-          ? "Web Design, SEO & Full-Stack Solutions"
-          : "Web Design, Development, & Full-Stack Solutions"}
-      </div>
-
       <section
         ref={sectionRef}
         className="text-center"
@@ -228,8 +215,8 @@ function Opener() {
                   className="position-absolute"
                   style={{
                     top: window.innerWidth <= 768 ? '50%' : '65%',
-                    left: window.innerWidth <= 768 ? '-1%' : '-2%',
-                    width: window.innerWidth <= 768 ? '105%' : '110%',
+                    left: window.innerWidth <= 768 ? '-6%' : '-2%',
+                    width: window.innerWidth <= 768 ? '96%' : '110%',
                     height: 'auto',
                     pointerEvents: 'none',
                     filter: 'brightness(1.2) saturate(0.8)',

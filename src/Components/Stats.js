@@ -120,19 +120,6 @@ function Stats() {
 
   return (
     <>
-      {/* Divider */}
-      <div style={{
-        backgroundColor: '#ffffff',
-        padding: '48px 16px'
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          height: '1px',
-          backgroundColor: '#e2e8f0'
-        }} />
-      </div>
-
       <section
         ref={containerRef}
         aria-labelledby="stats-heading"
@@ -183,7 +170,7 @@ function Stats() {
                   color: '#0f172a'
                 }}
               >
-                Why  does High Performance  matter?
+                Why does Performance matter?
               </h2>
               <p
                 className={`gs mb-0 ${window.innerWidth <= 768 ? 'text-start text-lg' : 'text-lg text-start'}`}
@@ -198,10 +185,10 @@ function Stats() {
                   color: '#374151',
                   letterSpacing: "0em",
                   lineHeight: "1.6",
-                  maxWidth: '560px'
+                  maxWidth: '700px'
                 }}
               >
-                Built into every project are the best technical practices that help your website perform optimally for users and search engines. This means ranking higher on Google, increase in customer conversions, and a better overall experience for your visitors.
+                Built into every project are the best technical practices that help your website perform optimally for users, search engines and conversion. This means ranking higher on Google, getting found by AI, increasing web traffic, and a better overall experience for your visitors. 
               </p>
             </div>
           </div>
