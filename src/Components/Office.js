@@ -17,10 +17,10 @@ function Office() {
       </div>
       <div className="col-md-4">
         <p
-          className={`gs ${window.innerWidth <= 768 ? 'mt-5  text-start' : ' text-start mt-lg-3 text-xl px-lg-4 py-lg-1'}`}
+          className={`gs ${window.innerWidth <= 768 ? 'mt-5  text-start text-lg' : ' text-start mt-lg-3 text-lg px-lg-4 py-lg-1'}`}
           style={window.innerWidth <= 768 ? {
             color: '#1e293b',
-            fontSize: '1rem',
+          
             lineHeight: '1.7',
             letterSpacing: '-0.01em',
             wordSpacing: '0.35rem'

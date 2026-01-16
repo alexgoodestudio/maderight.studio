@@ -11,6 +11,7 @@ import { triggerConfetti } from "../utils/confetti";
 function Mission() {
   const container = useRef();
   const buttonRef = useRef();
+  const yellowPhraseRef = useRef();
   const [isButtonHovered, setIsButtonHovered] = useState(false);
 
   gsap.registerPlugin(ScrollTrigger);
@@ -18,6 +19,28 @@ function Mission() {
   useGSAP(() => {
     // Button starts fully visible, no animation
     gsap.set(buttonRef.current, { opacity: 1 });
+
+    // Animate the yellow phrase with a hop effect
+    if (yellowPhraseRef.current) {
+      gsap.fromTo(
+        yellowPhraseRef.current,
+        {
+          y: -50,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "bounce.out",
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top 60%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
   }, []);
 
   const text =
@@ -154,7 +177,7 @@ function Mission() {
                     }
 
                     result.push(
-                      <span key={i} className="inline-block mr-2 position-relative">
+                      <span key={i} ref={yellowPhraseRef} className="inline-block mr-2 position-relative">
                         <span className="word fw-bold text-dark-yellow">
                           {phrase}
                         </span>

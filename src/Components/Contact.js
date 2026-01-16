@@ -1,40 +1,9 @@
 import { ButtonShape, BRAND_COLORS } from './Shapes';
 import { ArrowUpRight } from 'lucide-react';
-import { useRef, useEffect, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useState } from 'react';
 
 function Contact() {
-  const headingRef = useRef(null);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
-
-  useEffect(() => {
-    if (headingRef.current) {
-      const words = headingRef.current.querySelectorAll('.word');
-
-      // Set initial state
-      gsap.set(words, { opacity: 1, y: 0 });
-
-      gsap.from(words, {
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: 'top 80%',
-          once: true
-        },
-        y: 20,
-        opacity: 0,
-        stagger: 0.08,
-        duration: 0.5,
-        ease: 'back.out(1.4)'
-      });
-    }
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
 
   const handleContactClick = () => {
     window.location.href = "mailto:hello@maderight.studio";
@@ -45,27 +14,24 @@ function Contact() {
       <div
         className="col-lg-12 col-12 px-md-3 px-5   bg-slate-50  contact text-dark d-flex flex-column justify-content-center items-center text-center py-5"
       >
-        <h3 ref={headingRef} className="text-4xl  text-slate-900 lora font-bold mb-3 position-relative">
-          <span className="word d-inline-block me-2">Interested</span>
-          <span className="word d-inline-block me-2">in</span>
-          <span className="word d-inline-block me-2">working</span>
-          <span className="word d-inline-block me-2">together?</span>
+        <h3 className="text-lg-3xl text-4xl text-start text-slate-900 lora font-bold mb-3">
+          Interested in working together?
         </h3>
         <div className='col-md-5' style={{ maxWidth: window.innerWidth <= 768 ? '100%' : '500px' }}>
  <p
-          className={`gs ${window.innerWidth <= 768 ? 'mb-5 text-justify' : 'text-justify text-lg mt-4 mb-5'}`}
+          className={`gs ${window.innerWidth <= 768 ? 'mb-5 text-start' : 'text-justify text-lg mt-4 mb-5'}`}
           style={window.innerWidth <= 768 ? {
             color: '#1e293b',
             fontSize: '1rem',
             lineHeight: '1.7',
             letterSpacing: '-0.01em',
             wordSpacing: '0.35rem',
-            paddingLeft: '0'
+         
           } : {
             color: '#374151',
             letterSpacing: "0em",
             lineHeight: "1.6",
-            paddingLeft: '3rem'
+           
           }}
         >
           <span className='lora font-semibold'>Made Right</span> is interested in working with you. Send us a brief of what

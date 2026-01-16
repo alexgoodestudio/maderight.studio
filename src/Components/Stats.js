@@ -173,26 +173,23 @@ function Stats() {
                   color: '#64748b'
                 }}
               >
-            <span className=' font-light lora'>WHY MADE RIGHT</span> ?
+            {/* <span className=' font-light lora'>WHY MADE RIGHT</span> ? */}
               </p>
               <h2
                 id="stats-heading"
-                className="lora mb-4"
+                className="lora mb-4 text-start text-4xl"
                 style={{
-                  fontSize: 'clamp(2rem, 9vw, 6rem)',
-                  lineHeight: '1.05',
-                  letterSpacing: '-0.03em',
                   fontWeight: '700',
                   color: '#0f172a'
                 }}
               >
-                Performance that matters.
+                Why  does High Performance  matter?
               </h2>
               <p
-                className={`gs mb-0 ${window.innerWidth <= 768 ? '' : 'text-xl'}`}
+                className={`gs mb-0 ${window.innerWidth <= 768 ? 'text-start text-lg' : 'text-lg text-start'}`}
                 style={window.innerWidth <= 768 ? {
                   color: '#1e293b',
-                  fontSize: '1rem',
+                
                   lineHeight: '1.7',
                   letterSpacing: '-0.01em',
                   wordSpacing: '0.35rem',
@@ -204,7 +201,7 @@ function Stats() {
                   maxWidth: '560px'
                 }}
               >
-                Built into every project are the best technical practices that help your website perform optimally for users and search engines.
+                Built into every project are the best technical practices that help your website perform optimally for users and search engines. This means ranking higher on Google, increase in customer conversions, and a better overall experience for your visitors.
               </p>
             </div>
           </div>
