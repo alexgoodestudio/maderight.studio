@@ -42,7 +42,7 @@ function Nav() {
           style={{ color: '#FFFFFF' }}
           aria-label="Made Right Studio Home"
         >
-          🧤 made right
+           made right
         </a>
 
         {/* Main Navigation Pill */}
@@ -391,7 +391,7 @@ function Nav() {
               style={{ color: '#FFFFFF' }}
               aria-label="Made Right Studio Home"
             >
-              🧤 Made Right
+               Made Right
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -605,7 +605,7 @@ function Nav() {
               style={{ color: '#FFFFFF' }}
               aria-label="Made Right Studio Home"
             >
-              🧤 Made Right
+               Made Right
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}

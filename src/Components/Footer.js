@@ -87,7 +87,7 @@ function Footer() {
                 className="eighties font-bold mb-3 text-slate-100"
                 style={{ whiteSpace: 'nowrap' }}
               >
-              🧤 made right
+               made right
               </h2>
               <p
                 ref={subtitleRef}
