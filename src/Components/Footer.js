@@ -160,12 +160,12 @@ function Footer() {
                 <ul className="list-unstyled">
                   <li className="mb-3">
                     <a
-                      href="https://lemich.netlify.app"
+                      href="https://militarymentalhealth.netlify.app/"
                       className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-flex align-items-center gap-2 transition-colors"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      The Lemich Clinic
+                      Compass Point Counseling
                       <ArrowUpRight size={14} strokeWidth={1.5} />
                     </a>
                   </li>

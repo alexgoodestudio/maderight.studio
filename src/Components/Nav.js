@@ -210,7 +210,7 @@ function Nav() {
                     </a>
 
                     <a
-                      href="https://lemich.netlify.app"
+                      href="https://militarymentalhealth.netlify.app/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block px-6 py-4 hover:bg-stone-50 no-underline group"
@@ -236,7 +236,7 @@ function Nav() {
                           fontWeight: '500'
                         }}
                       >
-                        The Lemich Clinic
+                        Compass Point Counseling
                       </div>
                       <div
                         className="text-sm text-slate-600 mt-1"
@@ -499,7 +499,7 @@ function Nav() {
                   </div>
                 </a>
                 <a
-                  href="https://lemich.netlify.app"
+                  href="https://militarymentalhealth.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block px-5 py-3 hover:bg-stone-50 no-underline"
@@ -512,7 +512,7 @@ function Nav() {
                     Healthcare / 2024
                   </div>
                   <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
-                    The Lemich Clinic
+                    Compass Point Counseling
                   </div>
                   <div className="text-xs text-slate-600 mt-0.5" style={{ letterSpacing: '0' }}>
                     Norfolk, Virginia
@@ -713,7 +713,7 @@ function Nav() {
                   </div>
                 </a>
                 <a
-                  href="https://lemich.netlify.app"
+                  href="https://militarymentalhealth.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block px-4 py-2.5 hover:bg-stone-50 no-underline"
@@ -726,7 +726,7 @@ function Nav() {
                     Healthcare / 2024
                   </div>
                   <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
-                    The Lemich Clinic
+                    Compass Point Counseling
                   </div>
                   <div className="text-xs text-slate-600 mt-0.5" style={{ letterSpacing: '0' }}>
                     Norfolk, Virginia

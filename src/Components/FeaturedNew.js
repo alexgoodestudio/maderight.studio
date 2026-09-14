@@ -97,11 +97,11 @@ function Featured() {
   }, [isMobile]);
   const serviceData = [
     {
-      title: "The Lemich Clinic",
+      title: "Compass Point Counseling",
       subtitle: "Home of Military Mental Health",
       image: Vid,
       description: `Patient-centered military mental health care website that reflects their commitment to Norfolk, Virginia's military community.`,
-      link: "https://lemich.netlify.app/",
+      link: "https://militarymentalhealth.netlify.app/",
       type: "video",
       badges: ["SEO Optimized", "Human-Centered Design"],
       bgColor: BRAND_COLORS.purple,
