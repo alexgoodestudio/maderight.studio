@@ -94,7 +94,7 @@ function Footer() {
                 className="text-xl tracking-wide text-slate-300 mb-4"
                 style={{ whiteSpace: 'nowrap' }}
               >
-                <span className="lora font-semibold">Design-First</span> <span className="italic gs">Web Development</span>
+                <span className="lora font-semibold">Design-First</span> <span className="gs">Web Development</span>
 
               </p>
               <p className="text-sm font-mono text-slate-400">

@@ -68,11 +68,11 @@ function About() {
   }, []);
 
   const timeline = [
-        { year: '2017', event: "Began studies in graphic design" },
+        { year: '2017', event: "Began studies in graphic and UX/UI design" },
         { year: '2019', event: "Completed 50+ jobs on Upwork and gaining top-rated Upwork Freelancer profile" },
     { year: '2023', event: "Completed Promineo Tech's front-end software development program and Thinkful's (Now Chegg Skills) full-stack softwre engineering immersion program" },
     { year: 'April 2025', event: 'Made Right Studio founded in Columbia, SC' },
-    { year: 'Today', event: 'Accepting new clients and projects' }
+    { year: 'Today', event: 'Accepting new clients, projects and collaborations' }
   ];
 
   return (
@@ -261,14 +261,14 @@ function About() {
                 <p className="section-kicker text-teal-800" ref={headingRef}>Our Story</p>
                 
                 <div className="origins-card" ref={contentRef}>
-                  <h3 className='text-teal-900 eighties'>Origins</h3>
+                  <h4 className='text-dark eighties text-start mb-4'>Made Right Studio</h4>
                   
-                  <p className="text-lg text-start">
-                    Made Right Studio was started in April 2025 in Columbia, South Carolina by Alex Goode. 
+                  <p className="text-md text-start ">
+                    Started in April 2025 in Columbia, South Carolina by Alex Goode.
                     After completing Promineo Tech's Front End Software Development Program and Thinkful's 
-                    Full-Stack Software Engineering Immersion Program in 2023, combined with 4 years of graphic 
+                    Full-Stack Software Engineering Immersion Program in 2023, combined with 4 years of graphic/ UXUI 
                     design experience, the goal was clear: build a design-first web development studio that 
-                    helps local businesses stand out with fast, high-performing websites. 
+                    helps local businesses stand out with high-performing websites. 
                   </p>
                 </div>
               </div>
