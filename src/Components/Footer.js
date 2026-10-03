@@ -211,7 +211,7 @@ function Footer() {
                   </li>
                   <li className="mb-3">
                     <a
-                      href="https://instagram.com/maderight.studio"
+                      href="https://www.instagram.com/a.goode_/"
                       className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-flex align-items-center gap-2 transition-colors"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -223,7 +223,7 @@ function Footer() {
                   </li>
                   <li className="mb-3">
                     <a
-                      href="https://www.facebook.com/profile.php?id=61586220357306"
+                      href="https://www.facebook.com/profile.php?id=100090126127853"
                       className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-flex align-items-center gap-2 transition-colors"
                       target="_blank"
                       rel="noopener noreferrer"

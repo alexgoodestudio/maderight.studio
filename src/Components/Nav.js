@@ -373,7 +373,7 @@ function Nav() {
               >
                 <div className="bg-white rounded-xl shadow-lg py-1">
                   <a
-                    href="https://instagram.com/maderight.studio"
+                    href="https://www.instagram.com/a.goode_/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1"
@@ -382,7 +382,7 @@ function Nav() {
                     Instagram
                   </a>
                   <a
-                    href="https://www.facebook.com/profile.php?id=61586220357306"
+                    href="https://www.facebook.com/profile.php?id=100090126127853"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 no-underline rounded-lg mx-1"
@@ -575,7 +575,7 @@ function Nav() {
                 </div>
 
                 <a
-                  href="https://instagram.com/maderight.studio"
+                  href="https://www.instagram.com/a.goode_/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block px-5 py-3 hover:bg-stone-50 no-underline"
@@ -591,7 +591,7 @@ function Nav() {
                 </a>
 
                 <a
-                  href="https://www.facebook.com/profile.php?id=61586220357306"
+                  href="https://www.facebook.com/profile.php?id=100090126127853"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block px-5 py-3 hover:bg-stone-50 no-underline"
@@ -801,7 +801,7 @@ function Nav() {
                 </div>
 
                 <a
-                  href="https://instagram.com/maderight.studio"
+                  href="https://www.instagram.com/a.goode_/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block px-4 py-2.5 hover:bg-stone-50 no-underline"
@@ -817,7 +817,7 @@ function Nav() {
                 </a>
 
                 <a
-                  href="https://www.facebook.com/profile.php?id=61586220357306"
+                  href="https://www.facebook.com/profile.php?id=100090126127853"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block px-4 py-2.5 hover:bg-stone-50 no-underline"
