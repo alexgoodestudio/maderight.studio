@@ -9,14 +9,17 @@ const imageContext = require.context(
   /\.(png|jpe?g|gif|webp|svg)$/i
 );
 
-const pieces = imageContext.keys().map((key) => ({
-  key,
-  src: imageContext(key),
-  title: key
-    .replace('./', '')
-    .replace(/\.[^/.]+$/, '')
-    .replace(/[-_]/g, ' ')
-}));
+const pieces = imageContext
+  .keys()
+  .map((key) => {
+    const name = key.replace('./', '').replace(/\.[^/.]+$/, '');
+    const match = name.match(/^(\d+)\.?\s*(.*)$/);
+    const order = match ? parseInt(match[1], 10) : Infinity;
+    const title = (match ? match[2] : name).replace(/[-_]/g, ' ');
+
+    return { key, src: imageContext(key), order, title };
+  })
+  .sort((a, b) => a.order - b.order);
 
 function GraphicDesign() {
   const [activePiece, setActivePiece] = useState(null);
