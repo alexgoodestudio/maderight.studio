@@ -3,7 +3,6 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Nav from "./Nav"
-import NavBanner from './NavBanner';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -147,7 +146,6 @@ function OurProcess() {
 
   return (
     <div ref={containerRef} className="bg-white">
-      <NavBanner/>
       <Nav/>
       <style>{`
         :root {

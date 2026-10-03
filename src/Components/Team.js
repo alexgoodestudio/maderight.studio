@@ -3,7 +3,6 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Alex from "./Images/self-min.jpg";
-import NavBanner from './NavBanner';
 
 import Nav from './Nav';
 
@@ -68,7 +67,6 @@ function Team() {
 
   return (
     <div>
-      <NavBanner/>
       <Nav/>
     <section 
       ref={sectionRef} 

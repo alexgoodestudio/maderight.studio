@@ -30,17 +30,13 @@ function Office() {
             lineHeight: "1.6"
           }}
         >
-          <span className="lora font-bold">Made Right Studio</span> is just me, Alex Goode,
-          developing/ designing websites in my free time. I live in the Rosewood
-          neighborhood of Columbia, South Carolina, and work full-time stocking
-          shelves at Whole Foods Market. After hours, I'm building and designing
-          websites combining what I learned from Promineo Tech's Front End
+          <span className="lora font-bold">Made Right Studio</span> is just a one-man team,
+          developing and designing in my free time. I live in the Rosewood
+          neighborhood of Columbia, South Carolina, and am a full-time student.
+          I was educated at Community College of Philadelphia's Front End
           Development Program, Thinkful's Full-Stack Engineering Immersion
-          Program and many years of being a graphic design enthusiast.
-          {/* With four years prior of
-          graphic design experience, my goal is to create design-first websites
-          that have the technical execution of top-performing websites, helping
-          local businesses connect with their customers. */}
+          Program, I am currently a student at Midlands Technical College, and spent much of my time growing up exploring graphic design utilizing the Adobe suite.
+
         </p>
       </div>
     </section>

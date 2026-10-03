@@ -3,7 +3,6 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Nav from './Nav';
-import NavBanner from './NavBanner';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,7 +77,6 @@ function About() {
 
   return (
     <>
-    <NavBanner/>
       <Nav />
       <style>{`
         :root {

@@ -119,7 +119,7 @@ function Nav() {
               aria-expanded={isFeaturedOpen}
               aria-haspopup="true"
             >
-              Featured Work
+              Websites
               <svg
                 className="w-2.5 h-2.5"
                 fill="none"
@@ -293,8 +293,24 @@ function Nav() {
             )}
           </div>
 
-          {/* <a 
-            href="/blog" 
+          <a
+            href="/graphic-design"
+            className={`text-sm no-underline px-3 py-1.5 rounded-full ${
+              isActive('/graphic-design')
+                ? 'bg-white text-teal-950 font-medium'
+                : 'text-white hover:bg-teal-800'
+            }`}
+            style={{
+              transition: 'all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+              letterSpacing: '0.01em'
+            }}
+            aria-current={isActive('/graphic-design') ? 'page' : undefined}
+          >
+           Graphic Design
+          </a>
+
+          {/* <a
+            href="/blog"
             className={`text-sm transition-colors no-underline px-3 py-1.5 rounded-full ${
               isActive('/blog') 
                 ? 'bg-white text-teal-950 font-medium' 
@@ -538,6 +554,18 @@ function Nav() {
                     Columbia, South Carolina
                   </div>
                 </a>
+                <a
+                  href="/graphic-design"
+                  className="block px-5 py-3 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Graphic Design
+                  </div>
+                </a>
 
                 {/* Socials Section */}
                 <div className="px-5 py-3 border-b border-slate-200 mt-2" style={{ backgroundColor: 'rgba(248, 250, 252, 0.6)' }}>
@@ -750,6 +778,18 @@ function Nav() {
                   </div>
                   <div className="text-xs text-slate-600 mt-0.5" style={{ letterSpacing: '0' }}>
                     Columbia, South Carolina
+                  </div>
+                </a>
+                <a
+                  href="/graphic-design"
+                  className="block px-4 py-2.5 hover:bg-stone-50 no-underline"
+                  style={{
+                    transition: 'background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
+                    borderBottom: '1px solid rgba(226, 232, 240, 0.5)'
+                  }}
+                >
+                  <div className="text-sm text-slate-900" style={{ letterSpacing: '-0.01em', fontWeight: '500' }}>
+                    Graphic Design
                   </div>
                 </a>
 
