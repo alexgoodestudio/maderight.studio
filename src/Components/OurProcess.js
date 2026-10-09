@@ -445,8 +445,7 @@ function OurProcess() {
               Our Process
             </h1>
             <p ref={subtitleRef} className="subtitle">
-              Clear strategy, modular design, and performance-driven development 
-              that puts your team in control.
+            The system we are working to constantly improve. 
             </p>
           </div>
 
