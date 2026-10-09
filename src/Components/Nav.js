@@ -168,11 +168,11 @@ function Nav() {
                 >
                   {/* Whitney-inspired catalog header */}
                   <div
-                    className="px-6 py-3 border-b border-slate-200 bg-green-400"
-                    // style={{ backgroundColor: 'rgba(248, 250, 252, 0.6)' }}
+                    className="px-6 py-3 border-b border-slate-200"
+                    style={{ backgroundColor: '#FFF7AF' }}
                   >
                     <div
-                      className="text-xs font-mono uppercase text-slate-600"
+                      className="text-xs font-mono uppercase text-black"
                       style={{
                         letterSpacing: '0.15em',
                         lineHeight: '1.3'

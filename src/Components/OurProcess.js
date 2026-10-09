@@ -28,21 +28,21 @@ function OurProcess() {
       number: "01",
       title: "Discovery",
       description: "We start by learning about your goals, your brand, and your audience. Deep-dive sessions ensure we understand what success looks like for you.",
-      deliverables: ["Discovery Call", "Competitive analysis", "User research summary"],
+      deliverables: ["Discovery Call","User research summary"],
       duration: "1 week"
     },
     {
       number: "02", 
       title: "Design System",
       description: "We create reusable building blocks that make your site flexible and easy to grow. Typography, color, spacing—all mathematically precise.",
-      deliverables: ["Component library", "Style guide", "Design Guides"],
+      deliverables: ["Component library", "Styling and design guide"],
       duration: "2 weeks"
     },
     {
       number: "03",
       title: "Design", 
       description: "Clean layouts, strong typography, and thoughtful details bring the system to life. Every pixel serves a purpose.",
-      deliverables: ["Figma mockups", "Prototype", "Design specs"],
+      deliverables: ["Prototype", "Design specs"],
       duration: "2 weeks"
     },
     {
@@ -61,7 +61,7 @@ function OurProcess() {
     },
     {
       number: "06",
-      title: "Launch & Support",
+      title: "Launch",
       description: "Your site goes live with optimized performance, security, and ongoing support to keep everything running smoothly.",
       deliverables: ["Deployment", "Training", "30-day support"],
       duration: "Ongoing"
@@ -112,6 +112,40 @@ function OurProcess() {
         }
       });
 
+      // Step number badges: bounce in and count up as each step scrolls into view
+      gsap.utils.toArray('.step-indicator').forEach((badge) => {
+        const target = parseInt(badge.dataset.number, 10);
+        badge.textContent = String(target).padStart(2, '0');
+        const counter = { value: 0 };
+
+        gsap.from(badge, {
+          scale: 0,
+          rotation: -90,
+          duration: 0.6,
+          ease: 'back.out(2)',
+          clearProps: 'transform',
+          scrollTrigger: {
+            trigger: badge,
+            start: 'top 85%',
+            once: true
+          }
+        });
+
+        gsap.to(counter, {
+          value: target,
+          duration: 0.8,
+          ease: 'power1.out',
+          onUpdate: () => {
+            badge.textContent = String(Math.round(counter.value)).padStart(2, '0');
+          },
+          scrollTrigger: {
+            trigger: badge,
+            start: 'top 85%',
+            once: true
+          }
+        });
+      });
+
       // Timeline line draw-in
       gsap.fromTo('.timeline-line',
         { scaleY: 0, transformOrigin: 'top' },
@@ -126,6 +160,24 @@ function OurProcess() {
           }
         }
       );
+
+      // CTA "1 ... 2 ... 3 ..." sequence: each number pops, then its dots fade in
+      const ctaTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.cta-heading',
+          start: 'top 85%',
+          once: true
+        }
+      });
+
+      gsap.utils.toArray('.cta-number').forEach((num, i) => {
+        const dots = gsap.utils.toArray('.cta-dots')[i];
+        ctaTl.from(num, { scale: 0, y: 20, opacity: 0, duration: 0.45, ease: 'back.out(2)' });
+        // The final word ("Go!") has no dots after it
+        if (dots) {
+          ctaTl.from(dots, { opacity: 0, x: -10, duration: 0.35, ease: 'power2.out' }, '-=0.1');
+        }
+      });
 
       // CTA animation
       if (ctaRef.current) {
@@ -250,9 +302,9 @@ function OurProcess() {
         }
 
         .timeline-step:hover .step-indicator {
-          border-color: var(--emerald-600);
-          color: var(--emerald-600);
-          background: var(--stone-50);
+          border-color: var(--slate-400);
+          color: var(--slate-900);
+          background: var(--stone-100);
           transform: scale(1.15);
         }
 
@@ -455,7 +507,7 @@ function OurProcess() {
             
             {processSteps.map((step, index) => (
               <div key={index} className="timeline-step">
-                <div className="step-indicator">{step.number}</div>
+                <div className="step-indicator" data-number={step.number}>{step.number}</div>
                 
                 <div className="step-card">
                   <div className="step-header">
@@ -481,14 +533,26 @@ function OurProcess() {
 
           {/* CTA */}
           <div ref={ctaRef} className="cta-section">
-            <h2 className="cta-heading eighties">Ready to get started?</h2>
-            <p className="cta-text">
-              Let's build something great together. Reach out and we'll schedule 
-              a free consultation to discuss your project.
+            <h2 className="cta-heading eighties">
+              {['1', '2', '3', 'Go!'].map((n, i, all) => (
+                <span key={n}>
+                  <span className="cta-number" style={{ display: 'inline-block' }}>{n}</span>
+                  {' '}
+                  {i < all.length - 1 && (
+                    <>
+                      <span className="cta-dots" style={{ display: 'inline-block' }}>...</span>
+                      {' '}
+                    </>
+                  )}
+                </span>
+              ))}
+            </h2>
+            <p className="cta-text px-5 text-left">
+              Interested in working with Made Right? Send an email with your name, your role, company, purpose of website, and budget range, and we'll get back to you promptly.
             </p>
         <button
           onClick={handleContactClick}
-          className="btn-contact text-lg font-mono bg-teal-800 px-5 py-3  text-dark rounded"
+          className="btn-contact text-md font-mono bg-teal-800 px-5 py-3  text-dark rounded"
         >
           Email
         </button>
