@@ -22,32 +22,35 @@ function About() {
     ).matches;
 
     if (!prefersReducedMotion) {
-      // Heading reveal
-      gsap.from(headingRef.current, {
-        y: 40,
-        opacity: 0,
-        duration: MOTION.smooth,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: 'top 75%',
-          once: true
-        }
-      });
+      // Heading + story reveal: skipped on full-screen desktop (lg and up)
+      gsap.matchMedia().add('(max-width: 991px)', () => {
+        // Heading reveal
+        gsap.from(headingRef.current, {
+          y: 40,
+          opacity: 0,
+          duration: MOTION.smooth,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: 'top 75%',
+            once: true
+          }
+        });
 
-      // Content staggered reveal
-      const paragraphs = contentRef.current.querySelectorAll('p');
-      gsap.from(paragraphs, {
-        y: 30,
-        opacity: 0,
-        duration: MOTION.smooth,
-        ease: 'power2.out',
-        stagger: MOTION.stagger,
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: 'top 75%',
-          once: true
-        }
+        // Content staggered reveal
+        const paragraphs = contentRef.current.querySelectorAll('p');
+        gsap.from(paragraphs, {
+          y: 30,
+          opacity: 0,
+          duration: MOTION.smooth,
+          ease: 'power2.out',
+          stagger: MOTION.stagger,
+          scrollTrigger: {
+            trigger: contentRef.current,
+            start: 'top 75%',
+            once: true
+          }
+        });
       });
 
       // Timeline items reveal
