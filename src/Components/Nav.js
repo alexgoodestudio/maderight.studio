@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Social media icon components
 const InstagramIcon = ({ size = 16 }) => (
@@ -19,6 +19,21 @@ function Nav() {
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const [isFeaturedOpen, setIsFeaturedOpen] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [logoFontReady, setLogoFontReady] = useState(false);
+
+  // Hide the logo until its custom font loads to avoid a flash of fallback font
+  useEffect(() => {
+    const show = () => setLogoFontReady(true);
+    if (!document.fonts || !document.fonts.load) {
+      show();
+      return;
+    }
+    document.fonts.load("1em EightiesComeback").then(show, show);
+    const timeout = setTimeout(show, 3000);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const logoVisibility = { visibility: logoFontReady ? 'visible' : 'hidden' };
 
   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
 
@@ -39,7 +54,7 @@ function Nav() {
         <a
           href="/"
           className="flex items-center eighties no-underline text-4xl"
-          style={{ color: '#FFFFFF' }}
+          style={{ color: '#FFFFFF', ...logoVisibility }}
           aria-label="Made Right Studio Home"
         >
            made right
@@ -404,7 +419,7 @@ function Nav() {
             <a
               href="/"
               className="flex items-center eighties no-underline"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFFFF', ...logoVisibility }}
               aria-label="Made Right Studio Home"
             >
                Made Right
@@ -630,7 +645,7 @@ function Nav() {
             <a
               href="/"
               className="flex items-center bg-teal-900 px-2 py-2 rounded eighties no-underline"
-              style={{ color: '#FFFFFF' }}
+              style={{ color: '#FFFFFF', ...logoVisibility }}
               aria-label="Made Right Studio Home"
             >
                Made Right
