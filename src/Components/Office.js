@@ -30,12 +30,10 @@ function Office() {
             lineHeight: "1.6"
           }}
         >
-          <span className="lora font-bold">Made Right Studio</span> is just a one-man team,
-          developing and designing in my free time. I live in the Rosewood
-          neighborhood of Columbia, South Carolina, and am a full-time student.
-          I was educated at Community College of Philadelphia's Front End
-          Development Program, Thinkful's Full-Stack Engineering Immersion
-          Program, I am currently a student at Midlands Technical College, and spent much of my time growing up exploring graphic design utilizing the Adobe suite.
+          <span className="lora font-bold">Made Right Studio</span> 
+           is based in the Rosewood
+          neighborhood of Columbia, South Carolina, and is run by Alex Goode, a developer, designer, and full time engineering student at Midlands Technical College. He has completed Community College of Philadelphia's Front End Software Development Program, as well as Thinkful's Full-Stack Software Engineering Immersion Program.
+         
 
         </p>
       </div>
