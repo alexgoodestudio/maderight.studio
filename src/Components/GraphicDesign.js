@@ -147,7 +147,7 @@ function GraphicDesign() {
                   className="gd-card"
                   onClick={() => setActivePiece(piece)}
                 >
-                  <img src={piece.src} alt={piece.title} loading="lazy" />
+                  <img src={piece.src} alt={piece.title} loading="lazy" decoding="async" />
                   <div className="gd-card-title">{piece.title}</div>
                 </div>
               ))}
