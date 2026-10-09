@@ -139,7 +139,8 @@ function Team() {
 
         @media (min-width: 1024px) {
           .team-grid {
-            grid-template-columns: 1.5fr 1fr;
+            grid-template-columns: minmax(0, 520px);
+            justify-content: center;
             gap: var(--space-8);
           }
         }
@@ -179,7 +180,7 @@ function Team() {
 
         @media (min-width: 1200px) {
           .team-member-card[data-focal="true"] .team-member-image-container {
-            height: 850px;
+            height: 520px;
           }
         }
 
