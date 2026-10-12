@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Nav from './Nav';
 
 // Automatically picks up every image dropped into Images/graphic_design —
@@ -22,7 +22,29 @@ const pieces = imageContext
   .sort((a, b) => a.order - b.order);
 
 function GraphicDesign() {
-  const [activePiece, setActivePiece] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
+  const activePiece = activeIndex === null ? null : pieces[activeIndex];
+
+  const showPrev = useCallback(
+    () => setActiveIndex((i) => (i === null ? i : (i - 1 + pieces.length) % pieces.length)),
+    []
+  );
+  const showNext = useCallback(
+    () => setActiveIndex((i) => (i === null ? i : (i + 1) % pieces.length)),
+    []
+  );
+
+  // Keyboard: left/right arrows to browse, Escape to close
+  useEffect(() => {
+    if (activeIndex === null) return undefined;
+    const onKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') showPrev();
+      else if (e.key === 'ArrowRight') showNext();
+      else if (e.key === 'Escape') setActiveIndex(null);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [activeIndex, showPrev, showNext]);
 
   return (
     <>
@@ -124,6 +146,30 @@ function GraphicDesign() {
           font-size: 1.1rem;
           line-height: 1;
         }
+
+        .gd-lightbox-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: #fff;
+          border: 0;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          cursor: pointer;
+          font-size: 1.4rem;
+          line-height: 1;
+          z-index: 1;
+        }
+
+        .gd-lightbox-prev { left: 1.5rem; }
+        .gd-lightbox-next { right: 1.5rem; }
+
+        @media (max-width: 575px) {
+          .gd-lightbox-arrow { width: 36px; height: 36px; }
+          .gd-lightbox-prev { left: 0.5rem; }
+          .gd-lightbox-next { right: 0.5rem; }
+        }
       `}</style>
 
       <section className="gd-section">
@@ -145,7 +191,7 @@ function GraphicDesign() {
                 <div
                   key={piece.key}
                   className="gd-card"
-                  onClick={() => setActivePiece(piece)}
+                  onClick={() => setActiveIndex(pieces.indexOf(piece))}
                 >
                   <img src={piece.src} alt={piece.title} loading="lazy" decoding="async" />
                   <div className="gd-card-title">{piece.title}</div>
@@ -157,14 +203,32 @@ function GraphicDesign() {
       </section>
 
       {activePiece && (
-        <div className="gd-lightbox" onClick={() => setActivePiece(null)}>
+        <div className="gd-lightbox" onClick={() => setActiveIndex(null)}>
           <button
             className="gd-lightbox-close"
-            onClick={() => setActivePiece(null)}
+            onClick={() => setActiveIndex(null)}
             aria-label="Close"
           >
             ✕
           </button>
+          {pieces.length > 1 && (
+            <>
+              <button
+                className="gd-lightbox-arrow gd-lightbox-prev"
+                onClick={(e) => { e.stopPropagation(); showPrev(); }}
+                aria-label="Previous image"
+              >
+                ‹
+              </button>
+              <button
+                className="gd-lightbox-arrow gd-lightbox-next"
+                onClick={(e) => { e.stopPropagation(); showNext(); }}
+                aria-label="Next image"
+              >
+                ›
+              </button>
+            </>
+          )}
           <img src={activePiece.src} alt={activePiece.title} />
         </div>
       )}
