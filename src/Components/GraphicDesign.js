@@ -129,7 +129,7 @@ function GraphicDesign() {
       <section className="gd-section">
         <div className="container">
           <p className="gd-kicker">Selected Work</p>
-          <h1 className="gd-heading eighties">Graphic Design</h1>
+          <h1 className="gd-heading eighties">Graphic Design Work</h1>
 
           {pieces.length === 0 ? (
             <div className="gd-empty">
