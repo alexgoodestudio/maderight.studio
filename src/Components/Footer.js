@@ -244,7 +244,7 @@ function Footer() {
         <div className="row align-items-center footer-section">
           <div className="col-md-5 col-12 mb-3 mb-md-0">
             <p className="text-sm text-slate-200 mb-0">
-              © {year} Made Right Studios — Columbia, South Carolina
+              © {year} Made Right Studio — Design-first Engineering — Columbia, South Carolina
             </p>
           </div>
           <div className="col-md-6 col-12 text-md-end">
