@@ -50,6 +50,27 @@ function Nav() {
 
   const mobileNavHidden = hideMobileNavAtTop && !scrolledPastOpener;
 
+  // On the home page the full-screen nav stays hidden until the tagline banner
+  // ("Stand Out in the Digital Age...") has scrolled completely out of view.
+  const [bannerOutOfView, setBannerOutOfView] = useState(false);
+
+  useEffect(() => {
+    if (!hideMobileNavAtTop) return undefined;
+    const banner = document.querySelector('.tagline-banner');
+    if (!banner || !('IntersectionObserver' in window)) {
+      setBannerOutOfView(true);
+      return undefined;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => setBannerOutOfView(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(banner);
+    return () => observer.disconnect();
+  }, [hideMobileNavAtTop]);
+
+  const desktopNavHidden = hideMobileNavAtTop && !bannerOutOfView;
+
   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
 
   const handleContactClick = () => {
@@ -61,10 +82,24 @@ function Nav() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden lg:flex justify-between items-center sticky bg-teal-950 top-0 z-50 px-4 py-3" style={{
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
-      }}>
+      <nav
+        className="hidden lg:flex justify-between items-center sticky bg-teal-950 top-0 z-50 px-4 py-3"
+        style={{
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+          // On the home page the nav is fixed (out of flow) so the banner sits at the very top
+          ...(hideMobileNavAtTop && {
+            position: 'fixed',
+            left: 0,
+            right: 0,
+            opacity: desktopNavHidden ? 0 : 1,
+            transform: desktopNavHidden ? 'translateY(-100%)' : 'translateY(0)',
+            pointerEvents: desktopNavHidden ? 'none' : 'auto',
+            transition: 'opacity 0.3s ease, transform 0.3s ease'
+          })
+        }}
+        aria-hidden={desktopNavHidden || undefined}
+      >
         {/* Logo Text - Left Side */}
         <a
           href="/"
