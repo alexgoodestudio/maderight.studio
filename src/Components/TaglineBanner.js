@@ -22,12 +22,12 @@ function Group({ hidden }) {
         const divider = DIVIDERS[i % DIVIDERS.length];
         return (
           <div key={i} className="tagline-banner-item">
-            <span className="tagline-banner-text">{TAGLINE}</span>
             <img
               src={divider.src}
               alt=""
               className={`tagline-banner-img ${divider.className}`}
             />
+            <span className="tagline-banner-text">{TAGLINE}</span>
           </div>
         );
       })}
