@@ -261,22 +261,52 @@ function Opener() {
             <div>
               <span ref={designRef} className="word d-inline-block emphasis animate lora pt-lg-4 position-relative" style={{ color: '#FFF7AF', overflow: 'visible', marginRight: window.innerWidth <= 768 ? '0.5rem' : '1rem' }}>
                 Design-first
-                <img
-                  src={Line}
-                  alt=""
-                  className="position-absolute"
-                  style={{
-                    top: window.innerWidth <= 768 ? '50%' : '65%',
-                    left: window.innerWidth <= 768 ? '-6%' : '-2%',
-                    width: window.innerWidth <= 768 ? '96%' : '110%',
-                    height: 'auto',
-                    pointerEvents: 'none',
-                    filter: 'brightness(1.2) saturate(0.8)',
-                    opacity: window.innerWidth <= 768 ? 0.6 : 0.75,
-                    transform: 'none',
-                    transformOrigin: 'left center'
-                  }}
-                />
+                {window.innerWidth <= 768 ? (
+                  // Mobile: the raster stroke is downscaled ~10x and renders with uneven
+                  // thickness, so draw a uniform vector underline spanning the whole word.
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 100 6"
+                    preserveAspectRatio="none"
+                    className="position-absolute"
+                    style={{
+                      left: '-2%',
+                      width: '104%',
+                      top: '100%',
+                      height: '6px',
+                      transform: 'translateY(-50%)',
+                      pointerEvents: 'none',
+                      overflow: 'visible',
+                      opacity: 0.6
+                    }}
+                  >
+                    <path
+                      d="M0 3.4 Q50 2.4 100 2"
+                      fill="none"
+                      stroke="#fff"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      vectorEffect="non-scaling-stroke"
+                    />
+                  </svg>
+                ) : (
+                  <img
+                    src={Line}
+                    alt=""
+                    className="position-absolute"
+                    style={{
+                      top: window.innerWidth <= 768 ? '50%' : '65%',
+                      left: window.innerWidth <= 768 ? '-6%' : '-2%',
+                      width: window.innerWidth <= 768 ? '96%' : '110%',
+                      height: 'auto',
+                      pointerEvents: 'none',
+                      filter: 'brightness(1.2) saturate(0.8)',
+                      opacity: window.innerWidth <= 768 ? 0.6 : 0.75,
+                      transform: 'none',
+                      transformOrigin: 'left center'
+                    }}
+                  />
+                )}
               </span>
               <span ref={webRef} className="word d-inline-block lora font-semibold" style={{ marginRight: window.innerWidth <= 768 ? '0.5rem' : '1rem' }}><HoverLetters text="web" /></span>
               <span ref={developmentRef} className="word d-inline-block lora font-semibold" style={{ marginRight: window.innerWidth <= 768 ? '0.5rem' : '1rem' }}><HoverLetters text="development" /></span>

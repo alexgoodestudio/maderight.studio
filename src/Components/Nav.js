@@ -35,6 +35,21 @@ function Nav() {
 
   const logoVisibility = { visibility: logoFontReady ? 'visible' : 'hidden' };
 
+  // On the home page the mobile nav stays hidden until the user has scrolled
+  // 20% of the viewport, so it doesn't cover the banner/opener at the top.
+  const [scrolledPastOpener, setScrolledPastOpener] = useState(false);
+  const hideMobileNavAtTop = typeof window !== 'undefined' && window.location.pathname === '/';
+
+  useEffect(() => {
+    if (!hideMobileNavAtTop) return undefined;
+    const onScroll = () => setScrolledPastOpener(window.scrollY > window.innerHeight * 0.2);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [hideMobileNavAtTop]);
+
+  const mobileNavHidden = hideMobileNavAtTop && !scrolledPastOpener;
+
   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
 
   const handleContactClick = () => {
@@ -639,7 +654,16 @@ function Nav() {
       </nav>
 
       {/* Mobile Navigation (< 768px) */}
-      <nav className="md:hidden fixed top-0 left-0 right-0 z-50 px-3 pt-2 pb-3">
+      <nav
+        className="md:hidden fixed top-0 left-0 right-0 z-50 px-3 pt-2 pb-3"
+        style={{
+          opacity: mobileNavHidden ? 0 : 1,
+          transform: mobileNavHidden ? 'translateY(-100%)' : 'translateY(0)',
+          pointerEvents: mobileNavHidden ? 'none' : 'auto',
+          transition: 'opacity 0.3s ease, transform 0.3s ease'
+        }}
+        aria-hidden={mobileNavHidden || undefined}
+      >
         <div className=" rounded-lg">
           <div className="flex justify-between items-center px-3 py-2.5">
             <a
