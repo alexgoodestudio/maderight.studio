@@ -371,6 +371,15 @@ body {
   letter-spacing: 0.005em;
 }
 
+.opener-letter {
+  transition: color 0.8s ease;
+}
+
+/* Snap to the new color on hover, fade back slowly on leave */
+.opener-letter:hover {
+  transition-duration: 0.1s;
+}
+
 .tagline-border {
   border-bottom: 1px solid currentColor;
 }

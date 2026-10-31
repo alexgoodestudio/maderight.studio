@@ -11,7 +11,8 @@ import Mission from './Mission';
 // import PlaygroundNew from "./PlaygroundNew"
 // import Shapes from './Shapes';
 import Office from './Office';
-import NavBanner from './NavBanner';
+// import NavBanner from './NavBanner';
+import TaglineBanner from './TaglineBanner';
 
 function Storage(){
     const siteUrl = "https://maderight.studio";
@@ -122,6 +123,7 @@ function Storage(){
                 <section>
                     
                     <Nav/>
+                    <TaglineBanner/>
                     <Opener/>
                     <FeaturedNew/>
                     <Mission/>
@@ -129,7 +131,7 @@ function Storage(){
                     {/* <Shapes/> */}
                     <Info/>
                     <Office/>
-                    <NavBanner/>
+                    {/* <NavBanner/> */}
                     <Stats/>
                     {/* <Playground/> */}
                     {/* <PlaygroundNew/> */}

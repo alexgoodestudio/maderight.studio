@@ -10,6 +10,58 @@ import Line from "./Images/b.png"
 
 gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
+// Services-section colors, tuned for contrast on the dark opener background
+// (dark ones lightened, pale ones deepened so the change is easy to see).
+const HOVER_COLORS = [
+  "#C9A8F7", // lavender
+  "#B07FB0", // mauve
+  "#D08FB0", // rosewood
+  "#5FA393", // green
+  "#A1ADEB", // periwinkle
+  "#9AA3B2"  // gray
+];
+
+// Renders text as individual letters; hovering a letter flashes it a random
+// color that holds for a few seconds after the pointer leaves, then fades back.
+const HOVER_HOLD_MS = 5000;
+const resetTimers = new WeakMap();
+
+function HoverLetters({ text }) {
+  const handleEnter = (e) => {
+    const el = e.currentTarget;
+    clearTimeout(resetTimers.get(el));
+    const options = HOVER_COLORS.filter((c) => c !== el.dataset.color);
+    const next = options[Math.floor(Math.random() * options.length)];
+    el.dataset.color = next;
+    el.style.color = next;
+  };
+  const handleLeave = (e) => {
+    const el = e.currentTarget;
+    clearTimeout(resetTimers.get(el));
+    resetTimers.set(
+      el,
+      setTimeout(() => {
+        el.style.color = "";
+      }, HOVER_HOLD_MS)
+    );
+  };
+
+  return Array.from(text).map((char, i) =>
+    char === " " ? (
+      " "
+    ) : (
+      <span
+        key={i}
+        className="opener-letter"
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
+      >
+        {char}
+      </span>
+    )
+  );
+}
+
 function Opener() {
   const designRef = useRef(null);
   const firstRef = useRef(null);
@@ -226,9 +278,9 @@ function Opener() {
                   }}
                 />
               </span>
-              <span ref={webRef} className="word d-inline-block lora font-semibold" style={{ marginRight: window.innerWidth <= 768 ? '0.5rem' : '1rem' }}>web</span>
-              <span ref={developmentRef} className="word d-inline-block lora font-semibold" style={{ marginRight: window.innerWidth <= 768 ? '0.5rem' : '1rem' }}>development</span>
-              <span ref={firstRef} className="word d-inline-block lora" style={{ marginRight: window.innerWidth <= 768 ? '0.5rem' : '0' }}>to</span>
+              <span ref={webRef} className="word d-inline-block lora font-semibold" style={{ marginRight: window.innerWidth <= 768 ? '0.5rem' : '1rem' }}><HoverLetters text="web" /></span>
+              <span ref={developmentRef} className="word d-inline-block lora font-semibold" style={{ marginRight: window.innerWidth <= 768 ? '0.5rem' : '1rem' }}><HoverLetters text="development" /></span>
+              <span ref={firstRef} className="word d-inline-block lora" style={{ marginRight: window.innerWidth <= 768 ? '0.5rem' : '0' }}><HoverLetters text="to" /></span>
               <br />
               <span
                 className="d-inline-block position-relative"
@@ -291,12 +343,12 @@ function Opener() {
                         className="d-inline-block"
                         style={{ marginRight: idx < swappingWords[0].words.length - 1 ? '0.25em' : '0' }}
                       >
-                        {word}
+                        <HoverLetters text={word} />
                       </span>
                     ))
                   ) : (
                     // All other phrases: render as single text with slide animation
-                    swappingWords[currentWordIndex].text
+                    <HoverLetters text={swappingWords[currentWordIndex].text} />
                   )}
                 </span>
               </span>
@@ -307,7 +359,7 @@ function Opener() {
 
           <div className="d-flex justify-content-center">
             <span className="text-xs tracking-wider pt-lg-2 px-2 text-slate-100 font-mono">
-              Located in Columbia, South Carolina
+              <HoverLetters text="Located in Columbia, South Carolina" />
             </span>
           </div>
         </h2>
