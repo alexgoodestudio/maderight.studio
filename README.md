@@ -2,5 +2,7 @@
 
 🔗 **Live site:** [maderight.studio](https://maderight.netlify.app/)
 
-A creative web design and development studio based in Columbia, South Carolina.
+A creative web design and engineering studio in Columbia, South Carolina.
+
+Design and Engineering by Alex Goode
 
