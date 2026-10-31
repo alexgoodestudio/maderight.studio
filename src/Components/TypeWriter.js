@@ -59,7 +59,7 @@ function Typewriter() {
         Our Process
       </Link>
 
-      <style jsx>{`
+      <style>{`
         @keyframes blink {
           0%, 100% { border-color: green; }
           50% { border-color: transparent; }
