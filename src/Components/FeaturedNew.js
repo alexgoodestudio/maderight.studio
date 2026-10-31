@@ -67,9 +67,6 @@ function Featured() {
 
           if (playPromise !== undefined) {
             playPromise
-              .then(() => {
-                console.log('Video playing successfully');
-              })
               .catch(err => {
                 console.log('Autoplay prevented - user interaction required:', err);
               });
