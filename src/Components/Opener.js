@@ -242,7 +242,56 @@ function Opener() {
     };
   }, [fontLoaded, swappingWords.length, hasInitialAnimated]);
 
+  // Mobile only: hover doesn't exist on touch, so as the headline scrolls toward
+  // the top of the screen, recolor about a third of its letters at random.
+  // Scrolling back down restores them so it can play again.
+  React.useEffect(() => {
+    if (window.innerWidth > 768) return undefined;
 
+    let colored = [];
+    let timers = [];
+
+    const clearColors = () => {
+      timers.forEach(clearTimeout);
+      timers = [];
+      colored.forEach((el) => { el.style.color = ""; });
+      colored = [];
+    };
+
+    const onScroll = () => {
+      const headline = taglineRef.current;
+      if (!headline) return;
+      const nearlyOut = headline.getBoundingClientRect().bottom < window.innerHeight * 0.3;
+
+      if (nearlyOut && colored.length === 0) {
+        const letters = Array.from(headline.querySelectorAll(".opener-letter"));
+        const count = Math.round(letters.length / 3);
+        // Shuffle, then take a third
+        for (let i = letters.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [letters[i], letters[j]] = [letters[j], letters[i]];
+        }
+        colored = letters.slice(0, count);
+        // Stagger the changes so letters pop in one by one at random moments
+        colored.forEach((el) => {
+          const color = HOVER_COLORS[Math.floor(Math.random() * HOVER_COLORS.length)];
+          const delay = Math.random() * 1500;
+          timers.push(setTimeout(() => {
+            el.dataset.color = color;
+            el.style.color = color;
+          }, delay));
+        });
+      } else if (!nearlyOut && colored.length > 0) {
+        clearColors();
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      clearColors();
+    };
+  }, []);
 
   return (
 

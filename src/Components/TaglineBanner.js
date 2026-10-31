@@ -1,16 +1,36 @@
+import squiggle from "./Images/c.png";
+import smiley from "./Images/j.png";
+import square from "./Images/i.png";
+
 const TAGLINE = "Stand Out in the Digital Age with Design-First Web Engineering";
+
+// Dividers cycle in this order. The per-group item count is a multiple of the
+// number of dividers, so the pattern stays unbroken where the loop restarts.
+const DIVIDERS = [
+  { src: squiggle, className: "" },
+  { src: smiley, className: "" },
+  { src: square, className: "tagline-banner-img-spin" }
+];
+const ITEMS_PER_GROUP = DIVIDERS.length * 2;
 
 // One half of the marquee. Two identical halves are rendered and the track
 // slides left by exactly 50%, so the loop is seamless.
 function Group({ hidden }) {
   return (
     <div className="tagline-banner-group" aria-hidden={hidden || undefined}>
-      {[...Array(4)].map((_, i) => (
-        <div key={i} className="tagline-banner-item">
-          <span className="tagline-banner-text">{TAGLINE}</span>
-          <span className="tagline-banner-dot">∙</span>
-        </div>
-      ))}
+      {[...Array(ITEMS_PER_GROUP)].map((_, i) => {
+        const divider = DIVIDERS[i % DIVIDERS.length];
+        return (
+          <div key={i} className="tagline-banner-item">
+            <span className="tagline-banner-text">{TAGLINE}</span>
+            <img
+              src={divider.src}
+              alt=""
+              className={`tagline-banner-img ${divider.className}`}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -37,7 +57,7 @@ function TaglineBanner() {
           width: max-content;
           white-space: nowrap;
           will-change: transform;
-          animation: tagline-banner-scroll 60s linear infinite;
+          animation: tagline-banner-scroll 90s linear infinite;
         }
 
         .tagline-banner-group,
@@ -60,12 +80,23 @@ function TaglineBanner() {
           font-size: 18px;
           font-weight: 500;
           letter-spacing: 0.1em;
+          line-height: 1.5;
           color: #ffffff;
         }
 
-        .tagline-banner-dot {
-          font-size: 14px;
-          color: #99f6e4;
+        /* Dividers are taller than the text line but use negative margins, so they
+           never make the banner taller; they sit inside the bar's vertical padding. */
+        .tagline-banner-img {
+          display: block;
+          height: 32px;
+          width: auto;
+          margin-block: -2.5px;
+          flex-shrink: 0;
+        }
+
+        /* Square: fades/scales in, spins one way, then back the other way, fades out */
+        .tagline-banner-img-spin {
+          animation: tagline-banner-spin 7s ease-in-out infinite;
         }
 
         @media (min-width: 769px) {
@@ -86,8 +117,9 @@ function TaglineBanner() {
             font-size: 20px;
           }
 
-          .tagline-banner-dot {
-            font-size: 16px;
+          .tagline-banner-img {
+            height: 38px;
+            margin-block: -4px;
           }
         }
 
@@ -96,8 +128,18 @@ function TaglineBanner() {
           to { transform: translateX(-50%); }
         }
 
+        @keyframes tagline-banner-spin {
+          0%   { opacity: 0; transform: scale(0.4) rotate(-60deg); }
+          15%  { opacity: 1; transform: scale(1) rotate(0deg); }
+          40%  { opacity: 1; transform: scale(1) rotate(90deg); }
+          65%  { opacity: 1; transform: scale(1) rotate(-90deg); }
+          85%  { opacity: 1; transform: scale(1) rotate(0deg); }
+          100% { opacity: 0; transform: scale(0.4) rotate(60deg); }
+        }
+
         @media (prefers-reduced-motion: reduce) {
-          .tagline-banner-track {
+          .tagline-banner-track,
+          .tagline-banner-img-spin {
             animation: none;
           }
         }

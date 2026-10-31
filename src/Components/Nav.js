@@ -1,4 +1,15 @@
 import { useState, useEffect } from "react";
+import smiley from "./Images/j.png";
+
+// Smiley mark shown to the right of the "Made Right" logo text
+const LogoSmiley = () => (
+  <img
+    src={smiley}
+    alt=""
+    aria-hidden="true"
+    style={{ height: '1.1em', width: 'auto', marginLeft: '0.4rem', flexShrink: 0 }}
+  />
+);
 
 // Social media icon components
 const InstagramIcon = ({ size = 16 }) => (
@@ -108,6 +119,7 @@ function Nav() {
           aria-label="Made Right Studio Home"
         >
            made right
+          <LogoSmiley />
         </a>
 
         {/* Main Navigation Pill */}
@@ -473,6 +485,7 @@ function Nav() {
               aria-label="Made Right Studio Home"
             >
                Made Right
+          <LogoSmiley />
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -708,6 +721,7 @@ function Nav() {
               aria-label="Made Right Studio Home"
             >
                Made Right
+          <LogoSmiley />
             </a>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
