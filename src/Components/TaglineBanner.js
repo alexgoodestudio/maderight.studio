@@ -2,7 +2,7 @@ import squiggle from "./Images/c.png";
 import smiley from "./Images/j.png";
 import square from "./Images/i.png";
 
-const TAGLINE = "Stand out in the Age of AI with Design-First Engineering";
+const TAGLINE = "Stand out in the Age of AI with Design-First Web Engineering";
 
 // Dividers cycle in this order. The per-group item count is a multiple of the
 // number of dividers, so the pattern stays unbroken where the loop restarts.
