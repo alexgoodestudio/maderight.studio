@@ -100,7 +100,7 @@ function NavBanner() {
           flex-shrink: 0;
         }
 
-        /* Square: fades/scales in, spins one way, then back the other way, fades out */
+        /* Square: spins one way, then back the other way, in place */
         .nav-banner-img-spin {
           animation: nav-banner-spin 7s ease-in-out infinite;
         }
@@ -140,12 +140,10 @@ function NavBanner() {
         }
 
         @keyframes nav-banner-spin {
-          0%   { opacity: 0; transform: scale(0.4) rotate(-60deg); }
-          15%  { opacity: 1; transform: scale(1) rotate(0deg); }
-          40%  { opacity: 1; transform: scale(1) rotate(90deg); }
-          65%  { opacity: 1; transform: scale(1) rotate(-90deg); }
-          85%  { opacity: 1; transform: scale(1) rotate(0deg); }
-          100% { opacity: 0; transform: scale(0.4) rotate(60deg); }
+          0%   { transform: rotate(0deg); }
+          35%  { transform: rotate(90deg); }
+          70%  { transform: rotate(-90deg); }
+          100% { transform: rotate(0deg); }
         }
 
         @media (prefers-reduced-motion: reduce) {
