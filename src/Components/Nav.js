@@ -62,7 +62,7 @@ function Nav() {
   const mobileNavHidden = hideMobileNavAtTop && !scrolledPastOpener;
 
   // On the home page the full-screen nav stays hidden until the tagline banner
-  // ("Stand Out in the Digital Age...") has scrolled completely out of view.
+  // ("Stand out in the Age of AI...") has scrolled completely out of view.
   const [bannerOutOfView, setBannerOutOfView] = useState(false);
 
   useEffect(() => {
